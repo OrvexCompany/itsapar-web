@@ -1220,7 +1220,7 @@ async function renderAdminTable(searchTerm = '') {
                 <td data-label="Возраст">${u.age || '-'}</td>
                 <td data-label="Бюджет">${u.budget === 'low' ? 'до 50к' : u.budget === 'medium' ? '50к-200к' : u.budget === 'high' ? 'от 200к' : '-'}</td>
                 <td data-label="Тип">${u.tripType || '-'}</td>
-                <td data-label="Интересы">${u.answers ? Object.keys(u.answers).filter(k => u.answers[k]).join(', ') : '-'}</td>
+                <td data-label="Интересы">${(u.answers && typeof u.answers === 'object') ? Object.keys(u.answers).filter(k => u.answers[k]).join(', ') : '-'}</td>
                 <td data-label="Действия">
                     ${u.fullName ? 
                         `<button onclick="viewUserResults('${u.username}', '${(u.fullName || '').replace(/'/g, "\\'")}', '${(u.recommendedCities || []).join(', ').replace(/'/g, "\\'")}')" class="btn btn-outline" style="padding: 8px 16px; font-size: 0.7rem; text-transform: none; margin-right: 5px;">Результаты</button>` 

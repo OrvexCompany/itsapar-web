@@ -181,11 +181,12 @@ app.get("/admin/analytics", auth, adminOnly, (req, res) => {
         // Формируем список всех пользователей для таблицы (даже без анкет)
         const allUsersList = rows.map(r => {
             let survey = {};
-            if (r.survey_data) {
+            if (r.survey_data && r.survey_data !== "null") {
                 try {
-                    survey = JSON.parse(r.survey_data);
+                    const parsed = JSON.parse(r.survey_data);
+                    if (parsed && typeof parsed === 'object') survey = parsed;
                 } catch (e) {
-                    console.error("Parse error for", r.username);
+                    console.error("Ошибка парсинга для", r.username);
                 }
             }
             return {
@@ -205,16 +206,16 @@ app.get("/admin/analytics", auth, adminOnly, (req, res) => {
 
         usersWithData.forEach(data => {
             // Безопасный расчет бюджета
-            if (data.budget === 'low') totalBudget += 50000;
-            else if (data.budget === 'medium') totalBudget += 125000;
-            else if (data.budget === 'high') totalBudget += 250000;
+            if (data && data.budget === 'low') totalBudget += 50000;
+            else if (data && data.budget === 'medium') totalBudget += 125000;
+            else if (data && data.budget === 'high') totalBudget += 250000;
 
-            if (data.answers) {
+            if (data && data.answers && typeof data.answers === 'object') {
                 Object.keys(interests).forEach(key => {
                     if (data.answers[key]) interests[key]++;
                 });
             }
-            if (data.recommendedCities && Array.isArray(data.recommendedCities)) {
+            if (data && data.recommendedCities && Array.isArray(data.recommendedCities)) {
                 data.recommendedCities.forEach(city => {
                     if (city) cityCounts[city] = (cityCounts[city] || 0) + 1;
                 });
