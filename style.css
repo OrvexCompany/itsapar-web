@@ -266,6 +266,52 @@ h1 { font-size: 2.8rem; margin-bottom: 1rem; color: var(--dark); font-weight: 80
 .admin-table tr td:first-child { border-left: 1px solid #f0f0f0; border-radius: 12px 0 0 12px; }
 .admin-table tr td:last-child { border-right: 1px solid #f0f0f0; border-radius: 0 12px 12px 0; }
 
+/* Мобильная админка */
+@media (max-width: 768px) {
+    .admin-header {
+        flex-direction: column;
+        gap: 15px;
+        align-items: stretch;
+    }
+    .admin-header input {
+        width: 100% !important;
+    }
+    
+    .admin-table, .admin-table thead, .admin-table tbody, .admin-table th, .admin-table td, .admin-table tr {
+        display: block;
+    }
+    .admin-table thead tr {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }
+    .admin-table tr {
+        margin-bottom: 20px;
+        border: 1px solid #e2e8f0;
+        border-radius: 20px;
+        background: white;
+        overflow: hidden;
+    }
+    .admin-table td {
+        border: none !important;
+        position: relative;
+        padding-left: 45% !important;
+        text-align: right;
+        font-size: 0.9rem;
+    }
+    .admin-table td:before {
+        position: absolute;
+        left: 15px;
+        width: 40%;
+        text-align: left;
+        font-weight: 700;
+        color: var(--primary);
+        content: attr(data-label);
+    }
+    .admin-table tr td:first-child, .admin-table tr td:last-child { border-radius: 0; }
+    .admin-table td[data-label="Действия"] { text-align: center; padding-left: 20px !important; background: #f8fafc; }
+}
+
 .error-text { color: #ef4444; font-size: 0.9rem; margin-top: 15px; text-align: center; }
 
 /* Стили для политики */

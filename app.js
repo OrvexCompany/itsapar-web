@@ -1216,12 +1216,12 @@ async function renderAdminTable(searchTerm = '') {
 
         body.innerHTML = filteredUsers.map(u => `
             <tr>
-                <td>${u.fullName || '<i>Анкета не заполнена</i>'} (${u.username})</td>
-                <td>${u.age || '-'}</td>
-                <td>${u.budget === 'low' ? 'до 50к' : u.budget === 'medium' ? '50к-200к' : u.budget === 'high' ? 'от 200к' : '-'}</td>
-                <td>${u.tripType || '-'}</td>
-                <td>${u.answers ? Object.keys(u.answers).filter(k => u.answers[k]).join(', ') : '-'}</td>
-                <td>
+                <td data-label="ФИО (Логин)">${u.fullName || '<i>Анкета не заполнена</i>'} (${u.username})</td>
+                <td data-label="Возраст">${u.age || '-'}</td>
+                <td data-label="Бюджет">${u.budget === 'low' ? 'до 50к' : u.budget === 'medium' ? '50к-200к' : u.budget === 'high' ? 'от 200к' : '-'}</td>
+                <td data-label="Тип">${u.tripType || '-'}</td>
+                <td data-label="Интересы">${u.answers ? Object.keys(u.answers).filter(k => u.answers[k]).join(', ') : '-'}</td>
+                <td data-label="Действия">
                     <button onclick="viewUserResults('${u.username}', '${(u.fullName || '').replace(/'/g, "\\'")}', '${(u.recommendedCities || []).join(', ').replace(/'/g, "\\'")}')" class="btn btn-outline" style="padding: 8px 16px; font-size: 0.7rem; text-transform: none; margin-right: 5px;">Результаты</button>
                     <button onclick="confirmDeleteUser('${u.username}')" class="btn btn-no" style="padding: 8px 16px; font-size: 0.7rem; text-transform: none;">Удалить</button>
                 </td>

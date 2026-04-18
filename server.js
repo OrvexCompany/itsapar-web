@@ -181,8 +181,7 @@ app.get("/admin/analytics", auth, adminOnly, (req, res) => {
     const usersWithData = [];
     rows.forEach(r => {
       if (r.survey_data) {
-        try {
-          const parsed = JSON.parse(r.survey_data);
+        try { t parsed = JSON.parse(r.survey_data);
           if (parsed) {
             usersWithData.push({ ...parsed, username: r.username });
           }
@@ -197,13 +196,9 @@ app.get("/admin/analytics", auth, adminOnly, (req, res) => {
     const interests = { mountains: 0, sea: 0, city: 0, activity: 0, culture: 0 };
     const cityCounts = {};
 
-    usersWithData.forEach(data => {
-      // Безопасный расчет бюджета
-      if (data.budget === 'low') totalBudget += 50000;
-      else if (data.budget === 'medium') totalBudget += 125000;
-      else if (data.budget === 'high') totalBudget += 250000;
-
-      // Статистика интересов
+    usersWithData.forEach(data => { 
+      // Безопасный расчет бюджета ow') totalBudget += 50000;
+      else if (data && data.budget
       if (data.answers) {
         Object.keys(interests).forEach(key => {
           if (data.answers[key]) interests[key]++;
@@ -211,12 +206,11 @@ app.get("/admin/analytics", auth, adminOnly, (req, res) => {
       }
       
       // Безопасный сбор статистики городов
-      if (data.recommendedCities && Array.isArray(data.recommendedCities)) {
+      if (data && data.recommendedCities && Array.isArray(data.recommendedCities)) {
         data.recommendedCities.forEach(cityName => {
           if (cityName) {
             cityCounts[cityName] = (cityCounts[cityName] || 0) + 1;
           }
-        });
       }
     });
 
