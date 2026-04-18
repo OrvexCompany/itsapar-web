@@ -1260,10 +1260,10 @@ window.confirmDeleteUser = async function(username) {
             });
             if (res.ok) {
                 renderAdminTable(document.getElementById('adminSearch')?.value || '');
-                alert(`Пользователь ${username} успешно удален.`);
+                alert(`Пользователь ${username} успешно удален из базы данных.`);
             }
         } catch (err) {
-            alert("Ошибка при удалении пользователя.");
+            alert("Ошибка при связи с сервером.");
         }
     } else if (password !== null) {
         alert("Ошибка! Неверный пароль администратора. Операция отменена.");
