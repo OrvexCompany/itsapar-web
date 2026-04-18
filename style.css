@@ -277,6 +277,11 @@ h1 { font-size: 2.8rem; margin-bottom: 1rem; color: var(--dark); font-weight: 80
         width: 100% !important;
     }
     
+    .admin-container {
+        padding: 10px;
+        width: 95%;
+    }
+
     .admin-table, .admin-table thead, .admin-table tbody, .admin-table th, .admin-table td, .admin-table tr {
         display: block;
     }
@@ -310,6 +315,17 @@ h1 { font-size: 2.8rem; margin-bottom: 1rem; color: var(--dark); font-weight: 80
     }
     .admin-table tr td:first-child, .admin-table tr td:last-child { border-radius: 0; }
     .admin-table td[data-label="Действия"] { text-align: center; padding-left: 20px !important; background: #f8fafc; }
+}
+
+/* Стили для страницы аналитики (карточки статов) */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin-bottom: 30px;
+}
+.stat-card {
+    background: white; padding: 20px; border-radius: 20px; text-align: center; box-shadow: 0 4px 6px rgba(0,0,0,0.05);
 }
 
 .error-text { color: #ef4444; font-size: 0.9rem; margin-top: 15px; text-align: center; }

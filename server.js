@@ -181,7 +181,8 @@ app.get("/admin/analytics", auth, adminOnly, (req, res) => {
     const usersWithData = [];
     rows.forEach(r => {
       if (r.survey_data) {
-        try { t parsed = JSON.parse(r.survey_data);
+        try {
+          const parsed = JSON.parse(r.survey_data);
           if (parsed) {
             usersWithData.push({ ...parsed, username: r.username });
           }
@@ -197,9 +198,12 @@ app.get("/admin/analytics", auth, adminOnly, (req, res) => {
     const cityCounts = {};
 
     usersWithData.forEach(data => { 
-      // Безопасный расчет бюджета ow') totalBudget += 50000;
-      else if (data && data.budget
-      if (data.answers) {
+      // Безопасный расчет бюджета
+      if (data && data.budget === 'low') totalBudget += 50000;
+      else if (data && data.budget === 'medium') totalBudget += 125000;
+      else if (data && data.budget === 'high') totalBudget += 250000;
+
+      if (data && data.answers) {
         Object.keys(interests).forEach(key => {
           if (data.answers[key]) interests[key]++;
         });
@@ -211,6 +215,7 @@ app.get("/admin/analytics", auth, adminOnly, (req, res) => {
           if (cityName) {
             cityCounts[cityName] = (cityCounts[cityName] || 0) + 1;
           }
+        });
       }
     });
 
