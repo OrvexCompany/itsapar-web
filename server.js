@@ -15,23 +15,26 @@ app.use(express.static(__dirname)); // Раздаем статические ф�
 
 const SECRET = process.env.JWT_SECRET || "supersecretkey";
 
-// Путь к базе данных: на Render это будет /data/users.db, локально — просто ./users.db
-const dbPath = process.env.DISK_PATH ? path.join(process.env.DISK_PATH, "users.db") : "./users.db";
-
-// Если используется внешний диск, проверяем, существует ли папка. Если нет — создаем её.
-if (process.env.DISK_PATH && !fs.existsSync(process.env.DISK_PATH)) {
+// Логика определения пути к БД
+let dbPath = path.join(__dirname, "users.db");
+if (process.env.DISK_PATH) {
+    const customDir = process.env.DISK_PATH;
     try {
-        fs.mkdirSync(process.env.DISK_PATH, { recursive: true });
-        console.log(`✅ Создана папка для базы данных: ${process.env.DISK_PATH}`);
+        if (!fs.existsSync(customDir)) {
+            fs.mkdirSync(customDir, { recursive: true });
+        }
+        dbPath = path.join(customDir, "users.db");
+        console.log(`✅ Используется внешний путь для БД: ${dbPath}`);
     } catch (err) {
-        console.error(`❌ Ошибка при создании папки ${process.env.DISK_PATH}:`, err);
+        console.error(`⚠️ Ошибка доступа к ${customDir}, используем локальный путь. Ошибка: ${err.message}`);
+        dbPath = path.join(__dirname, "users.db");
     }
 }
 
 // 📦 Настройка базы данных SQLite
 const db = new sqlite3.Database(dbPath, (err) => {
     if (err) {
-        console.error("❌ Ошибка подключения к базе данных:", err.message);
+        console.error("❌ Критическая ошибка подключения к базе данных:", err.message);
         process.exit(1); // Принудительно завершаем, если база не открылась
     }
     console.log(`📂 База данных подключена: ${dbPath}`);
