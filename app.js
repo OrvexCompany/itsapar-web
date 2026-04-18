@@ -624,8 +624,7 @@ function injectPolicy(targetUrl = null) {
     wrapper.innerHTML = `
         <div id="policyModal" class="modal-overlay" style="display: flex;">
             <div class="card modal-card">
-                <h2>Политика и Защита данных</h2>
-                <h2>Пользовательское соглашение</h2>
+                <h2>Соглашение и защита данных</h2>
                 <div class="policy-text">
                     <p>Добро пожаловать в ITSapar. Используя сервис, вы подтверждаете:</p>
                     <p>Настоящим подтверждается согласие пользователя с условиями эксплуатации сервиса ITSapar:</p>
@@ -634,7 +633,6 @@ function injectPolicy(targetUrl = null) {
                         <li>Данные используются только для подбора маршрута.</li>
                         <li>Вся информация хранится локально в вашем браузере.</li>
                         <li>Вы обязуетесь не копировать контент (Закон РК «Об авторском праве»).</li>
-                        <li>Финальный выбор маршрута остается за вами.</li>
                         <li><strong>Возрастной ценз:</strong> Доступ к функционалу сервиса разрешен исключительно лицам, достигшим 18-летнего возраста.</li>
                         <li><strong>Конфиденциальность данных:</strong> Информация обрабатывается только для формирования рекомендаций и хранится локально (LocalStorage).</li>
                         <li><strong>Кибербезопасность:</strong> Категорически запрещены любые формы несанкционированного доступа, попытки взлома, декомпиляции кода или нарушения целостности системы.</li>
@@ -645,7 +643,6 @@ function injectPolicy(targetUrl = null) {
                 </div>
                 <div class="policy-check">
                     <input type="checkbox" id="policyCheckbox">
-                    <label for="policyCheckbox">Я принимаю условия и подтверждаю возраст 18+</label>
                     <label for="policyCheckbox">Я ознакомлен с условиями Соглашения и подтверждаю возраст 18+</label>
                 </div>
                 <button id="acceptPolicy" class="btn btn-primary full-width" disabled>Принять и продолжить</button>
