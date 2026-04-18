@@ -1222,7 +1222,10 @@ async function renderAdminTable(searchTerm = '') {
                 <td data-label="Тип">${u.tripType || '-'}</td>
                 <td data-label="Интересы">${u.answers ? Object.keys(u.answers).filter(k => u.answers[k]).join(', ') : '-'}</td>
                 <td data-label="Действия">
-                    <button onclick="viewUserResults('${u.username}', '${(u.fullName || '').replace(/'/g, "\\'")}', '${(u.recommendedCities || []).join(', ').replace(/'/g, "\\'")}')" class="btn btn-outline" style="padding: 8px 16px; font-size: 0.7rem; text-transform: none; margin-right: 5px;">Результаты</button>
+                    ${u.fullName ? 
+                        `<button onclick="viewUserResults('${u.username}', '${(u.fullName || '').replace(/'/g, "\\'")}', '${(u.recommendedCities || []).join(', ').replace(/'/g, "\\'")}')" class="btn btn-outline" style="padding: 8px 16px; font-size: 0.7rem; text-transform: none; margin-right: 5px;">Результаты</button>` 
+                        : ''
+                    }
                     <button onclick="confirmDeleteUser('${u.username}')" class="btn btn-no" style="padding: 8px 16px; font-size: 0.7rem; text-transform: none;">Удалить</button>
                 </td>
             </tr>

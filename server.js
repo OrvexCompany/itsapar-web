@@ -167,68 +167,70 @@ function adminOnly(req, res, next) {
 
 // 🛡 Проверка прав админа на сервере (для защиты страницы admin.html)
 app.get("/admin/verify", auth, adminOnly, (req, res) => {
-  res.send("OK");
+    res.send("OK");
 });
 
 // � Маршрут аналитики (только для админов)
 app.get("/admin/analytics", auth, adminOnly, (req, res) => {
-  db.all("SELECT username, survey_data FROM users", (err, rows) => {
-    if (err) {
-      console.error("Database error:", err);
-      return res.status(500).send("Database error");
-    }
-
-    const usersWithData = [];
-    rows.forEach(r => {
-      if (r.survey_data) {
-        try {
-          const parsed = JSON.parse(r.survey_data);
-          if (parsed) {
-            usersWithData.push({ ...parsed, username: r.username });
-          }
-        } catch (e) {
-          console.error(`❌ Ошибка парсинга данных для пользователя ${r.username}:`, e.message);
+    db.all("SELECT username, role, survey_data FROM users", (err, rows) => {
+        if (err) {
+            console.error("Database error:", err);
+            return res.status(500).send("Database error");
         }
-      }
-    });
 
-    const totalUsers = rows.length;
-    let totalBudget = 0;
-    const interests = { mountains: 0, sea: 0, city: 0, activity: 0, culture: 0 };
-    const cityCounts = {};
-
-    usersWithData.forEach(data => { 
-      // Безопасный расчет бюджета
-      if (data && data.budget === 'low') totalBudget += 50000;
-      else if (data && data.budget === 'medium') totalBudget += 125000;
-      else if (data && data.budget === 'high') totalBudget += 250000;
-
-      if (data && data.answers) {
-        Object.keys(interests).forEach(key => {
-          if (data.answers[key]) interests[key]++;
+        // Формируем список всех пользователей для таблицы (даже без анкет)
+        const allUsersList = rows.map(r => {
+            let survey = {};
+            if (r.survey_data) {
+                try {
+                    survey = JSON.parse(r.survey_data);
+                } catch (e) {
+                    console.error("Parse error for", r.username);
+                }
+            }
+            return {
+                username: r.username,
+                role: r.role,
+                ...survey
+            };
         });
-      }
-      
-      // Безопасный сбор статистики городов
-      if (data && data.recommendedCities && Array.isArray(data.recommendedCities)) {
-        data.recommendedCities.forEach(cityName => {
-          if (cityName) {
-            cityCounts[cityName] = (cityCounts[cityName] || 0) + 1;
-          }
+
+        // Фильтруем тех, кто реально заполнил анкету для статистики
+        const usersWithData = allUsersList.filter(u => u.fullName || u.answers);
+
+        const totalUsers = rows.length;
+        let totalBudget = 0;
+        const interests = { mountains: 0, sea: 0, city: 0, activity: 0, culture: 0 };
+        const cityCounts = {};
+
+        usersWithData.forEach(data => {
+            // Безопасный расчет бюджета
+            if (data.budget === 'low') totalBudget += 50000;
+            else if (data.budget === 'medium') totalBudget += 125000;
+            else if (data.budget === 'high') totalBudget += 250000;
+
+            if (data.answers) {
+                Object.keys(interests).forEach(key => {
+                    if (data.answers[key]) interests[key]++;
+                });
+            }
+            if (data.recommendedCities && Array.isArray(data.recommendedCities)) {
+                data.recommendedCities.forEach(city => {
+                    if (city) cityCounts[city] = (cityCounts[city] || 0) + 1;
+                });
+            }
         });
-      }
-    });
 
-    const avgBudget = usersWithData.length ? Math.round(totalBudget / usersWithData.length) : 0;
+        const avgBudget = usersWithData.length ? Math.round(totalBudget / usersWithData.length) : 0;
 
-    res.json({
-      totalUsers,
-      averageBudget: avgBudget,
-      interestsStats: interests,
-      topCities: cityCounts,
-      usersList: usersWithData // Для таблицы на странице аналитики
+        res.json({
+            totalUsers,
+            averageBudget: avgBudget,
+            interestsStats: interests,
+            topCities: cityCounts,
+            usersList: allUsersList // Теперь здесь ВСЕ пользователи
+        });
     });
-  });
 });
 
 // 🔥 Маршрут для полной очистки (удаление всех пользователей кроме admin)
