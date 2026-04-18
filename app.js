@@ -1225,6 +1225,7 @@ async function renderAdminTable(searchTerm = '') {
                 <td>${u.tripType || '-'}</td>
                 <td>${u.answers ? Object.keys(u.answers).filter(k => u.answers[k]).join(', ') : '-'}</td>
                 <td>
+                    <button onclick="viewUserResults('${u.username}', '${u.fullName || ''}', '${u.recommendedCities ? u.recommendedCities.join(', ') : ''}')" class="btn btn-outline" style="padding: 8px 16px; font-size: 0.7rem; text-transform: none; margin-right: 5px;">Результаты</button>
                     <button onclick="confirmDeleteUser('${u.username}')" class="btn btn-no" style="padding: 8px 16px; font-size: 0.7rem; text-transform: none;">Удалить</button>
                 </td>
             </tr>
@@ -1237,13 +1238,9 @@ async function renderAdminTable(searchTerm = '') {
 /**
  * Функция для просмотра рекомендаций админом
  */
-window.viewUserResults = function(username) {
-    const users = JSON.parse(localStorage.getItem('users') || '[]');
-    const user = users.find(u => u.username === username);
-    if (user && user.data) {
-        const recommended = getRecommendedCities(user.data);
-        const cityNames = recommended.map(c => c.n).join(' и ');
-        alert(`Для пользователя ${user.data.fullName || username} идеально подходят: ${cityNames}`);
+window.viewUserResults = function(username, fullName, cities) {
+    if (cities && cities.length > 0) {
+        alert(`Для пользователя ${fullName || username} идеально подходят: ${cities}`);
     } else {
         alert("Пользователь еще не заполнил анкету или не прошел свайп-опрос.");
     }
@@ -1252,27 +1249,22 @@ window.viewUserResults = function(username) {
 /**
  * Функция удаления пользователя с проверкой пароля админа
  */
-window.confirmDeleteUser = function(username) {
+window.confirmDeleteUser = async function(username) {
     const password = prompt("Внимание! Вы пытаетесь удалить пользователя. Для подтверждения операции введите пароль администратора:");
     
     if (password === 'Orvex2026') {
-        let users = JSON.parse(localStorage.getItem('users') || '[]');
-        users = users.filter(u => u.username !== username);
-        localStorage.setItem('users', JSON.stringify(users));
-        
-        // Также удаляем записи из истории сабмишнов
-        let allSubmissions = JSON.parse(localStorage.getItem('allSubmissions') || '[]');
-        allSubmissions = allSubmissions.filter(s => s.username !== username);
-        localStorage.setItem('allSubmissions', JSON.stringify(allSubmissions));
-
-        // Добавляем пользователя в список удаленных администратором
-        let deletedUsers = JSON.parse(localStorage.getItem('deletedUsers') || '[]');
-        if (!deletedUsers.includes(username)) deletedUsers.push(username);
-        localStorage.setItem('deletedUsers', JSON.stringify(deletedUsers));
-
-        // Перерисовываем таблицу (с учетом текущего поиска)
-        renderAdminTable(document.getElementById('adminSearch')?.value || '');
-        alert(`Пользователь ${username} успешно удален из системы.`);
+        try {
+            const res = await fetch(`/admin/user/${username}`, {
+                method: 'DELETE',
+                headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` }
+            });
+            if (res.ok) {
+                renderAdminTable(document.getElementById('adminSearch')?.value || '');
+                alert(`Пользователь ${username} успешно удален.`);
+            }
+        } catch (err) {
+            alert("Ошибка при удалении пользователя.");
+        }
     } else if (password !== null) {
         alert("Ошибка! Неверный пароль администратора. Операция отменена.");
     }

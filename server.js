@@ -1,4 +1,5 @@
 const path = require("path");
+const fs = require("fs");
 console.log("🔥 ITSapar SERVER START");
 
 const express = require("express");
@@ -12,13 +13,40 @@ app.use(express.json());
 app.use(cors()); // Разрешаем запросы от фронтенда
 app.use(express.static(__dirname)); // Раздаем статические файлы (html, js, css) из текущей папки
 
-const SECRET = "supersecretkey";
+const SECRET = process.env.JWT_SECRET || "supersecretkey";
 
 // Путь к базе данных: на Render это будет /data/users.db, локально — просто ./users.db
 const dbPath = process.env.DISK_PATH ? path.join(process.env.DISK_PATH, "users.db") : "./users.db";
 
+// Если используется внешний диск, проверяем, существует ли папка. Если нет — создаем её.
+if (process.env.DISK_PATH && !fs.existsSync(process.env.DISK_PATH)) {
+    try {
+        fs.mkdirSync(process.env.DISK_PATH, { recursive: true });
+        console.log(`✅ Создана папка для базы данных: ${process.env.DISK_PATH}`);
+    } catch (err) {
+        console.error(`❌ Ошибка при создании папки ${process.env.DISK_PATH}:`, err);
+    }
+}
+
 // 📦 Настройка базы данных SQLite
-const db = new sqlite3.Database(dbPath);
+const db = new sqlite3.Database(dbPath, (err) => {
+    if (err) {
+        console.error("❌ Ошибка подключения к базе данных:", err.message);
+        process.exit(1); // Принудительно завершаем, если база не открылась
+    }
+    console.log(`📂 База данных подключена: ${dbPath}`);
+});
+
+// Маршрут для проверки работоспособности (Health Check)
+app.get("/health", (req, res) => {
+  res.status(200).send("Alive");
+});
+
+// Обработка ошибок для статических файлов
+app.use((err, req, res, next) => {
+  console.error("Server Error:", err.stack);
+  res.status(500).send("Something broke on the server!");
+});
 
 // Настройка базы данных: создание таблицы и добавление недостающих колонок
 // Настройка базы данных
@@ -206,6 +234,14 @@ app.delete("/admin/clear-all", auth, adminOnly, (req, res) => {
         if (err) return res.status(500).send("Ошибка при очистке базы");
         console.log("⚠️ База данных полностью очищена администратором");
         res.send("Система полностью очищена");
+    });
+});
+
+// 🔥 МАРШРУТ: Удаление конкретного пользователя
+app.delete("/admin/user/:username", auth, adminOnly, (req, res) => {
+    db.run("DELETE FROM users WHERE username = ?", [req.params.username], (err) => {
+        if (err) return res.status(500).send("Ошибка при удалении");
+        res.send("Пользователь удален");
     });
 });
 
