@@ -183,7 +183,7 @@ app.get("/admin/analytics", auth, adminOnly, (req, res) => {
             usersWithData.push({ ...parsed, username: r.username });
           }
         } catch (e) {
-          console.error("Ошибка парсинга survey_data для одного из пользователей:", e);
+          console.error(`❌ Ошибка парсинга данных для пользователя ${r.username}:`, e.message);
         }
       }
     });
