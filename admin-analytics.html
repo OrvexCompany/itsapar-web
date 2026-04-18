@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Админ аналитика - ITSapar</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        .stats-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 30px; }
+        .stat-card { background: white; padding: 20px; border-radius: 20px; text-align: center; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+        .stat-card h4 { margin: 0; color: #64748b; font-size: 0.9rem; }
+        .stat-card p { margin: 10px 0 0; font-size: 1.8rem; font-weight: 800; color: var(--primary); }
+        .charts-container { display: grid; grid-template-columns: 1fr 1.5fr; gap: 30px; margin-bottom: 40px; }
+        .chart-box { background: white; padding: 20px; border-radius: 24px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); }
+        canvas { max-width: 100%; }
+    </style>
+</head>
+<body>
+    <div class="container" style="max-width: 1000px;">
+        <div class="admin-header">
+            <h1>📈 Админ аналитика</h1>
+            <button onclick="window.history.back()" class="btn btn-outline">Назад</button>
+        </div>
+
+        <!-- Общая статистика -->
+        <div class="stats-cards">
+            <div class="stat-card">
+                <h4>Всего пользователей</h4>
+                <p id="totalUsers">-</p>
+            </div>
+            <div class="stat-card">
+                <h4>Средний бюджет</h4>
+                <p id="avgBudget">- ₸</p>
+            </div>
+        </div>
+
+        <!-- Графики -->
+        <div class="charts-container">
+            <div class="chart-box">
+                <h4 style="text-align: center; margin-bottom: 15px;">Интересы пользователей</h4>
+                <canvas id="interestsChart"></canvas>
+            </div>
+            <div class="chart-box">
+                <h4 style="text-align: center; margin-bottom: 15px;">Популярные города (Топ)</h4>
+                <canvas id="citiesChart"></canvas>
+            </div>
+        </div>
+
+        <!-- Таблица -->
+        <div class="card" style="padding: 20px;">
+            <h3 style="margin-bottom: 20px;">Список активных анкет</h3>
+            <table class="admin-table">
+                <thead>
+                    <tr>
+                        <th>Пользователь</th>
+                        <th>Возраст</th>
+                        <th>Бюджет</th>
+                    </tr>
+                </thead>
+                <tbody id="analyticsTableBody"></tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', async () => {
+            const token = localStorage.getItem('token');
+            if (!token) {
+                window.location.href = 'login.html';
+                return;
+            }
+
+            try {
+                const response = await fetch('http://localhost:3000/admin/analytics', {
+                    headers: { 'Authorization': `Bearer ${token}` }
+                });
+
+                if (!response.ok) throw new Error('Access denied');
+                const data = await response.json();
+
+                // Наполнение цифр
+                document.getElementById('totalUsers').innerText = data.totalUsers;
+                document.getElementById('avgBudget').innerText = data.averageBudget.toLocaleString() + ' ₸';
+
+                // Таблица
+                const tableBody = document.getElementById('analyticsTableBody');
+                tableBody.innerHTML = data.usersList.map(u => `
+                    <tr>
+                        <td>${u.fullName || 'Аноним'}</td>
+                        <td>${u.age} лет</td>
+                        <td>${u.budget === 'low' ? 'До 50к' : u.budget === 'medium' ? '50к-200к' : 'От 200к'}</td>
+                    </tr>
+                `).join('');
+
+                // График Интересов (Pie)
+                new Chart(document.getElementById('interestsChart'), {
+                    type: 'pie',
+                    data: {
+                        labels: ['Горы', 'Море', 'Город', 'Экстрим', 'Культура'],
+                        datasets: [{
+                            data: Object.values(data.interestsStats),
+                            backgroundColor: ['#4f46e5', '#10b981', '#f59e0b', '#ef4444', '#8b5cf6']
+                        }]
+                    }
+                });
+
+                // График Городов (Bar)
+                const cityLabels = Object.keys(data.topCities);
+                const cityValues = Object.values(data.topCities);
+                
+                new Chart(document.getElementById('citiesChart'), {
+                    type: 'bar',
+                    data: {
+                        labels: cityLabels,
+                        datasets: [{
+                            label: 'Кол-во рекомендаций',
+                            data: cityValues,
+                            backgroundColor: 'rgba(79, 70, 229, 0.7)',
+                            borderColor: '#4f46e5',
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        scales: { y: { beginAtZero: true, ticks: { stepSize: 1 } } }
+                    }
+                });
+
+            } catch (error) {
+                console.error(error);
+                alert('Ошибка доступа или сервера');
+                window.location.href = 'admin.html';
+            }
+        });
+    </script>
+    <script src="app.js"></script>
+</body>
+</html>

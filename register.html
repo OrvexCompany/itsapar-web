@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Регистрация - ITSapar</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="policyWrapper"></div>
+
+    <div class="container">
+        <div class="card">
+            <div class="logo" style="text-align: center; font-size: 2rem;">✈️ ITSapar</div>
+            <h2 style="text-align: center; margin-bottom: 30px;">Создать аккаунт</h2>
+
+            <form id="registerForm">
+                <div class="form-group">
+                    <label for="regUsername">Придумайте логин</label>
+                    <input type="text" id="regUsername" placeholder="Например: traveler_01" required>
+                </div>
+                <div class="form-group">
+                    <label for="regPassword">Придумайте пароль</label>
+                    <input type="password" id="regPassword" placeholder="••••••••" required>
+                </div>
+                
+                <div id="regError" class="error-text" style="display: none; margin-bottom: 15px;">
+                    Этот логин уже занят. Попробуйте другой.
+                </div>
+
+                <button type="submit" class="btn btn-primary full-width">Зарегистрироваться</button>
+                
+                <div style="text-align: center; margin-top: 20px;">
+                    <span style="font-size: 0.9rem; color: #64748b;">Уже есть аккаунт?</span>
+                    <a href="login.html" class="btn-outline" style="border: none; font-size: 0.9rem; padding: 5px; text-transform: none; text-decoration: underline;">Войти</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

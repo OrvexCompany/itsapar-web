@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ваш результат - ITSapar</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="results-columns">
+            <!-- Колонка 1: Персональные рекомендации -->
+            <div class="results-column">
+                <h2 class="column-title">✨ Подходит именно вам</h2>
+                <div id="resultsList" class="results-grid"></div>
+            </div>
+
+            <!-- Колонка 2: Глобальная популярность -->
+            <div class="results-column">
+                <h2 class="column-title">🔥 Сейчас популярно</h2>
+                <div id="popularList" class="results-grid"></div>
+            </div>
+        </div>
+
+        <div class="all-cities-toggle-section">
+            <button id="showAllCitiesBtn" class="btn btn-outline">Показать все города</button>
+            <div id="allCitiesContainer" style="display: none;">
+                <h3>Все города Казахстана</h3>
+                <ul id="allCitiesList" class="simple-city-list">
+                    <!-- All cities will be rendered here by JS -->
+                </ul>
+                <p class="all-cities-disclaimer">Города на сайте выбираются только внутри Казахстана.</p>
+            </div>
+        </div>
+
+        <div class="center-margin">
+            <button id="retakeBtn" class="btn btn-primary">Пройти заново</button>
+            <a href="index.html" class="btn btn-outline">На главную</a>
+        </div>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
