@@ -179,75 +179,60 @@ app.get("/admin/verify", auth, adminOnly, (req, res) => {
 
 // � Маршрут аналитики (только для админов)
 app.get("/admin/analytics", auth, adminOnly, (req, res) => {
-    db.all("SELECT username, role, survey_data FROM users", (err, rows) => {
-        if (err) {
-            console.error("Database error:", err);
-            return res.status(500).send("Database error");
-        }
+    const sql = "SELECT username, role, survey_data FROM users";
+    db.all(sql, [], (err, rows) => {
+        if (err) return res.status(500).json({ error: "Ошибка базы данных" });
 
-        // Формируем список всех пользователей для таблицы (даже без анкет)
-        const allUsersList = rows.map(r => {
+        let totalBudget = 0;
+        let budgetCount = 0;
+        const interests = { mountains: 0, sea: 0, city: 0, activity: 0, culture: 0 };
+        const cityCounts = {};
+
+        const usersList = (rows || []).map(row => {
             let survey = {};
-            if (r.survey_data && r.survey_data !== "null" && r.survey_data !== "") {
-                try {
-                    const parsed = JSON.parse(r.survey_data);
+            try {
+                if (row.survey_data) {
+                    const parsed = JSON.parse(row.survey_data);
                     if (parsed && typeof parsed === 'object') survey = parsed;
-                } catch (e) {
-                    console.error(`Ошибка парсинга для ${r.username}:`, e.message);
                 }
-            }
-            return {
-                username: r.username,
-                role: r.role,
+            } catch (e) { console.error("Ошибка JSON:", row.username); }
+
+            const userData = {
+                username: row.username,
+                role: row.role,
                 fullName: survey.fullName || null,
                 age: survey.age || null,
                 budget: survey.budget || null,
                 tripType: survey.tripType || null,
                 answers: survey.answers || null,
-                recommendedCities: survey.recommendedCities || [],
-                ...survey
+                recommendedCities: Array.isArray(survey.recommendedCities) ? survey.recommendedCities : []
             };
+
+            // Сбор статистики только если есть данные анкеты
+            if (userData.fullName || userData.answers) {
+                if (userData.budget === 'low') { totalBudget += 50000; budgetCount++; }
+                else if (userData.budget === 'medium') { totalBudget += 125000; budgetCount++; }
+                else if (userData.budget === 'high') { totalBudget += 250000; budgetCount++; }
+
+                if (userData.answers && typeof userData.answers === 'object') {
+                    Object.keys(interests).forEach(key => {
+                        if (userData.answers[key]) interests[key]++;
+                    });
+                }
+                userData.recommendedCities.forEach(city => {
+                    if (city) cityCounts[city] = (cityCounts[city] || 0) + 1;
+                });
+            }
+            return userData;
         });
 
-        try {
-            // Фильтруем тех, кто реально заполнил анкету для статистики
-            const usersWithData = allUsersList.filter(u => u.fullName || (u.answers && Object.keys(u.answers).length > 0));
-
-            const totalUsers = rows.length;
-            let totalBudget = 0;
-            const interests = { mountains: 0, sea: 0, city: 0, activity: 0, culture: 0 };
-            const cityCounts = {};
-
-            usersWithData.forEach(data => {
-                if (data.budget === 'low') totalBudget += 50000;
-                else if (data.budget === 'medium') totalBudget += 125000;
-                else if (data.budget === 'high') totalBudget += 250000;
-
-                if (data.answers && typeof data.answers === 'object') {
-                    Object.keys(interests).forEach(key => {
-                        if (data.answers[key]) interests[key]++;
-                    });
-                }
-                if (data.recommendedCities && Array.isArray(data.recommendedCities)) {
-                    data.recommendedCities.forEach(city => {
-                        if (city) cityCounts[city] = (cityCounts[city] || 0) + 1;
-                    });
-                }
-            });
-
-            const avgBudget = usersWithData.length ? Math.round(totalBudget / usersWithData.length) : 0;
-
-            res.json({
-                totalUsers,
-                averageBudget: avgBudget,
-                interestsStats: interests,
-                topCities: cityCounts,
-                usersList: allUsersList
-            });
-        } catch (procErr) {
-            console.error("Ошибка обработки аналитики:", procErr);
-            res.status(500).send("Ошибка обработки данных");
-        }
+        res.json({
+            totalUsers: usersList.length,
+            averageBudget: budgetCount > 0 ? Math.round(totalBudget / budgetCount) : 0,
+            interestsStats: interests,
+            topCities: cityCounts,
+            usersList: usersList
+        });
     });
 });
 

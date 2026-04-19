@@ -1204,10 +1204,19 @@ async function renderAdminTable(searchTerm = '') {
             headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` }
         });
 
-        if (!response.ok) return;
+        if (!response.ok) {
+            const msg = response.status === 403 ? "Доступ запрещен" : "Ошибка сервера (500)";
+            body.innerHTML = `<tr><td colspan="6" style="text-align:center; color:var(--danger); padding:40px;">⚠️ ${msg}. Попробуйте перевойти в аккаунт.</td></tr>`;
+            return;
+        }
 
         const data = await response.json();
         const users = data.usersList || [];
+        
+        if (users.length === 0) {
+            body.innerHTML = `<tr><td colspan="6" style="text-align:center; padding:40px;">Пользователей пока нет</td></tr>`;
+            return;
+        }
 
         // Фильтруем пользователей по логину или по ФИО
         const filteredUsers = users.filter(u => {
