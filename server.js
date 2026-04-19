@@ -190,7 +190,7 @@ app.get("/admin/analytics", auth, adminOnly, (req, res) => {
         try {
             let totalBudget = 0;
             let budgetCount = 0;
-            const interests = { mountains: 0, sea: 0, city: 0, activity: 0, culture: 0 };
+            const interests = { mountains: 0, sea: 0, city: 0, activity: 0, culture: 0, gastronomy: 0, seclusion: 0, shopping: 0, family_fun: 0, eco_tourism: 0 };
             const cityCounts = {};
 
             const usersList = (rows || []).map((row, index) => {

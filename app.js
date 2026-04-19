@@ -4,7 +4,12 @@ const questions = [
     { id: 'sea', title: 'Море/Вода?', desc: 'Предпочитаете пляжный отдых или озера?' },
     { id: 'city', title: 'Города?', desc: 'Вам нравится шум мегаполиса и архитектура?' },
     { id: 'activity', title: 'Активность?', desc: 'Готовы ли вы к экстриму и долгим прогулкам?' },
-    { id: 'culture', title: 'Культура?', desc: 'Интересуетесь ли вы историей и музеями?' }
+    { id: 'culture', title: 'Культура?', desc: 'Интересуетесь ли вы историей и музеями?' },
+    { id: 'gastronomy', title: 'Гастрономия', desc: 'Важно ли для вас пробовать уникальные национальные блюда и посещать колоритные рестораны?' },
+    { id: 'seclusion', title: 'Уединение', desc: 'Ищете ли вы тишину и возможность отдохнуть в местах вдали от больших толп туристов?' },
+    { id: 'shopping', title: 'Шоппинг', desc: 'Любите ли вы прогулки по современным торговым центрам и поиск уникальных вещей на местных рынках?' },
+    { id: 'family_fun', title: 'Семейный отдых', desc: 'Нужны ли вам игровые зоны, аквапарки и развлечения, подходящие для детей?' },
+    { id: 'eco_tourism', title: 'Эко-туризм', desc: 'Вас привлекают заповедники, бескрайние степи и наблюдение за дикой природой в её первозданном виде?' }
 ];
 
 // --- Данные городов с характеристиками и отелями ---
@@ -32,11 +37,14 @@ const allCities = [
             { name: 'Manana', address: 'пр. Достык, 535' }
         ],
         locations: [
-            { n: 'Шымбулак', a: 'ул. Керей-Жанибек хандар, 640' },
-            { n: 'Кок-Тобе', a: 'пр. Достык, 104б' }
+            { n: 'Шымбулак', t: 'Горы, Активность' },
+            { n: 'Медеу', t: 'Активность, Семья' },
+            { n: 'Зеленый базар', t: 'Гастрономия, Шоппинг' },
+            { n: 'Улица Панфилова', t: 'Города, Культура' },
+            { n: 'Коктобе', t: 'Семья, Города' }
         ],
-        tags: { mountains: true, activity: true, city: true, culture: true, lively: true, nature: true, modern: true, quiet: false, history: false, beach: false, industrial: false },
-        budget_suitability: { low: false, medium: false, high: true }
+        tags: { mountains: true, sea: true, city: true, activity: true, culture: true, gastronomy: true, seclusion: false, shopping: true, family_fun: true, eco_tourism: true },
+        budget_suitability: { low: true, medium: true, high: true }
     },
     {
         n: 'Астана',
@@ -61,11 +69,14 @@ const allCities = [
             { name: 'Tiflis', address: 'ул. Иманова, 11' }
         ],
         locations: [
-            { n: 'Байтерек', a: 'ул. Водяная, 1' },
-            { n: 'Мечеть Хазрет Султан', a: 'пр. Тауелсиздик, 48' }
+            { n: 'Байтерек', t: 'Города, Культура' },
+            { n: 'Хан Шатыр', t: 'Шоппинг, Семья' },
+            { n: 'Набережная реки Есиль', t: 'Море/Вода, Активность' },
+            { n: 'Национальный музей', t: 'Культура, Города' },
+            { n: 'Tiflis (ресторан)', t: 'Гастрономия' }
         ],
-        tags: { city: true, culture: true, modern: true, lively: true, quiet: false, mountains: false, activity: false, nature: false, history: false, beach: false, industrial: false },
-        budget_suitability: { low: false, medium: false, high: true }
+        tags: { mountains: false, sea: false, city: true, activity: true, culture: true, gastronomy: true, seclusion: false, shopping: true, family_fun: true, eco_tourism: false },
+        budget_suitability: { low: false, medium: true, high: true }
     },
     {
         n: 'Актау',
@@ -90,10 +101,13 @@ const allCities = [
             { name: 'Fregat', address: '4-й мкр, набережная' }
         ],
         locations: [
-            { n: 'Скальная тропа', a: '4-й мкр' },
-            { n: 'Маяк на крыше дома', a: '4-й мкр, дом 9' }
+            { n: 'Скальная тропа', t: 'Море/Вода, Активность' },
+            { n: 'Впадина Карагие', t: 'Эко-туризм, Горы' },
+            { n: 'Пляж Маракеш', t: 'Море/Вода, Семья' },
+            { n: 'ТРЦ Aktau', t: 'Шоппинг, Семья' },
+            { n: 'Маяк на крыше дома', t: 'Города, Культура' }
         ],
-        tags: { sea: true, city: true, nature: true, quiet: true, beach: true, lively: false, mountains: false, activity: false, culture: false, history: false, modern: false, industrial: false },
+        tags: { mountains: true, sea: true, city: true, activity: true, culture: false, gastronomy: false, seclusion: false, shopping: true, family_fun: false, eco_tourism: true },
         budget_suitability: { low: false, medium: true, high: true }
     },
     {
@@ -119,11 +133,14 @@ const allCities = [
             { name: 'Al-Farabi', address: 'пр. Тауке Хана, 150' }
         ],
         locations: [
-            { n: 'Мавзолей Х.А. Яссауи', a: 'пр. Бекзата Саттарханова' },
-            { n: 'Керуен-сарай', a: 'ул. Жолбарыс Хана' }
+            { n: 'Мавзолей Ясави', t: 'Культура, Уединение' },
+            { n: 'Керуен-сарай', t: 'Шоппинг, Города' },
+            { n: 'Летающий театр', t: 'Семья, Активность' },
+            { n: 'Ресторан Sandyk', t: 'Гастрономия' },
+            { n: 'Заповедник Каратау', t: 'Эко-туризм, Горы' }
         ],
-        tags: { culture: true, history: true, quiet: true, city: true, lively: false, mountains: false, activity: false, nature: false, modern: false, beach: false, industrial: false },
-        budget_suitability: { low: false, medium: true, high: false }
+        tags: { mountains: true, sea: false, city: true, activity: false, culture: true, gastronomy: true, seclusion: true, shopping: true, family_fun: false, eco_tourism: true },
+        budget_suitability: { low: true, medium: true, high: true }
     },
     {
         n: 'Боровое',
@@ -148,11 +165,14 @@ const allCities = [
             { name: 'Кон-Тики', address: 'набережная оз. Бурабай' }
         ],
         locations: [
-            { n: 'Поляна Абылай хана', a: 'нацпарк Бурабай' },
-            { n: 'Скала Жумбактас', a: 'озеро Боровое' }
+            { n: 'Поляна Абылай-хана', t: 'Культура, Эко-туризм' },
+            { n: 'Гора Болектау', t: 'Горы, Активность' },
+            { n: 'Озеро Щучье', t: 'Море/Вода, Уединение' },
+            { n: 'Казахстанская Лапландия', t: 'Семья, Активность' },
+            { n: 'Центральный рынок', t: 'Шоппинг, Гастрономия' }
         ],
-        tags: { nature: true, mountains: true, activity: true, quiet: true, city: false, culture: false, history: false, lively: false, modern: false, beach: false, industrial: false },
-        budget_suitability: { low: false, medium: false, high: true }
+        tags: { mountains: true, sea: true, city: false, activity: true, culture: false, gastronomy: true, seclusion: true, shopping: true, family_fun: true, eco_tourism: true },
+        budget_suitability: { low: true, medium: true, high: true }
     },
     {
         n: 'Шымкент',
@@ -177,11 +197,14 @@ const allCities = [
             { name: 'Bar Villa', address: 'ул. Казыбек Би, 29' }
         ],
         locations: [
-            { n: 'Цитадель', a: 'Старый город' },
-            { n: 'парк «Жайлауколь»', a: 'мкр. Туран' }
+            { n: 'Дендропарк', t: 'Эко-туризм, Семья' },
+            { n: 'Цитадель', t: 'Культура, Города' },
+            { n: 'Зоопарк', t: 'Семья, Активность' },
+            { n: 'Shymkent Plaza', t: 'Шоппинг, Города' },
+            { n: 'Кафе Кок-Сарай', t: 'Гастрономия' }
         ],
-        tags: { city: true, culture: true, history: true, lively: true, quiet: false, mountains: false, activity: false, nature: false, modern: false, beach: false, industrial: false },
-        budget_suitability: { low: true, medium: false, high: false }
+        tags: { mountains: false, sea: false, city: true, activity: false, culture: true, gastronomy: true, seclusion: false, shopping: true, family_fun: true, eco_tourism: false },
+        budget_suitability: { low: true, medium: true, high: true }
     },
     {
         n: 'Караганда',
@@ -206,11 +229,14 @@ const allCities = [
             { name: 'Line Brew', address: 'пр. Н. Абдирова, 20' }
         ],
         locations: [
-            { n: 'Музей Карлага', a: 'п. Долинка, ул. Школьная, 39' },
-            { n: 'Центральный парк', a: 'ул. Чкалова' }
+            { n: 'Музей Карлага', t: 'Культура, Уединение' },
+            { n: 'Центральный парк', t: 'Семья, Море/Вода' },
+            { n: 'ТРЦ City Mall', t: 'Шоппинг, Города' },
+            { n: 'Этнопарк', t: 'Города, Эко-туризм' },
+            { n: 'Спортивный комплекс им. Абдирова', t: 'Активность' }
         ],
-        tags: { city: true, culture: true, history: true, quiet: true, industrial: true, lively: false, mountains: false, activity: false, nature: false, modern: false, beach: false },
-        budget_suitability: { low: false, medium: true, high: false }
+        tags: { mountains: false, sea: false, city: true, activity: true, culture: true, gastronomy: false, seclusion: false, shopping: true, family_fun: false, eco_tourism: false },
+        budget_suitability: { low: true, medium: true, high: false }
     },
     {
         n: 'Актобе',
@@ -235,11 +261,14 @@ const allCities = [
             { name: 'Kishlak', address: 'пр. Абилкайыр хана, 44' }
         ],
         locations: [
-            { n: 'Планетарий', a: 'ул. Жанкожа батыра, 50' },
-            { n: 'Мечеть Нур Гасыр', a: 'пр. Абилкайыр хана, 92' }
+            { n: 'Мечеть Нур Гасыр', t: 'Культура, Города' },
+            { n: 'Парк Первого Президента', t: 'Семья, Активность' },
+            { n: 'ТРЦ Keruen City', t: 'Шоппинг, Семья' },
+            { n: 'Актюбинское море', t: 'Море/Вода, Активность' },
+            { n: 'Кафе Zina', t: 'Гастрономия' }
         ],
-        tags: { city: true, quiet: true, industrial: true, nature: true, lively: false, mountains: false, activity: false, culture: false, history: false, modern: false, beach: false },
-        budget_suitability: { low: false, medium: true, high: false }
+        tags: { mountains: false, sea: false, city: true, activity: true, culture: false, gastronomy: false, seclusion: false, shopping: true, family_fun: true, eco_tourism: false },
+        budget_suitability: { low: true, medium: true, high: false }
     },
     {
         n: 'Тараз',
@@ -264,10 +293,13 @@ const allCities = [
             { name: 'Arbat', address: 'пр. Жамбыла, 160' }
         ],
         locations: [
-            { n: 'Мавзолей Айша-Биби', a: 'с. Айша биби' },
-            { n: 'Комплекс «Древний Тараз»', a: 'ул. Толе би' }
+            { n: 'Мавзолей Айша-Биби', t: 'Культура, Уединение' },
+            { n: 'Арбат Тараз', t: 'Города, Шоппинг' },
+            { n: 'Озеро Зербулак', t: 'Море/Вода, Семья' },
+            { n: 'Эко-парк «Женис»', t: 'Эко-туризм, Семья' },
+            { n: 'Ресторан Marrakesh', t: 'Гастрономия' }
         ],
-        tags: { city: true, culture: true, history: true, quiet: true, lively: false, mountains: false, activity: false, nature: false, modern: false, beach: false, industrial: false },
+        tags: { mountains: false, sea: false, city: false, activity: false, culture: true, gastronomy: true, seclusion: true, shopping: false, family_fun: false, eco_tourism: false },
         budget_suitability: { low: true, medium: false, high: false }
     },
     {
@@ -293,11 +325,14 @@ const allCities = [
             { name: 'Marmaris', address: 'ул. Толстого, 143/1' }
         ],
         locations: [
-            { n: 'Центральная Набережная', a: 'Павлодар' },
-            { n: 'Мечеть Машхура Жусупа', a: 'ул. Каирбаева, 1' }
+            { n: 'Набережная Иртыша', t: 'Море/Вода, Активность' },
+            { n: 'Мечеть Машхура Жусупа', t: 'Культура, Города' },
+            { n: 'Batyr Mall', t: 'Шоппинг, Семья' },
+            { n: 'Музей «Шафер»', t: 'Культура, Уединение' },
+            { n: 'Гусиный перелет', t: 'Эко-туризм, Города' }
         ],
-        tags: { city: true, nature: true, quiet: true, industrial: true, lively: false, mountains: false, activity: false, culture: false, history: false, modern: false, beach: false },
-        budget_suitability: { low: true, medium: false, high: false }
+        tags: { mountains: false, sea: true, city: true, activity: false, culture: false, gastronomy: false, seclusion: false, shopping: false, family_fun: true, eco_tourism: false },
+        budget_suitability: { low: true, medium: true, high: false }
     },
     {
         n: 'Усть-Каменогорск',
@@ -322,11 +357,14 @@ const allCities = [
             { name: 'Пицца Блюз (Премиум зал)', address: 'ул. Максима Горького, 56' }
         ],
         locations: [
-            { n: 'Левобережный комплекс', a: 'ул. Сатпаева' },
-            { n: 'Гора Казахстан', a: 'Усть-Каменогорск' }
+            { n: 'Левобережный комплекс', t: 'Культура, Семья' },
+            { n: 'Гора Казахстан', t: 'Горы, Активность' },
+            { n: 'Бухтарминское водохранилище', t: 'Море/Вода, Уединение' },
+            { n: 'Emporium', t: 'Шоппинг, Города' },
+            { n: 'Парк Жастар', t: 'Эко-туризм, Семья' }
         ],
-        tags: { city: true, mountains: true, nature: true, quiet: true, industrial: true, lively: false, activity: false, culture: false, history: false, modern: false, beach: false },
-        budget_suitability: { low: false, medium: true, high: false }
+        tags: { mountains: true, sea: true, city: true, activity: true, culture: true, gastronomy: false, seclusion: true, shopping: true, family_fun: true, eco_tourism: true },
+        budget_suitability: { low: true, medium: true, high: true }
     },
     {
         n: 'Семей',
@@ -351,11 +389,14 @@ const allCities = [
             { name: 'Pekin', address: 'ул. Герцена, 32' }
         ],
         locations: [
-            { n: 'Музей Достоевского', a: 'ул. Достоевского, 118' },
-            { n: 'Подвесной мост', a: 'Семей' }
+            { n: 'Музей Абая', t: 'Культура, Города' },
+            { n: 'Подвесной мост', t: 'Города, Активность' },
+            { n: 'Остров Полковничий', t: 'Море/Вода, Семья' },
+            { n: 'Сосновый бор', t: 'Эко-туризм, Уединение' },
+            { n: 'Пиццерия «Додо»', t: 'Гастрономия, Семья' }
         ],
-        tags: { city: true, culture: true, history: true, quiet: true, nature: true, lively: false, mountains: false, activity: false, modern: false, beach: false, industrial: false },
-        budget_suitability: { low: true, medium: false, high: false }
+        tags: { mountains: false, sea: true, city: true, activity: true, culture: true, gastronomy: true, seclusion: true, shopping: false, family_fun: true, eco_tourism: true },
+        budget_suitability: { low: true, medium: true, high: true }
     },
     {
         n: 'Атырау',
@@ -380,11 +421,14 @@ const allCities = [
             { name: 'O\'Hara Irish Pub', address: 'ул. Канцева, 7' }
         ],
         locations: [
-            { n: 'Пешеходный мост «10 лет Независимости»', a: 'Атырау' },
-            { n: 'Мечеть Имангали', a: 'ул. Сатпаева' }
+            { n: 'Мост Европа-Азия', t: 'Города, Активность' },
+            { n: 'Река Урал (прогулки)', t: 'Море/Вода, Эко-туризм' },
+            { n: 'Baizaar ТРЦ', t: 'Шоппинг, Семья' },
+            { n: 'Городище Сарайшык', t: 'Культура, Уединение' },
+            { n: 'Рыбный рынок', t: 'Гастрономия, Шоппинг' }
         ],
-        tags: { city: true, industrial: true, quiet: true, nature: true, lively: false, mountains: false, activity: false, culture: false, history: false, modern: false, beach: false },
-        budget_suitability: { low: false, medium: true, high: false }
+        tags: { mountains: false, sea: true, city: true, activity: true, culture: true, gastronomy: true, seclusion: true, shopping: true, family_fun: true, eco_tourism: true },
+        budget_suitability: { low: true, medium: true, high: true }
     },
     {
         n: 'Костанай',
@@ -409,11 +453,14 @@ const allCities = [
             { name: 'The Ch樓', address: 'пр. Абая, 151/1' }
         ],
         locations: [
-            { n: 'Памятник Чарли Чаплину', a: 'ул. Гоголя' },
-            { n: 'Парк 25-летия Независимости', a: 'Костанай' }
+            { n: 'Парк культуры', t: 'Семья, Активность' },
+            { n: 'Kostanay Plaza', t: 'Шоппинг, Семья' },
+            { n: 'Французский квартал', t: 'Города, Культура' },
+            { n: 'Набережная «Шагала»', t: 'Море/Вода, Активность' },
+            { n: 'Кондитерская фабрика (магазин)', t: 'Гастрономия' }
         ],
-        tags: { city: true, nature: true, quiet: true, lively: false, mountains: false, activity: false, culture: false, history: false, modern: false, beach: false, industrial: false },
-        budget_suitability: { low: false, medium: true, high: false }
+        tags: { mountains: false, sea: true, city: true, activity: true, culture: true, gastronomy: true, seclusion: false, shopping: true, family_fun: true, eco_tourism: false },
+        budget_suitability: { low: true, medium: true, high: true }
     },
     {
         n: 'Кызылорда',
@@ -438,11 +485,14 @@ const allCities = [
             { name: 'Vivaldi', address: 'ул. Желтоксан, 1' }
         ],
         locations: [
-            { n: 'Мемориал Коркыт Ата', a: 'трасса Самара-Шымкент' },
-            { n: 'Мечеть Айтбая', a: 'ул. Жалантос Бахадура' }
+            { n: 'Мемориал Коркыт Ата', t: 'Культура, Уединение' },
+            { n: 'Набережная Сырдарьи', t: 'Море/Вода, Семья' },
+            { n: 'ТРЦ Aray', t: 'Шоппинг, Города' },
+            { n: 'Площадь Тагзым', t: 'Культура, Города' },
+            { n: 'Лагманхана «Тулпар»', t: 'Гастрономия' }
         ],
-        tags: { city: true, history: true, quiet: true, nature: true, lively: false, mountains: false, activity: false, culture: false, modern: false, beach: false, industrial: false },
-        budget_suitability: { low: true, medium: false, high: false }
+        tags: { mountains: false, sea: true, city: true, activity: false, culture: true, gastronomy: true, seclusion: true, shopping: true, family_fun: true, eco_tourism: false },
+        budget_suitability: { low: true, medium: true, high: true }
     },
     {
         n: 'Уральск',
@@ -467,11 +517,14 @@ const allCities = [
             { name: 'Pivovaroff', address: 'ул. Карева, 47' }
         ],
         locations: [
-            { n: 'Храм Христа Спасителя', a: 'пр. Нурсултана Назарбаева, 202' },
-            { n: 'Музей Пушкина', a: 'ул. Н. Назарбаева, 168' }
+            { n: 'Музей Пушкина', t: 'Культура, Города' },
+            { n: 'Парк им. Кирова', t: 'Семья, Активность' },
+            { n: 'Озеро Шалкар', t: 'Море/Вода, Эко-туризм' },
+            { n: 'City Center', t: 'Шоппинг, Семья' },
+            { n: 'Старая мечеть', t: 'Культура, Уединение' }
         ],
-        tags: { city: true, history: true, quiet: true, nature: true, lively: false, mountains: false, activity: false, culture: false, modern: false, beach: false, industrial: false },
-        budget_suitability: { low: true, medium: false, high: false }
+        tags: { mountains: false, sea: true, city: true, activity: true, culture: true, gastronomy: false, seclusion: true, shopping: true, family_fun: true, eco_tourism: true },
+        budget_suitability: { low: true, medium: true, high: true }
     },
     {
         n: 'Петропавловск',
@@ -496,11 +549,14 @@ const allCities = [
             { name: 'Emerald', address: 'ул. Мира, 122' }
         ],
         locations: [
-            { n: 'Резиденция Абылай хана', a: 'ул. Карима Сутюшева, 1Б' },
-            { n: 'Парк Культуры', a: 'ул. Конституции Казахстана' }
+            { n: 'Резиденция Абылай-хана', t: 'Культура, Города' },
+            { n: 'Улица Конституции', t: 'Города, Шоппинг' },
+            { n: 'Озеро Пестрое', t: 'Море/Вода, Активность' },
+            { n: 'Аквапарк «Нептун»', t: 'Семья, Активность' },
+            { n: 'Мещерский лес', t: 'Эко-туризм, Уединение' }
         ],
-        tags: { city: true, history: true, quiet: true, nature: true, lively: false, mountains: false, activity: false, culture: false, modern: false, beach: false, industrial: false },
-        budget_suitability: { low: true, medium: false, high: false }
+        tags: { mountains: false, sea: true, city: true, activity: true, culture: false, gastronomy: false, seclusion: true, shopping: false, family_fun: true, eco_tourism: true },
+        budget_suitability: { low: true, medium: true, high: true }
     },
     {
         n: 'Кокшетау',
@@ -525,11 +581,14 @@ const allCities = [
             { name: 'Zhibek Zholy', address: 'пр. Назарбаева, 15' }
         ],
         locations: [
-            { n: 'Сопка Букпа', a: 'ул. Кенесары' },
-            { n: 'Музей Акана Серэ', a: 'ул. Ауэзова, 163' }
+            { n: 'Сопка Букпа', t: 'Горы, Активность' },
+            { n: 'Озеро Копа', t: 'Море/Вода, Семья' },
+            { n: 'ТЦ Рио', t: 'Шоппинг, Города' },
+            { n: 'Музей истории', t: 'Культура, Города' },
+            { n: 'Сквер «Мангилик Ел»', t: 'Уединение, Города' }
         ],
-        tags: { mountains: true, activity: true, nature: true, quiet: true, city: true, lively: false, culture: false, history: false, modern: false, beach: false, industrial: false },
-        budget_suitability: { low: true, medium: false, high: false }
+        tags: { mountains: true, sea: true, city: true, activity: true, culture: true, gastronomy: false, seclusion: true, shopping: true, family_fun: true, eco_tourism: true },
+        budget_suitability: { low: true, medium: true, high: true }
     },
     {
         n: 'Талдыкорган',
@@ -554,11 +613,14 @@ const allCities = [
             { name: 'Zhetysu Restaurant', address: 'ул. Кабанбай батыра, 40' }
         ],
         locations: [
-            { n: 'Памятник Кабанбай батыру', a: 'ул. Тауелсиздик' },
-            { n: 'Центральный парк', a: 'ул. Кабанбай батыра' }
+            { n: 'Парк «Жастар»', t: 'Семья, Активность' },
+            { n: 'Набережная Каратала', t: 'Море/Вода, Эко-туризм' },
+            { n: 'City Center', t: 'Шоппинг, Города' },
+            { n: 'Арка Талдыкоргана', t: 'Города, Культура' },
+            { n: 'Ресторан Arbat', t: 'Гастрономия' }
         ],
-        tags: { culture: true, activity: true, city: true, quiet: true, history: true, mountains: false, nature: false, lively: false, modern: false, beach: false, industrial: false },
-        budget_suitability: { low: true, medium: false, high: false }
+        tags: { mountains: true, sea: true, city: true, activity: true, culture: true, gastronomy: true, seclusion: false, shopping: true, family_fun: false, eco_tourism: true },
+        budget_suitability: { low: true, medium: true, high: true }
     },
     {
         n: 'Балхаш',
@@ -583,11 +645,14 @@ const allCities = [
             { name: 'Aura', address: 'ул. Желтоксан, 15' }
         ],
         locations: [
-            { n: 'Набережная озера Балхаш', a: 'ул. Желтоксан' },
-            { n: 'Монумент Самолет МиГ-21', a: 'ул. Абая' }
+            { n: 'Городской пляж', t: 'Море/Вода, Семья' },
+            { n: 'Бектау-Ата', t: 'Горы, Эко-туризм' },
+            { n: 'Краеведческий музей', t: 'Культура, Города' },
+            { n: 'Набережная', t: 'Активность, Города' },
+            { n: 'Рыбный рынок', t: 'Гастрономия, Шоппинг' }
         ],
-        tags: { sea: true, activity: true, beach: true, nature: true, quiet: true, city: false, culture: false, history: false, modern: false, mountains: false, industrial: false },
-        budget_suitability: { low: true, medium: false, high: false }
+        tags: { mountains: true, sea: true, city: true, activity: true, culture: true, gastronomy: true, seclusion: true, shopping: true, family_fun: true, eco_tourism: true },
+        budget_suitability: { low: true, medium: true, high: true }
     },
     {
         n: 'Экибастуз',
@@ -612,11 +677,14 @@ const allCities = [
             { name: 'Assorti', address: 'ул. М. Жусупа, 115' }
         ],
         locations: [
-            { n: 'Мечеть им. Машхура Жусупа', a: 'ул. М. Жусупа' },
-            { n: 'Разрез Богатырь', a: 'смотровая площадка на окраине' }
+            { n: 'Разрез «Богатырь»', t: 'Города, Эко-туризм' },
+            { n: 'Парк «Шахтер»', t: 'Семья, Активность' },
+            { n: 'ГРЭС-2 (труба)', t: 'Города, Культура' },
+            { n: 'ТЦ Maxell', t: 'Шоппинг, Семья' },
+            { n: 'Кафе «Ас-Мар»', t: 'Гастрономия' }
         ],
-        tags: { city: true, culture: true, industrial: true, lively: true, history: true, mountains: false, activity: false, nature: false, modern: false, beach: false, sea: false },
-        budget_suitability: { low: true, medium: false, high: false }
+        tags: { mountains: false, sea: false, city: true, activity: false, culture: true, gastronomy: true, seclusion: false, shopping: true, family_fun: true, eco_tourism: true },
+        budget_suitability: { low: true, medium: true, high: true }
     },
     {
         n: 'Рудный',
@@ -641,11 +709,14 @@ const allCities = [
             { name: 'Graf', address: 'ул. Качарская, 12' }
         ],
         locations: [
-            { n: 'Рудненский музей', a: 'ул. Ленина, 40' },
-            { n: 'Парк культуры', a: 'пр. Комсомольский' }
+            { n: 'Парк культуры', t: 'Семья, Активность' },
+            { n: 'Река Тобол', t: 'Море/Вода, Уединение' },
+            { n: 'Скульптура «Горняк»', t: 'Культура, Города' },
+            { n: 'ТЦ на ул. Ленина', t: 'Шоппинг, Города' },
+            { n: 'Ледовый дворец', t: 'Активность, Семья' }
         ],
-        tags: { city: true, activity: true, industrial: true, lively: true, mountains: false, nature: false, culture: false, history: false, modern: false, beach: false, sea: false },
-        budget_suitability: { low: true, medium: false, high: false }
+        tags: { mountains: false, sea: true, city: true, activity: true, culture: true, gastronomy: false, seclusion: true, shopping: true, family_fun: true, eco_tourism: false },
+        budget_suitability: { low: true, medium: true, high: true }
     },
     {
         n: 'Конаев',
@@ -670,11 +741,14 @@ const allCities = [
             { name: 'Macao', address: 'Игорная зона' }
         ],
         locations: [
-            { n: 'Казино Astoria', a: 'трасса Алматы-Конаев' },
-            { n: 'Городской пляж', a: 'береговая линия' }
+            { n: 'Пляжи Капшагая', t: 'Море/Вода, Семья' },
+            { n: 'Казино (игорная зона)', t: 'Активность, Города' },
+            { n: 'Аквапарк', t: 'Семья, Активность' },
+            { n: 'Набережная Кунаева', t: 'Города, Активность' },
+            { n: 'Ресторан Riviera', t: 'Гастрономия, Море/Вода' }
         ],
-        tags: { sea: true, activity: true, beach: true, lively: true, modern: true, city: true, mountains: false, nature: false, culture: false, history: false, industrial: false },
-        budget_suitability: { low: false, medium: true, high: false }
+        tags: { mountains: false, sea: true, city: true, activity: true, culture: false, gastronomy: true, seclusion: false, shopping: false, family_fun: true, eco_tourism: false },
+        budget_suitability: { low: true, medium: true, high: true }
     },
     {
         n: 'Басши (Алтын-Эмель)',
@@ -699,11 +773,14 @@ const allCities = [
             { name: 'Банкетный зал «Басши»', address: 'ул. Абая, 1' }
         ],
         locations: [
-            { n: 'Поющий бархан', a: 'ГНПП Алтын-Эмель' },
-            { n: 'Горы Актау', a: 'ГНПП Алтын-Эмель' }
+            { n: 'Поющий бархан', t: 'Горы, Эко-туризм' },
+            { n: 'Горы Актау', t: 'Горы, Эко-туризм' },
+            { n: 'Горы Катутау', t: 'Горы, Уединение' },
+            { n: '700-летняя Ива', t: 'Эко-туризм, Культура' },
+            { n: 'Визит-центр', t: 'Культура, Семья' }
         ],
-        tags: { mountains: true, activity: true, nature: true, quiet: true, history: true, culture: false, city: false, lively: false, modern: false, beach: false, industrial: false },
-        budget_suitability: { low: false, medium: true, high: false }
+        tags: { mountains: true, sea: false, city: false, activity: false, culture: true, gastronomy: false, seclusion: true, shopping: false, family_fun: true, eco_tourism: true },
+        budget_suitability: { low: true, medium: true, high: true }
     },
     {
         n: 'Жанаозен',
@@ -728,11 +805,14 @@ const allCities = [
             { name: 'Tandyr', address: 'мкр. Самал, 15' }
         ],
         locations: [
-            { n: 'Памятник Первопроходцам', a: 'центр' },
-            { n: 'Мечеть Абиш-Ата', a: 'мкр. Шугыла' }
+            { n: 'Каньоны Кызылкуп', t: 'Эко-туризм, Горы' },
+            { n: 'Плато Устюрт', t: 'Эко-туризм, Уединение' },
+            { n: 'ТЦ Nauryz', t: 'Шоппинг, Города' },
+            { n: 'Мечеть Бекет-Ата', t: 'Культура, Уединение' },
+            { n: 'Зона отдыха Кендирли', t: 'Море/Вода, Семья' }
         ],
-        tags: { activity: true, culture: true, industrial: true, quiet: true, history: true, city: true, mountains: false, nature: false, lively: false, modern: false, beach: false },
-        budget_suitability: { low: false, medium: true, high: false }
+        tags: { mountains: true, sea: true, city: true, activity: false, culture: true, gastronomy: false, seclusion: true, shopping: true, family_fun: true, eco_tourism: true },
+        budget_suitability: { low: true, medium: true, high: true }
     },
     {
         n: 'Риддер',
@@ -757,11 +837,14 @@ const allCities = [
             { name: 'Versailles', address: 'ул. Гоголя, 45' }
         ],
         locations: [
-            { n: 'Гора Три брата', a: 'окрестности' },
-            { n: 'Западно-Алтайский заповедник', a: 'ул. Семеновой' }
+            { n: 'Гора Три Брата', t: 'Горы, Активность' },
+            { n: 'Западно-Алтайский заповедник', t: 'Эко-туризм, Уединение' },
+            { n: 'Горнолыжный спуск', t: 'Активность, Горы' },
+            { n: 'Краеведческий музей', t: 'Культура, Города' },
+            { n: 'База отдыха «Светлячок»', t: 'Семья, Эко-туризм' }
         ],
-        tags: { mountains: true, activity: true, nature: true, quiet: true, snow: true, city: false, culture: false, history: false, lively: false, modern: false, beach: false },
-        budget_suitability: { low: false, medium: true, high: false }
+        tags: { mountains: true, sea: false, city: false, activity: true, culture: true, gastronomy: false, seclusion: true, shopping: false, family_fun: true, eco_tourism: true },
+        budget_suitability: { low: true, medium: true, high: true }
     },
     {
         n: 'Степногорск',
@@ -786,11 +869,14 @@ const allCities = [
             { name: 'Palace', address: 'пр. Ленина, 15' }
         ],
         locations: [
-            { n: 'Историко-краеведческий музей', a: 'мкр. 3' },
-            { n: 'Центральная площадь', a: 'ул. Ленина' }
+            { n: 'Городской парк', t: 'Семья, Активность' },
+            { n: 'ДК «Горняк»', t: 'Культура, Города' },
+            { n: 'Зона отдыха «Серебряный бор»', t: 'Уединение, Эко-туризм' },
+            { n: 'Центральный ТЦ', t: 'Шоппинг, Города' },
+            { n: 'Кафе «Трапеза»', t: 'Гастрономия' }
         ],
-        tags: { city: true, activity: true, industrial: true, quiet: true, modern: true, culture: false, history: false, mountains: false, nature: false, lively: false, beach: false },
-        budget_suitability: { low: false, medium: true, high: false }
+        tags: { mountains: false, sea: false, city: true, activity: true, culture: true, gastronomy: true, seclusion: true, shopping: true, family_fun: true, eco_tourism: true },
+        budget_suitability: { low: true, medium: true, high: true }
     },
     {
         n: 'Байконур',
@@ -815,11 +901,14 @@ const allCities = [
             { name: 'Soyuz-Apollo', address: 'пр. Мира, 20' }
         ],
         locations: [
-            { n: 'Гагаринский старт', a: 'площадка №1' },
-            { n: 'Музей космодрома', a: 'площадка №2' }
+            { n: 'Музей истории космодрома', t: 'Культура, Города' },
+            { n: 'Аллея Космонавтов', t: 'Уединение, Культура' },
+            { n: 'Макет ракеты «Союз»', t: 'Города, Семья' },
+            { n: 'Набережная Сырдарьи', t: 'Море/Вода, Активность' },
+            { n: 'Ресторан «Звездное небо»', t: 'Гастрономия, Культура' }
         ],
-        tags: { culture: true, activity: true, history: true, city: true, modern: true, quiet: false, mountains: false, nature: false, lively: false, beach: false, industrial: false },
-        budget_suitability: { low: false, medium: false, high: true }
+        tags: { mountains: false, sea: true, city: true, activity: true, culture: true, gastronomy: true, seclusion: true, shopping: false, family_fun: true, eco_tourism: false },
+        budget_suitability: { low: true, medium: true, high: true }
     },
     {
         n: 'Щучинск',
@@ -844,11 +933,14 @@ const allCities = [
             { name: 'Sultan', address: 'пр. Абая, 100' }
         ],
         locations: [
-            { n: 'Лыжный трамплин', a: 'ул. Промышленная' },
-            { n: 'Озеро Щучье', a: 'Щучинск' }
+            { n: 'Озеро Щучье', t: 'Море/Вода, Уединение' },
+            { n: 'Лыжный трамплин', t: 'Активность, Горы' },
+            { n: 'Дендропарк', t: 'Эко-туризм, Семья' },
+            { n: 'ТЦ «Grand Plaza»', t: 'Шоппинг, Города' },
+            { n: 'Ресторан Sultan', t: 'Гастрономия' }
         ],
-        tags: { activity: true, mountains: true, nature: true, quiet: true, history: false, city: false, culture: false, lively: false, modern: false, beach: false, industrial: false },
-        budget_suitability: { low: false, medium: false, high: true }
+        tags: { mountains: true, sea: true, city: true, activity: true, culture: false, gastronomy: true, seclusion: true, shopping: true, family_fun: true, eco_tourism: true },
+        budget_suitability: { low: true, medium: true, high: true }
     }
 ];
 // --- Глобальные функции (объявлены здесь, чтобы быть доступными везде) ---
@@ -1311,57 +1403,47 @@ function getRecommendedCities(survey) {
     const userAnswers = survey.answers;
     // Проверяем, что userAnswers существует и является объектом
     if (!userAnswers || typeof userAnswers !== 'object') return [];
-    const userTripType = survey.tripType;
-    const userBudget = survey.budget;
-    
-    // 1. ЖЕСТКАЯ ФИЛЬТРАЦИЯ ПО БЮДЖЕТУ
-    // Предлагаем только те города, которые соответствуют категории пользователя
-    const budgetMatchedCities = allCities.filter(city => city.budget_suitability[userBudget]);
+    const userBudget = survey.budget || 'medium'; // Бюджет из анкеты
 
-    let scoredCities = budgetMatchedCities.map(city => {
-        let score = 0;
+    const answersArr = Object.values(userAnswers);
+    const allYes = answersArr.length === 10 && answersArr.every(v => v === true);
+    const allNo = answersArr.length === 10 && answersArr.every(v => v === false);
 
-        // 1. Оценка по ответам на свайп-опрос
-        for (const key in userAnswers) {
-            if (userAnswers[key] && city.tags[key]) {
-                score += 2; // Добавляем очки за совпадение интересов
-            } else if (!userAnswers[key] && city.tags[key]) {
-                score -= 1; // Вычитаем очки, если пользователь не хочет, а в городе это есть
-            }
-        }
-
-        // 2. Оценка по типу поездки
-        if (userTripType === 'family') {
-            if (city.tags.quiet || city.tags.nature || city.tags.history || city.tags.culture) score += 3;
-            if (city.tags.lively) score -= 2;
-        } else if (userTripType === 'friends') {
-            if (city.tags.activity || city.tags.lively || city.tags.city) score += 3;
-            if (city.tags.quiet) score -= 1;
-        } else if (userTripType === 'solo') {
-            // Для одиночных поездок более гибкие предпочтения
-            if (city.tags.activity || city.tags.culture || city.tags.nature) score += 1;
-        }
-
-        return { city, score };
-    });
-
-    // Сортируем города по убыванию очков
-    scoredCities.sort((a, b) => b.score - a.score);
-
-    // Фильтруем города с отрицательным счетом (если они совсем не подходят)
-    let recommendedCities = scoredCities.filter(item => item.score > 0).map(item => item.city);
-
-    // Если рекомендаций мало, добавляем Боровое как универсальный вариант
-    if (recommendedCities.length < 2) {
-        const borovoe = allCities.find(c => c.n === 'Боровое');
-        if (borovoe && !recommendedCities.some(c => c.n === 'Боровое')) {
-            recommendedCities.push(borovoe);
-        }
+    // Спец-случай: Все "Да" (Алматы и Боровое подходят для любого бюджета)
+    if (allYes) {
+        return allCities.filter(c => c.n === 'Алматы' || c.n === 'Боровое');
     }
 
+    // Спец-случай: Все "Нет" (Промышленные города)
+    if (allNo) {
+        return allCities.filter(c => c.n === 'Экибастуз' || c.n === 'Рудный');
+    }
+
+    // 1. ФИЛЬТРАЦИЯ ПО БЮДЖЕТУ (АНКЕТА)
+    const budgetFilteredCities = allCities.filter(city => city.budget_suitability[userBudget]);
+
+    // 2. ОЦЕНКА ПО ИНТЕРЕСАМ (ОПРОС)
+    let scoredCities = budgetFilteredCities.map(city => {
+        let matches = 0;
+        for (const key in userAnswers) {
+            if (userAnswers[key] === true && city.tags[key] === true) {
+                matches++;
+            }
+        }
+        return { city, matches };
+    });
+
+    scoredCities.sort((a, b) => b.matches - a.matches);
+    let recommendedCities = scoredCities.filter(item => item.matches >= 4).map(item => item.city);
+
+    // Гарантируем 2 рекомендации, добавляя универсальные варианты подходящего бюджета
     if (recommendedCities.length < 2) {
-        const almaty = allCities.find(c => c.n === 'Алматы');
-        if (almaty && !recommendedCities.some(c => c.n === 'Алматы')) recommendedCities.push(almaty);
+        const backups = allCities.filter(c => (c.n === 'Боровое' || c.n === 'Алматы' || c.n === 'Астана') && c.budget_suitability[userBudget]);
+        backups.forEach(city => {
+            if (recommendedCities.length < 2 && !recommendedCities.some(rc => rc.n === city.n)) {
+                recommendedCities.push(city);
+            }
+        });
     }
 
     return recommendedCities.slice(0, 2);
@@ -1461,16 +1543,6 @@ function renderCityCard(c, container, isIdeal = true) {
         // Премиум вариант: только дорогие места без пометок
         displayedHotels = (c.hotels_expensive || []).map(h => ({ ...h, label: '' }));
         displayedRestaurants = (c.restaurants_expensive || []).map(r => ({ ...r, label: '' }));
-    } else if (budget === 'medium' || tripType === 'family') {
-        // Смешанный вариант: указываем тип (бюджетный/дорогой)
-        showLabels = true;
-        const bHotels = (c.hotels_budget || []).slice(0, 1).map(h => ({ ...h, label: '<span style="color:var(--success)">(Эконом)</span> ' }));
-        const eHotels = (c.hotels_expensive || []).slice(0, 1).map(h => ({ ...h, label: '<span style="color:var(--primary)">(Премиум)</span> ' }));
-        displayedHotels = [...bHotels, ...eHotels];
-
-        const bRest = (c.restaurants_budget || []).slice(0, 2).map(r => ({ ...r, label: '<span style="color:var(--success)">(Эконом)</span> ' }));
-        const eRest = (c.restaurants_expensive || []).slice(0, 1).map(r => ({ ...r, label: '<span style="color:var(--primary)">(Премиум)</span> ' }));
-        displayedRestaurants = [...bRest, ...eRest];
     } else {
         // Дефолт (на случай, если данные не подгрузились)
         displayedHotels = (c.hotels_budget || []).concat(c.hotels_expensive || []).slice(0, 2).map(h => ({ ...h, label: '' }));
@@ -1494,7 +1566,7 @@ function renderCityCard(c, container, isIdeal = true) {
             </div>
             <div class="locations-list">
                 <p><strong>🗺️ Места для посещения:</strong></p>
-                ${c.locations ? c.locations.map(l => `<div class="hotel-item">📸 ${l.n}<br><small>${l.a}</small></div>`).join('') : '<small>Данные уточняются</small>'}
+                ${c.locations ? c.locations.map(l => `<div class="hotel-item">📸 <strong>${l.n}</strong> — <small>${l.t}</small></div>`).join('') : '<small>Данные уточняются</small>'}
             </div>
             <div class="restaurants-list">
                 <p><strong>🍽️ Где поесть:</strong></p>
