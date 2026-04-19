@@ -100,6 +100,15 @@ h2, h3, h4 { color: var(--dark); }
 
 .full-width { width: 100%; box-sizing: border-box; }
 
+.button-group {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
 .form-group { margin-bottom: 20px; text-align: left; }
 .form-group label { display: block; margin-bottom: 8px; font-weight: 600; font-size: 0.9rem; color: var(--text); opacity: 0.8; }
 .form-group input, .form-group select {
@@ -190,7 +199,7 @@ h2, h3, h4 { color: var(--dark); }
 .locations-list, .restaurants-list {
     margin-top: 15px;
     padding-top: 10px;
-    border-top: 1px dashed #ddd;
+    border-top: 1px dashed rgba(128, 128, 128, 0.3);
     font-size: 0.85rem;
 }
 
@@ -263,13 +272,21 @@ h2, h3, h4 { color: var(--dark); }
 .hotels-list {
     margin-top: 20px;
     padding-top: 15px;
-    border-top: 2px dashed #f1f5f9; /* Линия отрыва билета */
+    border-top: 2px dashed rgba(128, 128, 128, 0.3); /* Линия отрыва билета */
     font-size: 0.85rem;
     text-align: left;
 }
-.hotel-item { margin-bottom: 10px; color: #555; }
+.hotel-item { margin-bottom: 10px; color: var(--text); }
 
 .admin-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; }
+.admin-header { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    margin-bottom: 30px; 
+    gap: 20px;
+    flex-wrap: wrap;
+}
 .admin-table { 
     width: 100%; 
     border-collapse: separate; 
