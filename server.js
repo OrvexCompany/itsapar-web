@@ -181,7 +181,7 @@ app.get("/admin/verify", auth, adminOnly, (req, res) => {
 app.get("/admin/analytics", auth, adminOnly, (req, res) => {
     console.log("📊 [ADMIN] Запрос аналитики от:", req.user.username);
     
-    db.all("SELECT username, role, survey_data FROM users", (err, rows) => {
+    db.all("SELECT username, role, survey_data FROM users", [], (err, rows) => {
         if (err) {
             console.error("❌ Ошибка БД в аналитике:", err.message);
             return res.status(500).json({ error: "Ошибка базы данных" });
@@ -195,8 +195,7 @@ app.get("/admin/analytics", auth, adminOnly, (req, res) => {
 
             const usersList = (rows || []).map((row, index) => {
                 let survey = {};
-                // Очень строгая проверка JSON
-                if (row && row.survey_data && typeof row.survey_data === 'string' && row.survey_data.trim() !== "" && row.survey_data !== "null") {
+                if (row && row.survey_data && typeof row.survey_data === 'string' && row.survey_data.length > 5) {
                     try {
                         const cleanJson = row.survey_data.replace(/[\u0000-\u001F\u007F-\u009F]/g, ""); // Очистка скрытых символов
                         const parsed = JSON.parse(cleanJson);

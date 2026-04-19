@@ -1205,8 +1205,12 @@ async function renderAdminTable(searchTerm = '') {
         });
 
         if (!response.ok) {
-            const msg = response.status === 403 ? "Доступ запрещен (вы не админ)" : "Ошибка сервера (500)";
-            body.innerHTML = `<tr><td colspan="6" style="text-align:center; color:var(--danger); padding:40px;">⚠️ ${msg}. Попробуйте перевойти в аккаунт.</td></tr>`;
+            const msg = response.status === 403 ? "Доступ запрещен" : "Ошибка сервера (500)";
+            body.innerHTML = `
+                <tr><td colspan="6" style="text-align:center; color:var(--danger); padding:40px;">
+                    ⚠️ ${msg}<br>
+                    <button onclick="renderAdminTable()" class="btn btn-outline" style="margin-top:15px; font-size:0.7rem;">Перезагрузить данные</button>
+                </td></tr>`;
             return;
         }
 

@@ -14,10 +14,11 @@
         .charts-container { display: grid; grid-template-columns: 1fr 1.5fr; gap: 30px; margin-bottom: 40px; }
         .chart-box { background: white; padding: 20px; border-radius: 24px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); }
         canvas { max-width: 100%; }
+        .error-container { text-align: center; padding: 50px; background: white; border-radius: 24px; margin-top: 20px; }
     </style>
 </head>
 <body>
-    <div class="container" style="max-width: 1000px;">
+    <div id="analyticsContainer" class="container" style="max-width: 1000px;">
         <div class="admin-header">
             <h1>📈 Админ аналитика</h1>
             <button onclick="window.history.back()" class="btn btn-outline">Назад</button>
@@ -64,19 +65,23 @@
     </div>
 
     <script>
-        document.addEventListener('DOMContentLoaded', async () => {
+        async function loadAnalytics() {
             const token = localStorage.getItem('token');
             if (!token) {
                 window.location.href = 'login.html';
                 return;
             }
 
+            const container = document.getElementById('analyticsContainer');
+            const originalContent = container.innerHTML;
+
             try {
-                const response = await fetch('http://localhost:3000/admin/analytics', {
+                // Исползуем относительный путь вместо localhost
+                const response = await fetch('/admin/analytics', {
                     headers: { 'Authorization': `Bearer ${token}` }
                 });
 
-                if (!response.ok) throw new Error('Access denied');
+                if (!response.ok) throw new Error(response.status === 403 ? 'Доступ запрещен' : 'Ошибка сервера');
                 const data = await response.json();
 
                 // Наполнение цифр
@@ -127,11 +132,19 @@
                 });
 
             } catch (error) {
-                console.error(error);
-                alert('Ошибка доступа или сервера');
-                window.location.href = 'admin.html';
+                console.error("Analytics Error:", error);
+                container.innerHTML = `
+                    <div class="error-container">
+                        <h2 style="color:var(--danger)">⚠️ ${error.message}</h2>
+                        <p>Не удалось загрузить данные аналитики.</p>
+                        <button onclick="location.reload()" class="btn btn-primary" style="margin-top:20px;">Перезагрузить данные</button>
+                        <button onclick="window.history.back()" class="btn btn-outline" style="margin-top:20px; margin-left:10px;">Назад</button>
+                    </div>
+                `;
             }
-        });
+        }
+
+        document.addEventListener('DOMContentLoaded', loadAnalytics);
     </script>
     <script src="app.js"></script>
 </body>
