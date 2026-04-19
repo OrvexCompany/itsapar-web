@@ -1554,7 +1554,6 @@ function renderCityCard(c, container, isIdeal = true) {
     const card = document.createElement('div');
     card.className = 'res-card';
     card.innerHTML = `
-        <img src="${c.img}" alt="${c.n}" class="city-card-img">
         <h3>${c.n}</h3>
         <p>${c.d}</p>
         <div class="city-details" style="display: none;">
