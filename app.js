@@ -1271,10 +1271,8 @@ function renderCityCard(c, container, isIdeal = true) {
 
     let displayedHotels = [];
     let displayedRestaurants = [];
-    let showLabels = false;
 
     // Логика подбора контента
-    if (budget === 'low') {
     if (tripType === 'family' || budget === 'medium') {
         // Смешанный вариант для семей или среднего бюджета
         const bHotels = (c.hotels_budget || []).slice(0, 1).map(h => ({ ...h, label: '<span style="color:var(--success); font-weight:bold;">(Эконом)</span> ' }));
@@ -1329,7 +1327,6 @@ function renderCityCard(c, container, isIdeal = true) {
             </div>
             <div class="restaurants-list">
                 <p><strong>🍽️ Где поесть:</strong></p>
-                ${c.restaurants ? c.restaurants.map(r => `<div class="hotel-item">🍴 ${r.n}<br><small>${r.a}</small></div>`).join('') : '<small>Данные уточняются</small>'}
                 ${displayedRestaurants.length > 0 ? displayedRestaurants.map(r => `
                     <div class="hotel-item">
                         🍴 ${r.label}${r.name}<br>
