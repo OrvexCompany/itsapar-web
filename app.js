@@ -607,7 +607,6 @@ document.addEventListener('DOMContentLoaded', () => {
     document.body?.classList.add('page-loaded');
 
     try {
-        initTheme(); // Инициализация темы
         injectChat(); // Добавляем вызов функции чата
         initApp();
         console.log("Приложение успешно запущено");
@@ -615,34 +614,6 @@ document.addEventListener('DOMContentLoaded', () => {
         console.error("Критическая ошибка при запуске:", error);
     }
 });
-
-// --- Логика переключения темы ---
-function initTheme() {
-    const savedTheme = localStorage.getItem('theme') || 'light';
-    document.documentElement.setAttribute('data-theme', savedTheme);
-    injectThemeToggle(savedTheme);
-}
-
-function injectThemeToggle(currentTheme) {
-    if (document.getElementById('themeToggle')) return;
-    
-    const btn = document.createElement('button');
-    btn.id = 'themeToggle';
-    btn.className = 'theme-toggle';
-    btn.innerHTML = currentTheme === 'light' ? '🌙' : '☀️';
-    btn.title = 'Переключить тему';
-    
-    btn.onclick = () => {
-        const html = document.documentElement;
-        const newTheme = html.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
-        
-        html.setAttribute('data-theme', newTheme);
-        localStorage.setItem('theme', newTheme);
-        btn.innerHTML = newTheme === 'light' ? '🌙' : '☀️';
-    };
-    
-    document.body.appendChild(btn);
-}
 
 function injectPolicy(targetUrl = null) {
     const wrapper = document.getElementById('policyWrapper');
