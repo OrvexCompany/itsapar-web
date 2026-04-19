@@ -303,18 +303,27 @@ const allCities = [
         n: 'Усть-Каменогорск',
         d: 'Восточно-Казахстанский город, окруженный горами и реками, индустриальный.',
         img: 'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=600',
-        hotels: [
-            { name: 'Shiny River Hotel', address: 'ул. Казахстан 77' },
-            { name: 'Dedeman Oskemen Tavros', address: 'ул. Кабанбай Батыра 160' }
+        hotels_budget: [
+            { name: 'Хостел «Сити»', address: 'ул. Казахстан, 64' },
+            { name: 'Гостиница «Турист»', address: 'ул. Ади Шарипова, 92' }
+        ],
+        hotels_expensive: [
+            { name: 'Dedeman Oskemen', address: 'ул. Пермитина, 11/1' },
+            { name: 'Shiny River', address: 'ул. Астана, 8/1' }
+        ],
+        restaurants_budget: [
+            { name: 'Столовая «Сели-Поели»', address: 'ул. Горького, 50' },
+            { name: 'Донерная «Master Food»', address: 'ул. Виноградова, 17' },
+            { name: 'Асхана «Береке»', address: 'пр. Назарбаева, 5/3' }
+        ],
+        restaurants_expensive: [
+            { name: 'Barhat', address: 'ул. Казахстан, 64' },
+            { name: 'Two Rivers', address: 'ул. Пермитина, 11/1 (в Dedeman)' },
+            { name: 'Пицца Блюз (Премиум зал)', address: 'ул. Максима Горького, 56' }
         ],
         locations: [
             { n: 'Левобережный комплекс', a: 'ул. Сатпаева' },
             { n: 'Гора Казахстан', a: 'Усть-Каменогорск' }
-        ],
-        restaurants: [
-            { n: 'Serebro', a: 'пр. Шакарима, 1/1' },
-            { n: 'Две Реки', a: 'ул. Пермитина, 11' },
-            { n: 'Пицца Блюз', a: 'ул. Казахстан, 64' }
         ],
         tags: { city: true, mountains: true, nature: true, quiet: true, industrial: true, lively: false, activity: false, culture: false, history: false, modern: false, beach: false },
         budget_suitability: { low: false, medium: true, high: false }
@@ -323,18 +332,27 @@ const allCities = [
         n: 'Семей',
         d: 'Исторический город на Иртыше, связанный с Абаем Кунанбаевым и Достоевским.',
         img: 'https://images.unsplash.com/photo-1510563800743-aed236490d08?q=80&w=600',
-        hotels: [
-            { name: 'Semey Hotel', address: 'ул. Абая 100' },
-            { name: 'Grand Hotel Semey', address: 'ул. Кабанбай Батыра 27' }
+        hotels_budget: [
+            { name: 'Гостиница «Спартак»', address: 'ул. Бозтаева, 4' },
+            { name: 'Хостел «Nomad»', address: 'ул. Кабанбай Батыра, 42' }
+        ],
+        hotels_expensive: [
+            { name: 'Semey Hotel', address: 'ул. Абая, 94' },
+            { name: 'Nomad Hotel', address: 'ул. Ленина, 9' }
+        ],
+        restaurants_budget: [
+            { name: 'Столовая «Центральная»', address: 'ул. Чокана Валиханова, 137' },
+            { name: 'Кафе «Береке»', address: 'ул. Жамакаева, 98' },
+            { name: 'Донерная «King Food»', address: 'пр. Шакерима, 12' }
+        ],
+        restaurants_expensive: [
+            { name: 'Turandot', address: 'ул. Абая, 94' },
+            { name: 'Zodiak', address: 'ул. Уранхаева, 21' },
+            { name: 'Pekin', address: 'ул. Герцена, 32' }
         ],
         locations: [
             { n: 'Музей Достоевского', a: 'ул. Достоевского, 118' },
             { n: 'Подвесной мост', a: 'Семей' }
-        ],
-        restaurants: [
-            { n: 'Zhibek Zholy', a: 'ул. Мухамедханова, 42' },
-            { n: 'Provance', a: 'ул. Мухамедханова, 8' },
-            { n: 'Kish-Mish', a: 'ул. Интернациональная, 25' }
         ],
         tags: { city: true, culture: true, history: true, quiet: true, nature: true, lively: false, mountains: false, activity: false, modern: false, beach: false, industrial: false },
         budget_suitability: { low: true, medium: false, high: false }
@@ -343,18 +361,27 @@ const allCities = [
         n: 'Атырау',
         d: 'Нефтяная столица Казахстана, расположен на реке Урал, близость к Каспийскому морю.',
         img: 'https://images.unsplash.com/photo-1533035353720-f1c6a75cd8ab?q=80&w=600',
-        hotels: [
-            { name: 'Renaissance Atyrau Hotel', address: 'ул. Сатпаева 15Б' },
-            { name: 'Marriott Executive Apartments Atyrau', address: 'ул. Абая 12' }
+        hotels_budget: [
+            { name: 'Гостиница «Ак Жайык»', address: 'ул. Абая, 15а' },
+            { name: 'Hostel 24', address: 'мкр. Авангард-3, 34' }
+        ],
+        hotels_expensive: [
+            { name: 'Renaissance Atyrau Hotel', address: 'ул. Сатпаева, 15б' },
+            { name: 'River Palace', address: 'ул. Айтеке Би, 55' }
+        ],
+        restaurants_budget: [
+            { name: 'Столовая «Тагам»', address: 'ул. Кулманова, 113' },
+            { name: 'Базилик', address: 'ул. Сатпаева, 19' },
+            { name: 'Донерная «The Best»', address: 'ул. Махамбета, 116' }
+        ],
+        restaurants_expensive: [
+            { name: 'Cinzzano', address: 'ул. Сатпаева, 15б' },
+            { name: 'Caravella', address: 'ул. Айтеке Би, 55' },
+            { name: 'O\'Hara Irish Pub', address: 'ул. Канцева, 7' }
         ],
         locations: [
             { n: 'Пешеходный мост «10 лет Независимости»', a: 'Атырау' },
             { n: 'Мечеть Имангали', a: 'ул. Сатпаева' }
-        ],
-        restaurants: [
-            { n: 'Sarayshyq', a: 'мкр. Мунайшы, 1Б' },
-            { n: 'Bavarius', a: 'мкр. Авангард, 4, дом 12А' },
-            { n: 'Cinque Sensi', a: 'ул. Айтеке би, 55' }
         ],
         tags: { city: true, industrial: true, quiet: true, nature: true, lively: false, mountains: false, activity: false, culture: false, history: false, modern: false, beach: false },
         budget_suitability: { low: false, medium: true, high: false }
@@ -363,18 +390,27 @@ const allCities = [
         n: 'Костанай',
         d: 'Аграрный регион, спокойный город с парками и скверами, озера неподалеку.',
         img: 'https://images.unsplash.com/photo-1500382017468-9049fed747ef?q=80&w=600',
-        hotels: [
-            { name: 'Medeu Hotel', address: 'ул. Аль-Фараби 118' },
-            { name: 'Palace Hotel Kostanay', address: 'ул. Баймагамбетова 162' }
+        hotels_budget: [
+            { name: 'Гостиница «Турист»', address: 'ул. Байтурсынова, 95' },
+            { name: 'Hostel Kostanay', address: 'ул. Гоголя, 144' }
+        ],
+        hotels_expensive: [
+            { name: 'Medeu Hotel', address: 'ул. Байтурсынова, 82' },
+            { name: 'Tobol Hotel', address: 'ул. 5 Декабря, 100' }
+        ],
+        restaurants_budget: [
+            { name: 'Столовая «Любимая»', address: 'пр. Абая, 162' },
+            { name: 'Пловная №1', address: 'ул. Аль-Фараби, 88' },
+            { name: 'Пиццерия «Додо»', address: 'ул. Пушкина, 65' }
+        ],
+        restaurants_expensive: [
+            { name: 'Marrakesh', address: 'ул. Гоголя, 62' },
+            { name: 'Гарри Поттер', address: 'ул. Тауелсиздик, 116' },
+            { name: 'The Ch樓', address: 'пр. Абая, 151/1' }
         ],
         locations: [
             { n: 'Памятник Чарли Чаплину', a: 'ул. Гоголя' },
             { n: 'Парк 25-летия Независимости', a: 'Костанай' }
-        ],
-        restaurants: [
-            { n: 'Медведь', a: 'ул. Гоголя, 62' },
-            { n: 'Toscana', a: 'ул. Тәуелсіздік, 81' },
-            { n: 'Гости', a: 'ул. Пушкина, 43' }
         ],
         tags: { city: true, nature: true, quiet: true, lively: false, mountains: false, activity: false, culture: false, history: false, modern: false, beach: false, industrial: false },
         budget_suitability: { low: false, medium: true, high: false }
@@ -383,18 +419,27 @@ const allCities = [
         n: 'Кызылорда',
         d: 'Исторический город, расположенный в пустынной местности, связан с космодромом Байконур.',
         img: 'https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?q=80&w=600',
-        hotels: [
-            { name: 'Aray Hotel', address: 'ул. Коркыт Ата 1' },
-            { name: 'Sultan Plaza Hotel', address: 'ул. Абая 10' }
+        hotels_budget: [
+            { name: 'Гостиница «Кызылорда»', address: 'ул. Журбы, 1' },
+            { name: 'Хостел «Орда»', address: 'ул. Абая, 55' }
+        ],
+        hotels_expensive: [
+            { name: 'Sultan Plaza', address: 'пр. Астана, 44' },
+            { name: 'Grand Hotel Nomads', address: 'ул. Коркыт Ата, 123' }
+        ],
+        restaurants_budget: [
+            { name: 'Столовая «Ас-Мар»', address: 'ул. Токмагамбетова, 15' },
+            { name: 'Лагманхана «Тулпар»', address: 'ул. Байтурсынова, 40' },
+            { name: 'Кафе «Береке»', address: 'пр. Абая, 22' }
+        ],
+        restaurants_expensive: [
+            { name: 'Arbat', address: 'ул. Айтеке Би, 11' },
+            { name: 'Zhibek Zholy', address: 'пр. Султана Бейбарыса, 4' },
+            { name: 'Vivaldi', address: 'ул. Желтоксан, 1' }
         ],
         locations: [
             { n: 'Мемориал Коркыт Ата', a: 'трасса Самара-Шымкент' },
             { n: 'Мечеть Айтбая', a: 'ул. Жалантос Бахадура' }
-        ],
-        restaurants: [
-            { n: 'Monaco', a: 'ул. Жалантос Бахадура, 19' },
-            { n: 'Qobyz', a: 'ул. Коркыт Ата, 12' },
-            { n: 'Veranda', a: 'пр. Абая, 37А' }
         ],
         tags: { city: true, history: true, quiet: true, nature: true, lively: false, mountains: false, activity: false, culture: false, modern: false, beach: false, industrial: false },
         budget_suitability: { low: true, medium: false, high: false }
@@ -403,18 +448,27 @@ const allCities = [
         n: 'Уральск',
         d: 'Старинный город на реке Урал, богатая история, архитектура 19 века.',
         img: 'https://images.unsplash.com/photo-1510797215324-95aa89f43c33?q=80&w=600',
-        hotels: [
-            { name: 'Chagala Hotel Uralsk', address: 'ул. Достык 186' },
-            { name: 'Pushkin Hotel', address: 'ул. Пушкина 65' }
+        hotels_budget: [
+            { name: 'Гостиница «Урал»', address: 'пр. Назарбаева, 184' },
+            { name: 'Хостел «Дом»', address: 'ул. Курмангазы, 150' }
+        ],
+        hotels_expensive: [
+            { name: 'Park Hotel', address: 'ул. Сарайшык, 28/2' },
+            { name: 'Pushkin Hotel', address: 'пр. Назарбаева, 148' }
+        ],
+        restaurants_budget: [
+            { name: 'Столовая «Как дома»', address: 'ул. Дины Нурпеисовой, 15' },
+            { name: 'Бургерная «Black Star» (акции)', address: 'пр. Назарбаева, 191' },
+            { name: 'Асхана «Дастархан»', address: 'ул. Мухита, 78' }
+        ],
+        restaurants_expensive: [
+            { name: 'Venezia', address: 'пр. Назарбаева, 162/1' },
+            { name: 'Zina', address: 'ул. Сарайшык, 28' },
+            { name: 'Pivovaroff', address: 'ул. Карева, 47' }
         ],
         locations: [
             { n: 'Храм Христа Спасителя', a: 'пр. Нурсултана Назарбаева, 202' },
             { n: 'Музей Пушкина', a: 'ул. Н. Назарбаева, 168' }
-        ],
-        restaurants: [
-            { n: 'Pivovaroff', a: 'ул. Хамида Чурина, 116' },
-            { n: 'Venezia', a: 'пр. Нурсултана Назарбаева, 179' },
-            { n: 'Zolotaya Orda', a: 'пр. Абая, 63' }
         ],
         tags: { city: true, history: true, quiet: true, nature: true, lively: false, mountains: false, activity: false, culture: false, modern: false, beach: false, industrial: false },
         budget_suitability: { low: true, medium: false, high: false }
@@ -423,18 +477,27 @@ const allCities = [
         n: 'Петропавловск',
         d: 'Северный город Казахстана, исторический центр, озера и леса вокруг.',
         img: 'https://images.unsplash.com/photo-1444491741275-3747c53c99b4?q=80&w=600',
-        hotels: [
-            { name: 'Kyzylzhar Hotel', address: 'ул. Конституции Казахстана 23' },
-            { name: 'Green Which Hotel', address: 'ул. Интернациональная 50' }
+        hotels_budget: [
+            { name: 'Гостиница «Восход»', address: 'ул. Конституции Казахстана, 52' },
+            { name: 'Хостел «Север»', address: 'ул. Мира, 215' }
+        ],
+        hotels_expensive: [
+            { name: 'Park Hotel North', address: 'ул. Кеншинбаева, 22' },
+            { name: 'Skif Hotel', address: 'ул. Партизанская, 118' }
+        ],
+        restaurants_budget: [
+            { name: 'Столовая «Сарбай»', address: 'ул. Интернациональная, 59' },
+            { name: 'Кафе «Блинчик»', address: 'ул. Конституции Казахстана, 13' },
+            { name: 'Донерная «Best»', address: 'ул. Жамбыла, 150' }
+        ],
+        restaurants_expensive: [
+            { name: 'Kishlak', address: 'ул. Конституции Казахстана, 31' },
+            { name: 'Friends', address: 'ул. Интернациональная, 21' },
+            { name: 'Emerald', address: 'ул. Мира, 122' }
         ],
         locations: [
             { n: 'Резиденция Абылай хана', a: 'ул. Карима Сутюшева, 1Б' },
             { n: 'Парк Культуры', a: 'ул. Конституции Казахстана' }
-        ],
-        restaurants: [
-            { n: 'Трактир на Парковой', a: 'ул. Парковая, 141' },
-            { n: 'Semiramis', a: 'ул. Конституции Казахстана, 54' },
-            { n: 'Sahar', a: 'ул. Конституции Казахстана, 13' }
         ],
         tags: { city: true, history: true, quiet: true, nature: true, lively: false, mountains: false, activity: false, culture: false, modern: false, beach: false, industrial: false },
         budget_suitability: { low: true, medium: false, high: false }
@@ -443,18 +506,27 @@ const allCities = [
         n: 'Кокшетау',
         d: 'Уютный город у подножия сопок, ворота в край озер и живописной природы.',
         img: 'https://images.unsplash.com/photo-1549416805-0e7740e2136e?q=80&w=600',
-        hotels: [
-            { name: 'Достык', address: 'ул. Абая, 105' },
-            { name: 'Кокшетау', address: 'ул. Кенесары, 47' }
+        hotels_budget: [
+            { name: 'Гостиница «Достык»', address: 'ул. Ауэзова, 183' },
+            { name: 'Хостел «Кокше»', address: 'ул. Горького, 19' }
+        ],
+        hotels_expensive: [
+            { name: 'Green Which Hotel', address: 'ул. Ауэзова, 157' },
+            { name: 'Plaza Hotel', address: 'ул. Абая, 114' }
+        ],
+        restaurants_budget: [
+            { name: 'Столовая «Арзан»', address: 'ул. Сатпаева, 10' },
+            { name: 'Кафе «Шафран»', address: 'ул. Горького, 31' },
+            { name: 'Бистро «Fast Food»', address: 'ул. Ауэзова, 190' }
+        ],
+        restaurants_expensive: [
+            { name: 'GQ Restaurant', address: 'ул. Абая, 114' },
+            { name: 'Tiflis', address: 'ул. Ауэзова, 157' },
+            { name: 'Zhibek Zholy', address: 'пр. Назарбаева, 15' }
         ],
         locations: [
             { n: 'Сопка Букпа', a: 'ул. Кенесары' },
             { n: 'Музей Акана Серэ', a: 'ул. Ауэзова, 163' }
-        ],
-        restaurants: [
-            { n: 'Мясо', a: 'ул. Ауэзова, 161' },
-            { n: 'Бульвар', a: 'ул. Абая, 114' },
-            { n: 'Зодиак', a: 'ул. Сатпаева, 15' }
         ],
         tags: { mountains: true, activity: true, nature: true, quiet: true, city: true, lively: false, culture: false, history: false, modern: false, beach: false, industrial: false },
         budget_suitability: { low: true, medium: false, high: false }
@@ -463,18 +535,27 @@ const allCities = [
         n: 'Талдыкорган',
         d: 'Зеленый город с богатой культурой и множеством возможностей для активного отдыха.',
         img: 'https://images.unsplash.com/photo-1518391846015-55a9cc003b25?q=80&w=600',
-        hotels: [
-            { name: 'Sunrise Hotel', address: 'ул. Балапанова, 23' },
-            { name: 'Green Villa', address: 'ул. Гаухар Ана, 116А' }
+        hotels_budget: [
+            { name: 'Гостиница «Талдыкорган»', address: 'ул. Тауелсиздик, 67' },
+            { name: 'Гостевой дом «Алтын»', address: 'ул. Кабанбай Батыра, 34' }
+        ],
+        hotels_expensive: [
+            { name: 'Grand Hotel Zhetysu', address: 'ул. Кабанбай батыра, 40' },
+            { name: 'Alatau Hotel', address: 'ул. Жансугурова, 112' }
+        ],
+        restaurants_budget: [
+            { name: 'Столовая «Береке»', address: 'ул. Биржан Сал, 45' },
+            { name: 'Кафе «Улытау»', address: 'ул. Балапанова, 23' },
+            { name: 'Донер «Master»', address: 'ул. Тауелсиздик, 100' }
+        ],
+        restaurants_expensive: [
+            { name: 'Arbat', address: 'ул. Гаухар Ана, 110' },
+            { name: 'Senator', address: 'ул. Жансугурова, 187' },
+            { name: 'Zhetysu Restaurant', address: 'ул. Кабанбай батыра, 40' }
         ],
         locations: [
             { n: 'Памятник Кабанбай батыру', a: 'ул. Тауелсиздик' },
             { n: 'Центральный парк', a: 'ул. Кабанбай батыра' }
-        ],
-        restaurants: [
-            { n: 'АйСер', a: 'ул. Тауелсиздик, 89' },
-            { n: 'Viva', a: 'ул. Жансугурова, 114' },
-            { n: 'Бахчисарай', a: 'ул. Гаухар Ана, 116' }
         ],
         tags: { culture: true, activity: true, city: true, quiet: true, history: true, mountains: false, nature: false, lively: false, modern: false, beach: false, industrial: false },
         budget_suitability: { low: true, medium: false, high: false }
@@ -483,18 +564,27 @@ const allCities = [
         n: 'Балхаш',
         d: 'Город на берегу уникального озера, идеален для водных активностей и отдыха на пляже.',
         img: 'https://images.unsplash.com/photo-1506929662133-570c13a5c32d?q=80&w=600',
-        hotels: [
-            { name: 'Альпина', address: 'ул. Сейфуллина, 40' },
-            { name: 'Жемчужина', address: 'ул. Ленина, 1' }
+        hotels_budget: [
+            { name: 'Гостиница «Центральная»', address: 'ул. Желтоксан, 11' },
+            { name: 'База отдыха «Голубая Лагуна»', address: 'набережная, б/н' }
+        ],
+        hotels_expensive: [
+            { name: 'Pearl Hotel', address: 'ул. Желтоксан, 15' },
+            { name: 'Riviera', address: 'пос. Чубар-Тюбек, береговая зона' }
+        ],
+        restaurants_budget: [
+            { name: 'Столовая «Рыбацкая»', address: 'ул. Ленина, 34' },
+            { name: 'Кафе «Ак Жайык»', address: 'ул. Мира, 12' },
+            { name: 'Донерная «Центр»', address: 'ул. Желтоксан, 5' }
+        ],
+        restaurants_expensive: [
+            { name: 'Balkhash Gold', address: 'ул. Караменде Би, 15' },
+            { name: 'Empire', address: 'ул. Ленина, 45' },
+            { name: 'Aura', address: 'ул. Желтоксан, 15' }
         ],
         locations: [
             { n: 'Набережная озера Балхаш', a: 'ул. Желтоксан' },
             { n: 'Монумент Самолет МиГ-21', a: 'ул. Абая' }
-        ],
-        restaurants: [
-            { n: 'Беркут', a: 'ул. Желтоксан, 9' },
-            { n: 'У Озера', a: 'мкр. Сатпаева' },
-            { n: 'Пивовар', a: 'ул. Мира, 4' }
         ],
         tags: { sea: true, activity: true, beach: true, nature: true, quiet: true, city: false, culture: false, history: false, modern: false, mountains: false, industrial: false },
         budget_suitability: { low: true, medium: false, high: false }
@@ -503,18 +593,27 @@ const allCities = [
         n: 'Экибастуз',
         d: 'Индустриальный гигант с масштабными разрезами и интересными культурными объектами.',
         img: 'https://images.unsplash.com/photo-1518391846015-55a9cc003b25?q=80&w=600',
-        hotels: [
-            { name: 'Альянс', address: 'ул. М. Жусупа, 101' },
-            { name: 'Шахтер', address: 'ул. Строительная, 50' }
+        hotels_budget: [
+            { name: 'Гостиница «Дружба»', address: 'ул. Машхур Жусупа, 46' },
+            { name: 'Хостел «Энергетик»', address: 'ул. Строительная, 21' }
+        ],
+        hotels_expensive: [
+            { name: 'Green Hotel', address: 'ул. Ауэзова, 147' },
+            { name: 'Rixos (местный)', address: 'ул. Кунаева, 12' }
+        ],
+        restaurants_budget: [
+            { name: 'Столовая «Ас-Мар»', address: 'ул. М. Жусупа, 50' },
+            { name: 'Кафе «Пиросмани» (бюджет)', address: 'ул. Абая, 92' },
+            { name: 'Бургер Кинг (ТЦ)', address: 'ул. Кунаева, 2' }
+        ],
+        restaurants_expensive: [
+            { name: 'Old Castle', address: 'ул. Строительная, 88' },
+            { name: 'Versailles', address: 'ул. Энергетиков, 91' },
+            { name: 'Assorti', address: 'ул. М. Жусупа, 115' }
         ],
         locations: [
             { n: 'Мечеть им. Машхура Жусупа', a: 'ул. М. Жусупа' },
             { n: 'Разрез Богатырь', a: 'смотровая площадка на окраине' }
-        ],
-        restaurants: [
-            { n: 'Пивовар', a: 'ул. Ауэзова, 47' },
-            { n: 'Эмираты', a: 'ул. Кьюиши Исатая, 3' },
-            { n: 'Донер Хаус', a: 'ул. М. Жусупа, 94' }
         ],
         tags: { city: true, culture: true, industrial: true, lively: true, history: true, mountains: false, activity: false, nature: false, modern: false, beach: false, sea: false },
         budget_suitability: { low: true, medium: false, high: false }
@@ -523,18 +622,27 @@ const allCities = [
         n: 'Рудный',
         d: 'Город горняков с оживленной атмосферой и разнообразными парками.',
         img: 'https://images.unsplash.com/photo-1542361345-89e58247f2d5?q=80&w=600',
-        hotels: [
-            { name: 'Рудный', address: 'ул. Ленина, 107' },
-            { name: 'Виктория', address: 'ул. Корчагина, 116' }
+        hotels_budget: [
+            { name: 'Гостиница «Уют»', address: 'ул. Ленина, 101' },
+            { name: 'Гостевой дом «Металлург»', address: 'ул. 50 лет Октября, 42' }
+        ],
+        hotels_expensive: [
+            { name: 'Victoria Hotel', address: 'ул. Ленина, 187' },
+            { name: 'Gorniak Hotel', address: 'ул. Космонавтов, 10' }
+        ],
+        restaurants_budget: [
+            { name: 'Столовая №1', address: 'ул. Горняков, 74' },
+            { name: 'Кафе «Чебурек»', address: 'ул. Ленина, 50' },
+            { name: 'Пиццерия «Дока»', address: 'ул. 40 лет Октября, 15' }
+        ],
+        restaurants_expensive: [
+            { name: 'Saray', address: 'ул. Парковая, 2' },
+            { name: 'Prestige', address: 'ул. Ленина, 107' },
+            { name: 'Graf', address: 'ул. Качарская, 12' }
         ],
         locations: [
             { n: 'Рудненский музей', a: 'ул. Ленина, 40' },
             { n: 'Парк культуры', a: 'пр. Комсомольский' }
-        ],
-        restaurants: [
-            { n: 'Золотой Телец', a: 'ул. Ленина, 70' },
-            { n: 'Мята', a: 'ул. 50 лет Октября, 42' },
-            { n: 'Горняк', a: 'пр. Комсомольский, 33' }
         ],
         tags: { city: true, activity: true, industrial: true, lively: true, mountains: false, nature: false, culture: false, history: false, modern: false, beach: false, sea: false },
         budget_suitability: { low: true, medium: false, high: false }
@@ -543,18 +651,27 @@ const allCities = [
         n: 'Конаев',
         d: 'Морской курорт близ Алматы, центр развлечений и пляжного отдыха.',
         img: 'https://images.unsplash.com/photo-1544984243-75a800232997?q=80&w=600',
-        hotels: [
-            { name: 'MoreLux', address: 'Северное побережье' },
-            { name: 'Riviera', address: 'Юго-западное побережье' }
+        hotels_budget: [
+            { name: 'База отдыха «Алтын Эмель»', address: 'Северное побережье' },
+            { name: 'Гостиница «Море»', address: '1-й мкр, 15' }
+        ],
+        hotels_expensive: [
+            { name: 'Royal Tulip Almaty (Casinos)', address: 'зона отдыха Гранд Капшагай' },
+            { name: 'Bellagio', address: 'ул. Кунаева, 10' }
+        ],
+        restaurants_budget: [
+            { name: 'Столовая «Рыбачка»', address: 'трасса Алматы-Конаев' },
+            { name: 'Кафе «Айша»', address: 'ул. Сейфуллина, 22' },
+            { name: 'Донерная «Fresh»', address: '3-й мкр, 5' }
+        ],
+        restaurants_expensive: [
+            { name: 'Casino Bombay (ресторан)', address: 'Индустриальная ул., 9' },
+            { name: 'Riviera', address: 'ул. Кунаева, 1' },
+            { name: 'Macao', address: 'Игорная зона' }
         ],
         locations: [
             { n: 'Казино Astoria', a: 'трасса Алматы-Конаев' },
             { n: 'Городской пляж', a: 'береговая линия' }
-        ],
-        restaurants: [
-            { n: 'More', a: 'Северное побережье' },
-            { n: 'Breeze', a: 'ул. Индустриальная' },
-            { n: 'Марина', a: 'мкр. 18' }
         ],
         tags: { sea: true, activity: true, beach: true, lively: true, modern: true, city: true, mountains: false, nature: false, culture: false, history: false, industrial: false },
         budget_suitability: { low: false, medium: true, high: false }
@@ -563,18 +680,27 @@ const allCities = [
         n: 'Басши (Алтын-Эмель)',
         d: 'Уникальный природный заповедник с поющими барханами и марсианскими пейзажами.',
         img: 'https://images.unsplash.com/photo-1500382017468-9049fed747ef?q=80&w=600',
-        hotels: [
-            { name: 'Гостевой дом Алтын-Эмель', address: 'ул. Центральная' },
-            { name: 'Altyn-Emel Hotel', address: 'центр поселка' }
+        hotels_budget: [
+            { name: 'Гостевой дом «Айман»', address: 'ул. Центральная, 12' },
+            { name: 'Кемпинг парка', address: 'Территория ГНПП' }
+        ],
+        hotels_expensive: [
+            { name: 'Altyn Emel Hotel (VIP)', address: 'ул. Школьная, 5' },
+            { name: 'Oshaktas Guest House (Люкс)', address: 'ул. Ленина, 20' }
+        ],
+        restaurants_budget: [
+            { name: 'Столовая в визит-центре', address: 'въезд в парк' },
+            { name: 'Кафе «Жулдыз»', address: 'трасса рядом с поселком' },
+            { name: 'Домашняя кухня «У Сауле»', address: 'ул. Центральная, 5' }
+        ],
+        restaurants_expensive: [
+            { name: 'Ресторан Altyn Emel', address: 'ул. Школьная, 5' },
+            { name: 'Юрточный лагерь (VIP)', address: 'территория парка' },
+            { name: 'Банкетный зал «Басши»', address: 'ул. Абая, 1' }
         ],
         locations: [
             { n: 'Поющий бархан', a: 'ГНПП Алтын-Эмель' },
             { n: 'Горы Актау', a: 'ГНПП Алтын-Эмель' }
-        ],
-        restaurants: [
-            { n: 'Кафе Айжан', a: 'трасса А-3' },
-            { n: 'Столовая Алтын-Эмель', a: 'ул. Центральная' },
-            { n: 'Кафе Арман', a: 'ул. Центральная' }
         ],
         tags: { mountains: true, activity: true, nature: true, quiet: true, history: true, culture: false, city: false, lively: false, modern: false, beach: false, industrial: false },
         budget_suitability: { low: false, medium: true, high: false }
@@ -583,18 +709,27 @@ const allCities = [
         n: 'Жанаозен',
         d: 'Город в сердце Мангистау, отправная точка для путешествий по пустыням и каньонам.',
         img: 'https://images.unsplash.com/photo-1500382017468-9049fed747ef?q=80&w=600',
-        hotels: [
-            { name: 'Рахат', address: 'мкр. Рахат-3' },
-            { name: 'Navoi', address: 'ул. Навои' }
+        hotels_budget: [
+            { name: 'Гостиница «Аруана»', address: 'мкр. Самал, 44' },
+            { name: 'Хостел «Мунайши»', address: 'мкр. Коктем, 1' }
+        ],
+        hotels_expensive: [
+            { name: 'Kendirli (Resort)', address: '70 км от города' },
+            { name: 'Hotel Nauryz', address: 'мкр. Оркен, 55' }
+        ],
+        restaurants_budget: [
+            { name: 'Столовая «Ас-Ман»', address: 'мкр. Шанырак, 12' },
+            { name: 'Кафе «Шугла»', address: 'мкр. Мунайши, 5' },
+            { name: 'Донерная «Baiterek»', address: 'пр. Сатпаева, 10' }
+        ],
+        restaurants_expensive: [
+            { name: 'Altyn Adam', address: 'мкр. Шугыла, 25' },
+            { name: 'Kendirli Restaurant', address: 'зона отдыха Кендирли' },
+            { name: 'Tandyr', address: 'мкр. Самал, 15' }
         ],
         locations: [
             { n: 'Памятник Первопроходцам', a: 'центр' },
             { n: 'Мечеть Абиш-Ата', a: 'мкр. Шугыла' }
-        ],
-        restaurants: [
-            { n: 'Шафран', a: 'мкр. Рахат' },
-            { n: 'Kuanysh', a: 'ул. Сатпаева' },
-            { n: 'Дастархан', a: 'мкр. Мунайлы' }
         ],
         tags: { activity: true, culture: true, industrial: true, quiet: true, history: true, city: true, mountains: false, nature: false, lively: false, modern: false, beach: false },
         budget_suitability: { low: false, medium: true, high: false }
@@ -603,18 +738,27 @@ const allCities = [
         n: 'Риддер',
         d: 'Горный край на востоке с альпийскими лугами и сибирской тайгой.',
         img: 'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=600',
-        hotels: [
-            { name: 'Алтай', address: 'пр. Независимости, 10' },
-            { name: 'Риддер Резорт', address: 'район горнолыжной базы' }
+        hotels_budget: [
+            { name: 'Гостиница «Алтай»', address: 'пр. Независимости, 10' },
+            { name: 'Турбаза «Светлячок»', address: 'окраина города' }
+        ],
+        hotels_expensive: [
+            { name: 'Лесная Сказка (Риддер Гул)', address: 'ул. Семипалатинская, 150' },
+            { name: 'Black Rock', address: 'район горнолыжного спуска' }
+        ],
+        restaurants_budget: [
+            { name: 'Столовая «Кедр»', address: 'ул. Ауэзова, 12' },
+            { name: 'Кафе «У фонтана»', address: 'Центральная площадь' },
+            { name: 'Пиццерия «Smile»', address: 'пр. Независимости, 15' }
+        ],
+        restaurants_expensive: [
+            { name: 'Edelweiss', address: 'ул. Горная, 1' },
+            { name: 'Медвежий угол', address: 'лесная зона' },
+            { name: 'Versailles', address: 'ул. Гоголя, 45' }
         ],
         locations: [
             { n: 'Гора Три брата', a: 'окрестности' },
             { n: 'Западно-Алтайский заповедник', a: 'ул. Семеновой' }
-        ],
-        restaurants: [
-            { n: 'Эдельвейс', a: 'ул. Семеновой, 14' },
-            { n: 'Лесная сказка', a: 'база отдыха' },
-            { n: 'Алтай', a: 'пр. Независимости' }
         ],
         tags: { mountains: true, activity: true, nature: true, quiet: true, snow: true, city: false, culture: false, history: false, lively: false, modern: false, beach: false },
         budget_suitability: { low: false, medium: true, high: false }
@@ -623,18 +767,27 @@ const allCities = [
         n: 'Степногорск',
         d: 'Индустриальный город с интересной архитектурой и активной жизнью.',
         img: 'https://images.unsplash.com/photo-1518391846015-55a9cc003b25?q=80&w=600',
-        hotels: [
-            { name: 'Степногорск', address: 'мкр. 4' },
-            { name: 'Ак Отау', address: 'мкр. 2' }
+        hotels_budget: [
+            { name: 'Гостиница «Степногорск»', address: '4-й мкр, 45' },
+            { name: 'Хостел «Мир»', address: '6-й мкр, 12' }
+        ],
+        hotels_expensive: [
+            { name: 'Serebryany Bor', address: 'лесная зона за городом' },
+            { name: 'Central Hotel', address: '3-й мкр, 20' }
+        ],
+        restaurants_budget: [
+            { name: 'Столовая «Трапеза»', address: '7-й мкр, 5' },
+            { name: 'Кафе «Удача»', address: '5-й мкр, 10' },
+            { name: 'Донер-центр', address: 'пр. Лунного света, 2' }
+        ],
+        restaurants_expensive: [
+            { name: 'Astoria', address: '9-й мкр, 1' },
+            { name: 'Zodiac', address: '4-й мкр, 22' },
+            { name: 'Palace', address: 'пр. Ленина, 15' }
         ],
         locations: [
             { n: 'Историко-краеведческий музей', a: 'мкр. 3' },
             { n: 'Центральная площадь', a: 'ул. Ленина' }
-        ],
-        restaurants: [
-            { n: 'Олимп', a: 'мкр. 4' },
-            { n: 'Азия', a: 'мкр. 3' },
-            { n: 'Корона', a: 'мкр. 6' }
         ],
         tags: { city: true, activity: true, industrial: true, quiet: true, modern: true, culture: false, history: false, mountains: false, nature: false, lively: false, beach: false },
         budget_suitability: { low: false, medium: true, high: false }
@@ -643,18 +796,27 @@ const allCities = [
         n: 'Байконур',
         d: 'Уникальный город-космодром, место старта легендарных космических миссий.',
         img: 'https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?q=80&w=600',
-        hotels: [
-            { name: 'Центральная', address: 'ул. Гагарина, 13' },
-            { name: 'Семь ветров', address: 'ул. Абая, 1' }
+        hotels_budget: [
+            { name: 'Гостиница «Центральная»', address: 'ул. Королева, 11' },
+            { name: 'Отель «Поехали»', address: 'ул. Гагарина, 5' }
+        ],
+        hotels_expensive: [
+            { name: 'Sputnik Hotel', address: 'ул. Сейфуллина, 7' },
+            { name: 'Cosmonaut Hotel', address: 'ул. Гагарина, 12' }
+        ],
+        restaurants_budget: [
+            { name: 'Столовая «Звездное небо»', address: 'ул. Янгеля, 5' },
+            { name: 'Кафе «Восток»', address: 'пр. Королева, 15' },
+            { name: 'Донер «Союз»', address: 'ул. Гагарина, 10' }
+        ],
+        restaurants_expensive: [
+            { name: 'Zvezdny', address: 'ул. Королева, 11' },
+            { name: 'Gagarin', address: 'ул. Сейфуллина, 7' },
+            { name: 'Soyuz-Apollo', address: 'пр. Мира, 20' }
         ],
         locations: [
             { n: 'Гагаринский старт', a: 'площадка №1' },
             { n: 'Музей космодрома', a: 'площадка №2' }
-        ],
-        restaurants: [
-            { n: 'Звездное небо', a: 'ул. Янгеля' },
-            { n: 'Центральный', a: 'ул. Гагарина' },
-            { n: 'Байконур', a: 'пр. Королева' }
         ],
         tags: { culture: true, activity: true, history: true, city: true, modern: true, quiet: false, mountains: false, nature: false, lively: false, beach: false, industrial: false },
         budget_suitability: { low: false, medium: false, high: true }
@@ -663,18 +825,27 @@ const allCities = [
         n: 'Щучинск',
         d: 'Курортный город среди сосновых лесов и гор, центр зимних видов спорта.',
         img: 'https://images.unsplash.com/photo-1587573089734-09cb69c0f2b4?q=80&w=600',
-        hotels: [
-            { name: 'Swissôtel Wellness Resort', address: 'берег оз. Щучье' },
-            { name: 'Wyndham Garden', address: 'ул. Кенесары' }
+        hotels_budget: [
+            { name: 'Гостиница «Щучинск»', address: 'ул. Едомского, 22' },
+            { name: 'Хостел «Бурабай»', address: 'ул. Сейфуллина, 80' }
+        ],
+        hotels_expensive: [
+            { name: 'Rixos Borovoe', address: 'берег оз. Щучье' },
+            { name: 'Park House', address: 'юго-западный берег оз. Щучье' }
+        ],
+        restaurants_budget: [
+            { name: 'Столовая «Вкусный мир»', address: 'ул. Абылай Хана, 45' },
+            { name: 'Кафе «Домашнее»', address: 'ул. Ауэзова, 12' },
+            { name: 'Донер «Street Food»', address: 'ул. Ленина, 2' }
+        ],
+        restaurants_expensive: [
+            { name: 'L’Olivo', address: 'отель Rixos Borovoe' },
+            { name: 'Challet', address: 'ул. Набережная, 1' },
+            { name: 'Sultan', address: 'пр. Абая, 100' }
         ],
         locations: [
             { n: 'Лыжный трамплин', a: 'ул. Промышленная' },
             { n: 'Озеро Щучье', a: 'Щучинск' }
-        ],
-        restaurants: [
-            { n: 'Park House', a: 'берег оз. Щучье' },
-            { n: 'Challet', a: 'трасса на Бурабай' },
-            { n: 'Aura', a: 'ул. Набережная' }
         ],
         tags: { activity: true, mountains: true, nature: true, quiet: true, history: false, city: false, culture: false, lively: false, modern: false, beach: false, industrial: false },
         budget_suitability: { low: false, medium: false, high: true }
