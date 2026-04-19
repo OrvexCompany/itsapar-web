@@ -807,7 +807,9 @@ function initApp() {
                 });
                 
                 if (response.ok) {
-                    localStorage.setItem('currentUser', u);
+                    const data = await response.json();
+                    localStorage.setItem('token', data.token); // Сохраняем токен сразу!
+                    localStorage.setItem('currentUser', data.username);
                     navigateWithTransition('form.html');
                 } else {
                     const errorDiv = document.getElementById('regError');

@@ -91,16 +91,23 @@ app.post("/register", async (req, res) => {
   db.run(
     "INSERT INTO users (username, password, role) VALUES (?, ?, ?)",
     [username, hash, role],
-    (err) => {
+    function(err) {
       if (err) {
         console.error("Ошибка при регистрации:", err.message);
-        // Если ошибка в уникальности имени
         if (err.message.includes("UNIQUE constraint failed")) {
           return res.status(400).send("Пользователь уже существует");
         }
         return res.status(500).send("Ошибка базы данных: " + err.message);
       }
-      res.status(201).send("Registered");
+
+      // СРАЗУ выдаем токен после регистрации, чтобы анкета сохранилась
+      const token = jwt.sign(
+        { id: this.lastID, username, role },
+        SECRET,
+        { expiresIn: "24h" }
+      );
+      
+      res.status(201).json({ token, username });
     }
   );
 });
@@ -181,56 +188,66 @@ app.get("/admin/analytics", auth, adminOnly, (req, res) => {
         // Формируем список всех пользователей для таблицы (даже без анкет)
         const allUsersList = rows.map(r => {
             let survey = {};
-            if (r.survey_data && r.survey_data !== "null") {
+            if (r.survey_data && r.survey_data !== "null" && r.survey_data !== "") {
                 try {
                     const parsed = JSON.parse(r.survey_data);
                     if (parsed && typeof parsed === 'object') survey = parsed;
                 } catch (e) {
-                    console.error("Ошибка парсинга для", r.username);
+                    console.error(`Ошибка парсинга для ${r.username}:`, e.message);
                 }
             }
             return {
                 username: r.username,
                 role: r.role,
+                fullName: survey.fullName || null,
+                age: survey.age || null,
+                budget: survey.budget || null,
+                tripType: survey.tripType || null,
+                answers: survey.answers || null,
+                recommendedCities: survey.recommendedCities || [],
                 ...survey
             };
         });
 
-        // Фильтруем тех, кто реально заполнил анкету для статистики
-        const usersWithData = allUsersList.filter(u => u.fullName || u.answers);
+        try {
+            // Фильтруем тех, кто реально заполнил анкету для статистики
+            const usersWithData = allUsersList.filter(u => u.fullName || (u.answers && Object.keys(u.answers).length > 0));
 
-        const totalUsers = rows.length;
-        let totalBudget = 0;
-        const interests = { mountains: 0, sea: 0, city: 0, activity: 0, culture: 0 };
-        const cityCounts = {};
+            const totalUsers = rows.length;
+            let totalBudget = 0;
+            const interests = { mountains: 0, sea: 0, city: 0, activity: 0, culture: 0 };
+            const cityCounts = {};
 
-        usersWithData.forEach(data => {
-            // Безопасный расчет бюджета
-            if (data && data.budget === 'low') totalBudget += 50000;
-            else if (data && data.budget === 'medium') totalBudget += 125000;
-            else if (data && data.budget === 'high') totalBudget += 250000;
+            usersWithData.forEach(data => {
+                if (data.budget === 'low') totalBudget += 50000;
+                else if (data.budget === 'medium') totalBudget += 125000;
+                else if (data.budget === 'high') totalBudget += 250000;
 
-            if (data && data.answers && typeof data.answers === 'object') {
-                Object.keys(interests).forEach(key => {
-                    if (data.answers[key]) interests[key]++;
-                });
-            }
-            if (data && data.recommendedCities && Array.isArray(data.recommendedCities)) {
-                data.recommendedCities.forEach(city => {
-                    if (city) cityCounts[city] = (cityCounts[city] || 0) + 1;
-                });
-            }
-        });
+                if (data.answers && typeof data.answers === 'object') {
+                    Object.keys(interests).forEach(key => {
+                        if (data.answers[key]) interests[key]++;
+                    });
+                }
+                if (data.recommendedCities && Array.isArray(data.recommendedCities)) {
+                    data.recommendedCities.forEach(city => {
+                        if (city) cityCounts[city] = (cityCounts[city] || 0) + 1;
+                    });
+                }
+            });
 
-        const avgBudget = usersWithData.length ? Math.round(totalBudget / usersWithData.length) : 0;
+            const avgBudget = usersWithData.length ? Math.round(totalBudget / usersWithData.length) : 0;
 
-        res.json({
-            totalUsers,
-            averageBudget: avgBudget,
-            interestsStats: interests,
-            topCities: cityCounts,
-            usersList: allUsersList // Теперь здесь ВСЕ пользователи
-        });
+            res.json({
+                totalUsers,
+                averageBudget: avgBudget,
+                interestsStats: interests,
+                topCities: cityCounts,
+                usersList: allUsersList
+            });
+        } catch (procErr) {
+            console.error("Ошибка обработки аналитики:", procErr);
+            res.status(500).send("Ошибка обработки данных");
+        }
     });
 });
 
