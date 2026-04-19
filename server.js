@@ -181,7 +181,7 @@ app.get("/admin/verify", auth, adminOnly, (req, res) => {
 app.get("/admin/analytics", auth, adminOnly, (req, res) => {
     console.log("📊 [ADMIN] Запрос аналитики от:", req.user.username);
     
-    db.all("SELECT username, role, survey_data FROM users", [], (err, rows) => {
+    db.all("SELECT username, role, survey_data FROM users", (err, rows) => {
         if (err) {
             console.error("❌ Ошибка БД в аналитике:", err.message);
             return res.status(500).json({ error: "Ошибка базы данных" });
@@ -193,12 +193,13 @@ app.get("/admin/analytics", auth, adminOnly, (req, res) => {
             const interests = { mountains: 0, sea: 0, city: 0, activity: 0, culture: 0 };
             const cityCounts = {};
 
-            const usersList = (rows || []).map(row => {
+            const usersList = (rows || []).map((row, index) => {
                 let survey = {};
                 // Очень строгая проверка JSON
-                if (row.survey_data && typeof row.survey_data === 'string' && row.survey_data.trim() !== "" && row.survey_data !== "null") {
+                if (row && row.survey_data && typeof row.survey_data === 'string' && row.survey_data.trim() !== "" && row.survey_data !== "null") {
                     try {
-                        const parsed = JSON.parse(row.survey_data);
+                        const cleanJson = row.survey_data.replace(/[\u0000-\u001F\u007F-\u009F]/g, ""); // Очистка скрытых символов
+                        const parsed = JSON.parse(cleanJson);
                         if (parsed && typeof parsed === 'object') survey = parsed;
                     } catch (e) {
                         console.warn(`⚠️ Не удалось распарсить анкету юзера ${row.username}`);
@@ -282,17 +283,23 @@ app.post("/user/survey", auth, (req, res) => {
 // 🔥 НОВЫЙ МАРШРУТ: Топ популярных городов среди других пользователей
 app.get("/api/popular-cities", auth, (req, res) => {
     db.all("SELECT survey_data FROM users WHERE username != ?", [req.user.username], (err, rows) => {
-        if (err) return res.status(500).send("Database error");
+        if (err) return res.status(500).json({ error: "Database error" });
 
         const cityCounts = {};
         rows.forEach(row => {
-            if (row.survey_data) {
-                const data = JSON.parse(row.survey_data);
-                if (data.recommendedCities) {
-                    data.recommendedCities.forEach(city => {
-                        cityCounts[city] = (cityCounts[city] || 0) + 1;
-                    });
+            try {
+                if (row.survey_data && row.survey_data !== "null" && row.survey_data.trim() !== "") {
+                    const data = JSON.parse(row.survey_data);
+                    if (data && Array.isArray(data.recommendedCities)) {
+                        data.recommendedCities.forEach(city => {
+                            if (city) {
+                                cityCounts[city] = (cityCounts[city] || 0) + 1;
+                            }
+                        });
+                    }
                 }
+            } catch (e) {
+                console.warn("⚠️ Ошибка в популярных городах для одного из юзеров");
             }
         });
 

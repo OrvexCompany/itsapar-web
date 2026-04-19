@@ -1233,10 +1233,10 @@ async function renderAdminTable(searchTerm = '') {
                 <td data-label="Тип">${u.tripType || '-'}</td>
                 <td data-label="Интересы">${(u.answers && typeof u.answers === 'object') ? Object.keys(u.answers).filter(k => u.answers[k]).join(', ') : '-'}</td>
                 <td data-label="Действия">
-                    ${(u.fullName && u.recommendedCities && Array.isArray(u.recommendedCities)) ? 
+                    ${(typeof u.fullName === 'string' && Array.isArray(u.recommendedCities) && u.recommendedCities.length > 0) ? 
                         `<button onclick="viewUserResults('${u.username}', 
-                            '${u.fullName.replace(/'/g, "\\'")}', 
-                            '${u.recommendedCities.join(', ').replace(/'/g, "\\'")}'
+                            '${u.fullName.replace(/'/g, "&apos;")}', 
+                            '${u.recommendedCities.join(', ').replace(/'/g, "&apos;")}'
                         )" class="btn btn-outline" style="padding: 8px 16px; font-size: 0.7rem; text-transform: none; margin-right: 5px;">Результаты</button>` 
                         : ''
                     }
