@@ -44,7 +44,8 @@ const allCities = [
             { n: 'Коктобе', t: 'Семья, Города' }
         ],
         tags: { mountains: true, sea: true, city: true, activity: true, culture: true, gastronomy: true, seclusion: false, shopping: true, family_fun: true, eco_tourism: true },
-        budget_suitability: { low: true, medium: true, high: true }
+        budget_suitability: { low: true, medium: true, high: true },
+        bestTime: 'Май и Сентябрь. В мае город утопает в зелени, а сентябрь дарит идеальную «бархатную» осень.'
     },
     {
         n: 'Астана',
@@ -76,7 +77,8 @@ const allCities = [
             { n: 'Tiflis (ресторан)', t: 'Гастрономия' }
         ],
         tags: { mountains: false, sea: false, city: true, activity: true, culture: true, gastronomy: true, seclusion: false, shopping: true, family_fun: true, eco_tourism: false },
-        budget_suitability: { low: false, medium: true, high: true }
+        budget_suitability: { low: false, medium: true, high: true },
+        bestTime: 'Июнь – Август. Самое комфортное время для прогулок без пронизывающего ветра.'
     },
     {
         n: 'Актау',
@@ -108,7 +110,8 @@ const allCities = [
             { n: 'Маяк на крыше дома', t: 'Города, Культура' }
         ],
         tags: { mountains: true, sea: true, city: true, activity: true, culture: false, gastronomy: false, seclusion: false, shopping: true, family_fun: false, eco_tourism: true },
-        budget_suitability: { low: false, medium: true, high: true }
+        budget_suitability: { low: false, medium: true, high: true },
+        bestTime: 'Июль – Август (для купания) или Май (для прогулок). Каспий прогревается только к середине лета.'
     },
     {
         n: 'Туркестан',
@@ -140,7 +143,8 @@ const allCities = [
             { n: 'Заповедник Каратау', t: 'Эко-туризм, Горы' }
         ],
         tags: { mountains: true, sea: false, city: true, activity: false, culture: true, gastronomy: true, seclusion: true, shopping: true, family_fun: false, eco_tourism: true },
-        budget_suitability: { low: true, medium: true, high: true }
+        budget_suitability: { low: true, medium: true, high: true },
+        bestTime: 'Апрель или Октябрь. Весной и осенью температура идеальна для осмотра мавзолеев.'
     },
     {
         n: 'Боровое',
@@ -172,7 +176,8 @@ const allCities = [
             { n: 'Центральный рынок', t: 'Шоппинг, Гастрономия' }
         ],
         tags: { mountains: true, sea: true, city: false, activity: true, culture: false, gastronomy: true, seclusion: true, shopping: true, family_fun: true, eco_tourism: true },
-        budget_suitability: { low: true, medium: true, high: true }
+        budget_suitability: { low: true, medium: true, high: true },
+        bestTime: 'Июнь – Август. Пик купального сезона и время работы всей развлекательной инфраструктуры.'
     },
     {
         n: 'Шымкент',
@@ -204,7 +209,8 @@ const allCities = [
             { n: 'Кафе Кок-Сарай', t: 'Гастрономия' }
         ],
         tags: { mountains: false, sea: false, city: true, activity: false, culture: true, gastronomy: true, seclusion: false, shopping: true, family_fun: true, eco_tourism: false },
-        budget_suitability: { low: true, medium: true, high: true }
+        budget_suitability: { low: true, medium: true, high: true },
+        bestTime: 'Апрель – Май. Настоящая южная весна. Летом здесь экстремально жарко (выше 40°C).'
     },
     {
         n: 'Караганда',
@@ -236,7 +242,8 @@ const allCities = [
             { n: 'Спортивный комплекс им. Абдирова', t: 'Активность' }
         ],
         tags: { mountains: false, sea: false, city: true, activity: true, culture: true, gastronomy: false, seclusion: false, shopping: true, family_fun: false, eco_tourism: false },
-        budget_suitability: { low: true, medium: true, high: false }
+        budget_suitability: { low: true, medium: true, high: false },
+        bestTime: 'Май – Июнь. Степь цветет, а жара еще не стала изнуряющей.'
     },
     {
         n: 'Актобе',
@@ -268,7 +275,8 @@ const allCities = [
             { n: 'Кафе Zina', t: 'Гастрономия' }
         ],
         tags: { mountains: false, sea: false, city: true, activity: true, culture: false, gastronomy: false, seclusion: false, shopping: true, family_fun: true, eco_tourism: false },
-        budget_suitability: { low: true, medium: true, high: false }
+        budget_suitability: { low: true, medium: true, high: false },
+        bestTime: 'Май или Сентябрь. Оптимально, чтобы избежать степных ветров и пыльных бурь.'
     },
     {
         n: 'Тараз',
@@ -300,7 +308,8 @@ const allCities = [
             { n: 'Ресторан Marrakesh', t: 'Гастрономия' }
         ],
         tags: { mountains: false, sea: false, city: false, activity: false, culture: true, gastronomy: true, seclusion: true, shopping: false, family_fun: false, eco_tourism: false },
-        budget_suitability: { low: true, medium: false, high: false }
+        budget_suitability: { low: true, medium: false, high: false },
+        bestTime: 'Апрель – Май. Время активного цветения и комфортных прогулок по городищам.'
     },
     {
         n: 'Павлодар',
@@ -332,7 +341,8 @@ const allCities = [
             { n: 'Гусиный перелет', t: 'Эко-туризм, Города' }
         ],
         tags: { mountains: false, sea: true, city: true, activity: false, culture: false, gastronomy: false, seclusion: false, shopping: false, family_fun: true, eco_tourism: false },
-        budget_suitability: { low: true, medium: true, high: false }
+        budget_suitability: { low: true, medium: true, high: false },
+        bestTime: 'Июнь – Август. Лучшее время для прогулок по набережной Иртыша.'
     },
     {
         n: 'Усть-Каменогорск',
@@ -364,7 +374,8 @@ const allCities = [
             { n: 'Парк Жастар', t: 'Эко-туризм, Семья' }
         ],
         tags: { mountains: true, sea: true, city: true, activity: true, culture: true, gastronomy: false, seclusion: true, shopping: true, family_fun: true, eco_tourism: true },
-        budget_suitability: { low: true, medium: true, high: true }
+        budget_suitability: { low: true, medium: true, high: true },
+        bestTime: 'Июнь – Август. Идеально для походов в горы и отдыха на водохранилищах.'
     },
     {
         n: 'Семей',
@@ -396,7 +407,8 @@ const allCities = [
             { n: 'Пиццерия «Додо»', t: 'Гастрономия, Семья' }
         ],
         tags: { mountains: false, sea: true, city: true, activity: true, culture: true, gastronomy: true, seclusion: true, shopping: false, family_fun: true, eco_tourism: true },
-        budget_suitability: { low: true, medium: true, high: true }
+        budget_suitability: { low: true, medium: true, high: true },
+        bestTime: 'Июнь – Сентябрь. Комфортный период для посещения соснового бора и музеев.'
     },
     {
         n: 'Атырау',
@@ -428,7 +440,8 @@ const allCities = [
             { n: 'Рыбный рынок', t: 'Гастрономия, Шоппинг' }
         ],
         tags: { mountains: false, sea: true, city: true, activity: true, culture: true, gastronomy: true, seclusion: true, shopping: true, family_fun: true, eco_tourism: true },
-        budget_suitability: { low: true, medium: true, high: true }
+        budget_suitability: { low: true, medium: true, high: true },
+        bestTime: 'Май или Сентябрь. В это время меньше комаров и нет удушающей жары.'
     },
     {
         n: 'Костанай',
@@ -460,7 +473,8 @@ const allCities = [
             { n: 'Кондитерская фабрика (магазин)', t: 'Гастрономия' }
         ],
         tags: { mountains: false, sea: true, city: true, activity: true, culture: true, gastronomy: true, seclusion: false, shopping: true, family_fun: true, eco_tourism: false },
-        budget_suitability: { low: true, medium: true, high: true }
+        budget_suitability: { low: true, medium: true, high: true },
+        bestTime: 'Июнь – Июль. Время для загородного отдыха и прогулок по лесопаркам.'
     },
     {
         n: 'Кызылорда',
@@ -492,7 +506,8 @@ const allCities = [
             { n: 'Лагманхана «Тулпар»', t: 'Гастрономия' }
         ],
         tags: { mountains: false, sea: true, city: true, activity: false, culture: true, gastronomy: true, seclusion: true, shopping: true, family_fun: true, eco_tourism: false },
-        budget_suitability: { low: true, medium: true, high: true }
+        budget_suitability: { low: true, medium: true, high: true },
+        bestTime: 'Сентябрь – Октябрь. Время знаменитых дынь и арбузов, когда жара спадает.'
     },
     {
         n: 'Уральск',
@@ -524,7 +539,8 @@ const allCities = [
             { n: 'Старая мечеть', t: 'Культура, Уединение' }
         ],
         tags: { mountains: false, sea: true, city: true, activity: true, culture: true, gastronomy: false, seclusion: true, shopping: true, family_fun: true, eco_tourism: true },
-        budget_suitability: { low: true, medium: true, high: true }
+        budget_suitability: { low: true, medium: true, high: true },
+        bestTime: 'Май – Июнь. Самое красивое время, когда берега реки Урал максимально зеленые.'
     },
     {
         n: 'Петропавловск',
@@ -556,7 +572,8 @@ const allCities = [
             { n: 'Мещерский лес', t: 'Эко-туризм, Уединение' }
         ],
         tags: { mountains: false, sea: true, city: true, activity: true, culture: false, gastronomy: false, seclusion: true, shopping: false, family_fun: true, eco_tourism: true },
-        budget_suitability: { low: true, medium: true, high: true }
+        budget_suitability: { low: true, medium: true, high: true },
+        bestTime: 'Июнь – Август. Самый теплый период в самом северном городе страны.'
     },
     {
         n: 'Кокшетау',
@@ -588,7 +605,8 @@ const allCities = [
             { n: 'Сквер «Мангилик Ел»', t: 'Уединение, Города' }
         ],
         tags: { mountains: true, sea: true, city: true, activity: true, culture: true, gastronomy: false, seclusion: true, shopping: true, family_fun: true, eco_tourism: true },
-        budget_suitability: { low: true, medium: true, high: true }
+        budget_suitability: { low: true, medium: true, high: true },
+        bestTime: 'Июнь – Август. Приятная погода для отдыха у озера Копа.'
     },
     {
         n: 'Талдыкорган',
@@ -620,7 +638,8 @@ const allCities = [
             { n: 'Ресторан Arbat', t: 'Гастрономия' }
         ],
         tags: { mountains: true, sea: true, city: true, activity: true, culture: true, gastronomy: true, seclusion: false, shopping: true, family_fun: false, eco_tourism: true },
-        budget_suitability: { low: true, medium: true, high: true }
+        budget_suitability: { low: true, medium: true, high: true },
+        bestTime: 'Май – Июнь. Пик красоты предгорий Джунгарского Алатау.'
     },
     {
         n: 'Балхаш',
@@ -652,7 +671,8 @@ const allCities = [
             { n: 'Рыбный рынок', t: 'Гастрономия, Шоппинг' }
         ],
         tags: { mountains: true, sea: true, city: true, activity: true, culture: true, gastronomy: true, seclusion: true, shopping: true, family_fun: true, eco_tourism: true },
-        budget_suitability: { low: true, medium: true, high: true }
+        budget_suitability: { low: true, medium: true, high: true },
+        bestTime: 'Июль – Август. Озеро прогревается хорошо, это лучшие месяцы для пляжа.'
     },
     {
         n: 'Экибастуз',
@@ -684,7 +704,8 @@ const allCities = [
             { n: 'Кафе «Ас-Мар»', t: 'Гастрономия' }
         ],
         tags: { mountains: false, sea: false, city: true, activity: false, culture: true, gastronomy: true, seclusion: false, shopping: true, family_fun: true, eco_tourism: true },
-        budget_suitability: { low: true, medium: true, high: true }
+        budget_suitability: { low: true, medium: true, high: true },
+        bestTime: 'Сентябрь. Жары уже нет, а карьеры лучше осматривать в сухую погоду.'
     },
     {
         n: 'Рудный',
@@ -716,7 +737,8 @@ const allCities = [
             { n: 'Ледовый дворец', t: 'Активность, Семья' }
         ],
         tags: { mountains: false, sea: true, city: true, activity: true, culture: true, gastronomy: false, seclusion: true, shopping: true, family_fun: true, eco_tourism: false },
-        budget_suitability: { low: true, medium: true, high: true }
+        budget_suitability: { low: true, medium: true, high: true },
+        bestTime: 'Сентябрь. Время золотой осени, когда город выглядит наиболее уютно.'
     },
     {
         n: 'Конаев',
@@ -748,7 +770,8 @@ const allCities = [
             { n: 'Ресторан Riviera', t: 'Гастрономия, Море/Вода' }
         ],
         tags: { mountains: false, sea: true, city: true, activity: true, culture: false, gastronomy: true, seclusion: false, shopping: false, family_fun: true, eco_tourism: false },
-        budget_suitability: { low: true, medium: true, high: true }
+        budget_suitability: { low: true, medium: true, high: true },
+        bestTime: 'Июнь – Сентябрь. Длинный купальный сезон благодаря мелководью Капшагая.'
     },
     {
         n: 'Басши (Алтын-Эмель)',
@@ -780,7 +803,8 @@ const allCities = [
             { n: 'Визит-центр', t: 'Культура, Семья' }
         ],
         tags: { mountains: true, sea: false, city: false, activity: false, culture: true, gastronomy: false, seclusion: true, shopping: false, family_fun: true, eco_tourism: true },
-        budget_suitability: { low: true, medium: true, high: true }
+        budget_suitability: { low: true, medium: true, high: true },
+        bestTime: 'Апрель – Май. В пустыне еще не жарко, комфортно для подъема на барханы.'
     },
     {
         n: 'Жанаозен',
@@ -812,7 +836,8 @@ const allCities = [
             { n: 'Зона отдыха Кендирли', t: 'Море/Вода, Семья' }
         ],
         tags: { mountains: true, sea: true, city: true, activity: false, culture: true, gastronomy: false, seclusion: true, shopping: true, family_fun: true, eco_tourism: true },
-        budget_suitability: { low: true, medium: true, high: true }
+        budget_suitability: { low: true, medium: true, high: true },
+        bestTime: 'Апрель – Май. Идеально для каньонов Устюрта, пока солнце не выжгло пустыню.'
     },
     {
         n: 'Риддер',
@@ -844,7 +869,8 @@ const allCities = [
             { n: 'База отдыха «Светлячок»', t: 'Семья, Эко-туризм' }
         ],
         tags: { mountains: true, sea: false, city: false, activity: true, culture: true, gastronomy: false, seclusion: true, shopping: false, family_fun: true, eco_tourism: true },
-        budget_suitability: { low: true, medium: true, high: true }
+        budget_suitability: { low: true, medium: true, high: true },
+        bestTime: 'Зима (лыжи) или Июль (походы). Здесь выпадает аномальное количество снега.'
     },
     {
         n: 'Степногорск',
@@ -876,7 +902,8 @@ const allCities = [
             { n: 'Кафе «Трапеза»', t: 'Гастрономия' }
         ],
         tags: { mountains: false, sea: false, city: true, activity: true, culture: true, gastronomy: true, seclusion: true, shopping: true, family_fun: true, eco_tourism: true },
-        budget_suitability: { low: true, medium: true, high: true }
+        budget_suitability: { low: true, medium: true, high: true },
+        bestTime: 'Май или Сентябрь. Период без экстремальных температур северной степи.'
     },
     {
         n: 'Байконур',
@@ -908,7 +935,8 @@ const allCities = [
             { n: 'Ресторан «Звездное небо»', t: 'Гастрономия, Культура' }
         ],
         tags: { mountains: false, sea: true, city: true, activity: true, culture: true, gastronomy: true, seclusion: true, shopping: false, family_fun: true, eco_tourism: false },
-        budget_suitability: { low: true, medium: true, high: true }
+        budget_suitability: { low: true, medium: true, high: true },
+        bestTime: 'Апрель – Май или Сентябрь – Октябрь. Самые мягкие месяцы по погоде.'
     },
     {
         n: 'Щучинск',
@@ -940,7 +968,8 @@ const allCities = [
             { n: 'Ресторан Sultan', t: 'Гастрономия' }
         ],
         tags: { mountains: true, sea: true, city: true, activity: true, culture: false, gastronomy: true, seclusion: true, shopping: true, family_fun: true, eco_tourism: true },
-        budget_suitability: { low: true, medium: true, high: true }
+        budget_suitability: { low: true, medium: true, high: true },
+        bestTime: 'Январь – Февраль. Отличное время для лыж и зимней рыбалки.'
     }
 ];
 // --- Глобальные функции (объявлены здесь, чтобы быть доступными везде) ---
@@ -1578,6 +1607,10 @@ function renderCityCard(c, container, isIdeal = true) {
                         <small>${r.address}</small>
                     </div>
                 `).join('') : '<small>Данные уточняются</small>'}
+            </div>
+            <div class="best-time-section" style="margin-top: 15px; padding-top: 10px; border-top: 1px dashed rgba(128, 128, 128, 0.3); font-size: 0.85rem;">
+                <p><strong>📅 Лучшее время для посещения:</strong></p>
+                <p style="color: var(--text); opacity: 0.9;">${c.bestTime || 'Данные уточняются'}</p>
             </div>
         </div>
         <button class="btn btn-outline full-width toggle-details-btn" style="margin-top:15px; font-size: 0.7rem; padding: 8px;">Подробнее</button>
