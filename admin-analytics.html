@@ -30,7 +30,7 @@
                 <h4>Всего пользователей</h4>
                 <p id="totalUsers">-</p>
             </div>
-            <div class="stat-card">
+            <div class="stat-card clickable-card" id="budgetCard">
                 <h4>Средний бюджет</h4>
                 <p id="avgBudget">- ₸</p>
             </div>
@@ -130,6 +130,9 @@
                         scales: { y: { beginAtZero: true, ticks: { stepSize: 1 } } }
                     }
                 });
+
+                // Привязываем функцию показа формулы к карточке
+                document.getElementById('budgetCard').onclick = showBudgetFormula;
 
             } catch (error) {
                 console.error("Analytics Error:", error);
