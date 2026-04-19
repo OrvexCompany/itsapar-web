@@ -1400,6 +1400,8 @@ async function saveAndFinish() {
 
 // Вспомогательная функция для расчета рекомендаций
 function getRecommendedCities(survey) {
+    if (!allCities || allCities.length === 0) return [];
+    
     const userAnswers = survey.answers;
     // Проверяем, что userAnswers существует и является объектом
     if (!userAnswers || typeof userAnswers !== 'object') return [];
@@ -1552,6 +1554,7 @@ function renderCityCard(c, container, isIdeal = true) {
     const card = document.createElement('div');
     card.className = 'res-card';
     card.innerHTML = `
+        <img src="${c.img}" alt="${c.n}" class="city-card-img">
         <h3>${c.n}</h3>
         <p>${c.d}</p>
         <div class="city-details" style="display: none;">
