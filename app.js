@@ -13,18 +13,27 @@ const allCities = [
         n: 'Алматы',
         d: 'Идеально для любителей гор и активного отдыха, культурный центр.',
         img: 'https://images.unsplash.com/photo-1589112953018-0248f39589d8?q=80&w=600',
-        hotels: [
-            { name: 'Ritz-Carlton Almaty', address: 'пр. Аль-Фараби 77/7' },
-            { name: 'Rixos Almaty', address: 'пр. Сейфуллина 506' }
+        hotels_budget: [
+            { name: 'Хостел Q7 Almaty', address: 'ул. Сарсена Аманжолова, 42а' },
+            { name: 'Evergreen Hostel', address: 'ул. Метростроевская, 32' }
+        ],
+        hotels_expensive: [
+            { name: 'The Ritz-Carlton, Almaty', address: 'пр. Аль-Фараби, 77/7' },
+            { name: 'Rixos Almaty', address: 'пр. Сейфуллина, 506/99' }
+        ],
+        restaurants_budget: [
+            { name: 'Qaganat (Столовая)', address: 'пр. Абая, 48в' },
+            { name: 'Basilic', address: 'ул. Шевченко, 127' },
+            { name: 'Тагам', address: 'мкр. Орбита-3, 1' }
+        ],
+        restaurants_expensive: [
+            { name: 'Seven Bar & Restaurant', address: 'пр. Аль-Фараби, 77/7' },
+            { name: 'Villa Dei Fiori', address: 'пр. Аль-Фараби, 140а' },
+            { name: 'Manana', address: 'пр. Достык, 535' }
         ],
         locations: [
             { n: 'Шымбулак', a: 'ул. Керей-Жанибек хандар, 640' },
             { n: 'Кок-Тобе', a: 'пр. Достык, 104б' }
-        ],
-        restaurants: [
-            { n: 'Auyl', a: 'ул. Керей-Жанибек хандар, 586' },
-            { n: 'Afiya', a: 'Кульджинский тракт, 26а' },
-            { n: 'Café L’Avenue', a: 'ул. Панфилова, 100' }
         ],
         tags: { mountains: true, activity: true, city: true, culture: true, lively: true, nature: true, modern: true, quiet: false, history: false, beach: false, industrial: false },
         budget_suitability: { low: false, medium: false, high: true }
@@ -33,18 +42,27 @@ const allCities = [
         n: 'Астана',
         d: 'Сердце страны с футуристичной архитектурой и множеством музеев.',
         img: 'https://images.unsplash.com/photo-1628172776332-959952044322?q=80&w=600',
-        hotels: [
-            { name: 'The St. Regis Astana', address: 'пр. Кабанбай Батыра 1' },
-            { name: 'Hilton Astana', address: 'ул. Сауран 46' }
+        hotels_budget: [
+            { name: 'Hostel 13/77', address: 'ул. Ташенова, 13/2' },
+            { name: 'Caps Lock Future Hotel', address: 'ул. Кунаева, 29' }
+        ],
+        hotels_expensive: [
+            { name: 'The St. Regis Astana', address: 'пр. Кабанбай Батыра, 1' },
+            { name: 'Sheraton Astana Hotel', address: 'ул. Сыганак, 60/1' }
+        ],
+        restaurants_budget: [
+            { name: 'У Апашки (Столовая)', address: 'ул. Куйши Дина, 9' },
+            { name: 'Избушка', address: 'пр. Абая, 17' },
+            { name: 'Центр Плова', address: 'ул. Кенесары, 52' }
+        ],
+        restaurants_expensive: [
+            { name: 'Selfie Astana', address: 'ул. Достык, 16' },
+            { name: 'Qazaq Gourmet', address: 'пр. Мангилик Ел, 29' },
+            { name: 'Tiflis', address: 'ул. Иманова, 11' }
         ],
         locations: [
             { n: 'Байтерек', a: 'ул. Водяная, 1' },
             { n: 'Мечеть Хазрет Султан', a: 'пр. Тауелсиздик, 48' }
-        ],
-        restaurants: [
-            { n: 'Qazaq Gourmet', a: 'пр. Мангилик Ел, 29' },
-            { n: 'Mokki', a: 'ул. Достык, 16' },
-            { n: 'The Kitchen', a: 'ул. Достык, 1' }
         ],
         tags: { city: true, culture: true, modern: true, lively: true, quiet: false, mountains: false, activity: false, nature: false, history: false, beach: false, industrial: false },
         budget_suitability: { low: false, medium: false, high: true }
@@ -53,18 +71,27 @@ const allCities = [
         n: 'Актау',
         d: 'Единственный город на берегу моря с уникальными Каспийскими закатами.',
         img: 'https://images.unsplash.com/photo-1623589414995-2d6ec4c389be?q=80&w=600',
-        hotels: [
-            { name: 'Rixos Water World Aktau', address: 'Мангистауская область, Береговая зона' },
-            { name: 'Caspian Riviera Grand Palace', address: '4-й микрорайон, строение 39' }
+        hotels_budget: [
+            { name: 'Tarlan Hotel', address: '29-й мкр, 226' },
+            { name: 'Гостиница Рауан', address: '28-й мкр, 48/1' }
+        ],
+        hotels_expensive: [
+            { name: 'Caspian Riviera Grand Palace', address: '4-й мкр, 39' },
+            { name: 'Rixos Water World Aktau', address: 'Варшавская ул., 1' }
+        ],
+        restaurants_budget: [
+            { name: 'Столовая Тагам', address: '28-й мкр, 23' },
+            { name: 'Fusion Food', address: '29-й мкр, 51' },
+            { name: 'Асхана Асқабақ', address: '3-й мкр, 65' }
+        ],
+        restaurants_expensive: [
+            { name: 'Barashka', address: '21-й мкр, 4' },
+            { name: 'Aidana Plaza Restaurant', address: '14-й мкр, 59' },
+            { name: 'Fregat', address: '4-й мкр, набережная' }
         ],
         locations: [
             { n: 'Скальная тропа', a: '4-й мкр' },
             { n: 'Маяк на крыше дома', a: '4-й мкр, дом 9' }
-        ],
-        restaurants: [
-            { n: 'Caspian Riviera', a: '4-й мкр, здание 39' },
-            { n: 'Aidana Plaza', a: '15-й мкр, здание 52' },
-            { n: 'Chechil Pub', a: '14-й мкр, здание 73' }
         ],
         tags: { sea: true, city: true, nature: true, quiet: true, beach: true, lively: false, mountains: false, activity: false, culture: false, history: false, modern: false, industrial: false },
         budget_suitability: { low: false, medium: true, high: true }
@@ -73,17 +100,27 @@ const allCities = [
         n: 'Туркестан',
         d: 'Древняя колыбель культуры, идеальна для спокойного изучения истории.',
         img: 'https://images.unsplash.com/photo-1605553641243-7f15951ca857?q=80&w=600',
-        hotels: [
-            { name: 'Rixos Khadisha Turkistan', address: 'ул. Б. Саттарханова 25А' },
-            { name: 'Hampton by Hilton', address: 'ул. Б. Саттарханова 25' }
+        hotels_budget: [
+            { name: 'Hostel Turkistan', address: 'ул. Толе Би, 1' },
+            { name: 'Гостевой дом Сауран', address: 'ул. Ерубаева, 15' }
+        ],
+        hotels_expensive: [
+            { name: 'Rixos Khadisha Turkestan', address: 'ул. Б. Саттарханова, 25' },
+            { name: 'Karavansaray Turkistan', address: 'ул. Б. Саттарханова, 25/5' }
+        ],
+        restaurants_budget: [
+            { name: 'Эдем (Столовая)', address: 'ул. Байбурт, 5' },
+            { name: 'Туркестан Лагман', address: 'ул. Кожанова, б/н' },
+            { name: 'Dastarkhan', address: 'пр. Тауке Хана, 10' }
+        ],
+        restaurants_expensive: [
+            { name: 'Karavansaray Restaurant', address: 'комплекс Караван-сарай' },
+            { name: 'Sandyk', address: 'ул. Б. Саттарханова, 25' },
+            { name: 'Al-Farabi', address: 'пр. Тауке Хана, 150' }
         ],
         locations: [
             { n: 'Мавзолей Х.А. Яссауи', a: 'пр. Бекзата Саттарханова' },
             { n: 'Керуен-сарай', a: 'ул. Жолбарыс Хана' }
-        ],
-        restaurants: [
-            { n: 'Edem', a: 'ул. Тауке Хана' },
-            { n: 'Sandyk', a: 'ул. С. Кожанова' }
         ],
         tags: { culture: true, history: true, quiet: true, city: true, lively: false, mountains: false, activity: false, nature: false, modern: false, beach: false, industrial: false },
         budget_suitability: { low: false, medium: true, high: false }
@@ -92,17 +129,27 @@ const allCities = [
         n: 'Боровое',
         d: 'Казахстанская Швейцария - подойдет абсолютно всем, природа и свежий воздух.',
         img: 'https://images.unsplash.com/photo-1587573089734-09cb69c0f2b4?q=80&w=600',
-        hotels: [
-            { name: 'Rixos Borovoe', address: 'Северный берег озера Щучье' },
-            { name: 'Wyndham Garden Burabay', address: 'ул. Кенесары 1' }
+        hotels_budget: [
+            { name: 'Гостевой дом Алтын-Кун', address: 'ул. Советская, 20' },
+            { name: 'Отель Архидом', address: 'ул. Кокшетау, 16' }
+        ],
+        hotels_expensive: [
+            { name: 'Rixos Borovoe', address: 'Северный берег оз. Щучье' },
+            { name: 'Wyndham Garden Burabay', address: 'ул. Кенесары, 1' }
+        ],
+        restaurants_budget: [
+            { name: 'Столовая у Мамы', address: 'ул. Кенесары, 25' },
+            { name: 'Kishlak', address: 'ул. Кенесары, 30' },
+            { name: 'Асхана на Берегу', address: 'ул. Набережная, 12' }
+        ],
+        restaurants_expensive: [
+            { name: 'L\'Olivo', address: 'отель Rixos Borovoe' },
+            { name: 'Chalet', address: 'ул. Кенесары, 1 (в Wyndham)' },
+            { name: 'Кон-Тики', address: 'набережная оз. Бурабай' }
         ],
         locations: [
             { n: 'Поляна Абылай хана', a: 'нацпарк Бурабай' },
             { n: 'Скала Жумбактас', a: 'озеро Боровое' }
-        ],
-        restaurants: [
-            { n: 'Challet', a: 'ул. Кенесары, 1' },
-            { n: 'Мясоед', a: 'ул. Кенесары, 24' }
         ],
         tags: { nature: true, mountains: true, activity: true, quiet: true, city: false, culture: false, history: false, lively: false, modern: false, beach: false, industrial: false },
         budget_suitability: { low: false, medium: false, high: true }
@@ -111,18 +158,27 @@ const allCities = [
         n: 'Шымкент',
         d: 'Один из старейших городов Казахстана, южный колорит, оживленный базар, исторические места.',
         img: 'https://images.unsplash.com/photo-1634718841452-9577742d4805?q=80&w=600',
-        hotels: [
-            { name: 'Rixos Shymkent', address: 'пр. Кунаева 17' },
-            { name: 'Shymkent Grand Hotel', address: 'ул. Желтоксан 17' }
+        hotels_budget: [
+            { name: 'Shymkent Hostel', address: 'ул. Туркестанская, 4' },
+            { name: 'Отель Орда', address: 'пр. Республики, 21' }
+        ],
+        hotels_expensive: [
+            { name: 'Rixos Khadisha Shymkent', address: 'ул. Желтоксан, 17' },
+            { name: 'Aidana Plaza Hotel', address: 'ул. Бейбитшилик, 13' }
+        ],
+        restaurants_budget: [
+            { name: 'Кок-Сарай (Шашлычная)', address: 'ул. Адырбекова, 80' },
+            { name: 'Кафе Керемет', address: 'ул. Байтурсынова, 12' },
+            { name: 'Лагманхана №1', address: 'ул. Рыскулова, 45' }
+        ],
+        restaurants_expensive: [
+            { name: 'Cinzzano', address: 'ул. Желтоксан, 17' },
+            { name: 'Mozzarella', address: 'пр. Тауке хана, 13' },
+            { name: 'Bar Villa', address: 'ул. Казыбек Би, 29' }
         ],
         locations: [
             { n: 'Цитадель', a: 'Старый город' },
             { n: 'парк «Жайлауколь»', a: 'мкр. Туран' }
-        ],
-        restaurants: [
-            { n: 'Камшат', a: 'ул. Казыбек би, 32' },
-            { n: 'Bar Villa', a: 'ул. Желтоксан, 9/2' },
-            { n: 'Кок-Сарай', a: 'пр. Тауке хана, 150' }
         ],
         tags: { city: true, culture: true, history: true, lively: true, quiet: false, mountains: false, activity: false, nature: false, modern: false, beach: false, industrial: false },
         budget_suitability: { low: true, medium: false, high: false }
@@ -131,18 +187,27 @@ const allCities = [
         n: 'Караганда',
         d: 'Крупный индустриальный и культурный центр, шахтерская история, музеи и театры.',
         img: 'https://images.unsplash.com/photo-1542361345-89e58247f2d5?q=80&w=600',
-        hotels: [
-            { name: 'Cosmonaut Hotel', address: 'пр. Бухар Жырау 11' },
-            { name: 'Ar Nuvo Hotel', address: 'ул. Гоголя 34' }
+        hotels_budget: [
+            { name: 'Хостел Comfort', address: 'ул. Ермекова, 52' },
+            { name: 'Гостиница Турист', address: 'б-р Мира, 32' }
+        ],
+        hotels_expensive: [
+            { name: 'Cosmonaut', address: 'ул. Кривогуза, 162а' },
+            { name: 'Senator Hotel', address: 'ул. Ерубаева, 32' }
+        ],
+        restaurants_budget: [
+            { name: 'Магнит (Столовая)', address: 'пр. Бухар Жырау, 52' },
+            { name: 'Тагам', address: 'пр. Н. Абдирова, 12' },
+            { name: 'Донерофф', address: 'пр. Бухар Жырау, 41' }
+        ],
+        restaurants_expensive: [
+            { name: 'Sadre', address: 'ул. Ерубаева, 71/1' },
+            { name: 'Grill Bar', address: 'ул. Кривогуза, 162а' },
+            { name: 'Line Brew', address: 'пр. Н. Абдирова, 20' }
         ],
         locations: [
             { n: 'Музей Карлага', a: 'п. Долинка, ул. Школьная, 39' },
             { n: 'Центральный парк', a: 'ул. Чкалова' }
-        ],
-        restaurants: [
-            { n: 'Медведь', a: 'ул. Комиссарова, 31' },
-            { n: 'Sadre', a: 'ул. Ержанова, 28' },
-            { n: 'Угли', a: 'пр. Нурсултана Назарбаева, 33/2' }
         ],
         tags: { city: true, culture: true, history: true, quiet: true, industrial: true, lively: false, mountains: false, activity: false, nature: false, modern: false, beach: false },
         budget_suitability: { low: false, medium: true, high: false }
@@ -151,18 +216,27 @@ const allCities = [
         n: 'Актобе',
         d: 'Индустриальный город на западе Казахстана, спокойный, степные пейзажи.',
         img: 'https://images.unsplash.com/photo-1596435804368-69279761f005?q=80&w=600',
-        hotels: [
-            { name: 'Dastan Hotel Aktobe', address: 'пр. Абая 20' },
-            { name: 'Ilek Hotel', address: 'ул. Абулхаир хана 85' }
+        hotels_budget: [
+            { name: 'Хостел Актобе', address: 'пр. Абилкайыр хана, 83' },
+            { name: 'Отель Илек', address: 'ул. Шайкенова, 11' }
+        ],
+        hotels_expensive: [
+            { name: 'Sheraton Celebration', address: 'пр. Абилкайыр хана, 92' },
+            { name: 'Amsterdam Hotel', address: 'ул. Богенбай батыра, 12а' }
+        ],
+        restaurants_budget: [
+            { name: 'Столовая "Ас-Ас"', address: 'ул. Маресьева, 81' },
+            { name: 'Кухня №1', address: 'ул. Есет батыра, 105' },
+            { name: 'Бургер Клаб', address: 'пр. Алии Молдагуловой, 46' }
+        ],
+        restaurants_expensive: [
+            { name: 'Venezia', address: 'пр. Абилкайыр хана, 67' },
+            { name: 'Zina', address: 'пр. Санкибай батыра, 14л' },
+            { name: 'Kishlak', address: 'пр. Абилкайыр хана, 44' }
         ],
         locations: [
             { n: 'Планетарий', a: 'ул. Жанкожа батыра, 50' },
             { n: 'Мечеть Нур Гасыр', a: 'пр. Абилкайыр хана, 92' }
-        ],
-        restaurants: [
-            { n: 'Shaherezada', a: 'пр. Абилкайыр хана, 44' },
-            { n: 'Arbat', a: 'пр. Абилкайыр хана, 52' },
-            { n: 'Taksim', a: 'ул. Маресьева, 92' }
         ],
         tags: { city: true, quiet: true, industrial: true, nature: true, lively: false, mountains: false, activity: false, culture: false, history: false, modern: false, beach: false },
         budget_suitability: { low: false, medium: true, high: false }
@@ -171,18 +245,27 @@ const allCities = [
         n: 'Тараз',
         d: 'Древний город с богатой историей, Шелковый путь, мавзолеи и археологические памятники.',
         img: 'https://images.unsplash.com/photo-1544984243-75a800232997?q=80&w=600',
-        hotels: [
-            { name: 'Zhambyl Hotel', address: 'ул. Толе би 50' },
-            { name: 'Arai Plaza Hotel', address: 'ул. Абая 115' }
+        hotels_budget: [
+            { name: 'Хостел Тараз', address: 'ул. Сулейменова, 2' },
+            { name: 'Отель Жамбыл', address: 'ул. Толе Би, 42' }
+        ],
+        hotels_expensive: [
+            { name: 'Arai Plaza Hotel', address: 'мкр. Арай, ул. Домалак Ана, 1' },
+            { name: 'Grand Hotel Talas', address: 'ул. Пушкина, 61' }
+        ],
+        restaurants_budget: [
+            { name: 'Столовая Бауырсақ', address: 'ул. Казыбек Би, 110' },
+            { name: 'Пиросмани (бюджетное)', address: 'ул. Койгельды, 158' },
+            { name: 'Отырар', address: 'пр. Толе Би, 60' }
+        ],
+        restaurants_expensive: [
+            { name: 'Marrakesh', address: 'ул. Сулейменова, 1' },
+            { name: 'Prime Garden', address: 'Парк Первого Президента' },
+            { name: 'Arbat', address: 'пр. Жамбыла, 160' }
         ],
         locations: [
             { n: 'Мавзолей Айша-Биби', a: 'с. Айша биби' },
             { n: 'Комплекс «Древний Тараз»', a: 'ул. Толе би' }
-        ],
-        restaurants: [
-            { n: 'Zhibek Zholy', a: 'ул. Толе би, 55' },
-            { n: 'Al-Akram', a: 'ул. Кошеней, 3' },
-            { n: 'Marrakesh', a: 'ул. Сулейменова, 15' }
         ],
         tags: { city: true, culture: true, history: true, quiet: true, lively: false, mountains: false, activity: false, nature: false, modern: false, beach: false, industrial: false },
         budget_suitability: { low: true, medium: false, high: false }
@@ -191,18 +274,27 @@ const allCities = [
         n: 'Павлодар',
         d: 'Город на реке Иртыш, индустриальный центр, набережная, музеи.',
         img: 'https://images.unsplash.com/photo-1523731407965-2430cd12f5e4?q=80&w=600',
-        hotels: [
-            { name: 'Saryarka Hotel', address: 'ул. Сатпаева 1' },
-            { name: 'Irtysh Hotel', address: 'ул. Кривенко 25' }
+        hotels_budget: [
+            { name: 'Хостел Вегас', address: 'ул. Торайгырова, 1/3' },
+            { name: 'Гостиница Сары-Арка', address: 'ул. Торайгырова, 1' }
+        ],
+        hotels_expensive: [
+            { name: 'River Court', address: 'ул. Ак. Сатпаева, 156' },
+            { name: 'Irtysh Hotel', address: 'ул. Ак. Сатпаева, 158' }
+        ],
+        restaurants_budget: [
+            { name: 'Мария (Столовая)', address: 'ул. Естая, 40' },
+            { name: 'Колобок', address: 'ул. Кривенко, 25' },
+            { name: 'Славянка', address: 'ул. Лермонтова, 91' }
+        ],
+        restaurants_expensive: [
+            { name: 'Каспий', address: 'ул. Ак. Сатпаева, 156' },
+            { name: 'Blackwood', address: 'ул. Бухар Жырау, 2' },
+            { name: 'Marmaris', address: 'ул. Толстого, 143/1' }
         ],
         locations: [
             { n: 'Центральная Набережная', a: 'Павлодар' },
             { n: 'Мечеть Машхура Жусупа', a: 'ул. Каирбаева, 1' }
-        ],
-        restaurants: [
-            { n: 'Крендель', a: 'ул. Академика Сатпаева, 110' },
-            { n: 'Blonder Beerhouse', a: 'ул. Академика Сатпаева, 50' },
-            { n: 'Kish-Mish', a: 'ул. Академика Сатпаева, 156' }
         ],
         tags: { city: true, nature: true, quiet: true, industrial: true, lively: false, mountains: false, activity: false, culture: false, history: false, modern: false, beach: false },
         budget_suitability: { low: true, medium: false, high: false }
@@ -613,6 +705,14 @@ document.addEventListener('DOMContentLoaded', () => {
         console.log("Приложение успешно запущено");
     } catch (error) {
         console.error("Критическая ошибка при запуске:", error);
+    }
+});
+
+// Исправление "белого экрана" при навигации назад/вперед (bfcache)
+window.addEventListener('pageshow', (event) => {
+    if (document.body) {
+        document.body.classList.remove('page-exit');
+        document.body.classList.add('page-loaded');
     }
 });
 
@@ -1164,6 +1264,50 @@ async function showResults() {
 }
 
 function renderCityCard(c, container, isIdeal = true) {
+    const currentUsername = localStorage.getItem('currentUser');
+    const surveyData = JSON.parse(localStorage.getItem('survey_' + currentUsername) || '{}');
+    const budget = surveyData.budget || 'medium';
+    const tripType = surveyData.tripType || 'solo';
+
+    let displayedHotels = [];
+    let displayedRestaurants = [];
+    let showLabels = false;
+
+    // Логика подбора контента
+    if (budget === 'low') {
+    if (tripType === 'family' || budget === 'medium') {
+        // Смешанный вариант для семей или среднего бюджета
+        const bHotels = (c.hotels_budget || []).slice(0, 1).map(h => ({ ...h, label: '<span style="color:var(--success); font-weight:bold;">(Эконом)</span> ' }));
+        const eHotels = (c.hotels_expensive || []).slice(0, 1).map(h => ({ ...h, label: '<span style="color:var(--primary); font-weight:bold;">(Премиум)</span> ' }));
+        displayedHotels = [...bHotels, ...eHotels];
+
+        const bRest = (c.restaurants_budget || []).slice(0, 2).map(r => ({ ...r, label: '<span style="color:var(--success); font-weight:bold;">(Эконом)</span> ' }));
+        const eRest = (c.restaurants_expensive || []).slice(0, 1).map(r => ({ ...r, label: '<span style="color:var(--primary); font-weight:bold;">(Премиум)</span> ' }));
+        displayedRestaurants = [...bRest, ...eRest];
+    } else if (budget === 'low') {
+        // Бюджетный вариант: только бюджетные места без пометок
+        displayedHotels = (c.hotels_budget || []).map(h => ({ ...h, label: '' }));
+        displayedRestaurants = (c.restaurants_budget || []).map(r => ({ ...r, label: '' }));
+    } else if (budget === 'high') {
+        // Премиум вариант: только дорогие места без пометок
+        displayedHotels = (c.hotels_expensive || []).map(h => ({ ...h, label: '' }));
+        displayedRestaurants = (c.restaurants_expensive || []).map(r => ({ ...r, label: '' }));
+    } else if (budget === 'medium' || tripType === 'family') {
+        // Смешанный вариант: указываем тип (бюджетный/дорогой)
+        showLabels = true;
+        const bHotels = (c.hotels_budget || []).slice(0, 1).map(h => ({ ...h, label: '<span style="color:var(--success)">(Эконом)</span> ' }));
+        const eHotels = (c.hotels_expensive || []).slice(0, 1).map(h => ({ ...h, label: '<span style="color:var(--primary)">(Премиум)</span> ' }));
+        displayedHotels = [...bHotels, ...eHotels];
+
+        const bRest = (c.restaurants_budget || []).slice(0, 2).map(r => ({ ...r, label: '<span style="color:var(--success)">(Эконом)</span> ' }));
+        const eRest = (c.restaurants_expensive || []).slice(0, 1).map(r => ({ ...r, label: '<span style="color:var(--primary)">(Премиум)</span> ' }));
+        displayedRestaurants = [...bRest, ...eRest];
+    } else {
+        // Дефолт (на случай, если данные не подгрузились)
+        displayedHotels = (c.hotels_budget || []).concat(c.hotels_expensive || []).slice(0, 2).map(h => ({ ...h, label: '' }));
+        displayedRestaurants = (c.restaurants_budget || []).concat(c.restaurants_expensive || []).slice(0, 2).map(r => ({ ...r, label: '' }));
+    }
+
     const card = document.createElement('div');
     card.className = 'res-card';
     card.innerHTML = `
@@ -1172,7 +1316,12 @@ function renderCityCard(c, container, isIdeal = true) {
         <div class="city-details" style="display: none;">
             <div class="hotels-list">
                 <p><strong>🏨 Рекомендуемые отели:</strong></p>
-                ${c.hotels.map(h => `<div class="hotel-item">📍 ${h.name}<br><small>${h.address}</small></div>`).join('')}
+                ${displayedHotels.map(h => `
+                    <div class="hotel-item">
+                        📍 ${h.label}${h.name}<br>
+                        <small>${h.address}</small>
+                    </div>
+                `).join('')}
             </div>
             <div class="locations-list">
                 <p><strong>🗺️ Места для посещения:</strong></p>
@@ -1181,6 +1330,12 @@ function renderCityCard(c, container, isIdeal = true) {
             <div class="restaurants-list">
                 <p><strong>🍽️ Где поесть:</strong></p>
                 ${c.restaurants ? c.restaurants.map(r => `<div class="hotel-item">🍴 ${r.n}<br><small>${r.a}</small></div>`).join('') : '<small>Данные уточняются</small>'}
+                ${displayedRestaurants.length > 0 ? displayedRestaurants.map(r => `
+                    <div class="hotel-item">
+                        🍴 ${r.label}${r.name}<br>
+                        <small>${r.address}</small>
+                    </div>
+                `).join('') : '<small>Данные уточняются</small>'}
             </div>
         </div>
         <button class="btn btn-outline full-width toggle-details-btn" style="margin-top:15px; font-size: 0.7rem; padding: 8px;">Подробнее</button>

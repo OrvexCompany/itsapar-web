@@ -21,7 +21,7 @@
     <div id="analyticsContainer" class="container" style="max-width: 1000px;">
         <div class="admin-header">
             <h1>📈 Админ аналитика</h1>
-            <button onclick="window.history.back()" class="btn btn-outline">Назад</button>
+            <button onclick="navigateWithTransition('admin.html')" class="btn btn-outline">Назад</button>
         </div>
 
         <!-- Общая статистика -->
@@ -138,10 +138,35 @@
                         <h2 style="color:var(--danger)">⚠️ ${error.message}</h2>
                         <p>Не удалось загрузить данные аналитики.</p>
                         <button onclick="location.reload()" class="btn btn-primary" style="margin-top:20px;">Перезагрузить данные</button>
-                        <button onclick="window.history.back()" class="btn btn-outline" style="margin-top:20px; margin-left:15px;">Назад</button>
+                        <button onclick="navigateWithTransition('admin.html')" class="btn btn-outline" style="margin-top:20px; margin-left:15px;">Назад</button>
                     </div>
                 `;
             }
+        }
+
+        function showBudgetFormula() {
+            const modal = document.createElement('div');
+            modal.id = 'formulaModal';
+            modal.className = 'modal-overlay';
+            modal.innerHTML = `
+                <div class="card modal-card">
+                    <h3 style="margin-bottom:15px;">🧮 Как считается бюджет?</h3>
+                    <div class="policy-text">
+                        <p>Поскольку пользователи выбирают диапазон, мы присваиваем каждой категории числовой вес:</p>
+                        <ul style="margin: 15px 0;">
+                            <li><strong>"До 50 000":</strong> 50,000 ₸</li>
+                            <li><strong>"50 000 - 200 000":</strong> 125,000 ₸</li>
+                            <li><strong>"От 200 000":</strong> 250,000 ₸</li>
+                        </ul>
+                        <div style="background: var(--bg-light); padding: 15px; border-radius: 16px; font-size: 0.85rem; border: 1px dashed var(--primary);">
+                            <strong>Формула:</strong><br>
+                            (Сумма всех весов) ÷ (Кол-во заполненных анкет)
+                        </div>
+                    </div>
+                    <button onclick="document.getElementById('formulaModal').remove()" class="btn btn-primary full-width">Понятно</button>
+                </div>
+            `;
+            document.body.appendChild(modal);
         }
 
         document.addEventListener('DOMContentLoaded', loadAnalytics);
