@@ -1205,7 +1205,7 @@ async function renderAdminTable(searchTerm = '') {
         });
 
         if (!response.ok) {
-            const msg = response.status === 403 ? "Доступ запрещен" : "Ошибка сервера (500)";
+            const msg = response.status === 403 ? "Доступ запрещен (вы не админ)" : "Ошибка сервера (500)";
             body.innerHTML = `<tr><td colspan="6" style="text-align:center; color:var(--danger); padding:40px;">⚠️ ${msg}. Попробуйте перевойти в аккаунт.</td></tr>`;
             return;
         }
@@ -1233,8 +1233,11 @@ async function renderAdminTable(searchTerm = '') {
                 <td data-label="Тип">${u.tripType || '-'}</td>
                 <td data-label="Интересы">${(u.answers && typeof u.answers === 'object') ? Object.keys(u.answers).filter(k => u.answers[k]).join(', ') : '-'}</td>
                 <td data-label="Действия">
-                    ${u.fullName ? 
-                        `<button onclick="viewUserResults('${u.username}', '${(u.fullName || '').replace(/'/g, "\\'")}', '${(u.recommendedCities || []).join(', ').replace(/'/g, "\\'")}')" class="btn btn-outline" style="padding: 8px 16px; font-size: 0.7rem; text-transform: none; margin-right: 5px;">Результаты</button>` 
+                    ${(u.fullName && u.recommendedCities && Array.isArray(u.recommendedCities)) ? 
+                        `<button onclick="viewUserResults('${u.username}', 
+                            '${u.fullName.replace(/'/g, "\\'")}', 
+                            '${u.recommendedCities.join(', ').replace(/'/g, "\\'")}'
+                        )" class="btn btn-outline" style="padding: 8px 16px; font-size: 0.7rem; text-transform: none; margin-right: 5px;">Результаты</button>` 
                         : ''
                     }
                     <button onclick="confirmDeleteUser('${u.username}')" class="btn btn-no" style="padding: 8px 16px; font-size: 0.7rem; text-transform: none;">Удалить</button>

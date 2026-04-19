@@ -179,60 +179,73 @@ app.get("/admin/verify", auth, adminOnly, (req, res) => {
 
 // � Маршрут аналитики (только для админов)
 app.get("/admin/analytics", auth, adminOnly, (req, res) => {
-    const sql = "SELECT username, role, survey_data FROM users";
-    db.all(sql, [], (err, rows) => {
-        if (err) return res.status(500).json({ error: "Ошибка базы данных" });
+    console.log("📊 [ADMIN] Запрос аналитики от:", req.user.username);
+    
+    db.all("SELECT username, role, survey_data FROM users", [], (err, rows) => {
+        if (err) {
+            console.error("❌ Ошибка БД в аналитике:", err.message);
+            return res.status(500).json({ error: "Ошибка базы данных" });
+        }
 
-        let totalBudget = 0;
-        let budgetCount = 0;
-        const interests = { mountains: 0, sea: 0, city: 0, activity: 0, culture: 0 };
-        const cityCounts = {};
+        try {
+            let totalBudget = 0;
+            let budgetCount = 0;
+            const interests = { mountains: 0, sea: 0, city: 0, activity: 0, culture: 0 };
+            const cityCounts = {};
 
-        const usersList = (rows || []).map(row => {
-            let survey = {};
-            try {
-                if (row.survey_data) {
-                    const parsed = JSON.parse(row.survey_data);
-                    if (parsed && typeof parsed === 'object') survey = parsed;
+            const usersList = (rows || []).map(row => {
+                let survey = {};
+                // Очень строгая проверка JSON
+                if (row.survey_data && typeof row.survey_data === 'string' && row.survey_data.trim() !== "" && row.survey_data !== "null") {
+                    try {
+                        const parsed = JSON.parse(row.survey_data);
+                        if (parsed && typeof parsed === 'object') survey = parsed;
+                    } catch (e) {
+                        console.warn(`⚠️ Не удалось распарсить анкету юзера ${row.username}`);
+                    }
                 }
-            } catch (e) { console.error("Ошибка JSON:", row.username); }
 
-            const userData = {
-                username: row.username,
-                role: row.role,
-                fullName: survey.fullName || null,
-                age: survey.age || null,
-                budget: survey.budget || null,
-                tripType: survey.tripType || null,
-                answers: survey.answers || null,
-                recommendedCities: Array.isArray(survey.recommendedCities) ? survey.recommendedCities : []
-            };
+                const userData = {
+                    username: row.username || "unknown",
+                    role: row.role || "user",
+                    fullName: typeof survey.fullName === 'string' ? survey.fullName : null,
+                    age: survey.age || null,
+                    budget: survey.budget || null,
+                    tripType: survey.tripType || null,
+                    answers: (survey.answers && typeof survey.answers === 'object') ? survey.answers : null,
+                    recommendedCities: Array.isArray(survey.recommendedCities) ? survey.recommendedCities : []
+                };
 
-            // Сбор статистики только если есть данные анкеты
-            if (userData.fullName || userData.answers) {
-                if (userData.budget === 'low') { totalBudget += 50000; budgetCount++; }
-                else if (userData.budget === 'medium') { totalBudget += 125000; budgetCount++; }
-                else if (userData.budget === 'high') { totalBudget += 250000; budgetCount++; }
+                // Считаем статистику только если анкета реально заполнена
+                if (userData.fullName || userData.answers) {
+                    if (userData.budget === 'low') { totalBudget += 50000; budgetCount++; }
+                    else if (userData.budget === 'medium') { totalBudget += 125000; budgetCount++; }
+                    else if (userData.budget === 'high') { totalBudget += 250000; budgetCount++; }
 
-                if (userData.answers && typeof userData.answers === 'object') {
-                    Object.keys(interests).forEach(key => {
-                        if (userData.answers[key]) interests[key]++;
+                    if (userData.answers) {
+                        Object.keys(interests).forEach(key => {
+                            if (userData.answers[key]) interests[key]++;
+                        });
+                    }
+                    userData.recommendedCities.forEach(city => {
+                        if (city) cityCounts[city] = (cityCounts[city] || 0) + 1;
                     });
                 }
-                userData.recommendedCities.forEach(city => {
-                    if (city) cityCounts[city] = (cityCounts[city] || 0) + 1;
-                });
-            }
-            return userData;
-        });
+                return userData;
+            });
 
-        res.json({
-            totalUsers: usersList.length,
-            averageBudget: budgetCount > 0 ? Math.round(totalBudget / budgetCount) : 0,
-            interestsStats: interests,
-            topCities: cityCounts,
-            usersList: usersList
-        });
+            console.log(`✅ Обработано юзеров: ${usersList.length}, с анкетами: ${budgetCount}`);
+            res.json({
+                totalUsers: usersList.length,
+                averageBudget: budgetCount > 0 ? Math.round(totalBudget / budgetCount) : 0,
+                interestsStats: interests,
+                topCities: cityCounts,
+                usersList: usersList
+            });
+        } catch (error) {
+            console.error("❌ Критическая ошибка обработки:", error);
+            res.status(500).json({ error: "Ошибка сервера при расчете аналитики" });
+        }
     });
 });
 
