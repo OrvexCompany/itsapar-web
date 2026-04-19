@@ -526,3 +526,40 @@ h2, h3, h4 { color: var(--dark); }
     background: #f8fafc;
     border-top: 1px solid #f1f5f9;
 }
+
+/* --- Крупная круглая кнопка темы с анимацией пульсации --- */
+.theme-toggle {
+    position: fixed;
+    top: 15px;
+    right: 15px;
+    z-index: 10005;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: var(--card-bg);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    cursor: pointer;
+    font-size: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 8px 16px var(--shadow);
+    transition: all 0.3s ease;
+}
+
+[data-theme="dark"] .theme-toggle {
+    animation: pulse-theme 2s infinite;
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+@keyframes pulse-theme {
+    0% { box-shadow: 0 0 0 0 rgba(79, 70, 229, 0.6); }
+    70% { box-shadow: 0 0 0 30px rgba(79, 70, 229, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(79, 70, 229, 0); }
+}
+
+.theme-toggle:hover {
+    transform: scale(1.1);
+    box-shadow: 0 12px 25px var(--shadow);
+}
