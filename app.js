@@ -43,10 +43,15 @@ const allCities = [
             { n: 'Улица Панфилова', t: 'Города, Культура' },
             { n: 'Коктобе', t: 'Семья, Города' }
         ],
+        locations_kz: [
+            { n: 'Шымбұлақ', t: 'Таулар, Белсенділік' },
+            { n: 'Медеу', t: 'Белсенділік, Отбасы' },
+            { n: 'Көк-Төбе', t: 'Отбасы, Қалалар' }
+        ],
         tags: { mountains: true, sea: true, city: true, activity: true, culture: true, gastronomy: true, seclusion: false, shopping: true, family_fun: true, eco_tourism: true },
         budget_suitability: { low: true, medium: true, high: true }, // City names (n) are not translated here
         bestTime: 'Май и Сентябрь. В мае город утопает в зелени, а сентябрь дарит идеальную «бархатную» осень.',
-        d_kz: 'Тауларды және белсенді демалысты ұнататындар үшін тамаша, мәдени орталық.',
+        d_kz: 'Тауларды және белсенді демалысты ұнататындар үшін тамаша мәдени орталық.',
         bestTime_kz: 'Мамыр және Қыркүйек. Мамырда қала жасыл желекке оранады, ал қыркүйекте тамаша «барқыт» күзі жеміс-жидекке толы болады.'
     },
     {
@@ -1082,6 +1087,12 @@ const translations = {
         'data_refining': 'Данные уточняются',
         'details_button': 'Подробнее',
         'collapse_button': 'Свернуть',
+        'results_ideal_header': '✨ Подходит вам',
+        'results_popular_header': '🔥 Популярно',
+        'retake_btn': 'Пройти заново',
+        'home_btn': 'На главную',
+        'register_link': 'Создать',
+        'login_link': 'Войти',
         'admin_panel_title': 'Пользователи системы',
         'admin_search_placeholder': 'Поиск по имени или логину...',
         'admin_analytics_button': '📊 Аналитика',
@@ -1219,6 +1230,12 @@ const translations = {
         'data_refining': 'Деректер нақтылануда',
         'details_button': 'Толығырақ',
         'collapse_button': 'Жиыру',
+        'results_ideal_header': '✨ Сізге сәйкес келеді',
+        'results_popular_header': '🔥 Танымал',
+        'retake_btn': 'Сауалнаманы қайта өту',
+        'home_btn': 'Басты бетке',
+        'register_link': 'Жасау',
+        'login_link': 'Кіру',
         'admin_panel_title': 'Жүйе пайдаланушылары',
         'admin_search_placeholder': 'Аты-жөні немесе логин бойынша іздеу...',
         'admin_analytics_button': '📊 Аналитика',
@@ -1321,7 +1338,7 @@ function setLanguage(lang) {
     document.querySelectorAll('[data-i18n]').forEach(element => {
         const key = element.getAttribute('data-i18n');
         if (translations[lang] && translations[lang][key]) {
-            element.innerText = translations[lang][key];
+            element.innerHTML = translations[lang][key];
         }
     });
     // Обновляем плейсхолдеры
@@ -1514,8 +1531,7 @@ function injectChat() {
                 <div class="chat-messages" id="chatMessages"></div>
                 <div class="chat-options" id="chatOptions"></div>
                 <div class="chat-disclaimer">
-                    AI помощник работает на основе заранее заданных сценариев. 
-                    Он не подключён к интернету. Рекомендуется проверять важную информацию.
+                    <span data-i18n="chat_disclaimer"></span>
                 </div>
             </div>
         </div>
@@ -1999,6 +2015,7 @@ function renderCityCard(c, container, isIdeal = true) {
 
     const card = document.createElement('div');
     card.className = 'res-card';
+    const locations = currentLang === 'kz' && c.locations_kz ? c.locations_kz : c.locations;
     card.innerHTML = `
         <h3>${c.n}</h3> <!-- City name (n) is assumed to be universal -->
         <p>${cityDescription}</p>
@@ -2012,9 +2029,9 @@ function renderCityCard(c, container, isIdeal = true) {
                     </div>
                 `).join('')}
             </div>
-            <div class="locations-list"> <!-- Location names (l.n) and types (l.t) are not translated here -->
+            <div class="locations-list">
                 <p><strong>🗺️ ${translations[currentLang].city_details_locations}</strong></p>
-                ${c.locations ? c.locations.map(l => `<div class="hotel-item">📸 <strong>${l.n}</strong> — <small>${l.t}</small></div>`).join('') : '<small>Данные уточняются</small>'}
+                ${locations ? locations.map(l => `<div class="hotel-item">📸 <strong>${l.n}</strong> — <small>${l.t}</small></div>`).join('') : '<small>Данные уточняются</small>'}
             </div>
             <div class="restaurants-list">
                 <p><strong>🍽️ Где поесть:</strong></p>
