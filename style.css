@@ -467,13 +467,85 @@ h2, h3, h4 { color: var(--dark); }
     font-size: 0.85rem;
     cursor: pointer;
 }
-.policy-check input { 
-    width: 25px; 
-    height: 25px; 
+.policy-check input {
+    width: 25px;
+    height: 25px;
     margin: 0; 
     cursor: pointer; 
     flex-shrink: 0;
     accent-color: var(--primary);
+}
+
+/* Language Toggle Slider */
+.language-toggle-container {
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    z-index: 10005;
+    display: flex;
+    align-items: center;
+    background: var(--card-bg);
+    backdrop-filter: blur(10px);
+    border-radius: 30px;
+    padding: 5px 10px;
+    box-shadow: 0 4px 12px var(--shadow);
+    transition: all 0.3s ease;
+}
+
+.language-toggle-container:hover {
+    box-shadow: 0 6px 16px var(--shadow);
+}
+
+.language-toggle-switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 30px;
+    margin: 0 10px;
+}
+
+.language-toggle-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.language-slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--primary);
+    transition: .4s;
+    border-radius: 30px;
+}
+
+.language-slider:before {
+    position: absolute;
+    content: "";
+    height: 22px;
+    width: 22px;
+    left: 4px;
+    bottom: 4px;
+    background-color: var(--white);
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked + .language-slider {
+    background-color: var(--primary);
+}
+
+input:checked + .language-slider:before {
+    transform: translateX(30px);
+}
+
+.lang-label {
+    color: var(--text);
+    font-weight: 600;
+    font-size: 0.9rem;
 }
 
 /* --- AI Чат Виджет --- */

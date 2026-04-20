@@ -9,22 +9,22 @@
 <body>
     <div class="container admin-container">
         <div class="admin-header">
-            <div>
-                <h2 style="margin-bottom: 10px;">Пользователи системы</h2>
-                <input type="text" id="adminSearch" placeholder="Поиск по имени или логину..." style="padding: 12px; border-radius: 12px; border: 1px solid #cbd5e1; width: 300px; font-size: 0.9rem;">
+            <div> <!-- data-i18n="admin_panel_title" -->
+                <h2 style="margin-bottom: 10px;" data-i18n="admin_panel_title"></h2>
+                <input type="text" id="adminSearch" data-i18n-placeholder="admin_search_placeholder" style="padding: 12px; border-radius: 12px; border: 1px solid #cbd5e1; width: 300px; font-size: 0.9rem;">
             </div>
-            <button onclick="navigateWithTransition('admin-analytics.html')" class="btn btn-primary">📊 Аналитика</button>
-            <button onclick="logout()" class="btn btn-outline">Выйти</button>
+            <button onclick="navigateWithTransition('admin-analytics.html')" class="btn btn-primary" data-i18n="admin_analytics_button"></button>
+            <button onclick="logout()" class="btn btn-outline" data-i18n="admin_logout_button"></button>
         </div>
         <table class="admin-table">
             <thead>
                 <tr>
-                    <th>ФИО (Логин)</th>
-                    <th>Возраст</th>
-                    <th>Бюджет</th>
-                    <th>Тип</th>
-                    <th>Интересы</th>
-                    <th>Действия</th>
+                    <th data-i18n="admin_table_fio_login"></th>
+                    <th data-i18n="admin_table_age"></th>
+                    <th data-i18n="admin_table_budget"></th>
+                    <th data-i18n="admin_table_type"></th>
+                    <th data-i18n="admin_table_interests"></th>
+                    <th data-i18n="admin_table_actions"></th>
                 </tr>
             </thead>
             <tbody id="adminTableBody"></tbody>

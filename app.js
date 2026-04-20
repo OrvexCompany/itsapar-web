@@ -1,15 +1,15 @@
 // --- Данные вопросов ---
 const questions = [
-    { id: 'mountains', title: 'Горы?', desc: 'Любите ли вы походы и свежий горный воздух?' },
-    { id: 'sea', title: 'Море/Вода?', desc: 'Предпочитаете пляжный отдых или озера?' },
-    { id: 'city', title: 'Города?', desc: 'Вам нравится шум мегаполиса и архитектура?' },
-    { id: 'activity', title: 'Активность?', desc: 'Готовы ли вы к экстриму и долгим прогулкам?' },
-    { id: 'culture', title: 'Культура?', desc: 'Интересуетесь ли вы историей и музеями?' },
-    { id: 'gastronomy', title: 'Гастрономия', desc: 'Важно ли для вас пробовать уникальные национальные блюда и посещать колоритные рестораны?' },
-    { id: 'seclusion', title: 'Уединение', desc: 'Ищете ли вы тишину и возможность отдохнуть в местах вдали от больших толп туристов?' },
-    { id: 'shopping', title: 'Шоппинг', desc: 'Любите ли вы прогулки по современным торговым центрам и поиск уникальных вещей на местных рынках?' },
-    { id: 'family_fun', title: 'Семейный отдых', desc: 'Нужны ли вам игровые зоны, аквапарки и развлечения, подходящие для детей?' },
-    { id: 'eco_tourism', title: 'Эко-туризм', desc: 'Вас привлекают заповедники, бескрайние степи и наблюдение за дикой природой в её первозданном виде?' }
+    { id: 'mountains', title_ru: 'Горы?', desc_ru: 'Любите ли вы походы и свежий горный воздух?', title_kz: 'Таулар?', desc_kz: 'Тауға шығуды және таза тау ауасын ұнатасыз ба?' },
+    { id: 'sea', title_ru: 'Море/Вода?', desc_ru: 'Предпочитаете пляжный отдых или озера?', title_kz: 'Теңіз/Су?', desc_kz: 'Жағажай демалысын немесе көлдерді қалайсыз ба?' },
+    { id: 'city', title_ru: 'Города?', desc_ru: 'Вам нравится шум мегаполиса и архитектура?', title_kz: 'Қалалар?', desc_kz: 'Мегаполис шуы мен архитектурасы ұнай ма?' },
+    { id: 'activity', title_ru: 'Активность?', desc_ru: 'Готовы ли вы к экстриму и долгим прогулкам?', title_kz: 'Белсенділік?', desc_kz: 'Экстримге және ұзақ серуендеуге дайынсыз ба?' },
+    { id: 'culture', title_ru: 'Культура?', desc_ru: 'Интересуетесь ли вы историей и музеями?', title_kz: 'Мәдениет?', desc_kz: 'Тарихқа және мұражайларға қызығасыз ба?' },
+    { id: 'gastronomy', title_ru: 'Гастрономия', desc_ru: 'Важно ли для вас пробовать уникальные национальные блюда и посещать колоритные рестораны?', title_kz: 'Гастрономия', desc_kz: 'Сіз үшін бірегей ұлттық тағамдарды татып көру және ерекше мейрамханаларға бару маңызды ма?' },
+    { id: 'seclusion', title_ru: 'Уединение', desc_ru: 'Ищете ли вы тишину и возможность отдохнуть в местах вдали от больших толп туристов?', title_kz: 'Оқшаулану', desc_kz: 'Сіз тыныштықты және туристердің көптігінен алыс жерлерде демалу мүмкіндігін іздейсіз бе?' },
+    { id: 'shopping', title_ru: 'Шоппинг', desc_ru: 'Любите ли вы прогулки по современным торговым центрам и поиск уникальных вещей на местных рынках?', title_kz: 'Шопинг', desc_kz: 'Заманауи сауда орталықтарында серуендеуді және жергілікті базарлардан бірегей заттарды іздеуді ұнатасыз ба?' },
+    { id: 'family_fun', title_ru: 'Семейный отдых', desc_ru: 'Нужны ли вам игровые зоны, аквапарки и развлечения, подходящие для детей?', title_kz: 'Отбасылық демалыс', desc_kz: 'Сізге ойын аймақтары, аквапарктер және балаларға арналған ойын-сауықтар қажет пе?' },
+    { id: 'eco_tourism', title_ru: 'Эко-туризм', desc_ru: 'Вас привлекают заповедники, бескрайние степи и наблюдение за дикой природой в её первозданном виде?', title_kz: 'Эко-туризм', desc_kz: 'Сізді қорықтар, шексіз далалар және жабайы табиғатты оның бастапқы қалпында бақылау қызықтыра ма?' }
 ];
 
 // --- Данные городов с характеристиками и отелями ---
@@ -44,8 +44,10 @@ const allCities = [
             { n: 'Коктобе', t: 'Семья, Города' }
         ],
         tags: { mountains: true, sea: true, city: true, activity: true, culture: true, gastronomy: true, seclusion: false, shopping: true, family_fun: true, eco_tourism: true },
-        budget_suitability: { low: true, medium: true, high: true },
-        bestTime: 'Май и Сентябрь. В мае город утопает в зелени, а сентябрь дарит идеальную «бархатную» осень.'
+        budget_suitability: { low: true, medium: true, high: true }, // City names (n) are not translated here
+        bestTime: 'Май и Сентябрь. В мае город утопает в зелени, а сентябрь дарит идеальную «бархатную» осень.',
+        d_kz: 'Тауларды және белсенді демалысты ұнататындар үшін тамаша, мәдени орталық.',
+        bestTime_kz: 'Мамыр және Қыркүйек. Мамырда қала жасыл желекке оранады, ал қыркүйекте тамаша «барқыт» күзі жеміс-жидекке толы болады.'
     },
     {
         n: 'Астана',
@@ -77,8 +79,10 @@ const allCities = [
             { n: 'Tiflis (ресторан)', t: 'Гастрономия' }
         ],
         tags: { mountains: false, sea: false, city: true, activity: true, culture: true, gastronomy: true, seclusion: false, shopping: true, family_fun: true, eco_tourism: false },
-        budget_suitability: { low: false, medium: true, high: true },
-        bestTime: 'Июнь – Август. Самое комфортное время для прогулок без пронизывающего ветра.'
+        budget_suitability: { low: false, medium: true, high: true }, // City names (n) are not translated here
+        bestTime: 'Июнь – Август. Самое комфортное время для прогулок без пронизывающего ветра.',
+        d_kz: 'Футуристік архитектурасы және көптеген мұражайлары бар елдің жүрегі.',
+        bestTime_kz: 'Маусым – Тамыз. Желсіз серуендеу үшін ең ыңғайлы уақыт.'
     },
     {
         n: 'Актау',
@@ -110,8 +114,10 @@ const allCities = [
             { n: 'Маяк на крыше дома', t: 'Города, Культура' }
         ],
         tags: { mountains: true, sea: true, city: true, activity: true, culture: false, gastronomy: false, seclusion: false, shopping: true, family_fun: false, eco_tourism: true },
-        budget_suitability: { low: false, medium: true, high: true },
-        bestTime: 'Июль – Август (для купания) или Май (для прогулок). Каспий прогревается только к середине лета.'
+        budget_suitability: { low: false, medium: true, high: true }, // City names (n) are not translated here
+        bestTime: 'Июль – Август (для купания) или Май (для прогулок). Каспий прогревается только к середине лета.',
+        d_kz: 'Каспий теңізінің бірегей күн батуы бар теңіз жағасындағы жалғыз қала.',
+        bestTime_kz: 'Шілде – Тамыз (шомылу үшін) немесе Мамыр (серуендеу үшін). Каспий тек жаздың ортасына қарай жылынады.'
     },
     {
         n: 'Туркестан',
@@ -143,8 +149,10 @@ const allCities = [
             { n: 'Заповедник Каратау', t: 'Эко-туризм, Горы' }
         ],
         tags: { mountains: true, sea: false, city: true, activity: false, culture: true, gastronomy: true, seclusion: true, shopping: true, family_fun: false, eco_tourism: true },
-        budget_suitability: { low: true, medium: true, high: true },
-        bestTime: 'Апрель или Октябрь. Весной и осенью температура идеальна для осмотра мавзолеев.'
+        budget_suitability: { low: true, medium: true, high: true }, // City names (n) are not translated here
+        bestTime: 'Апрель или Октябрь. Весной и осенью температура идеальна для осмотра мавзолеев.',
+        d_kz: 'Ежелгі мәдениет бесігі, тарихты тыныш зерттеу үшін тамаша.',
+        bestTime_kz: 'Сәуір немесе Қазан. Көктемде және күзде мавзолейлерді аралау үшін температура өте қолайлы.'
     },
     {
         n: 'Боровое',
@@ -176,8 +184,10 @@ const allCities = [
             { n: 'Центральный рынок', t: 'Шоппинг, Гастрономия' }
         ],
         tags: { mountains: true, sea: true, city: false, activity: true, culture: false, gastronomy: true, seclusion: true, shopping: true, family_fun: true, eco_tourism: true },
-        budget_suitability: { low: true, medium: true, high: true },
-        bestTime: 'Июнь – Август. Пик купального сезона и время работы всей развлекательной инфраструктуры.'
+        budget_suitability: { low: true, medium: true, high: true }, // City names (n) are not translated here
+        bestTime: 'Июнь – Август. Пик купального сезона и время работы всей развлекательной инфраструктуры.',
+        d_kz: 'Қазақстандық Швейцария – барлығына жарайды, табиғат және таза ауа.',
+        bestTime_kz: 'Маусым – Тамыз. Шомылу маусымының шыңы және барлық ойын-сауық инфрақұрылымының жұмыс істейтін уақыты.'
     },
     {
         n: 'Шымкент',
@@ -209,8 +219,10 @@ const allCities = [
             { n: 'Кафе Кок-Сарай', t: 'Гастрономия' }
         ],
         tags: { mountains: false, sea: false, city: true, activity: false, culture: true, gastronomy: true, seclusion: false, shopping: true, family_fun: true, eco_tourism: false },
-        budget_suitability: { low: true, medium: true, high: true },
-        bestTime: 'Апрель – Май. Настоящая южная весна. Летом здесь экстремально жарко (выше 40°C).'
+        budget_suitability: { low: true, medium: true, high: true }, // City names (n) are not translated here
+        bestTime: 'Апрель – Май. Настоящая южная весна. Летом здесь экстремально жарко (выше 40°C).',
+        d_kz: 'Қазақстанның ең көне қалаларының бірі, оңтүстік колориті, жанды базар, тарихи орындар.',
+        bestTime_kz: 'Сәуір – Мамыр. Бұл уақытта мұнда нағыз көктем, бәрі гүлдейді. Жазда Шымкентте өте ыстық (40°C-тан жоғары).'
     },
     {
         n: 'Караганда',
@@ -242,8 +254,10 @@ const allCities = [
             { n: 'Спортивный комплекс им. Абдирова', t: 'Активность' }
         ],
         tags: { mountains: false, sea: false, city: true, activity: true, culture: true, gastronomy: false, seclusion: false, shopping: true, family_fun: false, eco_tourism: false },
-        budget_suitability: { low: true, medium: true, high: false },
-        bestTime: 'Май – Июнь. Степь цветет, а жара еще не стала изнуряющей.'
+        budget_suitability: { low: true, medium: true, high: false }, // City names (n) are not translated here
+        bestTime: 'Май – Июнь. Степь цветет, а жара еще не стала изнуряющей.',
+        d_kz: 'Ірі индустриалды және мәдени орталық, шахтерлер тарихы, мұражайлар мен театрлар.',
+        bestTime_kz: 'Мамыр – Маусым. Дала гүлдейді, ал ыстық әлі қатты емес.'
     },
     {
         n: 'Актобе',
@@ -275,8 +289,10 @@ const allCities = [
             { n: 'Кафе Zina', t: 'Гастрономия' }
         ],
         tags: { mountains: false, sea: false, city: true, activity: true, culture: false, gastronomy: false, seclusion: false, shopping: true, family_fun: true, eco_tourism: false },
-        budget_suitability: { low: true, medium: true, high: false },
-        bestTime: 'Май или Сентябрь. Оптимально, чтобы избежать степных ветров и пыльных бурь.'
+        budget_suitability: { low: true, medium: true, high: false }, // City names (n) are not translated here
+        bestTime: 'Май или Сентябрь. Оптимально, чтобы избежать степных ветров и пыльных бурь.',
+        d_kz: 'Қазақстанның батысындағы индустриалды қала, тыныш, далалық пейзаждар.',
+        bestTime_kz: 'Мамыр немесе Қыркүйек. Дала желі мен шаңды дауылдан аулақ болу үшін оңтайлы.'
     },
     {
         n: 'Тараз',
@@ -308,8 +324,10 @@ const allCities = [
             { n: 'Ресторан Marrakesh', t: 'Гастрономия' }
         ],
         tags: { mountains: false, sea: false, city: false, activity: false, culture: true, gastronomy: true, seclusion: true, shopping: false, family_fun: false, eco_tourism: false },
-        budget_suitability: { low: true, medium: false, high: false },
-        bestTime: 'Апрель – Май. Время активного цветения и комфортных прогулок по городищам.'
+        budget_suitability: { low: true, medium: false, high: false }, // City names (n) are not translated here
+        bestTime: 'Апрель – Май. Время активного цветения и комфортных прогулок по городищам.',
+        d_kz: 'Бай тарихы бар ежелгі қала, Жібек жолы, мавзолейлер және археологиялық ескерткіштер.',
+        bestTime_kz: 'Сәуір – Мамыр. Гүлденудің белсенді уақыты және тарихи қалашықтарды аралау үшін ыңғайлы.'
     },
     {
         n: 'Павлодар',
@@ -341,8 +359,10 @@ const allCities = [
             { n: 'Гусиный перелет', t: 'Эко-туризм, Города' }
         ],
         tags: { mountains: false, sea: true, city: true, activity: false, culture: false, gastronomy: false, seclusion: false, shopping: false, family_fun: true, eco_tourism: false },
-        budget_suitability: { low: true, medium: true, high: false },
-        bestTime: 'Июнь – Август. Лучшее время для прогулок по набережной Иртыша.'
+        budget_suitability: { low: true, medium: true, high: false }, // City names (n) are not translated here
+        bestTime: 'Июнь – Август. Лучшее время для прогулок по набережной Иртыша.',
+        d_kz: 'Ертіс өзені бойындағы қала, индустриалды орталық, жағалау, мұражайлар.',
+        bestTime_kz: 'Маусым – Тамыз. Ертіс жағалауында серуендеу үшін ең жақсы уақыт.'
     },
     {
         n: 'Усть-Каменогорск',
@@ -374,8 +394,10 @@ const allCities = [
             { n: 'Парк Жастар', t: 'Эко-туризм, Семья' }
         ],
         tags: { mountains: true, sea: true, city: true, activity: true, culture: true, gastronomy: false, seclusion: true, shopping: true, family_fun: true, eco_tourism: true },
-        budget_suitability: { low: true, medium: true, high: true },
-        bestTime: 'Июнь – Август. Идеально для походов в горы и отдыха на водохранилищах.'
+        budget_suitability: { low: true, medium: true, high: true }, // City names (n) are not translated here
+        bestTime: 'Июнь – Август. Идеально для походов в горы и отдыха на водохранилищах.',
+        d_kz: 'Шығыс Қазақстан қаласы, таулар мен өзендермен қоршалған, индустриалды.',
+        bestTime_kz: 'Маусым – Тамыз. Тауға шығу және су қоймаларында демалу үшін тамаша уақыт.'
     },
     {
         n: 'Семей',
@@ -407,8 +429,10 @@ const allCities = [
             { n: 'Пиццерия «Додо»', t: 'Гастрономия, Семья' }
         ],
         tags: { mountains: false, sea: true, city: true, activity: true, culture: true, gastronomy: true, seclusion: true, shopping: false, family_fun: true, eco_tourism: true },
-        budget_suitability: { low: true, medium: true, high: true },
-        bestTime: 'Июнь – Сентябрь. Комфортный период для посещения соснового бора и музеев.'
+        budget_suitability: { low: true, medium: true, high: true }, // City names (n) are not translated here
+        bestTime: 'Июнь – Сентябрь. Комфортный период для посещения соснового бора и музеев.',
+        d_kz: 'Абай Құнанбаев және Достоевскиймен байланысты Ертіс бойындағы тарихи қала.',
+        bestTime_kz: 'Маусым – Қыркүйек. Қарағайлы орманды және мұражайларды аралау үшін ыңғайлы кезең.'
     },
     {
         n: 'Атырау',
@@ -440,8 +464,10 @@ const allCities = [
             { n: 'Рыбный рынок', t: 'Гастрономия, Шоппинг' }
         ],
         tags: { mountains: false, sea: true, city: true, activity: true, culture: true, gastronomy: true, seclusion: true, shopping: true, family_fun: true, eco_tourism: true },
-        budget_suitability: { low: true, medium: true, high: true },
-        bestTime: 'Май или Сентябрь. В это время меньше комаров и нет удушающей жары.'
+        budget_suitability: { low: true, medium: true, high: true }, // City names (n) are not translated here
+        bestTime: 'Май или Сентябрь. В это время меньше комаров и нет удушающей жары.',
+        d_kz: 'Қазақстанның мұнай астанасы, Жайық өзені бойында орналасқан, Каспий теңізіне жақын.',
+        bestTime_kz: 'Мамыр немесе Қыркүйек. Бұл уақытта маса аз және Каспий маңы ойпатының қайнаған ыстығы жоқ.'
     },
     {
         n: 'Костанай',
@@ -473,8 +499,10 @@ const allCities = [
             { n: 'Кондитерская фабрика (магазин)', t: 'Гастрономия' }
         ],
         tags: { mountains: false, sea: true, city: true, activity: true, culture: true, gastronomy: true, seclusion: false, shopping: true, family_fun: true, eco_tourism: false },
-        budget_suitability: { low: true, medium: true, high: true },
-        bestTime: 'Июнь – Июль. Время для загородного отдыха и прогулок по лесопаркам.'
+        budget_suitability: { low: true, medium: true, high: true }, // City names (n) are not translated here
+        bestTime: 'Июнь – Июль. Время для загородного отдыха и прогулок по лесопаркам.',
+        d_kz: 'Аграрлық аймақ, саябақтары мен скверлері бар тыныш қала, жақын маңда көлдер бар.',
+        bestTime_kz: 'Маусым – Шілде. Қала сыртында демалу және орман-саябақтарда серуендеу уақыты.'
     },
     {
         n: 'Кызылорда',
@@ -506,8 +534,10 @@ const allCities = [
             { n: 'Лагманхана «Тулпар»', t: 'Гастрономия' }
         ],
         tags: { mountains: false, sea: true, city: true, activity: false, culture: true, gastronomy: true, seclusion: true, shopping: true, family_fun: true, eco_tourism: false },
-        budget_suitability: { low: true, medium: true, high: true },
-        bestTime: 'Сентябрь – Октябрь. Время знаменитых дынь и арбузов, когда жара спадает.'
+        budget_suitability: { low: true, medium: true, high: true }, // City names (n) are not translated here
+        bestTime: 'Сентябрь – Октябрь. Время знаменитых дынь и арбузов, когда жара спадает.',
+        d_kz: 'Шөлді жерде орналасқан тарихи қала, Байқоңыр ғарыш айлағымен байланысты.',
+        bestTime_kz: 'Қыркүйек – Қазан. Ыстық қайтқан кездегі атақты қызылордалық қауын-қарбыз уақыты.'
     },
     {
         n: 'Уральск',
@@ -539,8 +569,10 @@ const allCities = [
             { n: 'Старая мечеть', t: 'Культура, Уединение' }
         ],
         tags: { mountains: false, sea: true, city: true, activity: true, culture: true, gastronomy: false, seclusion: true, shopping: true, family_fun: true, eco_tourism: true },
-        budget_suitability: { low: true, medium: true, high: true },
-        bestTime: 'Май – Июнь. Самое красивое время, когда берега реки Урал максимально зеленые.'
+        budget_suitability: { low: true, medium: true, high: true }, // City names (n) are not translated here
+        bestTime: 'Май – Июнь. Самое красивое время, когда берега реки Урал максимально зеленые.',
+        d_kz: 'Жайық өзені бойындағы көне қала, бай тарихы, 19 ғасыр архитектурасы.',
+        bestTime_kz: 'Мамыр – Маусым. Жайық өзенінің жағалаулары ең жасыл болған ең әдемі уақыт.'
     },
     {
         n: 'Петропавловск',
@@ -572,8 +604,10 @@ const allCities = [
             { n: 'Мещерский лес', t: 'Эко-туризм, Уединение' }
         ],
         tags: { mountains: false, sea: true, city: true, activity: true, culture: false, gastronomy: false, seclusion: true, shopping: false, family_fun: true, eco_tourism: true },
-        budget_suitability: { low: true, medium: true, high: true },
-        bestTime: 'Июнь – Август. Самый теплый период в самом северном городе страны.'
+        budget_suitability: { low: true, medium: true, high: true }, // City names (n) are not translated here
+        bestTime: 'Июнь – Август. Самый теплый период в самом северном городе страны.',
+        d_kz: 'Қазақстанның солтүстік қаласы, тарихи орталық, айналасында көлдер мен ормандар.',
+        bestTime_kz: 'Маусым – Тамыз. Елдің ең солтүстік қаласындағы ең жылы кезең.'
     },
     {
         n: 'Кокшетау',
@@ -605,8 +639,10 @@ const allCities = [
             { n: 'Сквер «Мангилик Ел»', t: 'Уединение, Города' }
         ],
         tags: { mountains: true, sea: true, city: true, activity: true, culture: true, gastronomy: false, seclusion: true, shopping: true, family_fun: true, eco_tourism: true },
-        budget_suitability: { low: true, medium: true, high: true },
-        bestTime: 'Июнь – Август. Приятная погода для отдыха у озера Копа.'
+        budget_suitability: { low: true, medium: true, high: true }, // City names (n) are not translated here
+        bestTime: 'Июнь – Август. Приятная погода для отдыха у озера Копа.',
+        d_kz: 'Төбелердің етегіндегі жайлы қала, көлдер мен әдемі табиғат аймағына қақпа.',
+        bestTime_kz: 'Маусым – Тамыз. Қопа көлінде демалу үшін жағымды ауа райы.'
     },
     {
         n: 'Талдыкорган',
@@ -638,8 +674,10 @@ const allCities = [
             { n: 'Ресторан Arbat', t: 'Гастрономия' }
         ],
         tags: { mountains: true, sea: true, city: true, activity: true, culture: true, gastronomy: true, seclusion: false, shopping: true, family_fun: false, eco_tourism: true },
-        budget_suitability: { low: true, medium: true, high: true },
-        bestTime: 'Май – Июнь. Пик красоты предгорий Джунгарского Алатау.'
+        budget_suitability: { low: true, medium: true, high: true }, // City names (n) are not translated here
+        bestTime: 'Май – Июнь. Пик красоты предгорий Джунгарского Алатау.',
+        d_kz: 'Жасыл қала, бай мәдениеті және белсенді демалыс үшін көптеген мүмкіндіктер.',
+        bestTime_kz: 'Мамыр – Маусым. Жетісу Алатауының етегіндегі табиғаттың ең әдемі кезеңі.'
     },
     {
         n: 'Балхаш',
@@ -671,8 +709,10 @@ const allCities = [
             { n: 'Рыбный рынок', t: 'Гастрономия, Шоппинг' }
         ],
         tags: { mountains: true, sea: true, city: true, activity: true, culture: true, gastronomy: true, seclusion: true, shopping: true, family_fun: true, eco_tourism: true },
-        budget_suitability: { low: true, medium: true, high: true },
-        bestTime: 'Июль – Август. Озеро прогревается хорошо, это лучшие месяцы для пляжа.'
+        budget_suitability: { low: true, medium: true, high: true }, // City names (n) are not translated here
+        bestTime: 'Июль – Август. Озеро прогревается хорошо, это лучшие месяцы для пляжа.',
+        d_kz: 'Бірегей көлдің жағасындағы қала, су белсенділігі және жағажай демалысы үшін тамаша.',
+        bestTime_kz: 'Шілде – Тамыз. Көл жақсы жылынады, бұл жағажай демалысы үшін ең жақсы айлар.'
     },
     {
         n: 'Экибастуз',
@@ -704,8 +744,10 @@ const allCities = [
             { n: 'Кафе «Ас-Мар»', t: 'Гастрономия' }
         ],
         tags: { mountains: false, sea: false, city: true, activity: false, culture: true, gastronomy: true, seclusion: false, shopping: true, family_fun: true, eco_tourism: true },
-        budget_suitability: { low: true, medium: true, high: true },
-        bestTime: 'Сентябрь. Жары уже нет, а карьеры лучше осматривать в сухую погоду.'
+        budget_suitability: { low: true, medium: true, high: true }, // City names (n) are not translated here
+        bestTime: 'Сентябрь. Жары уже нет, а карьеры лучше осматривать в сухую погоду.',
+        d_kz: 'Масштабты карьерлері және қызықты мәдени нысандары бар индустриалды алып.',
+        bestTime_kz: 'Қыркүйек. Ыстық жоқ, ал атақты карьерлерді құрғақ ауа райында қараған дұрыс.'
     },
     {
         n: 'Рудный',
@@ -737,8 +779,10 @@ const allCities = [
             { n: 'Ледовый дворец', t: 'Активность, Семья' }
         ],
         tags: { mountains: false, sea: true, city: true, activity: true, culture: true, gastronomy: false, seclusion: true, shopping: true, family_fun: true, eco_tourism: false },
-        budget_suitability: { low: true, medium: true, high: true },
-        bestTime: 'Сентябрь. Время золотой осени, когда город выглядит наиболее уютно.'
+        budget_suitability: { low: true, medium: true, high: true }, // City names (n) are not translated here
+        bestTime: 'Сентябрь. Время золотой осени, когда город выглядит наиболее уютно.',
+        d_kz: 'Жанды атмосферасы және әртүрлі саябақтары бар кеншілер қаласы.',
+        bestTime_kz: 'Қыркүйек. Қала ең жайлы көрінетін алтын күз уақыты.'
     },
     {
         n: 'Конаев',
@@ -770,8 +814,10 @@ const allCities = [
             { n: 'Ресторан Riviera', t: 'Гастрономия, Море/Вода' }
         ],
         tags: { mountains: false, sea: true, city: true, activity: true, culture: false, gastronomy: true, seclusion: false, shopping: false, family_fun: true, eco_tourism: false },
-        budget_suitability: { low: true, medium: true, high: true },
-        bestTime: 'Июнь – Сентябрь. Длинный купальный сезон благодаря мелководью Капшагая.'
+        budget_suitability: { low: true, medium: true, high: true }, // City names (n) are not translated here
+        bestTime: 'Июнь – Сентябрь. Длинный купальный сезон благодаря мелководью Капшагая.',
+        d_kz: 'Алматыға жақын теңіз курорты, ойын-сауық және жағажай демалысы орталығы.',
+        bestTime_kz: 'Маусым – Қыркүйек. Қапшағай су қоймасының таяздығы арқасында ұзақ шомылу маусымы.'
     },
     {
         n: 'Басши (Алтын-Эмель)',
@@ -803,8 +849,10 @@ const allCities = [
             { n: 'Визит-центр', t: 'Культура, Семья' }
         ],
         tags: { mountains: true, sea: false, city: false, activity: false, culture: true, gastronomy: false, seclusion: true, shopping: false, family_fun: true, eco_tourism: true },
-        budget_suitability: { low: true, medium: true, high: true },
-        bestTime: 'Апрель – Май. В пустыне еще не жарко, комфортно для подъема на барханы.'
+        budget_suitability: { low: true, medium: true, high: true }, // City names (n) are not translated here
+        bestTime: 'Апрель – Май. В пустыне еще не жарко, комфортно для подъема на барханы.',
+        d_kz: 'Әнші бархандары және марстық пейзаждары бар бірегей табиғи қорық.',
+        bestTime_kz: 'Сәуір – Мамыр. Шөлде әлі ыстық емес, бархандарға көтерілу үшін ыңғайлы.'
     },
     {
         n: 'Жанаозен',
@@ -836,8 +884,10 @@ const allCities = [
             { n: 'Зона отдыха Кендирли', t: 'Море/Вода, Семья' }
         ],
         tags: { mountains: true, sea: true, city: true, activity: false, culture: true, gastronomy: false, seclusion: true, shopping: true, family_fun: true, eco_tourism: true },
-        budget_suitability: { low: true, medium: true, high: true },
-        bestTime: 'Апрель – Май. Идеально для каньонов Устюрта, пока солнце не выжгло пустыню.'
+        budget_suitability: { low: true, medium: true, high: true }, // City names (n) are not translated here
+        bestTime: 'Апрель – Май. Идеально для каньонов Устюрта, пока солнце не выжгло пустыню.',
+        d_kz: 'Маңғыстаудың жүрегіндегі қала, шөлдер мен каньондарға саяхаттар үшін бастау нүктесі.',
+        bestTime_kz: 'Сәуір – Мамыр. Күн шөлді күйдіріп жібермей тұрғанда Үстірт каньондарына саяхат жасау үшін тамаша.'
     },
     {
         n: 'Риддер',
@@ -869,8 +919,10 @@ const allCities = [
             { n: 'База отдыха «Светлячок»', t: 'Семья, Эко-туризм' }
         ],
         tags: { mountains: true, sea: false, city: false, activity: true, culture: true, gastronomy: false, seclusion: true, shopping: false, family_fun: true, eco_tourism: true },
-        budget_suitability: { low: true, medium: true, high: true },
-        bestTime: 'Зима (лыжи) или Июль (походы). Здесь выпадает аномальное количество снега.'
+        budget_suitability: { low: true, medium: true, high: true }, // City names (n) are not translated here
+        bestTime: 'Зима (лыжи) или Июль (походы). Здесь выпадает аномальное количество снега.',
+        d_kz: 'Шығыстағы таулы аймақ, альпілік шалғындар және сібірлік тайга.',
+        bestTime_kz: 'Қыс (шаңғы) немесе Шілде (жаяу серуендеу). Мұнда қар өте көп жауады, бұл оны фрирайд үшін жұмаққа айналдырады.'
     },
     {
         n: 'Степногорск',
@@ -902,8 +954,10 @@ const allCities = [
             { n: 'Кафе «Трапеза»', t: 'Гастрономия' }
         ],
         tags: { mountains: false, sea: false, city: true, activity: true, culture: true, gastronomy: true, seclusion: true, shopping: true, family_fun: true, eco_tourism: true },
-        budget_suitability: { low: true, medium: true, high: true },
-        bestTime: 'Май или Сентябрь. Период без экстремальных температур северной степи.'
+        budget_suitability: { low: true, medium: true, high: true }, // City names (n) are not translated here
+        bestTime: 'Мамыр немесе Қыркүйек. Солтүстік далаға тән экстремалды температурасыз кезең.',
+        d_kz: 'Қызықты архитектурасы және белсенді өмірі бар индустриалды қала.',
+        bestTime_kz: 'Мамыр немесе Қыркүйек. Солтүстік далаға тән экстремалды температурасыз кезең.'
     },
     {
         n: 'Байконур',
@@ -935,8 +989,10 @@ const allCities = [
             { n: 'Ресторан «Звездное небо»', t: 'Гастрономия, Культура' }
         ],
         tags: { mountains: false, sea: true, city: true, activity: true, culture: true, gastronomy: true, seclusion: true, shopping: false, family_fun: true, eco_tourism: false },
-        budget_suitability: { low: true, medium: true, high: true },
-        bestTime: 'Апрель – Май или Сентябрь – Октябрь. Самые мягкие месяцы по погоде.'
+        budget_suitability: { low: true, medium: true, high: true }, // City names (n) are not translated here
+        bestTime: 'Апрель – Май или Сентябрь – Октябрь. Самые мягкие месяцы по погоде.',
+        d_kz: 'Бірегей қала-ғарыш айлағы, аты аңызға айналған ғарыш миссияларының бастау орны.',
+        bestTime_kz: 'Сәуір – Мамыр немесе Қыркүйек – Қазан. Ауа райы бойынша ең жұмсақ айлар.'
     },
     {
         n: 'Щучинск',
@@ -968,10 +1024,368 @@ const allCities = [
             { n: 'Ресторан Sultan', t: 'Гастрономия' }
         ],
         tags: { mountains: true, sea: true, city: true, activity: true, culture: false, gastronomy: true, seclusion: true, shopping: true, family_fun: true, eco_tourism: true },
-        budget_suitability: { low: true, medium: true, high: true },
-        bestTime: 'Январь – Февраль. Отличное время для лыж и зимней рыбалки.'
+        budget_suitability: { low: true, medium: true, high: true }, // City names (n) are not translated here
+        bestTime: 'Январь – Февраль. Отличное время для лыж и зимней рыбалки.',
+        d_kz: 'Қарағайлы ормандар мен таулар арасындағы курортты қала, қысқы спорт түрлерінің орталығы.',
+        bestTime_kz: 'Қаңтар – Ақпан. Шаңғы тебу және қысқы балық аулау үшін тамаша уақыт.'
     }
 ];
+
+// Объект для хранения переводов
+const translations = {
+    'ru': {
+        // General UI
+        'app_name': 'ITSapar',
+        'app_slogan': 'Ваше идеальное путешествие',
+        'app_description': 'Умный подбор городов Казахстана для перелетов, поездок на поезде и авто.',
+        'start_registration': 'Начать регистрацию',
+        'login': 'Войти',
+        'no_account': 'Нет аккаунта?',
+        'create_account': 'Создать',
+        'login_panel_title': 'Вход в панель',
+        'username_label': 'Логин',
+        'password_label': 'Пароль',
+        'login_button': 'Войти',
+        'login_error': 'Неверный логин или пароль',
+        'register_panel_title': 'Регистрация',
+        'register_button': 'Зарегистрироваться',
+        'register_error': 'Ошибка регистрации: пользователь существует или неверные данные',
+        'already_have_account': 'Уже есть аккаунт?',
+        'full_name_label': 'ФИО',
+        'age_label': 'Возраст',
+        'budget_label': 'Бюджет на поездку (на человека)',
+        'budget_low': 'до 50 000 ₸',
+        'budget_medium': '50 000 - 200 000 ₸',
+        'budget_high': 'от 200 000 ₸',
+        'trip_type_label': 'Тип поездки',
+        'trip_solo': 'Один',
+        'trip_family': 'Семья',
+        'trip_friends': 'Друзья',
+        'next_button': 'Далее',
+        'age_restriction_alert': 'Вы должны быть старше 18 лет, чтобы планировать межгородские путешествия.',
+        'question_title_default': 'Вопрос',
+        'question_desc_default': 'Описание вопроса',
+        'yes_button': 'Да',
+        'no_button': 'Нет',
+        'results_title_ideal': '✨ Подходит вам',
+        'results_title_popular': '🔥 Популярно',
+        'results_no_match': 'К сожалению, мы не смогли подобрать идеальный город по вашим критериям. Попробуйте изменить ответы в опросе.',
+        'retake_survey': 'Пройти опрос заново',
+        'show_all_cities': '🔽 Показать все города',
+        'hide_all_cities': '🔼 Скрыть список городов',
+        'all_cities_title': 'Все города Казахстана',
+        'all_cities_note': '(сайт выбрал этот город как идеальный для вас)',
+        'city_details_hotels': '🏨 Рекомендуемые отели:',
+        'city_details_locations': '🗺️ Места для посещения:',
+        'city_details_restaurants': '🍽️ Где поесть:',
+        'city_details_best_time': '📅 Лучшее время для посещения:',
+        'data_refining': 'Данные уточняются',
+        'details_button': 'Подробнее',
+        'collapse_button': 'Свернуть',
+        'admin_panel_title': 'Пользователи системы',
+        'admin_search_placeholder': 'Поиск по имени или логину...',
+        'admin_analytics_button': '📊 Аналитика',
+        'admin_logout_button': 'Выйти',
+        'admin_table_fio_login': 'ФИО (Логин)',
+        'admin_table_age': 'Возраст',
+        'admin_table_budget': 'Бюджет',
+        'admin_table_type': 'Тип',
+        'admin_table_interests': 'Интересы',
+        'admin_table_actions': 'Действия',
+        'admin_table_no_data': 'Пользователей пока нет',
+        'admin_table_not_filled': '<i>Анкета не заполнена</i>',
+        'admin_table_budget_low_short': 'до 50к',
+        'admin_table_budget_medium_short': '50к-200к',
+        'admin_table_budget_high_short': 'от 200к',
+        'admin_table_results_button': 'Результаты',
+        'admin_table_delete_button': 'Удалить',
+        'admin_analytics_title': '📈 Админ аналитика',
+        'admin_analytics_back_button': 'Назад',
+        'admin_analytics_total_users': 'Всего пользователей',
+        'admin_analytics_avg_budget': 'Средний бюджет',
+        'admin_analytics_interests_chart': 'Интересы пользователей',
+        'admin_analytics_cities_chart': 'Популярные города (Топ)',
+        'admin_analytics_active_surveys': 'Список активных анкет',
+        'admin_analytics_loading': 'Загрузка данных...',
+        'admin_analytics_error_access_denied': 'Доступ запрещен',
+        'admin_analytics_error_server': 'Ошибка сервера',
+        'admin_analytics_reload_data': 'Перезагрузить данные',
+        'budget_formula_title': '🧮 Как считается бюджет?',
+        'budget_formula_desc1': 'Поскольку пользователи выбирают диапазон, мы присваиваем каждой категории числовой вес:',
+        'budget_formula_low': '<strong>"До 50 000 ₸":</strong> 50,000 ₸',
+        'budget_formula_medium': '<strong>"50 000 - 200 000 ₸":</strong> 125,000 ₸',
+        'budget_formula_high': '<strong>"От 200 000 ₸":</strong> 250,000 ₸',
+        'budget_formula_formula': '<strong>Формула:</strong><br>(Сумма всех весов) ÷ (Кол-во заполненных анкет)',
+        'budget_formula_understand': 'Понятно',
+        'policy_title': 'Соглашение и защита данных',
+        'policy_p1': 'Добро пожаловать в ITSapar. Используя сервис, вы подтверждаете:',
+        'policy_p2': 'Настоящим подтверждается согласие пользователя с условиями эксплуатации сервиса ITSapar:',
+        'policy_li1': 'Вам исполнилось <strong>18 лет</strong>.',
+        'policy_li2': 'Данные используются только для подбора маршрута.',
+        'policy_li3': 'Вся информация хранится локально в вашем браузере.',
+        'policy_li4': 'Вы обязуетесь не копировать контент (Закон РК «Об авторском праве»).',
+        'policy_li5': '<strong>Возрастной ценз:</strong> Доступ к функционалу сервиса разрешен исключительно лицам, достигшим 18-летнего возраста.',
+        'policy_li6': '<strong>Конфиденциальность данных:</strong> Информация обрабатывается только для формирования рекомендаций и хранится локально (LocalStorage).',
+        'policy_li7': '<strong>Кибербезопасность:</strong> Категорически запрещены любые формы несанкционированного доступа, попытки взлома, декомпиляции кода или нарушения целостности системы.',
+        'policy_li8': '<strong>Авторское право:</strong> Весь контент защищен законодательством РК «Об авторском праве и смежных правах». Копирование запрещено.',
+        'policy_li9': '<strong>Юридическая ответственность:</strong> Незаконные действия в отношении ресурса влекут ответственность согласно Уголовному кодексу РК.',
+        'policy_li10': '<strong>Отказ от ответственности:</strong> Сервис носит справочный характер; окончательный выбор маршрута остается за пользователем.',
+        'policy_checkbox_label': 'Я ознакомлен с условиями Соглашения и подтверждаю возраст 18+',
+        'policy_accept_button': 'Принять и продолжить',
+        'chat_title': 'AI помощник ITSapar',
+        'chat_close': '&times;',
+        'chat_initial_message': 'Привет! Я помогу выбрать город. Что вас интересует?',
+        'chat_option_mountains': 'Горы',
+        'chat_option_sea': 'Море',
+        'chat_option_city': 'Город',
+        'chat_option_culture': 'Культура',
+        'chat_option_activity': 'Активный отдых',
+        'chat_option_show_more': 'Показать ещё',
+        'chat_option_reset': 'Сбросить выбор',
+        'chat_response_mountains': 'Рекомендую Алматы — отличное место для горного отдыха и походов на Шымбулак.',
+        'chat_response_sea': 'Актау — лучший вариант для отдыха у моря в Казахстане на Каспийском побережье.',
+        'chat_response_city': 'Астана — современный мегаполис с уникальной архитектурой и множеством музеев.',
+        'chat_response_culture': 'Туркестан подойдёт для глубокого культурного и исторического путешествия.',
+        'chat_response_activity': 'Алматы или Шымкент — отличные варианты для тех, кто не любит сидеть на месте.',
+        'chat_response_default': 'Интересный выбор! Хотите узнать больше?',
+        'chat_disclaimer': 'AI помощник работает на основе заранее заданных сценариев. Он не подключён к интернету. Рекомендуется проверять важную информацию.',
+        'admin_delete_confirm_prompt': 'Внимание! Вы пытаетесь удалить пользователя. Для подтверждения операции введите пароль администратора:',
+        'admin_delete_success': 'Пользователь {username} успешно удален из базы данных.',
+        'admin_delete_error_server': 'Ошибка при связи с сервером.',
+        'admin_delete_wrong_password': 'Ошибка! Неверный пароль администратора. Операция отменена.',
+        'admin_clear_all_prompt': 'Введите пароль администратора для ПОЛНОЙ очистки:',
+        'admin_clear_all_success': 'Система полностью очищена.',
+        'admin_clear_all_wrong_password': 'Неверный пароль.',
+        'server_error_alert': "Сервер не запущен. Запустите 'node server.js'",
+        'admin_table_error_msg': 'Ошибка сервера (500)',
+        'admin_table_access_denied': 'Доступ запрещен',
+        'admin_table_reload_data': 'Перезагрузить данные',
+        'admin_table_no_users': 'Пользователей пока нет',
+        'admin_table_fio_not_filled': '<i>Анкета не заполнена</i>',
+        'admin_table_age_years': 'лет',
+        'admin_table_recommendations_for': 'Для пользователя {fullName} идеально подходят: {cities}',
+        'admin_table_no_survey_filled': 'Пользователь еще не заполнил анкету или не прошел свайп-опрос.',
+        'admin_table_budget_low_short': 'до 50к',
+        'admin_table_budget_medium_short': '50к-200к',
+        'admin_table_budget_high_short': 'от 200к',
+        'admin_table_recommendations_count': 'Кол-во рекомендаций'
+    },
+    'kz': {
+        // General UI
+        'app_name': 'ITSapar',
+        'app_slogan': 'Сіздің тамаша саяхатыңыз',
+        'app_description': 'Қазақстан қалаларын ұшақ, пойыз және автокөлікпен саяхаттау үшін ақылды таңдау.',
+        'start_registration': 'Тіркелуді бастау',
+        'login': 'Кіру',
+        'no_account': 'Аккаунтыңыз жоқ па?',
+        'create_account': 'Жасау',
+        'login_panel_title': 'Панельге кіру',
+        'username_label': 'Логин',
+        'password_label': 'Құпия сөз',
+        'login_button': 'Кіру',
+        'login_error': 'Қате логин немесе құпия сөз',
+        'register_panel_title': 'Тіркелу',
+        'register_button': 'Тіркелу',
+        'register_error': 'Тіркеу қатесі: пайдаланушы бар немесе деректер қате',
+        'already_have_account': 'Аккаунтыңыз бар ма?',
+        'full_name_label': 'Аты-жөні',
+        'age_label': 'Жасы',
+        'budget_label': 'Саяхат бюджеті (бір адамға)',
+        'budget_low': '50 000 ₸ дейін',
+        'budget_medium': '50 000 - 200 000 ₸',
+        'budget_high': '200 000 ₸ жоғары',
+        'trip_type_label': 'Саяхат түрі',
+        'trip_solo': 'Жалғыз',
+        'trip_family': 'Отбасы',
+        'trip_friends': 'Достар',
+        'next_button': 'Келесі',
+        'age_restriction_alert': 'Қалааралық саяхаттарды жоспарлау үшін 18 жастан асқан болуыңыз керек.',
+        'question_title_default': 'Сұрақ',
+        'question_desc_default': 'Сұрақ сипаттамасы',
+        'yes_button': 'Иә',
+        'no_button': 'Жоқ',
+        'results_title_ideal': '✨ Сізге сәйкес келеді',
+        'results_title_popular': '🔥 Танымал',
+        'results_no_match': 'Өкінішке орай, біз сіздің критерийлеріңіз бойынша тамаша қаланы таба алмадық. Сауалнамадағы жауаптарды өзгертіп көріңіз.',
+        'retake_survey': 'Сауалнаманы қайта өту',
+        'show_all_cities': '🔽 Барлық қалаларды көрсету',
+        'hide_all_cities': '🔼 Қалалар тізімін жасыру',
+        'all_cities_title': 'Қазақстанның барлық қалалары',
+        'all_cities_note': '(сайт бұл қаланы сіз үшін тамаша деп таңдады)',
+        'city_details_hotels': '🏨 Ұсынылатын қонақүйлер:',
+        'city_details_locations': '🗺️ Баруға болатын орындар:',
+        'city_details_restaurants': '🍽️ Тамақтану орындары:',
+        'city_details_best_time': '📅 Бару үшін ең жақсы уақыт:',
+        'data_refining': 'Деректер нақтылануда',
+        'details_button': 'Толығырақ',
+        'collapse_button': 'Жиыру',
+        'admin_panel_title': 'Жүйе пайдаланушылары',
+        'admin_search_placeholder': 'Аты-жөні немесе логин бойынша іздеу...',
+        'admin_analytics_button': '📊 Аналитика',
+        'admin_logout_button': 'Шығу',
+        'admin_table_fio_login': 'Аты-жөні (Логин)',
+        'admin_table_age': 'Жасы',
+        'admin_table_budget': 'Бюджет',
+        'admin_table_type': 'Түрі',
+        'admin_table_interests': 'Қызығушылықтар',
+        'admin_table_actions': 'Әрекеттер',
+        'admin_table_no_data': 'Пайдаланушылар әлі жоқ',
+        'admin_table_not_filled': '<i>Сауалнама толтырылмаған</i>',
+        'admin_table_budget_low_short': '50к дейін',
+        'admin_table_budget_medium_short': '50к-200к',
+        'admin_table_budget_high_short': '200к жоғары',
+        'admin_table_results_button': 'Нәтижелер',
+        'admin_table_delete_button': 'Жою',
+        'admin_analytics_title': '📈 Әкімші аналитикасы',
+        'admin_analytics_back_button': 'Артқа',
+        'admin_analytics_total_users': 'Барлық пайдаланушылар',
+        'admin_analytics_avg_budget': 'Орташа бюджет',
+        'admin_analytics_interests_chart': 'Пайдаланушылардың қызығушылықтары',
+        'admin_analytics_cities_chart': 'Танымал қалалар (Топ)',
+        'admin_analytics_active_surveys': 'Белсенді сауалнамалар тізімі',
+        'admin_analytics_loading': 'Деректер жүктелуде...',
+        'admin_analytics_error_access_denied': 'Рұқсат жоқ',
+        'admin_analytics_error_server': 'Сервер қатесі',
+        'admin_analytics_reload_data': 'Деректерді қайта жүктеу',
+        'budget_formula_title': '🧮 Бюджет қалай есептеледі?',
+        'budget_formula_desc1': 'Пайдаланушылар диапазонды таңдағандықтан, біз әр санатқа сандық салмақ береміз:',
+        'budget_formula_low': '<strong>"50 000 ₸ дейін":</strong> 50,000 ₸',
+        'budget_formula_medium': '<strong>"50 000 - 200 000 ₸":</strong> 125,000 ₸',
+        'budget_formula_high': '<strong>"200 000 ₸ жоғары":</strong> 250,000 ₸',
+        'budget_formula_formula': '<strong>Формула:</strong><br>(Барлық салмақтардың сомасы) ÷ (Толтырылған сауалнамалар саны)',
+        'budget_formula_understand': 'Түсінікті',
+        'policy_title': 'Келісім және деректерді қорғау',
+        'policy_p1': 'ITSapar-ға қош келдіңіз. Қызметті пайдалана отырып, сіз растайсыз:',
+        'policy_p2': 'Осы арқылы пайдаланушы ITSapar қызметін пайдалану шарттарымен келісетінін растайды:',
+        'policy_li1': 'Сіз <strong>18 жастан</strong> асқансыз.',
+        'policy_li2': 'Деректер тек маршрутты таңдау үшін пайдаланылады.',
+        'policy_li3': 'Барлық ақпарат браузеріңізде жергілікті жерде сақталады.',
+        'policy_li4': 'Сіз контентті көшірмеуге міндеттенесіз (ҚР «Авторлық құқық туралы» Заңы).',
+        'policy_li5': '<strong>Жас шектеуі:</strong> Қызмет функционалына тек 18 жасқа толған тұлғаларға рұқсат етіледі.',
+        'policy_li6': '<strong>Деректер құпиялылығы:</strong> Ақпарат тек ұсыныстарды қалыптастыру үшін өңделеді және жергілікті жерде сақталады (LocalStorage).',
+        'policy_li7': '<strong>Киберқауіпсіздік:</strong> Рұқсатсыз кірудің, бұзу әрекеттерінің, кодты декомпиляциялаудың немесе жүйенің тұтастығын бұзудың кез келген түріне қатаң тыйым салынады.',
+        'policy_li8': '<strong>Авторлық құқық:</strong> Барлық контент ҚР «Авторлық құқық және сабақтас құқықтар туралы» заңнамасымен қорғалған. Көшіруге тыйым салынады.',
+        'policy_li9': '<strong>Заңды жауапкершілік:</strong> Ресурстың заңсыз әрекеттері ҚР Қылмыстық кодексіне сәйкес жауапкершілікке әкеп соғады.',
+        'policy_li10': '<strong>Жауапкершіліктен бас тарту:</strong> Қызмет анықтамалық сипатта болады; маршрутты соңғы таңдау пайдаланушыда қалады.',
+        'policy_checkbox_label': 'Мен Келісім шарттарымен таныстым және 18 жастан асқанымды растаймын',
+        'policy_accept_button': 'Қабылдау және жалғастыру',
+        'chat_title': 'ITSapar AI көмекшісі',
+        'chat_close': '&times;',
+        'chat_initial_message': 'Сәлем! Мен қала таңдауға көмектесемін. Сізді не қызықтырады?',
+        'chat_option_mountains': 'Таулар',
+        'chat_option_sea': 'Теңіз',
+        'chat_option_city': 'Қала',
+        'chat_option_culture': 'Мәдениет',
+        'chat_option_activity': 'Белсенді демалыс',
+        'chat_option_show_more': 'Көбірек көрсету',
+        'chat_option_reset': 'Таңдауды қалпына келтіру',
+        'chat_response_mountains': 'Алматыны ұсынамын — таулы демалыс және Шымбұлаққа жорықтар үшін тамаша орын.',
+        'chat_response_sea': 'Ақтау — Қазақстанда Каспий теңізі жағалауында теңіз демалысы үшін ең жақсы нұсқа.',
+        'chat_response_city': 'Астана — бірегей архитектурасы және көптеген мұражайлары бар заманауи мегаполис.',
+        'chat_response_culture': 'Түркістан терең мәдени және тарихи саяхат үшін қолайлы.',
+        'chat_response_activity': 'Алматы немесе Шымкент — орнында отыруды ұнатпайтындар үшін тамаша нұсқалар.',
+        'chat_response_default': 'Қызықты таңдау! Көбірек білгіңіз келе ме?',
+        'chat_disclaimer': 'AI көмекшісі алдын ала белгіленген сценарийлер негізінде жұмыс істейді. Ол интернетке қосылмаған. Маңызды ақпаратты тексеру ұсынылады.',
+        'admin_delete_confirm_prompt': 'Назар аударыңыз! Сіз пайдаланушыны жоюға тырысып жатырсыз. Операцияны растау үшін әкімші құпия сөзін енгізіңіз:',
+        'admin_delete_success': '{username} пайдаланушысы дерекқордан сәтті жойылды.',
+        'admin_delete_error_server': 'Сервермен байланыс қатесі.',
+        'admin_delete_wrong_password': 'Қате! Әкімші құпия сөзі қате. Операция тоқтатылды.',
+        'admin_clear_all_prompt': 'ТОЛЫҚ тазалау үшін әкімші құпия сөзін енгізіңіз:',
+        'admin_clear_all_success': 'Жүйе толығымен тазаланды.',
+        'admin_clear_all_wrong_password': 'Қате құпия сөз.',
+        'server_error_alert': "Сервер іске қосылмаған. 'node server.js' іске қосыңыз",
+        'admin_table_error_msg': 'Сервер қатесі (500)',
+        'admin_table_access_denied': 'Рұқсат жоқ',
+        'admin_table_reload_data': 'Деректерді қайта жүктеу',
+        'admin_table_no_users': 'Пайдаланушылар әлі жоқ',
+        'admin_table_fio_not_filled': '<i>Сауалнама толтырылмаған</i>',
+        'admin_table_age_years': 'жас',
+        'admin_table_recommendations_for': '{fullName} пайдаланушысы үшін келесі қалалар тамаша сәйкес келеді: {cities}',
+        'admin_table_no_survey_filled': 'Пайдаланушы әлі сауалнаманы толтырмаған немесе свайп-сауалнамадан өтпеген.',
+        'admin_table_budget_low_short': '50к дейін',
+        'admin_table_budget_medium_short': '50к-200к',
+        'admin_table_budget_high_short': '200к жоғары',
+        'admin_table_recommendations_count': 'Ұсыныстар саны'
+    }
+};
+
+let currentLang = localStorage.getItem('lang') || 'ru';
+
+// Функция для установки языка и обновления всех текстовых элементов
+function setLanguage(lang) {
+    currentLang = lang;
+    localStorage.setItem('lang', lang);
+    document.documentElement.lang = lang;
+
+    // Обновляем статический текст с атрибутом data-i18n
+    document.querySelectorAll('[data-i18n]').forEach(element => {
+        const key = element.getAttribute('data-i18n');
+        if (translations[lang] && translations[lang][key]) {
+            element.innerText = translations[lang][key];
+        }
+    });
+    // Обновляем плейсхолдеры
+    document.querySelectorAll('[data-i18n-placeholder]').forEach(element => {
+        const key = element.getAttribute('data-i18n-placeholder');
+        if (translations[lang] && translations[lang][key]) {
+            element.placeholder = translations[lang][key];
+        }
+    });
+
+    // Перерисовываем динамический контент, который не обновляется другими функциями
+    if (document.getElementById('adminTableBody')) {
+        renderAdminTable(document.getElementById('adminSearch')?.value || '');
+    }
+    if (document.getElementById('analyticsContainer')) {
+        loadAnalytics(); // Это перерисует графики и таблицу с новыми метками
+    }
+    if (document.getElementById('swipeCard')) {
+        renderSwipe();
+    }
+    if (document.getElementById('resultsList')) {
+        showResults(); // Это перерисует карточки городов с новыми описаниями
+    }
+    // Обновляем текст кнопки "Показать все города"
+    const showAllCitiesBtn = document.getElementById('showAllCitiesBtn');
+    if (showAllCitiesBtn) {
+        const isHidden = document.getElementById('allCitiesContainer')?.style.display === 'none';
+        showAllCitiesBtn.innerText = isHidden ? translations[currentLang].hide_all_cities : translations[currentLang].show_all_cities;
+    }
+    // Обновляем текст заголовка "Все города Казахстана"
+    const allCitiesTitle = document.getElementById('allCitiesTitle');
+    if (allCitiesTitle) {
+        allCitiesTitle.innerText = translations[currentLang].all_cities_title;
+    }
+}
+
+// Функция для внедрения переключателя языка
+function injectLanguageToggle() {
+    if (document.getElementById('languageToggleContainer')) return;
+
+    const toggleContainer = document.createElement('div');
+    toggleContainer.id = 'languageToggleContainer';
+    toggleContainer.className = 'language-toggle-container';
+    toggleContainer.innerHTML = `
+        <span class="lang-label">РУС</span>
+        <label class="language-toggle-switch">
+            <input type="checkbox" id="langToggleCheckbox">
+            <span class="language-slider"></span>
+        </label>
+        <span class="lang-label">ҚАЗ</span>
+    `;
+    document.body.appendChild(toggleContainer);
+
+    const checkbox = document.getElementById('langToggleCheckbox');
+    if (currentLang === 'kz') {
+        checkbox.checked = true;
+    }
+
+    checkbox.addEventListener('change', (e) => {
+        const newLang = e.target.checked ? 'kz' : 'ru';
+        setLanguage(newLang);
+    });
+}
+
 // --- Глобальные функции (объявлены здесь, чтобы быть доступными везде) ---
 
 // Функция для плавного перехода
@@ -991,7 +1405,9 @@ document.addEventListener('DOMContentLoaded', () => {
     document.body?.classList.add('page-loaded');
 
     try {
-        initTheme(); // Инициализация темы
+        initTheme();
+        injectLanguageToggle(); // Внедряем переключатель языка
+        setLanguage(currentLang); // Устанавливаем начальный язык
         injectChat(); // Добавляем вызов функции чата
         initApp();
         console.log("Приложение успешно запущено");
@@ -1045,28 +1461,28 @@ function injectPolicy(targetUrl = null) {
     wrapper.innerHTML = `
         <div id="policyModal" class="modal-overlay" style="display: flex;">
             <div class="card modal-card">
-                <h2>Соглашение и защита данных</h2>
+                <h2 data-i18n="policy_title"></h2>
                 <div class="policy-text">
-                    <p>Добро пожаловать в ITSapar. Используя сервис, вы подтверждаете:</p>
-                    <p>Настоящим подтверждается согласие пользователя с условиями эксплуатации сервиса ITSapar:</p>
+                    <p data-i18n="policy_p1"></p>
+                    <p data-i18n="policy_p2"></p>
                     <ul>
-                        <li>Вам исполнилось <strong>18 лет</strong>.</li>
-                        <li>Данные используются только для подбора маршрута.</li>
-                        <li>Вся информация хранится локально в вашем браузере.</li>
-                        <li>Вы обязуетесь не копировать контент (Закон РК «Об авторском праве»).</li>
-                        <li><strong>Возрастной ценз:</strong> Доступ к функционалу сервиса разрешен исключительно лицам, достигшим 18-летнего возраста.</li>
-                        <li><strong>Конфиденциальность данных:</strong> Информация обрабатывается только для формирования рекомендаций и хранится локально (LocalStorage).</li>
-                        <li><strong>Кибербезопасность:</strong> Категорически запрещены любые формы несанкционированного доступа, попытки взлома, декомпиляции кода или нарушения целостности системы.</li>
-                        <li><strong>Авторское право:</strong> Весь контент защищен законодательством РК «Об авторском праве и смежных правах». Копирование запрещено.</li>
-                        <li><strong>Юридическая ответственность:</strong> Незаконные действия в отношении ресурса влекут ответственность согласно Уголовному кодексу РК.</li>
-                        <li><strong>Отказ от ответственности:</strong> Сервис носит справочный характер; окончательный выбор маршрута остается за пользователем.</li>
+                        <li data-i18n="policy_li1"></li>
+                        <li data-i18n="policy_li2"></li>
+                        <li data-i18n="policy_li3"></li>
+                        <li data-i18n="policy_li4"></li>
+                        <li data-i18n="policy_li5"></li>
+                        <li data-i18n="policy_li6"></li>
+                        <li data-i18n="policy_li7"></li>
+                        <li data-i18n="policy_li8"></li>
+                        <li data-i18n="policy_li9"></li>
+                        <li data-i18n="policy_li10"></li>
                     </ul>
                 </div>
                 <div class="policy-check">
                     <input type="checkbox" id="policyCheckbox">
-                    <label for="policyCheckbox">Я ознакомлен с условиями Соглашения и подтверждаю возраст 18+</label>
+                    <label for="policyCheckbox" data-i18n="policy_checkbox_label"></label>
                 </div>
-                <button id="acceptPolicy" class="btn btn-primary full-width" disabled>Принять и продолжить</button>
+                <button id="acceptPolicy" class="btn btn-primary full-width" disabled data-i18n="policy_accept_button"></button>
             </div>
         </div>
     `;
@@ -1117,11 +1533,11 @@ function injectChat() {
     document.getElementById('closeChat').onclick = () => windowEl.style.display = 'none';
 
     const chatResponses = {
-        "Горы": "Рекомендую Алматы — отличное место для горного отдыха и походов на Шымбулак.",
-        "Море": "Актау — лучший вариант для отдыха у моря в Казахстане на Каспийском побережье.",
-        "Город": "Астана — современный мегаполис с уникальной архитектурой и множеством музеев.",
-        "Культура": "Туркестан подойдёт для глубокого культурного и исторического путешествия.",
-        "Активный отдых": "Алматы или Шымкент — отличные варианты для тех, кто не любит сидеть на месте."
+        [translations[currentLang].chat_option_mountains]: translations[currentLang].chat_response_mountains,
+        [translations[currentLang].chat_option_sea]: translations[currentLang].chat_response_sea,
+        [translations[currentLang].chat_option_city]: translations[currentLang].chat_response_city,
+        [translations[currentLang].chat_option_culture]: translations[currentLang].chat_response_culture,
+        [translations[currentLang].chat_option_activity]: translations[currentLang].chat_response_activity
     };
 
     function addMessage(text, sender) {
@@ -1135,9 +1551,9 @@ function injectChat() {
 
     function renderOptions(type = 'main') {
         optionsEl.innerHTML = '';
-        const items = type === 'main' 
-            ? ["Горы", "Море", "Город", "Культура", "Активный отдых"]
-            : ["Показать ещё", "Сбросить выбор"];
+        const items = type === 'main'
+            ? [translations[currentLang].chat_option_mountains, translations[currentLang].chat_option_sea, translations[currentLang].chat_option_city, translations[currentLang].chat_option_culture, translations[currentLang].chat_option_activity]
+            : [translations[currentLang].chat_option_show_more, translations[currentLang].chat_option_reset];
         
         items.forEach(opt => {
             const btn = document.createElement('button');
@@ -1150,10 +1566,10 @@ function injectChat() {
 
     function handleOption(opt) {
         if (opt === "Показать ещё" || opt === "Сбросить выбор") {
-            if (opt === "Сбросить выбор") {
+            if (opt === translations[currentLang].chat_option_reset) {
                 messagesEl.innerHTML = '';
                 localStorage.removeItem('chatHistory');
-                addMessage("Привет! Я помогу выбрать город. Что вас интересует?", "ai");
+                addMessage(translations[currentLang].chat_initial_message, "ai");
             }
             renderOptions('main');
             return;
@@ -1163,7 +1579,7 @@ function injectChat() {
         
         // Имитация задержки AI
         setTimeout(() => {
-            const response = chatResponses[opt] || "Интересный выбор! Хотите узнать больше?";
+            const response = chatResponses[opt] || translations[currentLang].chat_response_default;
             addMessage(response, "ai");
             renderOptions('secondary');
         }, 1500);
@@ -1189,7 +1605,7 @@ function injectChat() {
             messagesEl.scrollTop = messagesEl.scrollHeight;
             renderOptions('main');
         } else {
-            addMessage("Привет! Я помогу выбрать город. Что вас интересует?", "ai");
+            addMessage(translations[currentLang].chat_initial_message, "ai");
             renderOptions('main');
         }
     }
@@ -1256,7 +1672,7 @@ function initApp() {
             };
 
             if (userData.age < 18) {
-                alert('Вы должны быть старше 18 лет, чтобы планировать межгородские путешествия.');
+                alert(translations[currentLang].age_restriction_alert);
                 return; // Прерываем выполнение функции
             }
 
@@ -1343,7 +1759,7 @@ function initApp() {
                 }
             } catch (error) {
                 console.error("Ошибка сервера:", error);
-                alert("Сервер не запущен. Запустите 'node server.js'");
+                alert(translations[currentLang].server_error_alert);
             }
         });
     }
@@ -1388,12 +1804,12 @@ function initApp() {
 let currentStep = 0;
 function renderSwipe() {
     if (currentStep >= questions.length) {
-        saveAndFinish();
-        return;
+            saveAndFinish(); // This will navigate away, so no need to update text here
+            return; 
     }
-    const q = questions[currentStep];
-    document.getElementById('questionTitle').innerText = q.title;
-    document.getElementById('questionDesc').innerText = q.desc;
+        const q = questions[currentStep]; // Use translated titles/descriptions
+        document.getElementById('questionTitle').innerText = currentLang === 'kz' ? q.title_kz : q.title_ru;
+        document.getElementById('questionDesc').innerText = currentLang === 'kz' ? q.desc_kz : q.desc_ru;
     document.getElementById('progress').style.width = ((currentStep + 1) / questions.length) * 100 + '%';
 }
 
@@ -1495,7 +1911,7 @@ async function showResults() {
 
     resDiv.innerHTML = ''; // Очистка перед рендером
     if (recommendedCities.length === 0) {
-        resDiv.innerHTML = '<p>К сожалению, мы не смогли подобрать идеальный город по вашим критериям. Попробуйте изменить ответы в опросе.</p>';
+        resDiv.innerHTML = `<p>${translations[currentLang].results_no_match}</p>`;
         const borovoe = allCities.find(c => c.n === 'Боровое');
         if (borovoe) {
             renderCityCard(borovoe, resDiv);
@@ -1523,7 +1939,7 @@ async function showResults() {
             });
         } catch (err) {
             console.error("Ошибка загрузки популярных городов:", err);
-            popDiv.innerHTML = '<p>Не удалось загрузить популярные города</p>';
+            popDiv.innerHTML = `<p>${translations[currentLang].data_refining}</p>`;
         }
     }
 
@@ -1537,8 +1953,8 @@ async function showResults() {
     if (showAllCitiesBtn && allCitiesContainer && allCitiesList) {
         showAllCitiesBtn.addEventListener('click', () => {
             const isHidden = allCitiesContainer.style.display === 'none';
-            allCitiesContainer.style.display = isHidden ? 'block' : 'none';
-            showAllCitiesBtn.innerText = isHidden ? '🔼 Скрыть список городов' : '🔽 Показать все города';
+            allCitiesContainer.style.display = isHidden ? 'block' : 'none'; // This needs to be updated by setLanguage
+            showAllCitiesBtn.innerText = isHidden ? translations[currentLang].hide_all_cities : translations[currentLang].show_all_cities;
 
             if (isHidden && !allCitiesRendered) {
                 renderAllCities(allCitiesList, recommendedCities);
@@ -1554,8 +1970,8 @@ function renderCityCard(c, container, isIdeal = true) {
     const budget = surveyData.budget || 'medium';
     const tripType = surveyData.tripType || 'solo';
 
-    let displayedHotels = [];
-    let displayedRestaurants = [];
+    const cityDescription = currentLang === 'kz' ? c.d_kz : c.d;
+    const bestTimeDescription = currentLang === 'kz' ? c.bestTime_kz : c.bestTime;
 
     // Логика подбора контента
     if (tripType === 'family' || budget === 'medium') {
@@ -1584,11 +2000,11 @@ function renderCityCard(c, container, isIdeal = true) {
     const card = document.createElement('div');
     card.className = 'res-card';
     card.innerHTML = `
-        <h3>${c.n}</h3>
-        <p>${c.d}</p>
+        <h3>${c.n}</h3> <!-- City name (n) is assumed to be universal -->
+        <p>${cityDescription}</p>
         <div class="city-details" style="display: none;">
             <div class="hotels-list">
-                <p><strong>🏨 Рекомендуемые отели:</strong></p>
+                <p><strong>🏨 ${translations[currentLang].city_details_hotels}</strong></p>
                 ${displayedHotels.map(h => `
                     <div class="hotel-item">
                         📍 ${h.label}${h.name}<br>
@@ -1596,8 +2012,8 @@ function renderCityCard(c, container, isIdeal = true) {
                     </div>
                 `).join('')}
             </div>
-            <div class="locations-list">
-                <p><strong>🗺️ Места для посещения:</strong></p>
+            <div class="locations-list"> <!-- Location names (l.n) and types (l.t) are not translated here -->
+                <p><strong>🗺️ ${translations[currentLang].city_details_locations}</strong></p>
                 ${c.locations ? c.locations.map(l => `<div class="hotel-item">📸 <strong>${l.n}</strong> — <small>${l.t}</small></div>`).join('') : '<small>Данные уточняются</small>'}
             </div>
             <div class="restaurants-list">
@@ -1610,11 +2026,11 @@ function renderCityCard(c, container, isIdeal = true) {
                 `).join('') : '<small>Данные уточняются</small>'}
             </div>
             <div class="best-time-section" style="margin-top: 15px; padding-top: 10px; border-top: 1px dashed rgba(128, 128, 128, 0.3); font-size: 0.85rem;">
-                <p><strong>📅 Лучшее время для посещения:</strong></p>
-                <p style="color: var(--text); opacity: 0.9;">${c.bestTime || 'Данные уточняются'}</p>
+                <p><strong>📅 ${translations[currentLang].city_details_best_time}</strong></p>
+                <p style="color: var(--text); opacity: 0.9;">${bestTimeDescription || translations[currentLang].data_refining}</p>
             </div>
         </div>
-        <button class="btn btn-outline full-width toggle-details-btn" style="margin-top:15px; font-size: 0.7rem; padding: 8px;">Подробнее</button>
+        <button class="btn btn-outline full-width toggle-details-btn" style="margin-top:15px; font-size: 0.7rem; padding: 8px;">${translations[currentLang].details_button}</button>
     `;
 
     const details = card.querySelector('.city-details');
@@ -1624,7 +2040,7 @@ function renderCityCard(c, container, isIdeal = true) {
         e.stopPropagation();
         const isHidden = details.style.display === 'none';
         details.style.display = isHidden ? 'block' : 'none';
-        btn.innerText = isHidden ? '🔼 Свернуть' : '🔽 Подробнее';
+        btn.innerText = isHidden ? translations[currentLang].collapse_button : translations[currentLang].details_button;
         if (isHidden) card.classList.add('active'); else card.classList.remove('active');
     };
 
@@ -1644,8 +2060,8 @@ function renderAllCities(containerElement, idealCities) {
         let cityText = city.n;
         // Проверяем, является ли этот город одним из идеальных
         const isIdeal = idealCities.some(idealCity => idealCity.n === city.n);
-        if (isIdeal) {
-            cityText += ' <span class="ideal-city-note">(сайт выбрал этот город как идеальный для вас)</span>';
+        if (isIdeal) { // City names are not translated here
+            cityText += ` <span class="ideal-city-note">${translations[currentLang].all_cities_note}</span>`;
         }
         listItem.innerHTML = cityText;
         containerElement.appendChild(listItem);
@@ -1660,17 +2076,26 @@ async function renderAdminTable(searchTerm = '') {
     const filter = searchTerm.toLowerCase();
 
     // Словари для перевода данных на русский
-    const typeTranslations = {
+    const typeTranslations_ru = {
         'solo': 'Один',
         'family': 'Семья',
         'friends': 'Друзья'
     };
+    const typeTranslations_kz = {
+        'solo': 'Жалғыз', 'family': 'Отбасы', 'friends': 'Достар'
+    };
 
-    const interestTranslations = {
+    const interestTranslations_ru = {
         'mountains': 'Горы', 'sea': 'Море', 'city': 'Города',
         'activity': 'Активность', 'culture': 'Культура', 'gastronomy': 'Гастрономия',
         'seclusion': 'Уединение', 'shopping': 'Шоппинг',
         'family_fun': 'Семья', 'eco_tourism': 'Эко'
+    };
+    const interestTranslations_kz = {
+        'mountains': 'Таулар', 'sea': 'Теңіз', 'city': 'Қалалар',
+        'activity': 'Белсенділік', 'culture': 'Мәдениет', 'gastronomy': 'Гастрономия',
+        'seclusion': 'Оқшаулану', 'shopping': 'Шопинг',
+        'family_fun': 'Отбасы', 'eco_tourism': 'Эко'
     };
 
     try {
@@ -1692,26 +2117,26 @@ async function renderAdminTable(searchTerm = '') {
         const users = data.usersList || [];
         
         if (users.length === 0) {
-            body.innerHTML = `<tr><td colspan="6" style="text-align:center; padding:40px;">Пользователей пока нет</td></tr>`;
+            body.innerHTML = `<tr><td colspan="6" style="text-align:center; padding:40px;">${translations[currentLang].admin_table_no_users}</td></tr>`;
             return;
         }
 
         // Фильтруем пользователей по логину или по ФИО
         const filteredUsers = users.filter(u => {
-            const nameMatch = u.fullName && typeof u.fullName === 'string' ? u.fullName.toLowerCase().includes(filter) : false;
-            const loginMatch = u.username && typeof u.username === 'string' ? u.username.toLowerCase().includes(filter) : false;
+            const nameMatch = u.fullName && typeof u.fullName === 'string' ? u.fullName.toLowerCase().includes(filter) : false; // Full name is not translated
+            const loginMatch = u.username && typeof u.username === 'string' ? u.username.toLowerCase().includes(filter) : false; // Username is not translated
             return nameMatch || loginMatch;
         });
 
         body.innerHTML = filteredUsers.map(u => {
             // Перевод типа поездки
-            const typeDisplay = typeTranslations[u.tripType] || u.tripType || '-';
+            const typeDisplay = (currentLang === 'kz' ? typeTranslations_kz[u.tripType] : typeTranslations_ru[u.tripType]) || u.tripType || '-';
             
             // Перевод интересов
             const interestsDisplay = (u.answers && typeof u.answers === 'object') 
                 ? Object.keys(u.answers)
                     .filter(k => u.answers[k])
-                    .map(k => interestTranslations[k] || k)
+                    .map(k => (currentLang === 'kz' ? interestTranslations_kz[k] : interestTranslations_ru[k]) || k)
                     .join(', ') 
                 : '-';
 
@@ -1719,7 +2144,7 @@ async function renderAdminTable(searchTerm = '') {
             <tr>
                 <td data-label="ФИО (Логин)">${u.fullName || '<i>Анкета не заполнена</i>'} (${u.username})</td>
                 <td data-label="Возраст">${u.age || '-'}</td>
-                <td data-label="Бюджет">${u.budget === 'low' ? 'до 50к' : u.budget === 'medium' ? '50к-200к' : u.budget === 'high' ? 'от 200к' : '-'}</td>
+                <td data-label="Бюджет">${u.budget === 'low' ? translations[currentLang].admin_table_budget_low_short : u.budget === 'medium' ? translations[currentLang].admin_table_budget_medium_short : u.budget === 'high' ? translations[currentLang].admin_table_budget_high_short : '-'}</td>
                 <td data-label="Тип">${typeDisplay}</td>
                 <td data-label="Интересы">${interestsDisplay}</td>
                 <td data-label="Действия">
@@ -1727,10 +2152,10 @@ async function renderAdminTable(searchTerm = '') {
                         `<button onclick="viewUserResults('${u.username}', 
                             '${u.fullName.replace(/'/g, "&apos;")}', 
                             '${u.recommendedCities.join(', ').replace(/'/g, "&apos;")}'
-                        )" class="btn btn-outline" style="padding: 8px 16px; font-size: 0.7rem; text-transform: none; margin-right: 12px;">Результаты</button>` 
+                        )" class="btn btn-outline" style="padding: 8px 16px; font-size: 0.7rem; text-transform: none; margin-right: 12px;">${translations[currentLang].admin_table_results_button}</button>` 
                         : ''
                     }
-                    <button onclick="confirmDeleteUser('${u.username}')" class="btn btn-no" style="padding: 8px 16px; font-size: 0.7rem; text-transform: none;">Удалить</button>
+                    <button onclick="confirmDeleteUser('${u.username}')" class="btn btn-no" style="padding: 8px 16px; font-size: 0.7rem; text-transform: none;">${translations[currentLang].admin_table_delete_button}</button>
                 </td>
             </tr>
         `}).join('');
@@ -1743,10 +2168,10 @@ async function renderAdminTable(searchTerm = '') {
  * Функция для просмотра рекомендаций админом
  */
 window.viewUserResults = function(username, fullName, cities) {
-    if (cities && cities.length > 0) {
-        alert(`Для пользователя ${fullName || username} идеально подходят: ${cities}`);
+    if (cities && cities.length > 0) { // City names are not translated here
+        alert(translations[currentLang].admin_table_recommendations_for.replace('{fullName}', fullName || username).replace('{cities}', cities));
     } else {
-        alert("Пользователь еще не заполнил анкету или не прошел свайп-опрос.");
+        alert(translations[currentLang].admin_table_no_survey_filled);
     }
 };
 
@@ -1754,7 +2179,7 @@ window.viewUserResults = function(username, fullName, cities) {
  * Функция удаления пользователя с проверкой пароля админа
  */
 window.confirmDeleteUser = async function(username) {
-    const password = prompt("Внимание! Вы пытаетесь удалить пользователя. Для подтверждения операции введите пароль администратора:");
+    const password = prompt(translations[currentLang].admin_delete_confirm_prompt);
     
     if (password === 'Orvex2026') {
         try {
@@ -1764,19 +2189,19 @@ window.confirmDeleteUser = async function(username) {
             });
             if (res.ok) {
                 renderAdminTable(document.getElementById('adminSearch')?.value || '');
-                alert(`Пользователь ${username} успешно удален из базы данных.`);
+                alert(translations[currentLang].admin_delete_success.replace('{username}', username));
             }
         } catch (err) {
-            alert("Ошибка при связи с сервером.");
+            alert(translations[currentLang].admin_delete_error_server);
         }
     } else if (password !== null) {
-        alert("Ошибка! Неверный пароль администратора. Операция отменена.");
+        alert(translations[currentLang].admin_delete_wrong_password);
     }
 };
 
 // Глобальные функции для работы кнопок в HTML
 window.clearSystemData = async function() {
-    const pwd = prompt("Введите пароль администратора для ПОЛНОЙ очистки:");
+    const pwd = prompt(translations[currentLang].admin_clear_all_prompt);
     if (pwd === 'Orvex2026') {
         const res = await fetch('/admin/clear-all', {
             method: 'DELETE',

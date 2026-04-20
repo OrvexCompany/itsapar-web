@@ -27,30 +27,30 @@
 <body>
     <div id="analyticsContainer" class="container" style="max-width: 1000px;">
         <div class="admin-header">
-            <h1>📈 Админ аналитика</h1>
-            <button onclick="navigateWithTransition('admin.html')" class="btn btn-outline">Назад</button>
+            <h1 data-i18n="admin_analytics_title"></h1>
+            <button onclick="navigateWithTransition('admin.html')" class="btn btn-outline" data-i18n="admin_analytics_back_button"></button>
         </div>
 
         <!-- Общая статистика -->
         <div class="stats-cards">
             <div class="stat-card">
-                <h4>Всего пользователей</h4>
+                <h4 data-i18n="admin_analytics_total_users"></h4>
                 <p id="totalUsers">-</p>
             </div>
             <div class="stat-card clickable-card" id="budgetCard">
-                <h4>Средний бюджет</h4>
+                <h4 data-i18n="admin_analytics_avg_budget"></h4>
                 <p id="avgBudget">- ₸</p>
             </div>
         </div>
 
         <!-- Графики -->
         <div class="charts-container">
-            <div class="chart-box">
-                <h4 style="text-align: center; margin-bottom: 15px;">Интересы пользователей</h4>
+            <div class="chart-box"> <!-- data-i18n="admin_analytics_interests_chart" -->
+                <h4 style="text-align: center; margin-bottom: 15px;" data-i18n="admin_analytics_interests_chart"></h4>
                 <canvas id="interestsChart"></canvas>
             </div>
-            <div class="chart-box">
-                <h4 style="text-align: center; margin-bottom: 15px;">Популярные города (Топ)</h4>
+            <div class="chart-box"> <!-- data-i18n="admin_analytics_cities_chart" -->
+                <h4 style="text-align: center; margin-bottom: 15px;" data-i18n="admin_analytics_cities_chart"></h4>
                 <canvas id="citiesChart"></canvas>
             </div>
         </div>
@@ -58,12 +58,12 @@
         <!-- Таблица -->
         <div class="card" style="padding: 20px;">
             <h3 style="margin-bottom: 20px;">Список активных анкет</h3>
-            <table class="admin-table">
-                <thead>
+            <table class="admin-table"> <!-- data-i18n="admin_analytics_active_surveys" -->
+                <thead> 
                     <tr>
-                        <th>Пользователь</th>
-                        <th>Возраст</th>
-                        <th>Бюджет</th>
+                        <th data-i18n="admin_table_fio_login"></th>
+                        <th data-i18n="admin_table_age"></th>
+                        <th data-i18n="admin_table_budget"></th>
                     </tr>
                 </thead>
                 <tbody id="analyticsTableBody"><tr><td colspan="3" style="text-align:center;">Загрузка данных...</td></tr></tbody>
@@ -93,15 +93,15 @@
 
                 // Наполнение цифр
                 document.getElementById('totalUsers').innerText = data.totalUsers;
-                document.getElementById('avgBudget').innerText = data.averageBudget.toLocaleString() + ' ₸';
+                document.getElementById('avgBudget').innerText = data.averageBudget.toLocaleString() + ' ₸'; // Currency symbol is universal
 
                 // Таблица
                 const tableBody = document.getElementById('analyticsTableBody');
                 tableBody.innerHTML = data.usersList.map(u => `
                     <tr>
-                        <td>${u.fullName || 'Аноним'}</td>
-                        <td>${u.age} лет</td>
-                        <td>${u.budget === 'low' ? 'До 50к' : u.budget === 'medium' ? '50к-200к' : 'От 200к'}</td>
+                        <td>${u.fullName || translations[currentLang].admin_table_not_filled}</td>
+                        <td>${u.age} ${translations[currentLang].admin_table_age_years}</td>
+                        <td>${u.budget === 'low' ? translations[currentLang].admin_table_budget_low_short : u.budget === 'medium' ? translations[currentLang].admin_table_budget_medium_short : translations[currentLang].admin_table_budget_high_short}</td>
                     </tr>
                 `).join('');
 
@@ -109,7 +109,7 @@
                 new Chart(document.getElementById('interestsChart'), {
                     type: 'pie',
                     data: {
-                        labels: ['Горы', 'Море', 'Город', 'Активность', 'Культура', 'Гастрономия', 'Уединение', 'Шоппинг', 'Семья', 'Эко'],
+                        labels: [translations[currentLang].chat_option_mountains, translations[currentLang].chat_option_sea, translations[currentLang].chat_option_city, translations[currentLang].chat_option_activity, translations[currentLang].chat_option_culture, translations[currentLang].gastronomy, translations[currentLang].seclusion, translations[currentLang].shopping, translations[currentLang].family_fun, translations[currentLang].eco_tourism],
                         datasets: [{
                             data: Object.values(data.interestsStats),
                             backgroundColor: ['#4f46e5', '#10b981', '#f59e0b', '#ef4444', '#8b5cf6', '#ec4899', '#64748b', '#f97316', '#3b82f6', '#22c55e']
@@ -125,8 +125,8 @@
                     type: 'bar',
                     data: {
                         labels: cityLabels,
-                        datasets: [{
-                            label: 'Кол-во рекомендаций',
+                        datasets: [{ // City names are not translated here
+                            label: translations[currentLang].admin_table_recommendations_count,
                             data: cityValues,
                             backgroundColor: 'rgba(79, 70, 229, 0.7)',
                             borderColor: '#4f46e5',
@@ -145,10 +145,10 @@
                 console.error("Analytics Error:", error);
                 container.innerHTML = `
                     <div class="error-container">
-                        <h2 style="color:var(--danger)">⚠️ ${error.message}</h2>
-                        <p>Не удалось загрузить данные аналитики.</p>
-                        <button onclick="location.reload()" class="btn btn-primary" style="margin-top:20px;">Перезагрузить данные</button>
-                        <button onclick="navigateWithTransition('admin.html')" class="btn btn-outline" style="margin-top:20px;">Назад</button>
+                        <h2 style="color:var(--danger)">⚠️ ${error.message}</h2> <!-- Error message itself might not be translated -->
+                        <p>${translations[currentLang].admin_analytics_error_server}</p>
+                        <button onclick="location.reload()" class="btn btn-primary" style="margin-top:20px;">${translations[currentLang].admin_analytics_reload_data}</button>
+                        <button onclick="navigateWithTransition('admin.html')" class="btn btn-outline" style="margin-top:20px;">${translations[currentLang].admin_analytics_back_button}</button>
                     </div>
                 `;
             }
@@ -158,22 +158,21 @@
             const modal = document.createElement('div');
             modal.id = 'formulaModal';
             modal.className = 'modal-overlay';
-            modal.innerHTML = `
+            modal.innerHTML = ` <!-- This content needs to be translated -->
                 <div class="card modal-card">
-                    <h3 style="margin-bottom:15px;">🧮 Как считается бюджет?</h3>
+                    <h3 style="margin-bottom:15px;" data-i18n="budget_formula_title"></h3>
                     <div class="policy-text">
-                        <p>Поскольку пользователи выбирают диапазон, мы присваиваем каждой категории числовой вес:</p>
+                        <p data-i18n="budget_formula_desc1"></p>
                         <ul style="margin: 15px 0;">
-                            <li><strong>"До 50 000":</strong> 50,000 ₸</li>
-                            <li><strong>"50 000 - 200 000":</strong> 125,000 ₸</li>
-                            <li><strong>"От 200 000":</strong> 250,000 ₸</li>
+                            <li data-i18n="budget_formula_low"></li>
+                            <li data-i18n="budget_formula_medium"></li>
+                            <li data-i18n="budget_formula_high"></li>
                         </ul>
                         <div style="background: var(--bg-light); padding: 15px; border-radius: 16px; font-size: 0.85rem; border: 1px dashed var(--primary);">
-                            <strong>Формула:</strong><br>
-                            (Сумма всех весов) ÷ (Кол-во заполненных анкет)
+                            <span data-i18n="budget_formula_formula"></span>
                         </div>
                     </div>
-                    <button onclick="document.getElementById('formulaModal').remove()" class="btn btn-primary full-width">Понятно</button>
+                    <button onclick="document.getElementById('formulaModal').remove()" class="btn btn-primary full-width" data-i18n="budget_formula_understand"></button>
                 </div>
             `;
             document.body.appendChild(modal);
