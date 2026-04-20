@@ -1359,7 +1359,8 @@ function initApp() {
                 localStorage.removeItem('isAdmin');
                 navigateWithTransition('login.html');
             } else {
-                renderAdminTable();
+                // Добавляем небольшую задержку для гарантии отрисовки после очистки стилей
+                setTimeout(() => renderAdminTable(), 100);
             }
         })
         .catch(() => navigateWithTransition('login.html'));

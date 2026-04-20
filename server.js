@@ -16,21 +16,9 @@ app.use(express.static(__dirname)); // Раздаем статические ф�
 const SECRET = process.env.JWT_SECRET || "supersecretkey";
 
 // Логика определения пути к БД
-// На Windows используем локальную папку, на Render (Linux) — /tmp, если не задан диск
-let dbPath = process.platform === "win32" ? path.join(__dirname, "users.db") : "/tmp/users.db";
-
-if (process.env.DISK_PATH) {
-    const customDir = process.env.DISK_PATH;
-    try {
-        if (!fs.existsSync(customDir)) {
-            fs.mkdirSync(customDir, { recursive: true });
-        }
-        dbPath = path.join(customDir, "users.db");
-        console.log(`✅ Используется внешний путь для БД: ${dbPath}`);
-    } catch (err) {
-        console.error(`⚠️ Ошибка доступа к ${customDir}, используем резервный путь: ${dbPath}. Ошибка: ${err.message}`);
-    }
-}
+// Для сброса данных при каждом деплое на Render используем путь в корне проекта.
+// Эфемерная файловая система Render удалит этот файл при обновлении сайта.
+let dbPath = path.join(__dirname, "users.db");
 
 // 📦 Настройка базы данных SQLite
 const db = new sqlite3.Database(dbPath, (err) => {
