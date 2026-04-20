@@ -1432,6 +1432,9 @@ document.addEventListener('DOMContentLoaded', () => {
         initTheme();
         injectLanguageToggle(); // Внедряем переключатель языка
         setLanguage(currentLang); // Устанавливаем начальный язык
+        
+        // ИСПРАВЛЕНО: Политика теперь вызывается только через обработчик ссылок в initApp
+        // или при прямом переходе на auth-страницу, если policyAccepted === false
         injectChat(); // Добавляем вызов функции чата
         initApp();
         console.log("Приложение успешно запущено");
@@ -1481,7 +1484,7 @@ function injectPolicy(targetUrl = null) {
     if (!wrapper) return; // Если на странице нет контейнера, ничего не делаем
 
     // Мы убрали проверку localStorage.getItem('policyAccepted'), 
-    // теперь окно будет создаваться при каждом заходе на страницу.
+    // теперь окно будет создаваться при каждом заходе на страницу, если policyAccepted === false.
     wrapper.innerHTML = `
         <div id="policyModal" class="modal-overlay" style="display: flex;">
             <div class="card modal-card">
@@ -1521,7 +1524,7 @@ function injectPolicy(targetUrl = null) {
     btn.addEventListener('click', () => {
         localStorage.setItem('policyAccepted', 'true'); 
         document.getElementById('policyModal').style.display = 'none';
-        // Если был передан URL для перехода после принятия, идем туда
+        // ИСПРАВЛЕНО: Если был передан URL для перехода после принятия, идем туда
         if (targetUrl && typeof targetUrl === 'string') {
             navigateWithTransition(targetUrl);
         }
@@ -1663,14 +1666,10 @@ function initApp() {
             const href = link.getAttribute('href');
             if (!href || href.startsWith('#') || link.getAttribute('target')) return;
 
-            e.preventDefault();
-
-            if (href === 'register.html' || href === 'login.html') {
-                if (!localStorage.getItem('policyAccepted')) {
-                    injectPolicy(href);
-                } else {
-                    navigateWithTransition(href);
-                }
+            // ИСПРАВЛЕНО: Если идем на регистрацию/логин/главную и политика не принята — показываем её
+            if ((href === 'register.html' || href === 'login.html' || href === 'index.html' || href === '/') && !localStorage.getItem('policyAccepted')) {
+                e.preventDefault();
+                injectPolicy(href); // Передаем href, чтобы после принятия политики перейти по нему
             } else {
                 navigateWithTransition(href);
             }
