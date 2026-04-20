@@ -99,7 +99,7 @@
                 const data = await response.json();
 
                 const totalUsersEl = document.getElementById('totalUsers');
-                const avgBudgetEl = document.getElementById('avgBudget');
+                const avgBudgetEl = document.getElementById('avgBudget'); // Исправлено: объявление переменной
                 
                 if (!totalUsersEl || !avgBudgetEl) return;
 

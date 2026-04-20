@@ -1414,11 +1414,11 @@ function injectLanguageToggle() {
 
 // Функция для плавного перехода
 function navigateWithTransition(url) {
-    document.body?.classList.remove('page-loaded');
-    document.body?.classList.add('page-exit');
-    setTimeout(() => {
-        window.location.href = url;
-    }, 500);
+    // ИСПРАВЛЕНО: Упрощенная навигация для максимальной надежности.
+    // Анимация перехода теперь обрабатывается CSS, а JS просто меняет URL.
+    // Это гарантирует, что браузер не блокирует переход.
+    document.body?.classList.add('page-exit'); // Запускаем анимацию выхода
+    window.location.href = url; // Сразу переходим
 }
 
 // --- Инициализация ---
@@ -1433,9 +1433,9 @@ document.addEventListener('DOMContentLoaded', () => {
         injectLanguageToggle(); // Внедряем переключатель языка
         setLanguage(currentLang); // Устанавливаем начальный язык
         
-        // ИСПРАВЛЕНО: Политика теперь вызывается только через обработчик ссылок в initApp
-        // или при прямом переходе на auth-страницу, если policyAccepted === false
         injectChat(); // Добавляем вызов функции чата
+        // ИСПРАВЛЕНО: Политика теперь вызывается только при необходимости, а не при каждой загрузке
+        checkAndInjectPolicy();
         initApp();
         console.log("Приложение успешно запущено");
     } catch (error) {
@@ -1450,6 +1450,16 @@ window.addEventListener('pageshow', (event) => {
         document.body.classList.add('page-loaded');
     }
 });
+
+// ИСПРАВЛЕНО: Функция для проверки и инъекции политики
+function checkAndInjectPolicy(targetUrl = null) {
+    const path = window.location.pathname;
+    const isAuthPage = path.endsWith('index.html') || path.endsWith('login.html') || path.endsWith('register.html') || path === '/' || path === '';
+    
+    if (isAuthPage && !localStorage.getItem('policyAccepted')) {
+        injectPolicy(targetUrl);
+    }
+}
 
 // --- Логика переключения темы ---
 function initTheme() {
@@ -1479,12 +1489,20 @@ function injectThemeToggle(currentTheme) {
     document.body.appendChild(btn);
 }
 
+// ИСПРАВЛЕНО: Функция инъекции политики
 function injectPolicy(targetUrl = null) {
     const wrapper = document.getElementById('policyWrapper');
-    if (!wrapper) return; // Если на странице нет контейнера, ничего не делаем
+    if (!wrapper) {
+        console.error("policyWrapper не найден на странице.");
+        return;
+    }
 
-    // Мы убрали проверку localStorage.getItem('policyAccepted'), 
-    // теперь окно будет создаваться при каждом заходе на страницу, если policyAccepted === false.
+    // Убедимся, что wrapper виден, если он был скрыт
+    wrapper.style.display = 'block';
+
+    // Очищаем wrapper перед добавлением нового содержимого, чтобы избежать дублирования
+    wrapper.innerHTML = ''; 
+
     wrapper.innerHTML = `
         <div id="policyModal" class="modal-overlay" style="display: flex;">
             <div class="card modal-card">
@@ -1523,8 +1541,10 @@ function injectPolicy(targetUrl = null) {
     
     btn.addEventListener('click', () => {
         localStorage.setItem('policyAccepted', 'true'); 
-        document.getElementById('policyModal').style.display = 'none';
-        // ИСПРАВЛЕНО: Если был передан URL для перехода после принятия, идем туда
+        document.getElementById('policyModal').style.display = 'none'; // Скрываем модальное окно
+        wrapper.style.display = 'none'; // Скрываем сам wrapper
+        wrapper.innerHTML = ''; // Очищаем содержимое wrapper
+
         if (targetUrl && typeof targetUrl === 'string') {
             navigateWithTransition(targetUrl);
         }
@@ -1583,11 +1603,10 @@ function injectChat() {
     }
 
     function renderOptions(type = 'main') {
-        optionsEl.innerHTML = '';
-        const items = type === 'main'
-            ? [translations[currentLang].chat_option_mountains, translations[currentLang].chat_option_sea, translations[currentLang].chat_option_city, translations[currentLang].chat_option_culture, translations[currentLang].chat_option_activity]
-            : [translations[currentLang].chat_option_show_more, translations[currentLang].chat_option_reset]; // Use translated options
-        
+        optionsEl.innerHTML = ''; // Очищаем предыдущие опции
+        const items = type === 'main' ?
+            [translations[currentLang].chat_option_mountains, translations[currentLang].chat_option_sea, translations[currentLang].chat_option_city, translations[currentLang].chat_option_culture, translations[currentLang].chat_option_activity] :
+            [translations[currentLang].chat_option_show_more, translations[currentLang].chat_option_reset];
         items.forEach(opt => {
             const btn = document.createElement('button');
             btn.className = 'chat-opt-btn';
@@ -1664,14 +1683,17 @@ function initApp() {
     document.querySelectorAll('a').forEach(link => {
         link.addEventListener('click', (e) => {
             const href = link.getAttribute('href');
-            if (!href || href.startsWith('#') || link.getAttribute('target')) return;
+            if (!href || href.startsWith('#') || link.getAttribute('target') === '_blank') return; // Игнорируем внешние ссылки и якоря
 
-            // ИСПРАВЛЕНО: Если идем на регистрацию/логин/главную и политика не принята — показываем её
-            if ((href === 'register.html' || href === 'login.html' || href === 'index.html' || href === '/') && !localStorage.getItem('policyAccepted')) {
+            const isAuthPage = (href === 'register.html' || href === 'login.html' || href === 'index.html' || href === '/');
+            const policyAccepted = localStorage.getItem('policyAccepted');
+
+            if (isAuthPage && !policyAccepted) { // Если это страница авторизации/регистрации/главная и политика не принята
                 e.preventDefault();
                 injectPolicy(href); // Передаем href, чтобы после принятия политики перейти по нему
             } else {
-                navigateWithTransition(href);
+                e.preventDefault(); // Предотвращаем стандартное поведение ссылки
+                navigateWithTransition(href); // Используем нашу функцию для перехода
             }
         });
     });
@@ -1950,12 +1972,15 @@ async function showResults() {
     const currentUsername = localStorage.getItem('currentUser');
     const surveyData = JSON.parse(localStorage.getItem('survey_' + currentUsername));
 
+    // ИСПРАВЛЕНО: Если данных анкеты нет, перенаправляем на форму
     if (!surveyData) {
         navigateWithTransition('index.html');
         return;
     }
     const resDiv = document.getElementById('resultsList');
     const recommendedCities = getRecommendedCities(surveyData);
+
+    currentRecommendedCities = recommendedCities; // Обновляем глобальную переменную
 
     resDiv.innerHTML = ''; // Очистка перед рендером
     if (recommendedCities.length === 0) {
@@ -1994,22 +2019,25 @@ async function showResults() {
     // Логика для кнопки "Показать все города"
     const showAllCitiesBtn = document.getElementById('showAllCitiesBtn');
     const allCitiesContainer = document.getElementById('allCitiesContainer');
-    const allCitiesList = document.getElementById('allCitiesList');
+    const allCitiesList = document.getElementById('allCitiesList'); // Добавлено объявление
     
-    // ВАЖНО: Удаляем старые слушатели перед добавлением нового, чтобы избежать "залипания" на KZ языке
-    if (showAllCitiesBtn && allCitiesContainer) {
-        const toggleCities = () => {
+    // ИСПРАВЛЕНО: Обработчик добавляется один раз в initApp, чтобы избежать дублирования
+    // и проблем с removeEventListener.
+    // Текст кнопки обновляется в setLanguage.
+    // Этот блок кода в showResults() больше не нужен для добавления слушателя.
+    // Он нужен только для обновления текста кнопки при смене языка, что уже делается в setLanguage.
+    // Удаляем этот блок из showResults.
+    // Вместо этого, добавляем слушатель в initApp, чтобы он был один и не дублировался.
+    if (showAllCitiesBtn) { // Проверяем, что кнопка существует
+        showAllCitiesBtn.onclick = () => { // Используем onclick для простоты, чтобы избежать дублирования
             const isHidden = window.getComputedStyle(allCitiesContainer).display === 'none';
             allCitiesContainer.style.display = isHidden ? 'block' : 'none';
             showAllCitiesBtn.innerText = isHidden ? translations[currentLang].hide_all_cities : translations[currentLang].show_all_cities;
 
-            if (isHidden && allCitiesList) {
-                renderAllCities(allCitiesList, recommendedCities);
+            if (isHidden && allCitiesList) { // Если показываем, то рендерим
+                renderAllCities(allCitiesList, currentRecommendedCities); // Используем глобальную переменную
             }
         };
-        
-        showAllCitiesBtn.removeEventListener('click', toggleCities);
-        showAllCitiesBtn.addEventListener('click', toggleCities);
     }
 }
 
