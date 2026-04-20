@@ -71,18 +71,18 @@
         </div>
     </div>
 
+    <!-- Сначала подключаем app.js, чтобы currentLang и translations были доступны -->
+    <script src="app.js"></script>
+
     <script>
         async function loadAnalytics() {
             const token = localStorage.getItem('token');
-            const isAdmin = localStorage.getItem('isAdmin') === 'true';
+            const isAdmin = localStorage.getItem('isAdmin') === 'true' || localStorage.getItem('currentUser') === 'admin';
             
             if (!token || !isAdmin) {
                 window.location.href = 'login.html';
                 return;
             }
-
-            const container = document.getElementById('analyticsContainer');
-            const originalContent = container.innerHTML;
 
             try {
                 // Исползуем относительный путь вместо localhost
@@ -185,8 +185,8 @@
             document.body.appendChild(modal);
         }
 
-        document.addEventListener('DOMContentLoaded', loadAnalytics);
+        // Ждем, пока app.js выставит язык, затем грузим данные
+        window.addEventListener('load', loadAnalytics);
     </script>
-    <script src="app.js"></script>
 </body>
 </html>

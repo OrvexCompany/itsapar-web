@@ -1357,11 +1357,12 @@ function setLanguage(lang) {
         }
     });
 
-    // Логика кнопки "Показать все города"
+    // ИСПРАВЛЕНО: Состояние кнопки теперь берется из реальных стилей браузера
     const showAllCitiesBtn = document.getElementById('showAllCitiesBtn');
     if (showAllCitiesBtn) {
         const allCitiesContainer = document.getElementById('allCitiesContainer');
-        const isHidden = !allCitiesContainer || allCitiesContainer.style.display === 'none';
+        // getComputedStyle позволяет увидеть display: none, даже если он задан в CSS
+        const isHidden = !allCitiesContainer || window.getComputedStyle(allCitiesContainer).display === 'none';
         showAllCitiesBtn.innerText = isHidden ? translations[currentLang].show_all_cities : translations[currentLang].hide_all_cities;
     }
 
@@ -1516,10 +1517,14 @@ function injectPolicy(targetUrl = null) {
     setLanguage(currentLang);
     
     chk.addEventListener('change', (e) => btn.disabled = !e.target.checked);
+    
     btn.addEventListener('click', () => {
-        localStorage.setItem('policyAccepted', 'true'); // Запоминаем, что пользователь принял
+        localStorage.setItem('policyAccepted', 'true'); 
         document.getElementById('policyModal').style.display = 'none';
-        if (targetUrl) navigateWithTransition(targetUrl);
+        // Если мы пришли по ссылке (например, на регистрацию), идем дальше
+        if (targetUrl && targetUrl !== null) {
+            navigateWithTransition(targetUrl);
+        }
     });
 }
 
@@ -1624,13 +1629,17 @@ function injectChat() {
     function loadChatHistory() {
         const saved = JSON.parse(localStorage.getItem('chatHistory') || '[]');
         if (saved.length > 0) {
-            saved.forEach((m, idx) => {
+            messagesEl.innerHTML = ''; // Очищаем перед перерисовкой на новом языке
+            saved.forEach((m, index) => {
                 const bubble = document.createElement('div');
                 bubble.className = `chat-bubble bubble-${m.sender}`;
-                // Переводим приветствие, если оно первое в истории
-                // ИЛИ если это сообщение ИИ и оно совпадает с начальным сообщением на другом языке
-                if (idx === 0 && m.sender === 'ai' && m.text !== translations[currentLang].chat_initial_message) {
+                
+                // ИСПРАВЛЕНО: Принудительный перевод приветствия и системных ответов
+                if (index === 0 && m.sender === 'ai') {
                     bubble.innerText = translations[currentLang].chat_initial_message;
+                } else if (m.sender === 'ai' && Object.values(translations['kz']).includes(m.text)) {
+                    const key = Object.keys(translations['kz']).find(k => translations['kz'][k] === m.text);
+                    bubble.innerText = translations[currentLang][key] || m.text;
                 } else if (m.sender === 'ai' && Object.values(translations['ru']).includes(m.text) && m.text !== translations[currentLang].chat_initial_message) {
                     // Если это один из стандартных ответов ИИ, пытаемся его перевести
                     const originalKey = Object.keys(translations['ru']).find(key => translations['ru'][key] === m.text);
@@ -1658,15 +1667,15 @@ function initApp() {
             const href = link.getAttribute('href');
             if (!href || href.startsWith('#') || link.getAttribute('target')) return;
 
-            e.preventDefault();
-
             if (href === 'register.html' || href === 'login.html') {
+                // Если политика не принята, блокируем переход и показываем окно
                 if (!localStorage.getItem('policyAccepted')) {
+                    e.preventDefault();
                     injectPolicy(href);
-                } else {
-                    navigateWithTransition(href);
                 }
+                // Если принята, обычный клик сработает сам или через navigateWithTransition
             } else {
+                e.preventDefault();
                 navigateWithTransition(href);
             }
         });

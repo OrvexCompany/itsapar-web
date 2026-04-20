@@ -216,7 +216,7 @@ app.get("/admin/analytics", auth, adminOnly, (req, res) => {
                     budget: survey.budget || null,
                     tripType: survey.tripType || null,
                     answers: (survey.answers && typeof survey.answers === 'object') ? survey.answers : null,
-                    recommendedCities: Array.isArray(survey.recommendedCities) ? survey.recommendedCities : []
+                    recommendedCities: (survey && Array.isArray(survey.recommendedCities)) ? survey.recommendedCities : []
                 };
 
                 // Считаем статистику только если анкета реально заполнена
