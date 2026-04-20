@@ -43,15 +43,15 @@ const allCities = [
             { n: 'Улица Панфилова', t: 'Города, Культура' },
             { n: 'Коктобе', t: 'Семья, Города' }
         ],
+        n_kz: 'Алматы',
         locations_kz: [
             { n: 'Шымбұлақ', t: 'Таулар, Белсенділік' },
-            { n: 'Медеу', t: 'Белсенділік, Отбасы' },
-            { n: 'Көк-Төбе', t: 'Отбасы, Қалалар' }
+            { n: 'Медеу', t: 'Белсенділік, Отбасы' }
         ],
         tags: { mountains: true, sea: true, city: true, activity: true, culture: true, gastronomy: true, seclusion: false, shopping: true, family_fun: true, eco_tourism: true },
         budget_suitability: { low: true, medium: true, high: true }, // City names (n) are not translated here
         bestTime: 'Май и Сентябрь. В мае город утопает в зелени, а сентябрь дарит идеальную «бархатную» осень.',
-        d_kz: 'Тауларды және белсенді демалысты ұнататындар үшін тамаша мәдени орталық.',
+        d_kz: 'Тауларды және белсенді демалысты ұнататындар үшін тамаша, мәдени орталық.',
         bestTime_kz: 'Мамыр және Қыркүйек. Мамырда қала жасыл желекке оранады, ал қыркүйекте тамаша «барқыт» күзі жеміс-жидекке толы болады.'
     },
     {
@@ -1091,8 +1091,9 @@ const translations = {
         'results_popular_header': '🔥 Популярно',
         'retake_btn': 'Пройти заново',
         'home_btn': 'На главную',
-        'register_link': 'Создать',
-        'login_link': 'Войти',
+        'register_title': 'Создать аккаунт',
+        'login_link_text': 'Войти',
+        'form_title': 'Расскажите о себе',
         'admin_panel_title': 'Пользователи системы',
         'admin_search_placeholder': 'Поиск по имени или логину...',
         'admin_analytics_button': '📊 Аналитика',
@@ -1234,8 +1235,9 @@ const translations = {
         'results_popular_header': '🔥 Танымал',
         'retake_btn': 'Сауалнаманы қайта өту',
         'home_btn': 'Басты бетке',
-        'register_link': 'Жасау',
-        'login_link': 'Кіру',
+        'register_title': 'Тіркелу',
+        'login_link_text': 'Кіру',
+        'form_title': 'Өзіңіз туралы айтып беріңіз',
         'admin_panel_title': 'Жүйе пайдаланушылары',
         'admin_search_placeholder': 'Аты-жөні немесе логин бойынша іздеу...',
         'admin_analytics_button': '📊 Аналитика',
@@ -2015,9 +2017,10 @@ function renderCityCard(c, container, isIdeal = true) {
 
     const card = document.createElement('div');
     card.className = 'res-card';
+    const cityName = currentLang === 'kz' && c.n_kz ? c.n_kz : c.n;
     const locations = currentLang === 'kz' && c.locations_kz ? c.locations_kz : c.locations;
     card.innerHTML = `
-        <h3>${c.n}</h3> <!-- City name (n) is assumed to be universal -->
+        <h3>${cityName}</h3>
         <p>${cityDescription}</p>
         <div class="city-details" style="display: none;">
             <div class="hotels-list">
