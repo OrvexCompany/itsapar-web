@@ -1355,11 +1355,12 @@ function setLanguage(lang) {
         }
     });
 
-    // Обновляем текст кнопки "Показать все города" (исправлена логика)
+    // Исправляем логику кнопки "Показать все города"
     const showAllCitiesBtn = document.getElementById('showAllCitiesBtn');
+    const allCitiesContainer = document.getElementById('allCitiesContainer');
     if (showAllCitiesBtn) {
-        const isHidden = document.getElementById('allCitiesContainer')?.style.display === 'none';
-        showAllCitiesBtn.innerText = isHidden ? translations[currentLang].show_all_cities : translations[currentLang].hide_all_cities; // Corrected logic
+        const isHidden = !allCitiesContainer || allCitiesContainer.style.display === 'none';
+        showAllCitiesBtn.innerText = isHidden ? translations[currentLang].show_all_cities : translations[currentLang].hide_all_cities;
     }
 
     // Мягкое обновление динамического контента (с проверкой на null)
@@ -1371,8 +1372,8 @@ function setLanguage(lang) {
     if (document.getElementById('swipeCard')) renderSwipe();
     if (document.getElementById('resultsList')) showResults();
 
-    // Обновляем чат, если он открыт
-    if (document.getElementById('chatWindow') && document.getElementById('chatWindow').style.display === 'flex') {
+    // Мгновенно обновляем чат
+    if (document.getElementById('aiChatWidget')) {
         const chatMessages = document.getElementById('chatMessages');
         if (chatMessages) {
             chatMessages.innerHTML = '';
@@ -1589,14 +1590,17 @@ function injectChat() {
     }
 
     function handleOption(opt) {
-        if (opt === "Показать ещё" || opt === "Сбросить выбор") {
-            if (opt === translations[currentLang].chat_option_reset) { // Check against translated reset option
-                messagesEl.innerHTML = '';
-                localStorage.removeItem('chatHistory');
-                addMessage(translations[currentLang].chat_initial_message, "ai"); // Initial message translated
-            }
-            renderOptions('main');
-            return;
+        const resetLabel = translations[currentLang].chat_option_reset;
+        const showMoreLabel = translations[currentLang].chat_option_show_more;
+
+        if (opt === resetLabel) {
+            messagesEl.innerHTML = '';
+            localStorage.removeItem('chatHistory');
+            addMessage(translations[currentLang].chat_initial_message, "ai");
+            renderOptions('main'); return;
+        }
+        if (opt === showMoreLabel) {
+            renderOptions('main'); return;
         }
 
         addMessage(opt, "user");

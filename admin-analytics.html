@@ -91,9 +91,14 @@
                 if (!response.ok) throw new Error(response.status === 403 ? 'Доступ запрещен' : 'Ошибка сервера');
                 const data = await response.json();
 
+                const totalUsersEl = document.getElementById('totalUsers');
+                const avgBudgetEl = document.getElementById('avgBudget');
+                
+                if (!totalUsersEl || !avgBudgetEl) return;
+
                 // Наполнение цифр
-                document.getElementById('totalUsers').innerText = data.totalUsers;
-                document.getElementById('avgBudget').innerText = data.averageBudget.toLocaleString() + ' ₸';
+                totalUsersEl.innerText = data.totalUsers;
+                avgBudgetEl.innerText = data.averageBudget.toLocaleString() + ' ₸';
 
                 // Таблица
                 const tableBody = document.getElementById('analyticsTableBody');
