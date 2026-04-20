@@ -77,12 +77,17 @@
     <script>
         async function loadAnalytics() {
             const token = localStorage.getItem('token');
-            const isAdmin = localStorage.getItem('isAdmin') === 'true' || localStorage.getItem('currentUser') === 'admin';
+            // Более жесткая проверка админа
+            const isAdmin = localStorage.getItem('isAdmin') === 'true' || 
+                           (token && JSON.parse(atob(token.split('.')[1])).role === 'admin');
             
             if (!token || !isAdmin) {
+                console.error("Access Denied: Not an admin");
                 window.location.href = 'login.html';
                 return;
             }
+            
+            const container = document.getElementById('analyticsContainer');
 
             try {
                 // Исползуем относительный путь вместо localhost
