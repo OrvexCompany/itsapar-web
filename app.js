@@ -1659,6 +1659,20 @@ async function renderAdminTable(searchTerm = '') {
 
     const filter = searchTerm.toLowerCase();
 
+    // Словари для перевода данных на русский
+    const typeTranslations = {
+        'solo': 'Один',
+        'family': 'Семья',
+        'friends': 'Друзья'
+    };
+
+    const interestTranslations = {
+        'mountains': 'Горы', 'sea': 'Море/Вода', 'city': 'Города',
+        'activity': 'Активность', 'culture': 'Культура', 'gastronomy': 'Гастрономия',
+        'seclusion': 'Уединение', 'shopping': 'Шоппинг',
+        'family_fun': 'Семья', 'eco_tourism': 'Эко'
+    };
+
     try {
         const response = await fetch('/admin/analytics', {
             headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` }
@@ -1689,13 +1703,25 @@ async function renderAdminTable(searchTerm = '') {
             return nameMatch || loginMatch;
         });
 
-        body.innerHTML = filteredUsers.map(u => `
+        body.innerHTML = filteredUsers.map(u => {
+            // Перевод типа поездки
+            const typeDisplay = typeTranslations[u.tripType] || u.tripType || '-';
+            
+            // Перевод интересов
+            const interestsDisplay = (u.answers && typeof u.answers === 'object') 
+                ? Object.keys(u.answers)
+                    .filter(k => u.answers[k])
+                    .map(k => interestTranslations[k] || k)
+                    .join(', ') 
+                : '-';
+
+            return `
             <tr>
                 <td data-label="ФИО (Логин)">${u.fullName || '<i>Анкета не заполнена</i>'} (${u.username})</td>
                 <td data-label="Возраст">${u.age || '-'}</td>
                 <td data-label="Бюджет">${u.budget === 'low' ? 'до 50к' : u.budget === 'medium' ? '50к-200к' : u.budget === 'high' ? 'от 200к' : '-'}</td>
-                <td data-label="Тип">${u.tripType || '-'}</td>
-                <td data-label="Интересы">${(u.answers && typeof u.answers === 'object') ? Object.keys(u.answers).filter(k => u.answers[k]).join(', ') : '-'}</td>
+                <td data-label="Тип">${typeDisplay}</td>
+                <td data-label="Интересы">${interestsDisplay}</td>
                 <td data-label="Действия">
                     ${(typeof u.fullName === 'string' && Array.isArray(u.recommendedCities) && u.recommendedCities.length > 0) ? 
                         `<button onclick="viewUserResults('${u.username}', 
@@ -1707,7 +1733,7 @@ async function renderAdminTable(searchTerm = '') {
                     <button onclick="confirmDeleteUser('${u.username}')" class="btn btn-no" style="padding: 8px 16px; font-size: 0.7rem; text-transform: none;">Удалить</button>
                 </td>
             </tr>
-        `).join('');
+        `}).join('');
     } catch (err) {
         console.error("Ошибка загрузки таблицы админа:", err);
     }

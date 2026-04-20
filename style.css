@@ -354,10 +354,16 @@ h2, h3, h4 { color: var(--dark); }
         padding-left: 20px !important; 
         background: var(--bg-light); 
         display: flex;
+        justify-content: center;
         flex-direction: column;
         gap: 10px;
     }
     .admin-table td[data-label="Действия"] button { width: 100%; margin: 0 !important; }
+}
+
+/* Скрываем метку "Действия" в мобильной версии, чтобы не накладывалась на кнопки */
+@media (max-width: 768px) {
+    .admin-table td[data-label="Действия"]:before { content: ""; }
 }
 
 /* Стили для страницы аналитики (карточки статов) */
