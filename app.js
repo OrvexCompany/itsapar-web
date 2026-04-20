@@ -48,34 +48,32 @@ const allCities = [
     },
     {
         n: 'Астана',
-        n_kz: 'Астана',
         d: 'Сердце страны с футуристичной архитектурой и множеством музеев.',
-        d_kz: 'Елдің жүрегі, футуристік архитектурасы мен көптеген мұражайлары бар қала.',
         img: 'https://images.unsplash.com/photo-1628172776332-959952044322?q=80&w=600',
         hotels_budget: [
-            { name: 'Hostel 13/77', name_kz: 'Hostel 13/77', address: 'ул. Ташенова, 13/2', address_kz: 'Тәшенов к-сі, 13/2' },
-            { name: 'Caps Lock Future Hotel', name_kz: 'Caps Lock Future Hotel', address: 'ул. Кунаева, 29', address_kz: 'Қонаев к-сі, 29' }
+            { name: 'Hostel 13/77', address: 'ул. Ташенова, 13/2' },
+            { name: 'Caps Lock Future Hotel', address: 'ул. Кунаева, 29' }
         ],
         hotels_expensive: [
-            { name: 'The St. Regis Astana', name_kz: 'The St. Regis Astana', address: 'пр. Кабанбай Батыра, 1', address_kz: 'Қабанбай Батыр даңғылы, 1' },
-            { name: 'Sheraton Astana Hotel', name_kz: 'Sheraton Astana Hotel', address: 'ул. Сыганак, 60/1', address_kz: 'Сығанақ к-сі, 60/1' }
+            { name: 'The St. Regis Astana', address: 'пр. Кабанбай Батыра, 1' },
+            { name: 'Sheraton Astana Hotel', address: 'ул. Сыганак, 60/1' }
         ],
         restaurants_budget: [
-            { name: 'У Апашки (Столовая)', name_kz: 'Апамның үйінде (Асхана)', address: 'ул. Куйши Дина, 9', address_kz: 'Күйші Дина к-сі, 9' },
-            { name: 'Избушка', name_kz: 'Избушка', address: 'пр. Абая, 17', address_kz: 'Абай даңғылы, 17' },
-            { name: 'Центр Плова', name_kz: 'Палау орталығы', address: 'ул. Кенесары, 52', address_kz: 'Кенесары к-сі, 52' }
+            { name: 'У Апашки (Столовая)', address: 'ул. Куйши Дина, 9' },
+            { name: 'Избушка', address: 'пр. Абая, 17' },
+            { name: 'Центр Плова', address: 'ул. Кенесары, 52' }
         ],
         restaurants_expensive: [
-            { name: 'Selfie Astana', name_kz: 'Selfie Астана', address: 'ул. Достык, 16', address_kz: 'Достық к-сі, 16' },
-            { name: 'Qazaq Gourmet', name_kz: 'Qazaq Gourmet', address: 'пр. Мангилик Ел, 29', address_kz: 'Мәңгілік Ел даңғылы, 29' },
-            { name: 'Tiflis', name_kz: 'Тифлис', address: 'ул. Иманова, 11', address_kz: 'Иманов к-сі, 11' }
+            { name: 'Selfie Astana', address: 'ул. Достык, 16' },
+            { name: 'Qazaq Gourmet', address: 'пр. Мангилик Ел, 29' },
+            { name: 'Tiflis', address: 'ул. Иманова, 11' }
         ],
         locations: [
-            { n: 'Байтерек', n_kz: 'Бәйтерек', t: 'Города, Культура', t_kz: 'Қалалар, Мәдениет' },
-            { n: 'Хан Шатыр', n_kz: 'Хан Шатыр', t: 'Шоппинг, Семья', t_kz: 'Шопинг, Отбасы' },
-            { n: 'Набережная реки Есиль', n_kz: 'Есіл өзенінің жағалауы', t: 'Море/Вода, Активность', t_kz: 'Теңіз/Су, Белсенділік' },
-            { n: 'Национальный музей', n_kz: 'Ұлттық мұражай', t: 'Культура, Города', t_kz: 'Мәдениет, Қалалар' },
-            { n: 'Tiflis (ресторан)', n_kz: 'Тифлис (мейрамхана)', t: 'Гастрономия', t_kz: 'Гастрономия' }
+            { n: 'Байтерек', t: 'Города, Культура' },
+            { n: 'Хан Шатыр', t: 'Шоппинг, Семья' },
+            { n: 'Набережная реки Есиль', t: 'Море/Вода, Активность' },
+            { n: 'Национальный музей', t: 'Культура, Города' },
+            { n: 'Tiflis (ресторан)', t: 'Гастрономия' }
         ],
         tags: { mountains: false, sea: false, city: true, activity: true, culture: true, gastronomy: true, seclusion: false, shopping: true, family_fun: true, eco_tourism: false },
         budget_suitability: { low: false, medium: true, high: true }, // City names (n) are not translated here
@@ -122,34 +120,32 @@ const allCities = [
     },
     {
         n: 'Туркестан',
-        n_kz: 'Түркістан',
         d: 'Древняя колыбель культуры, идеальна для спокойного изучения истории.',
-        d_kz: 'Мәдениеттің көне бесігі, тарихты сабырмен зерттеуге өте қолайлы.',
         img: 'https://images.unsplash.com/photo-1605553641243-7f15951ca857?q=80&w=600',
         hotels_budget: [
-            { name: 'Hostel Turkistan', name_kz: 'Түркістан хостелі', address: 'ул. Толе Би, 1', address_kz: 'Төле би к-сі, 1' },
-            { name: 'Гостевой дом Сауран', name_kz: 'Сауран қонақ үйі', address: 'ул. Ерубаева, 15', address_kz: 'Ерубаев к-сі, 15' }
+            { name: 'Hostel Turkistan', address: 'ул. Толе Би, 1' },
+            { name: 'Гостевой дом Сауран', address: 'ул. Ерубаева, 15' }
         ],
         hotels_expensive: [
-            { name: 'Rixos Khadisha Turkestan', name_kz: 'Rixos Khadisha Түркістан', address: 'ул. Б. Саттарханова, 25', address_kz: 'Б. Саттарханов к-сі, 25' },
-            { name: 'Karavansaray Turkistan', name_kz: 'Керуенсарай Түркістан', address: 'ул. Б. Саттарханова, 25/5', address_kz: 'Б. Саттарханов к-сі, 25/5' }
+            { name: 'Rixos Khadisha Turkestan', address: 'ул. Б. Саттарханова, 25' },
+            { name: 'Karavansaray Turkistan', address: 'ул. Б. Саттарханова, 25/5' }
         ],
         restaurants_budget: [
-            { name: 'Эдем (Столовая)', name_kz: 'Эдем (Асхана)', address: 'ул. Байбурт, 5', address_kz: 'Байбурт к-сі, 5' },
-            { name: 'Туркестан Лагман', name_kz: 'Түркістан Лағман', address: 'ул. Кожанова, б/н', address_kz: 'Қожанов к-сі, б/н' },
-            { name: 'Dastarkhan', name_kz: 'Дастархан', address: 'пр. Тауке Хана, 10', address_kz: 'Тәуке хан даңғылы, 10' }
+            { name: 'Эдем (Столовая)', address: 'ул. Байбурт, 5' },
+            { name: 'Туркестан Лагман', address: 'ул. Кожанова, б/н' },
+            { name: 'Dastarkhan', address: 'пр. Тауке Хана, 10' }
         ],
         restaurants_expensive: [
-            { name: 'Karavansaray Restaurant', name_kz: 'Керуенсарай мейрамханасы', address: 'комплекс Караван-сарай', address_kz: 'Керуенсарай кешені' },
-            { name: 'Sandyk', name_kz: 'Сандық', address: 'ул. Б. Саттарханова, 25', address_kz: 'Б. Саттарханов к-сі, 25' },
-            { name: 'Al-Farabi', name_kz: 'Әл-Фараби', address: 'пр. Тауке Хана, 150', address_kz: 'Тәуке хан даңғылы, 150' }
+            { name: 'Karavansaray Restaurant', address: 'комплекс Караван-сарай' },
+            { name: 'Sandyk', address: 'ул. Б. Саттарханова, 25' },
+            { name: 'Al-Farabi', address: 'пр. Тауке Хана, 150' }
         ],
         locations: [
-            { n: 'Мавзолей Ясави', n_kz: 'Ясауи кесенесі', t: 'Культура, Уединение', t_kz: 'Мәдениет, Оқшаулану' },
-            { n: 'Керуен-сарай', n_kz: 'Керуенсарай', t: 'Шоппинг, Города', t_kz: 'Шопинг, Қалалар' },
-            { n: 'Летающий театр', n_kz: 'Ұшатын театр', t: 'Семья, Активность', t_kz: 'Отбасы, Белсенділік' },
-            { n: 'Ресторан Sandyk', n_kz: 'Сандық мейрамханасы', t: 'Гастрономия', t_kz: 'Гастрономия' },
-            { n: 'Заповедник Каратау', n_kz: 'Қаратау қорығы', t: 'Эко-туризм, Горы', t_kz: 'Эко-туризм, Таулар' }
+            { n: 'Мавзолей Ясави', t: 'Культура, Уединение' },
+            { n: 'Керуен-сарай', t: 'Шоппинг, Города' },
+            { n: 'Летающий театр', t: 'Семья, Активность' },
+            { n: 'Ресторан Sandyk', t: 'Гастрономия' },
+            { n: 'Заповедник Каратау', t: 'Эко-туризм, Горы' }
         ],
         tags: { mountains: true, sea: false, city: true, activity: false, culture: true, gastronomy: true, seclusion: true, shopping: true, family_fun: false, eco_tourism: true },
         budget_suitability: { low: true, medium: true, high: true }, // City names (n) are not translated here
@@ -159,34 +155,32 @@ const allCities = [
     },
     {
         n: 'Боровое',
-        n_kz: 'Бурабай',
         d: 'Казахстанская Швейцария - подойдет абсолютно всем, природа и свежий воздух.',
-        d_kz: 'Қазақстандық Швейцария - барлығына жарамды, табиғат пен таза ауа.',
         img: 'https://images.unsplash.com/photo-1587573089734-09cb69c0f2b4?q=80&w=600',
         hotels_budget: [
-            { name: 'Гостевой дом Алтын-Кун', name_kz: 'Алтын-Күн қонақ үйі', address: 'ул. Советская, 20', address_kz: 'Советская к-сі, 20' },
-            { name: 'Отель Архидом', name_kz: 'Архидом қонақ үйі', address: 'ул. Кокшетау, 16', address_kz: 'Көкшетау к-сі, 16' }
+            { name: 'Гостевой дом Алтын-Кун', address: 'ул. Советская, 20' },
+            { name: 'Отель Архидом', address: 'ул. Кокшетау, 16' }
         ],
         hotels_expensive: [
-            { name: 'Rixos Borovoe', name_kz: 'Rixos Бурабай', address: 'Северный берег оз. Щучье', address_kz: 'Шортанды көлінің солтүстік жағалауы' },
-            { name: 'Wyndham Garden Burabay', name_kz: 'Wyndham Garden Бурабай', address: 'ул. Кенесары, 1', address_kz: 'Кенесары к-сі, 1' }
+            { name: 'Rixos Borovoe', address: 'Северный берег оз. Щучье' },
+            { name: 'Wyndham Garden Burabay', address: 'ул. Кенесары, 1' }
         ],
         restaurants_budget: [
-            { name: 'Столовая у Мамы', name_kz: 'Маманың асханасы', address: 'ул. Кенесары, 25', address_kz: 'Кенесары к-сі, 25' },
-            { name: 'Kishlak', name_kz: 'Қышлақ', address: 'ул. Кенесары, 30', address_kz: 'Кенесары к-сі, 30' },
-            { name: 'Асхана на Берегу', name_kz: 'Жағалаудағы асхана', address: 'ул. Набережная, 12', address_kz: 'Жағалау к-сі, 12' }
+            { name: 'Столовая у Мамы', address: 'ул. Кенесары, 25' },
+            { name: 'Kishlak', address: 'ул. Кенесары, 30' },
+            { name: 'Асхана на Берегу', address: 'ул. Набережная, 12' }
         ],
         restaurants_expensive: [
-            { name: 'L\'Olivo', name_kz: 'L\'Olivo', address: 'отель Rixos Borovoe', address_kz: 'Rixos Бурабай қонақ үйі' },
-            { name: 'Chalet', name_kz: 'Chalet', address: 'ул. Кенесары, 1 (в Wyndham)', address_kz: 'Кенесары к-сі, 1 (Wyndham ішінде)' },
-            { name: 'Кон-Тики', name_kz: 'Кон-Тики', address: 'набережная оз. Бурабай', address_kz: 'Бурабай көлінің жағалауы' }
+            { name: 'L\'Olivo', address: 'отель Rixos Borovoe' },
+            { name: 'Chalet', address: 'ул. Кенесары, 1 (в Wyndham)' },
+            { name: 'Кон-Тики', address: 'набережная оз. Бурабай' }
         ],
         locations: [
-            { n: 'Поляна Абылай-хана', n_kz: 'Абылай хан алаңы', t: 'Культура, Эко-туризм', t_kz: 'Мәдениет, Эко-туризм' },
-            { n: 'Гора Болектау', n_kz: 'Бөлектау тауы', t: 'Горы, Активность', t_kz: 'Таулар, Белсенділік' },
-            { n: 'Озеро Щучье', n_kz: 'Шортанды көлі', t: 'Море/Вода, Уединение', t_kz: 'Теңіз/Су, Оқшаулану' },
-            { n: 'Казахстанская Лапландия', n_kz: 'Қазақстандық Лапландия', t: 'Семья, Активность', t_kz: 'Отбасы, Белсенділік' },
-            { n: 'Центральный рынок', n_kz: 'Орталық базар', t: 'Шоппинг, Гастрономия', t_kz: 'Шопинг, Гастрономия' }
+            { n: 'Поляна Абылай-хана', t: 'Культура, Эко-туризм' },
+            { n: 'Гора Болектау', t: 'Горы, Активность' },
+            { n: 'Озеро Щучье', t: 'Море/Вода, Уединение' },
+            { n: 'Казахстанская Лапландия', t: 'Семья, Активность' },
+            { n: 'Центральный рынок', t: 'Шоппинг, Гастрономия' }
         ],
         tags: { mountains: true, sea: true, city: false, activity: true, culture: false, gastronomy: true, seclusion: true, shopping: true, family_fun: true, eco_tourism: true },
         budget_suitability: { low: true, medium: true, high: true }, // City names (n) are not translated here
@@ -196,34 +190,32 @@ const allCities = [
     },
     {
         n: 'Шымкент',
-        n_kz: 'Шымкент',
         d: 'Один из старейших городов Казахстана, южный колорит, оживленный базар, исторические места.',
-        d_kz: 'Қазақстанның ең көне қалаларының бірі, оңтүстік колориті, жанды базар, тарихи орындар.',
         img: 'https://images.unsplash.com/photo-1634718841452-9577742d4805?q=80&w=600',
         hotels_budget: [
-            { name: 'Shymkent Hostel', name_kz: 'Шымкент хостелі', address: 'ул. Туркестанская, 4', address_kz: 'Түркістан к-сі, 4' },
-            { name: 'Отель Орда', name_kz: 'Орда қонақ үйі', address: 'пр. Республики, 21', address_kz: 'Республика даңғылы, 21' }
+            { name: 'Shymkent Hostel', address: 'ул. Туркестанская, 4' },
+            { name: 'Отель Орда', address: 'пр. Республики, 21' }
         ],
         hotels_expensive: [
-            { name: 'Rixos Khadisha Shymkent', name_kz: 'Rixos Khadisha Шымкент', address: 'ул. Желтоксан, 17', address_kz: 'Желтоқсан к-сі, 17' },
-            { name: 'Aidana Plaza Hotel', name_kz: 'Aidana Plaza қонақ үйі', address: 'ул. Бейбитшилик, 13', address_kz: 'Бейбітшілік к-сі, 13' }
+            { name: 'Rixos Khadisha Shymkent', address: 'ул. Желтоксан, 17' },
+            { name: 'Aidana Plaza Hotel', address: 'ул. Бейбитшилик, 13' }
         ],
         restaurants_budget: [
-            { name: 'Кок-Сарай (Шашлычная)', name_kz: 'Көк-Сарай (Кәуапхана)', address: 'ул. Адырбекова, 80', address_kz: 'Адырбеков к-сі, 80' },
-            { name: 'Кафе Керемет', name_kz: 'Керемет кафесі', address: 'ул. Байтурсынова, 12', address_kz: 'Байтұрсынов к-сі, 12' },
-            { name: 'Лагманхана №1', name_kz: 'Лағманхана №1', address: 'ул. Рыскулова, 45', address_kz: 'Рысқұлов к-сі, 45' }
+            { name: 'Кок-Сарай (Шашлычная)', address: 'ул. Адырбекова, 80' },
+            { name: 'Кафе Керемет', address: 'ул. Байтурсынова, 12' },
+            { name: 'Лагманхана №1', address: 'ул. Рыскулова, 45' }
         ],
         restaurants_expensive: [
-            { name: 'Cinzzano', name_kz: 'Cinzzano', address: 'ул. Желтоксан, 17', address_kz: 'Желтоқсан к-сі, 17' },
-            { name: 'Mozzarella', name_kz: 'Mozzarella', address: 'пр. Тауке хана, 13', address_kz: 'Тәуке хан даңғылы, 13' },
-            { name: 'Bar Villa', name_kz: 'Bar Villa', address: 'ул. Казыбек Би, 29', address_kz: 'Қазыбек би к-сі, 29' }
+            { name: 'Cinzzano', address: 'ул. Желтоксан, 17' },
+            { name: 'Mozzarella', address: 'пр. Тауке хана, 13' },
+            { name: 'Bar Villa', address: 'ул. Казыбек Би, 29' }
         ],
         locations: [
-            { n: 'Дендропарк', n_kz: 'Дендросаябақ', t: 'Эко-туризм, Семья', t_kz: 'Эко-туризм, Отбасы' },
-            { n: 'Цитадель', n_kz: 'Цитадель', t: 'Культура, Города', t_kz: 'Мәдениет, Қалалар' },
-            { n: 'Зоопарк', n_kz: 'Хайуанаттар бағы', t: 'Семья, Активность', t_kz: 'Отбасы, Белсенділік' },
-            { n: 'Shymkent Plaza', n_kz: 'Shymkent Plaza', t: 'Шоппинг, Города', t_kz: 'Шопинг, Қалалар' },
-            { n: 'Кафе Кок-Сарай', n_kz: 'Көк-Сарай кафесі', t: 'Гастрономия', t_kz: 'Гастрономия' }
+            { n: 'Дендропарк', t: 'Эко-туризм, Семья' },
+            { n: 'Цитадель', t: 'Культура, Города' },
+            { n: 'Зоопарк', t: 'Семья, Активность' },
+            { n: 'Shymkent Plaza', t: 'Шоппинг, Города' },
+            { n: 'Кафе Кок-Сарай', t: 'Гастрономия' }
         ],
         tags: { mountains: false, sea: false, city: true, activity: false, culture: true, gastronomy: true, seclusion: false, shopping: true, family_fun: true, eco_tourism: false },
         budget_suitability: { low: true, medium: true, high: true }, // City names (n) are not translated here
@@ -233,34 +225,32 @@ const allCities = [
     },
     {
         n: 'Караганда',
-        n_kz: 'Қарағанды',
         d: 'Крупный индустриальный и культурный центр, шахтерская история, музеи и театры.',
-        d_kz: 'Ірі индустриялық және мәдени орталық, шахтерлер тарихы, мұражайлар мен театрлар.',
         img: 'https://images.unsplash.com/photo-1542361345-89e58247f2d5?q=80&w=600',
         hotels_budget: [
-            { name: 'Хостел Comfort', name_kz: 'Comfort хостелі', address: 'ул. Ермекова, 52', address_kz: 'Ермеков к-сі, 52' },
-            { name: 'Гостиница Турист', name_kz: 'Турист қонақ үйі', address: 'б-р Мира, 32', address_kz: 'Мир бульвары, 32' }
+            { name: 'Хостел Comfort', address: 'ул. Ермекова, 52' },
+            { name: 'Гостиница Турист', address: 'б-р Мира, 32' }
         ],
         hotels_expensive: [
-            { name: 'Cosmonaut', name_kz: 'Космонавт', address: 'ул. Кривогуза, 162а', address_kz: 'Кривогуз к-сі, 162а' },
-            { name: 'Senator Hotel', name_kz: 'Senator қонақ үйі', address: 'ул. Ерубаева, 32', address_kz: 'Ерубаев к-сі, 32' }
+            { name: 'Cosmonaut', address: 'ул. Кривогуза, 162а' },
+            { name: 'Senator Hotel', address: 'ул. Ерубаева, 32' }
         ],
         restaurants_budget: [
-            { name: 'Магнит (Столовая)', name_kz: 'Магнит (Асхана)', address: 'пр. Бухар Жырау, 52', address_kz: 'Бұқар жырау даңғылы, 52' },
-            { name: 'Тагам', name_kz: 'Тағам', address: 'пр. Н. Абдирова, 12', address_kz: 'Н. Әбдіров даңғылы, 12' },
-            { name: 'Донерофф', name_kz: 'Донерофф', address: 'пр. Бухар Жырау, 41', address_kz: 'Бұқар жырау даңғылы, 41' }
+            { name: 'Магнит (Столовая)', address: 'пр. Бухар Жырау, 52' },
+            { name: 'Тагам', address: 'пр. Н. Абдирова, 12' },
+            { name: 'Донерофф', address: 'пр. Бухар Жырау, 41' }
         ],
         restaurants_expensive: [
-            { name: 'Sadre', name_kz: 'Sadre', address: 'ул. Ерубаева, 71/1', address_kz: 'Ерубаев к-сі, 71/1' },
-            { name: 'Grill Bar', name_kz: 'Grill Bar', address: 'ул. Кривогуза, 162а', address_kz: 'Кривогуз к-сі, 162а' },
-            { name: 'Line Brew', name_kz: 'Line Brew', address: 'пр. Н. Абдирова, 20', address_kz: 'Н. Әбдіров даңғылы, 20' }
+            { name: 'Sadre', address: 'ул. Ерубаева, 71/1' },
+            { name: 'Grill Bar', address: 'ул. Кривогуза, 162а' },
+            { name: 'Line Brew', address: 'пр. Н. Абдирова, 20' }
         ],
         locations: [
-            { n: 'Музей Карлага', n_kz: 'Қарлаг мұражайы', t: 'Культура, Уединение', t_kz: 'Мәдениет, Оқшаулану' },
-            { n: 'Центральный парк', n_kz: 'Орталық саябақ', t: 'Семья, Море/Вода', t_kz: 'Отбасы, Теңіз/Су' },
-            { n: 'ТРЦ City Mall', n_kz: 'City Mall СОО', t: 'Шоппинг, Города', t_kz: 'Шопинг, Қалалар' },
-            { n: 'Этнопарк', n_kz: 'Этносаябақ', t: 'Города, Эко-туризм', t_kz: 'Қалалар, Эко-туризм' },
-            { n: 'Спортивный комплекс им. Абдирова', n_kz: 'Әбдіров атындағы спорт кешені', t: 'Активность', t_kz: 'Белсенділік' }
+            { n: 'Музей Карлага', t: 'Культура, Уединение' },
+            { n: 'Центральный парк', t: 'Семья, Море/Вода' },
+            { n: 'ТРЦ City Mall', t: 'Шоппинг, Города' },
+            { n: 'Этнопарк', t: 'Города, Эко-туризм' },
+            { n: 'Спортивный комплекс им. Абдирова', t: 'Активность' }
         ],
         tags: { mountains: false, sea: false, city: true, activity: true, culture: true, gastronomy: false, seclusion: false, shopping: true, family_fun: false, eco_tourism: false },
         budget_suitability: { low: true, medium: true, high: false }, // City names (n) are not translated here
@@ -270,34 +260,32 @@ const allCities = [
     },
     {
         n: 'Актобе',
-        n_kz: 'Ақтөбе',
         d: 'Индустриальный город на западе Казахстана, спокойный, степные пейзажи.',
-        d_kz: 'Қазақстанның батысындағы индустриялық қала, тыныш, далалық пейзаждар.',
         img: 'https://images.unsplash.com/photo-1596435804368-69279761f005?q=80&w=600',
         hotels_budget: [
-            { name: 'Хостел Актобе', name_kz: 'Ақтөбе хостелі', address: 'пр. Абилкайыр хана, 83', address_kz: 'Әбілқайыр хан даңғылы, 83' },
-            { name: 'Отель Илек', name_kz: 'Елек қонақ үйі', address: 'ул. Шайкенова, 11', address_kz: 'Шайкенов к-сі, 11' }
+            { name: 'Хостел Актобе', address: 'пр. Абилкайыр хана, 83' },
+            { name: 'Отель Илек', address: 'ул. Шайкенова, 11' }
         ],
         hotels_expensive: [
-            { name: 'Sheraton Celebration', name_kz: 'Sheraton Celebration', address: 'пр. Абилкайыр хана, 92', address_kz: 'Әбілқайыр хан даңғылы, 92' },
-            { name: 'Amsterdam Hotel', name_kz: 'Amsterdam қонақ үйі', address: 'ул. Богенбай батыра, 12а', address_kz: 'Бөгенбай батыр к-сі, 12а' }
+            { name: 'Sheraton Celebration', address: 'пр. Абилкайыр хана, 92' },
+            { name: 'Amsterdam Hotel', address: 'ул. Богенбай батыра, 12а' }
         ],
         restaurants_budget: [
-            { name: 'Столовая "Ас-Ас"', name_kz: '"Ас-Ас" асханасы', address: 'ул. Маресьева, 81', address_kz: 'Маресьев к-сі, 81' },
-            { name: 'Кухня №1', name_kz: 'Тағам №1', address: 'ул. Есет батыра, 105', address_kz: 'Есет батыр к-сі, 105' },
-            { name: 'Бургер Клаб', name_kz: 'Бургер Клаб', address: 'пр. Алии Молдагуловой, 46', address_kz: 'Әлия Молдағұлова даңғылы, 46' }
+            { name: 'Столовая "Ас-Ас"', address: 'ул. Маресьева, 81' },
+            { name: 'Кухня №1', address: 'ул. Есет батыра, 105' },
+            { name: 'Бургер Клаб', address: 'пр. Алии Молдагуловой, 46' }
         ],
         restaurants_expensive: [
-            { name: 'Venezia', name_kz: 'Venezia', address: 'пр. Абилкайыр хана, 67', address_kz: 'Әбілқайыр хан даңғылы, 67' },
-            { name: 'Zina', name_kz: 'Zina', address: 'пр. Санкибай батыра, 14л', address_kz: 'Сәнкібай батыр даңғылы, 14л' },
-            { name: 'Kishlak', name_kz: 'Қышлақ', address: 'пр. Абилкайыр хана, 44', address_kz: 'Әбілқайыр хан даңғылы, 44' }
+            { name: 'Venezia', address: 'пр. Абилкайыр хана, 67' },
+            { name: 'Zina', address: 'пр. Санкибай батыра, 14л' },
+            { name: 'Kishlak', address: 'пр. Абилкайыр хана, 44' }
         ],
         locations: [
-            { n: 'Мечеть Нур Гасыр', n_kz: 'Нұр Ғасыр мешіті', t: 'Культура, Города', t_kz: 'Мәдениет, Қалалар' },
-            { n: 'Парк Первого Президента', n_kz: 'Тұңғыш Президент саябағы', t: 'Семья, Активность', t_kz: 'Отбасы, Белсенділік' },
-            { n: 'ТРЦ Keruen City', n_kz: 'Keruen City СОО', t: 'Шоппинг, Семья', t_kz: 'Шопинг, Отбасы' },
-            { n: 'Актюбинское море', n_kz: 'Ақтөбе теңізі', t: 'Море/Вода, Активность', t_kz: 'Теңіз/Су, Белсенділік' },
-            { n: 'Кафе Zina', n_kz: 'Zina кафесі', t: 'Гастрономия', t_kz: 'Гастрономия' }
+            { n: 'Мечеть Нур Гасыр', t: 'Культура, Города' },
+            { n: 'Парк Первого Президента', t: 'Семья, Активность' },
+            { n: 'ТРЦ Keruen City', t: 'Шоппинг, Семья' },
+            { n: 'Актюбинское море', t: 'Море/Вода, Активность' },
+            { n: 'Кафе Zina', t: 'Гастрономия' }
         ],
         tags: { mountains: false, sea: false, city: true, activity: true, culture: false, gastronomy: false, seclusion: false, shopping: true, family_fun: true, eco_tourism: false },
         budget_suitability: { low: true, medium: true, high: false }, // City names (n) are not translated here
@@ -307,34 +295,32 @@ const allCities = [
     },
     {
         n: 'Тараз',
-        n_kz: 'Тараз',
         d: 'Древний город с богатой историей, Шелковый путь, мавзолеи и археологические памятники.',
-        d_kz: 'Бай тарихы бар көне қала, Жібек жолы, кесенелер мен археологиялық ескерткіштер.',
         img: 'https://images.unsplash.com/photo-1544984243-75a800232997?q=80&w=600',
         hotels_budget: [
-            { name: 'Хостел Тараз', name_kz: 'Тараз хостелі', address: 'ул. Сулейменова, 2', address_kz: 'Сүлейменов к-сі, 2' },
-            { name: 'Отель Жамбыл', name_kz: 'Жамбыл қонақ үйі', address: 'ул. Толе Би, 42', address_kz: 'Төле би к-сі, 42' }
+            { name: 'Хостел Тараз', address: 'ул. Сулейменова, 2' },
+            { name: 'Отель Жамбыл', address: 'ул. Толе Би, 42' }
         ],
         hotels_expensive: [
-            { name: 'Arai Plaza Hotel', name_kz: 'Arai Plaza қонақ үйі', address: 'мкр. Арай, ул. Домалак Ана, 1', address_kz: 'Арай ықшам ауданы, Домалақ Ана к-сі, 1' },
-            { name: 'Grand Hotel Talas', name_kz: 'Grand Hotel Talas', address: 'ул. Пушкина, 61', address_kz: 'Пушкин к-сі, 61' }
+            { name: 'Arai Plaza Hotel', address: 'мкр. Арай, ул. Домалак Ана, 1' },
+            { name: 'Grand Hotel Talas', address: 'ул. Пушкина, 61' }
         ],
         restaurants_budget: [
-            { name: 'Столовая Бауырсақ', name_kz: 'Бауырсақ асханасы', address: 'ул. Казыбек Би, 110', address_kz: 'Қазыбек би к-сі, 110' },
-            { name: 'Пиросмани (бюджетное)', name_kz: 'Пиросмани (арзан)', address: 'ул. Койгельды, 158', address_kz: 'Қойгелді к-сі, 158' },
-            { name: 'Отырар', name_kz: 'Отырар', address: 'пр. Толе Би, 60', address_kz: 'Төле би даңғылы, 60' }
+            { name: 'Столовая Бауырсақ', address: 'ул. Казыбек Би, 110' },
+            { name: 'Пиросмани (бюджетное)', address: 'ул. Койгельды, 158' },
+            { name: 'Отырар', address: 'пр. Толе Би, 60' }
         ],
         restaurants_expensive: [
-            { name: 'Marrakesh', name_kz: 'Marrakesh', address: 'ул. Сулейменова, 1', address_kz: 'Сүлейменов к-сі, 1' },
-            { name: 'Prime Garden', name_kz: 'Prime Garden', address: 'Парк Первого Президента', address_kz: 'Тұңғыш Президент саябағы' },
-            { name: 'Arbat', name_kz: 'Арбат', address: 'пр. Жамбыла, 160', address_kz: 'Жамбыл даңғылы, 160' }
+            { name: 'Marrakesh', address: 'ул. Сулейменова, 1' },
+            { name: 'Prime Garden', address: 'Парк Первого Президента' },
+            { name: 'Arbat', address: 'пр. Жамбыла, 160' }
         ],
         locations: [
-            { n: 'Мавзолей Айша-Биби', n_kz: 'Айша-Бибі кесенесі', t: 'Культура, Уединение', t_kz: 'Мәдениет, Оқшаулану' },
-            { n: 'Арбат Тараз', n_kz: 'Тараз Арбаты', t: 'Города, Шоппинг', t_kz: 'Қалалар, Шопинг' },
-            { n: 'Озеро Зербулак', n_kz: 'Зербұлақ көлі', t: 'Море/Вода, Семья', t_kz: 'Теңіз/Су, Отбасы' },
-            { n: 'Эко-парк «Женис»', n_kz: '«Жеңіс» эко-паркі', t: 'Эко-туризм, Семья', t_kz: 'Эко-туризм, Отбасы' },
-            { n: 'Ресторан Marrakesh', n_kz: 'Marrakesh мейрамханасы', t: 'Гастрономия', t_kz: 'Гастрономия' }
+            { n: 'Мавзолей Айша-Биби', t: 'Культура, Уединение' },
+            { n: 'Арбат Тараз', t: 'Города, Шоппинг' },
+            { n: 'Озеро Зербулак', t: 'Море/Вода, Семья' },
+            { n: 'Эко-парк «Женис»', t: 'Эко-туризм, Семья' },
+            { n: 'Ресторан Marrakesh', t: 'Гастрономия' }
         ],
         tags: { mountains: false, sea: false, city: false, activity: false, culture: true, gastronomy: true, seclusion: true, shopping: false, family_fun: false, eco_tourism: false },
         budget_suitability: { low: true, medium: false, high: false }, // City names (n) are not translated here
@@ -344,34 +330,32 @@ const allCities = [
     },
     {
         n: 'Павлодар',
-        n_kz: 'Павлодар',
         d: 'Город на реке Иртыш, индустриальный центр, набережная, музеи.',
-        d_kz: 'Ертіс өзенінің бойындағы қала, индустриялық орталық, жағалау, мұражайлар.',
         img: 'https://images.unsplash.com/photo-1523731407965-2430cd12f5e4?q=80&w=600',
         hotels_budget: [
-            { name: 'Хостел Вегас', name_kz: 'Вегас хостелі', address: 'ул. Торайгырова, 1/3', address_kz: 'Торайғыров к-сі, 1/3' },
-            { name: 'Гостиница Сары-Арка', name_kz: 'Сарыарқа қонақ үйі', address: 'ул. Торайгырова, 1', address_kz: 'Торайғыров к-сі, 1' }
+            { name: 'Хостел Вегас', address: 'ул. Торайгырова, 1/3' },
+            { name: 'Гостиница Сары-Арка', address: 'ул. Торайгырова, 1' }
         ],
         hotels_expensive: [
-            { name: 'River Court', name_kz: 'River Court', address: 'ул. Ак. Сатпаева, 156', address_kz: 'Ак. Сәтпаев к-сі, 156' },
-            { name: 'Irtysh Hotel', name_kz: 'Ертіс қонақ үйі', address: 'ул. Ак. Сатпаева, 158', address_kz: 'Ак. Сәтпаев к-сі, 158' }
+            { name: 'River Court', address: 'ул. Ак. Сатпаева, 156' },
+            { name: 'Irtysh Hotel', address: 'ул. Ак. Сатпаева, 158' }
         ],
         restaurants_budget: [
-            { name: 'Мария (Столовая)', name_kz: 'Мария (Асхана)', address: 'ул. Естая, 40', address_kz: 'Естай к-сі, 40' },
-            { name: 'Колобок', name_kz: 'Колобок', address: 'ул. Кривенко, 25', address_kz: 'Кривенко к-сі, 25' },
-            { name: 'Славянка', name_kz: 'Славянка', address: 'ул. Лермонтова, 91', address_kz: 'Лермонтов к-сі, 91' }
+            { name: 'Мария (Столовая)', address: 'ул. Естая, 40' },
+            { name: 'Колобок', address: 'ул. Кривенко, 25' },
+            { name: 'Славянка', address: 'ул. Лермонтова, 91' }
         ],
         restaurants_expensive: [
-            { name: 'Каспий', name_kz: 'Каспий', address: 'ул. Ак. Сатпаева, 156', address_kz: 'Ак. Сәтпаев к-сі, 156' },
-            { name: 'Blackwood', name_kz: 'Blackwood', address: 'ул. Бухар Жырау, 2', address_kz: 'Бұқар жырау к-сі, 2' },
-            { name: 'Marmaris', name_kz: 'Marmaris', address: 'ул. Толстого, 143/1', address_kz: 'Толстой к-сі, 143/1' }
+            { name: 'Каспий', address: 'ул. Ак. Сатпаева, 156' },
+            { name: 'Blackwood', address: 'ул. Бухар Жырау, 2' },
+            { name: 'Marmaris', address: 'ул. Толстого, 143/1' }
         ],
         locations: [
-            { n: 'Набережная Иртыша', n_kz: 'Ертіс жағалауы', t: 'Море/Вода, Активность', t_kz: 'Теңіз/Су, Белсенділік' },
-            { n: 'Мечеть Машхура Жусупа', n_kz: 'Мәшһүр Жүсіп мешіті', t: 'Культура, Города', t_kz: 'Мәдениет, Қалалар' },
-            { n: 'Batyr Mall', n_kz: 'Batyr Mall', t: 'Шоппинг, Семья', t_kz: 'Шопинг, Отбасы' },
-            { n: 'Музей «Шафер»', n_kz: '«Шафер» мұражайы', t: 'Культура, Уединение', t_kz: 'Мәдениет, Оқшаулану' },
-            { n: 'Гусиный перелет', n_kz: 'Қаз ұшуы', t: 'Эко-туризм, Города', t_kz: 'Эко-туризм, Қалалар' }
+            { n: 'Набережная Иртыша', t: 'Море/Вода, Активность' },
+            { n: 'Мечеть Машхура Жусупа', t: 'Культура, Города' },
+            { n: 'Batyr Mall', t: 'Шоппинг, Семья' },
+            { n: 'Музей «Шафер»', t: 'Культура, Уединение' },
+            { n: 'Гусиный перелет', t: 'Эко-туризм, Города' }
         ],
         tags: { mountains: false, sea: true, city: true, activity: false, culture: false, gastronomy: false, seclusion: false, shopping: false, family_fun: true, eco_tourism: false },
         budget_suitability: { low: true, medium: true, high: false }, // City names (n) are not translated here
@@ -381,34 +365,32 @@ const allCities = [
     },
     {
         n: 'Усть-Каменогорск',
-        n_kz: 'Өскемен',
         d: 'Восточно-Казахстанский город, окруженный горами и реками, индустриальный.',
-        d_kz: 'Шығыс Қазақстанның таулармен және өзендермен қоршалған индустриялық қаласы.',
         img: 'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=600',
         hotels_budget: [
-            { name: 'Хостел «Сити»', name_kz: '«Сити» хостелі', address: 'ул. Казахстан, 64', address_kz: 'Қазақстан к-сі, 64' },
-            { name: 'Гостиница «Турист»', name_kz: '«Турист» қонақ үйі', address: 'ул. Ади Шарипова, 92', address_kz: 'Әді Шәріпов к-сі, 92' }
+            { name: 'Хостел «Сити»', address: 'ул. Казахстан, 64' },
+            { name: 'Гостиница «Турист»', address: 'ул. Ади Шарипова, 92' }
         ],
         hotels_expensive: [
-            { name: 'Dedeman Oskemen', name_kz: 'Dedeman Oskemen', address: 'ул. Пермитина, 11/1', address_kz: 'Пермитин к-сі, 11/1' },
-            { name: 'Shiny River', name_kz: 'Shiny River', address: 'ул. Астана, 8/1', address_kz: 'Астана к-сі, 8/1' }
+            { name: 'Dedeman Oskemen', address: 'ул. Пермитина, 11/1' },
+            { name: 'Shiny River', address: 'ул. Астана, 8/1' }
         ],
         restaurants_budget: [
-            { name: 'Столовая «Сели-Поели»', name_kz: '«Сели-Поели» асханасы', address: 'ул. Горького, 50', address_kz: 'Горький к-сі, 50' },
-            { name: 'Донерная «Master Food»', name_kz: '«Master Food» донерханасы', address: 'ул. Виноградова, 17', address_kz: 'Виноградов к-сі, 17' },
-            { name: 'Асхана «Береке»', name_kz: '«Береке» асханасы', address: 'пр. Назарбаева, 5/3', address_kz: 'Назарбаев даңғылы, 5/3' }
+            { name: 'Столовая «Сели-Поели»', address: 'ул. Горького, 50' },
+            { name: 'Донерная «Master Food»', address: 'ул. Виноградова, 17' },
+            { name: 'Асхана «Береке»', address: 'пр. Назарбаева, 5/3' }
         ],
         restaurants_expensive: [
-            { name: 'Barhat', name_kz: 'Barhat', address: 'ул. Казахстан, 64', address_kz: 'Қазақстан к-сі, 64' },
-            { name: 'Two Rivers', name_kz: 'Two Rivers', address: 'ул. Пермитина, 11/1 (в Dedeman)', address_kz: 'Пермитин к-сі, 11/1 (Dedeman ішінде)' },
-            { name: 'Пицца Блюз (Премиум зал)', name_kz: 'Пицца Блюз (Премиум залы)', address: 'ул. Максима Горького, 56', address_kz: 'Максим Горький к-сі, 56' }
+            { name: 'Barhat', address: 'ул. Казахстан, 64' },
+            { name: 'Two Rivers', address: 'ул. Пермитина, 11/1 (в Dedeman)' },
+            { name: 'Пицца Блюз (Премиум зал)', address: 'ул. Максима Горького, 56' }
         ],
         locations: [
-            { n: 'Левобережный комплекс', n_kz: 'Сол жағалау кешені', t: 'Культура, Семья', t_kz: 'Мәдениет, Отбасы' },
-            { n: 'Гора Казахстан', n_kz: 'Қазақстан тауы', t: 'Горы, Активность', t_kz: 'Таулар, Белсенділік' },
-            { n: 'Бухтарминское водохранилище', n_kz: 'Бұқтырма су қоймасы', t: 'Море/Вода, Уединение', t_kz: 'Теңіз/Су, Оқшаулану' },
-            { n: 'Emporium', n_kz: 'Emporium', t: 'Шоппинг, Города', t_kz: 'Шопинг, Қалалар' },
-            { n: 'Парк Жастар', n_kz: 'Жастар саябағы', t: 'Эко-туризм, Семья', t_kz: 'Эко-туризм, Отбасы' }
+            { n: 'Левобережный комплекс', t: 'Культура, Семья' },
+            { n: 'Гора Казахстан', t: 'Горы, Активность' },
+            { n: 'Бухтарминское водохранилище', t: 'Море/Вода, Уединение' },
+            { n: 'Emporium', t: 'Шоппинг, Города' },
+            { n: 'Парк Жастар', t: 'Эко-туризм, Семья' }
         ],
         tags: { mountains: true, sea: true, city: true, activity: true, culture: true, gastronomy: false, seclusion: true, shopping: true, family_fun: true, eco_tourism: true },
         budget_suitability: { low: true, medium: true, high: true }, // City names (n) are not translated here
@@ -418,34 +400,32 @@ const allCities = [
     },
     {
         n: 'Семей',
-        n_kz: 'Семей',
         d: 'Исторический город на Иртыше, связанный с Абаем Кунанбаевым и Достоевским.',
-        d_kz: 'Абай Құнанбаев пен Достоевскийдің есімдерімен байланысты Ертіс бойындағы тарихи қала.',
         img: 'https://images.unsplash.com/photo-1510563800743-aed236490d08?q=80&w=600',
         hotels_budget: [
-            { name: 'Гостиница «Спартак»', name_kz: '«Спартак» қонақ үйі', address: 'ул. Бозтаева, 4', address_kz: 'Бозтаев к-сі, 4' },
-            { name: 'Хостел «Nomad»', name_kz: '«Nomad» хостелі', address: 'ул. Кабанбай Батыра, 42', address_kz: 'Қабанбай батыр к-сі, 42' }
+            { name: 'Гостиница «Спартак»', address: 'ул. Бозтаева, 4' },
+            { name: 'Хостел «Nomad»', address: 'ул. Кабанбай Батыра, 42' }
         ],
         hotels_expensive: [
-            { name: 'Semey Hotel', name_kz: 'Семей қонақ үйі', address: 'ул. Абая, 94', address_kz: 'Абай к-сі, 94' },
-            { name: 'Nomad Hotel', name_kz: 'Nomad Hotel', address: 'ул. Ленина, 9', address_kz: 'Ленин к-сі, 9' }
+            { name: 'Semey Hotel', address: 'ул. Абая, 94' },
+            { name: 'Nomad Hotel', address: 'ул. Ленина, 9' }
         ],
         restaurants_budget: [
-            { name: 'Столовая «Центральная»', name_kz: '«Орталық» асханасы', address: 'ул. Чокана Валиханова, 137', address_kz: 'Шоқан Уәлиханов к-сі, 137' },
-            { name: 'Кафе «Береке»', name_kz: '«Береке» кафесі', address: 'ул. Жамакаева, 98', address_kz: 'Жамақаев к-сі, 98' },
-            { name: 'Донерная «King Food»', name_kz: '«King Food» донерханасы', address: 'пр. Шакерима, 12', address_kz: 'Шәкәрім даңғылы, 12' }
+            { name: 'Столовая «Центральная»', address: 'ул. Чокана Валиханова, 137' },
+            { name: 'Кафе «Береке»', address: 'ул. Жамакаева, 98' },
+            { name: 'Донерная «King Food»', address: 'пр. Шакерима, 12' }
         ],
         restaurants_expensive: [
-            { name: 'Turandot', name_kz: 'Turandot', address: 'ул. Абая, 94', address_kz: 'Абай к-сі, 94' },
-            { name: 'Zodiak', name_kz: 'Zodiak', address: 'ул. Уранхаева, 21', address_kz: 'Оранхаев к-сі, 21' },
-            { name: 'Pekin', name_kz: 'Pekin', address: 'ул. Герцена, 32', address_kz: 'Герцен к-сі, 32' }
+            { name: 'Turandot', address: 'ул. Абая, 94' },
+            { name: 'Zodiak', address: 'ул. Уранхаева, 21' },
+            { name: 'Pekin', address: 'ул. Герцена, 32' }
         ],
         locations: [
-            { n: 'Музей Абая', n_kz: 'Абай мұражайы', t: 'Культура, Города', t_kz: 'Мәдениет, Қалалар' },
-            { n: 'Подвесной мост', n_kz: 'Аспалы көпір', t: 'Города, Активность', t_kz: 'Қалалар, Белсенділік' },
-            { n: 'Остров Полковничий', n_kz: 'Полковник аралы', t: 'Море/Вода, Семья', t_kz: 'Теңіз/Су, Отбасы' },
-            { n: 'Сосновый бор', n_kz: 'Қарағайлы орман', t: 'Эко-туризм, Уединение', t_kz: 'Эко-туризм, Оқшаулану' },
-            { n: 'Пиццерия «Додо»', n_kz: '«Додо» пиццериясы', t: 'Гастрономия, Семья', t_kz: 'Гастрономия, Отбасы' }
+            { n: 'Музей Абая', t: 'Культура, Города' },
+            { n: 'Подвесной мост', t: 'Города, Активность' },
+            { n: 'Остров Полковничий', t: 'Море/Вода, Семья' },
+            { n: 'Сосновый бор', t: 'Эко-туризм, Уединение' },
+            { n: 'Пиццерия «Додо»', t: 'Гастрономия, Семья' }
         ],
         tags: { mountains: false, sea: true, city: true, activity: true, culture: true, gastronomy: true, seclusion: true, shopping: false, family_fun: true, eco_tourism: true },
         budget_suitability: { low: true, medium: true, high: true }, // City names (n) are not translated here
@@ -455,34 +435,32 @@ const allCities = [
     },
     {
         n: 'Атырау',
-        n_kz: 'Атырау',
         d: 'Нефтяная столица Казахстана, расположен на реке Урал, близость к Каспийскому морю.',
-        d_kz: 'Қазақстанның мұнай астанасы, Жайық өзенінің бойында орналасқан, Каспий теңізіне жақын.',
         img: 'https://images.unsplash.com/photo-1533035353720-f1c6a75cd8ab?q=80&w=600',
         hotels_budget: [
-            { name: 'Гостиница «Ак Жайык»', name_kz: '«Ақжайық» қонақ үйі', address: 'ул. Абая, 15а', address_kz: 'Абай к-сі, 15а' },
-            { name: 'Hostel 24', name_kz: 'Hostel 24', address: 'мкр. Авангард-3, 34', address_kz: 'Авангард-3 ықшам ауданы, 34' }
+            { name: 'Гостиница «Ак Жайык»', address: 'ул. Абая, 15а' },
+            { name: 'Hostel 24', address: 'мкр. Авангард-3, 34' }
         ],
         hotels_expensive: [
-            { name: 'Renaissance Atyrau Hotel', name_kz: 'Renaissance Атырау қонақ үйі', address: 'ул. Сатпаева, 15б', address_kz: 'Сәтпаев к-сі, 15б' },
-            { name: 'River Palace', name_kz: 'River Palace', address: 'ул. Айтеке Би, 55', address_kz: 'Әйтеке би к-сі, 55' }
+            { name: 'Renaissance Atyrau Hotel', address: 'ул. Сатпаева, 15б' },
+            { name: 'River Palace', address: 'ул. Айтеке Би, 55' }
         ],
         restaurants_budget: [
-            { name: 'Столовая «Тагам»', name_kz: '«Тағам» асханасы', address: 'ул. Кулманова, 113', address_kz: 'Құлманов к-сі, 113' },
-            { name: 'Базилик', name_kz: 'Базилик', address: 'ул. Сатпаева, 19', address_kz: 'Сәтпаев к-сі, 19' },
-            { name: 'Донерная «The Best»', name_kz: '«The Best» донерханасы', address: 'ул. Махамбета, 116', address_kz: 'Махамбет к-сі, 116' }
+            { name: 'Столовая «Тагам»', address: 'ул. Кулманова, 113' },
+            { name: 'Базилик', address: 'ул. Сатпаева, 19' },
+            { name: 'Донерная «The Best»', address: 'ул. Махамбета, 116' }
         ],
         restaurants_expensive: [
-            { name: 'Cinzzano', name_kz: 'Cinzzano', address: 'ул. Сатпаева, 15б', address_kz: 'Сәтпаев к-сі, 15б' },
-            { name: 'Caravella', name_kz: 'Caravella', address: 'ул. Айтеке Би, 55', address_kz: 'Әйтеке би к-сі, 55' },
-            { name: 'O\'Hara Irish Pub', name_kz: 'O\'Hara Irish Pub', address: 'ул. Канцева, 7', address_kz: 'Канцев к-сі, 7' }
+            { name: 'Cinzzano', address: 'ул. Сатпаева, 15б' },
+            { name: 'Caravella', address: 'ул. Айтеке Би, 55' },
+            { name: 'O\'Hara Irish Pub', address: 'ул. Канцева, 7' }
         ],
         locations: [
-            { n: 'Мост Европа-Азия', n_kz: 'Еуропа-Азия көпірі', t: 'Города, Активность', t_kz: 'Қалалар, Белсенділік' },
-            { n: 'Река Урал (прогулки)', n_kz: 'Жайық өзені (серуендеу)', t: 'Море/Вода, Эко-туризм', t_kz: 'Теңіз/Су, Эко-туризм' },
-            { n: 'Baizaar ТРЦ', n_kz: 'Baizaar СОО', t: 'Шоппинг, Семья', t_kz: 'Шопинг, Отбасы' },
-            { n: 'Городище Сарайшык', n_kz: 'Сарайшық қалашығы', t: 'Культура, Уединение', t_kz: 'Мәдениет, Оқшаулану' },
-            { n: 'Рыбный рынок', n_kz: 'Балық базары', t: 'Гастрономия, Шоппинг', t_kz: 'Гастрономия, Шопинг' }
+            { n: 'Мост Европа-Азия', t: 'Города, Активность' },
+            { n: 'Река Урал (прогулки)', t: 'Море/Вода, Эко-туризм' },
+            { n: 'Baizaar ТРЦ', t: 'Шоппинг, Семья' },
+            { n: 'Городище Сарайшык', t: 'Культура, Уединение' },
+            { n: 'Рыбный рынок', t: 'Гастрономия, Шоппинг' }
         ],
         tags: { mountains: false, sea: true, city: true, activity: true, culture: true, gastronomy: true, seclusion: true, shopping: true, family_fun: true, eco_tourism: true },
         budget_suitability: { low: true, medium: true, high: true }, // City names (n) are not translated here
@@ -492,34 +470,32 @@ const allCities = [
     },
     {
         n: 'Костанай',
-        n_kz: 'Қостанай',
         d: 'Аграрный регион, спокойный город с парками и скверами, озера неподалеку.',
-        d_kz: 'Аграрлық аймақ, саябақтары мен скверлері бар тыныш қала, жақын маңда көлдер бар.',
         img: 'https://images.unsplash.com/photo-1500382017468-9049fed747ef?q=80&w=600',
         hotels_budget: [
-            { name: 'Гостиница «Турист»', name_kz: '«Турист» қонақ үйі', address: 'ул. Байтурсынова, 95', address_kz: 'Байтұрсынов к-сі, 95' },
-            { name: 'Hostel Kostanay', name_kz: 'Қостанай хостелі', address: 'ул. Гоголя, 144', address_kz: 'Гоголь к-сі, 144' }
+            { name: 'Гостиница «Турист»', address: 'ул. Байтурсынова, 95' },
+            { name: 'Hostel Kostanay', address: 'ул. Гоголя, 144' }
         ],
         hotels_expensive: [
-            { name: 'Medeu Hotel', name_kz: 'Медеу қонақ үйі', address: 'ул. Байтурсынова, 82', address_kz: 'Байтұрсынов к-сі, 82' },
-            { name: 'Tobol Hotel', name_kz: 'Тобыл қонақ үйі', address: 'ул. 5 Декабря, 100', address_kz: '5 желтоқсан к-сі, 100' }
+            { name: 'Medeu Hotel', address: 'ул. Байтурсынова, 82' },
+            { name: 'Tobol Hotel', address: 'ул. 5 Декабря, 100' }
         ],
         restaurants_budget: [
-            { name: 'Столовая «Любимая»', name_kz: '«Любимая» асханасы', address: 'пр. Абая, 162', address_kz: 'Абай даңғылы, 162' },
-            { name: 'Пловная №1', name_kz: 'Палаухана №1', address: 'ул. Аль-Фараби, 88', address_kz: 'Әл-Фараби к-сі, 88' },
-            { name: 'Пиццерия «Додо»', name_kz: '«Додо» пиццериясы', address: 'ул. Пушкина, 65', address_kz: 'Пушкин к-сі, 65' }
+            { name: 'Столовая «Любимая»', address: 'пр. Абая, 162' },
+            { name: 'Пловная №1', address: 'ул. Аль-Фараби, 88' },
+            { name: 'Пиццерия «Додо»', address: 'ул. Пушкина, 65' }
         ],
         restaurants_expensive: [
-            { name: 'Marrakesh', name_kz: 'Marrakesh', address: 'ул. Гоголя, 62', address_kz: 'Гоголь к-сі, 62' },
-            { name: 'Гарри Поттер', name_kz: 'Гарри Поттер', address: 'ул. Тауелсиздик, 116', address_kz: 'Тәуелсіздік к-сі, 116' },
-            { name: 'The Ch樓', name_kz: 'The Ch樓', address: 'пр. Абая, 151/1', address_kz: 'Абай даңғылы, 151/1' }
+            { name: 'Marrakesh', address: 'ул. Гоголя, 62' },
+            { name: 'Гарри Поттер', address: 'ул. Тауелсиздик, 116' },
+            { name: 'The Ch樓', address: 'пр. Абая, 151/1' }
         ],
         locations: [
-            { n: 'Парк культуры', n_kz: 'Мәдениет саябағы', t: 'Семья, Активность', t_kz: 'Отбасы, Белсенділік' },
-            { n: 'Kostanay Plaza', n_kz: 'Kostanay Plaza', t: 'Шоппинг, Семья', t_kz: 'Шопинг, Отбасы' },
-            { n: 'Французский квартал', n_kz: 'Француз кварталы', t: 'Города, Культура', t_kz: 'Қалалар, Мәдениет' },
-            { n: 'Набережная «Шагала»', n_kz: '«Шағала» жағалауы', t: 'Море/Вода, Активность', t_kz: 'Теңіз/Су, Белсенділік' },
-            { n: 'Кондитерская фабрика (магазин)', n_kz: 'Кондитерлік фабрика (дүкен)', t: 'Гастрономия', t_kz: 'Гастрономия' }
+            { n: 'Парк культуры', t: 'Семья, Активность' },
+            { n: 'Kostanay Plaza', t: 'Шоппинг, Семья' },
+            { n: 'Французский квартал', t: 'Города, Культура' },
+            { n: 'Набережная «Шагала»', t: 'Море/Вода, Активность' },
+            { n: 'Кондитерская фабрика (магазин)', t: 'Гастрономия' }
         ],
         tags: { mountains: false, sea: true, city: true, activity: true, culture: true, gastronomy: true, seclusion: false, shopping: true, family_fun: true, eco_tourism: false },
         budget_suitability: { low: true, medium: true, high: true }, // City names (n) are not translated here
@@ -529,34 +505,32 @@ const allCities = [
     },
     {
         n: 'Кызылорда',
-        n_kz: 'Қызылорда',
         d: 'Исторический город, расположенный в пустынной местности, связан с космодромом Байконур.',
-        d_kz: 'Шөлді жерде орналасқан тарихи қала, Байқоңыр ғарыш айлағымен байланысты.',
         img: 'https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?q=80&w=600',
         hotels_budget: [
-            { name: 'Гостиница «Кызылорда»', name_kz: '«Қызылорда» қонақ үйі', address: 'ул. Журбы, 1', address_kz: 'Журба к-сі, 1' },
-            { name: 'Хостел «Орда»', name_kz: '«Орда» хостелі', address: 'ул. Абая, 55', address_kz: 'Абай к-сі, 55' }
+            { name: 'Гостиница «Кызылорда»', address: 'ул. Журбы, 1' },
+            { name: 'Хостел «Орда»', address: 'ул. Абая, 55' }
         ],
         hotels_expensive: [
-            { name: 'Sultan Plaza', name_kz: 'Sultan Plaza', address: 'пр. Астана, 44', address_kz: 'Астана даңғылы, 44' },
-            { name: 'Grand Hotel Nomads', name_kz: 'Grand Hotel Nomads', address: 'ул. Коркыт Ата, 123', address_kz: 'Қорқыт ата к-сі, 123' }
+            { name: 'Sultan Plaza', address: 'пр. Астана, 44' },
+            { name: 'Grand Hotel Nomads', address: 'ул. Коркыт Ата, 123' }
         ],
         restaurants_budget: [
-            { name: 'Столовая «Ас-Мар»', name_kz: '«Ас-Мар» асханасы', address: 'ул. Токмагамбетова, 15', address_kz: 'Тоқмағамбетов к-сі, 15' },
-            { name: 'Лагманхана «Тулпар»', name_kz: '«Тұлпар» лағманханасы', address: 'ул. Байтурсынова, 40', address_kz: 'Байтұрсынов к-сі, 40' },
-            { name: 'Кафе «Береке»', name_kz: '«Береке» кафесі', address: 'пр. Абая, 22', address_kz: 'Абай даңғылы, 22' }
+            { name: 'Столовая «Ас-Мар»', address: 'ул. Токмагамбетова, 15' },
+            { name: 'Лагманхана «Тулпар»', address: 'ул. Байтурсынова, 40' },
+            { name: 'Кафе «Береке»', address: 'пр. Абая, 22' }
         ],
         restaurants_expensive: [
-            { name: 'Arbat', name_kz: 'Arbat', address: 'ул. Айтеке Би, 11', address_kz: 'Әйтеке би к-сі, 11' },
-            { name: 'Zhibek Zholy', name_kz: 'Жібек жолы', address: 'пр. Султана Бейбарыса, 4', address_kz: 'Сұлтан Бейбарыс даңғылы, 4' },
-            { name: 'Vivaldi', name_kz: 'Vivaldi', address: 'ул. Желтоксан, 1', address_kz: 'Желтоқсан к-сі, 1' }
+            { name: 'Arbat', address: 'ул. Айтеке Би, 11' },
+            { name: 'Zhibek Zholy', address: 'пр. Султана Бейбарыса, 4' },
+            { name: 'Vivaldi', address: 'ул. Желтоксан, 1' }
         ],
         locations: [
-            { n: 'Мемориал Коркыт Ата', n_kz: 'Қорқыт ата мемориалы', t: 'Культура, Уединение', t_kz: 'Мәдениет, Оқшаулану' },
-            { n: 'Набережная Сырдарьи', n_kz: 'Сырдария жағалауы', t: 'Море/Вода, Семья', t_kz: 'Теңіз/Су, Отбасы' },
-            { n: 'ТРЦ Aray', n_kz: 'Aray СОО', t: 'Шоппинг, Города', t_kz: 'Шопинг, Қалалар' },
-            { n: 'Площадь Тагзым', n_kz: 'Тағзым алаңы', t: 'Культура, Города', t_kz: 'Мәдениет, Қалалар' },
-            { n: 'Лагманхана «Тулпар»', n_kz: '«Тұлпар» лағманханасы', t: 'Гастрономия', t_kz: 'Гастрономия' }
+            { n: 'Мемориал Коркыт Ата', t: 'Культура, Уединение' },
+            { n: 'Набережная Сырдарьи', t: 'Море/Вода, Семья' },
+            { n: 'ТРЦ Aray', t: 'Шоппинг, Города' },
+            { n: 'Площадь Тагзым', t: 'Культура, Города' },
+            { n: 'Лагманхана «Тулпар»', t: 'Гастрономия' }
         ],
         tags: { mountains: false, sea: true, city: true, activity: false, culture: true, gastronomy: true, seclusion: true, shopping: true, family_fun: true, eco_tourism: false },
         budget_suitability: { low: true, medium: true, high: true }, // City names (n) are not translated here
@@ -566,34 +540,32 @@ const allCities = [
     },
     {
         n: 'Уральск',
-        n_kz: 'Орал',
         d: 'Старинный город на реке Урал, богатая история, архитектура 19 века.',
-        d_kz: 'Жайық өзеніндегі көне қала, бай тарихы, 19-ғасырдың архитектурасы.',
         img: 'https://images.unsplash.com/photo-1510797215324-95aa89f43c33?q=80&w=600',
         hotels_budget: [
-            { name: 'Гостиница «Урал»', name_kz: '«Орал» қонақ үйі', address: 'пр. Назарбаева, 184', address_kz: 'Назарбаев даңғылы, 184' },
-            { name: 'Хостел «Дом»', name_kz: '«Дом» хостелі', address: 'ул. Курмангазы, 150', address_kz: 'Құрманғазы к-сі, 150' }
+            { name: 'Гостиница «Урал»', address: 'пр. Назарбаева, 184' },
+            { name: 'Хостел «Дом»', address: 'ул. Курмангазы, 150' }
         ],
         hotels_expensive: [
-            { name: 'Park Hotel', name_kz: 'Park Hotel', address: 'ул. Сарайшык, 28/2', address_kz: 'Сарайшық к-сі, 28/2' },
-            { name: 'Pushkin Hotel', name_kz: 'Пушкин қонақ үйі', address: 'пр. Назарбаева, 148', address_kz: 'Назарбаев даңғылы, 148' }
+            { name: 'Park Hotel', address: 'ул. Сарайшык, 28/2' },
+            { name: 'Pushkin Hotel', address: 'пр. Назарбаева, 148' }
         ],
         restaurants_budget: [
-            { name: 'Столовая «Как дома»', name_kz: '«Как дома» асханасы', address: 'ул. Дины Нурпеисовой, 15', address_kz: 'Дина Нұрпейісова к-сі, 15' },
-            { name: 'Бургерная «Black Star» (акции)', name_kz: 'Black Star бургерханасы', address: 'пр. Назарбаева, 191', address_kz: 'Назарбаев даңғылы, 191' },
-            { name: 'Асхана «Дастархан»', name_kz: '«Дастархан» асханасы', address: 'ул. Мухита, 78', address_kz: 'Мұхит к-сі, 78' }
+            { name: 'Столовая «Как дома»', address: 'ул. Дины Нурпеисовой, 15' },
+            { name: 'Бургерная «Black Star» (акции)', address: 'пр. Назарбаева, 191' },
+            { name: 'Асхана «Дастархан»', address: 'ул. Мухита, 78' }
         ],
         restaurants_expensive: [
-            { name: 'Venezia', name_kz: 'Venezia', address: 'пр. Назарбаева, 162/1', address_kz: 'Назарбаев даңғылы, 162/1' },
-            { name: 'Zina', name_kz: 'Zina', address: 'ул. Сарайшык, 28', address_kz: 'Сарайшық к-сі, 28' },
-            { name: 'Pivovaroff', name_kz: 'Пивоварофф', address: 'ул. Карева, 47', address_kz: 'Карев к-сі, 47' }
+            { name: 'Venezia', address: 'пр. Назарбаева, 162/1' },
+            { name: 'Zina', address: 'ул. Сарайшык, 28' },
+            { name: 'Pivovaroff', address: 'ул. Карева, 47' }
         ],
         locations: [
-            { n: 'Музей Пушкина', n_kz: 'Пушкин мұражайы', t: 'Культура, Города', t_kz: 'Мәдениет, Қалалар' },
-            { n: 'Парк им. Кирова', n_kz: 'Киров атындағы саябақ', t: 'Семья, Активность', t_kz: 'Отбасы, Белсенділік' },
-            { n: 'Озеро Шалкар', n_kz: 'Шалқар көлі', t: 'Море/Вода, Эко-туризм', t_kz: 'Теңіз/Су, Эко-туризм' },
-            { n: 'City Center', n_kz: 'City Center', t: 'Шоппинг, Семья', t_kz: 'Шопинг, Отбасы' },
-            { n: 'Старая мечеть', n_kz: 'Ескі мешіт', t: 'Культура, Уединение', t_kz: 'Мәдениет, Оқшаулану' }
+            { n: 'Музей Пушкина', t: 'Культура, Города' },
+            { n: 'Парк им. Кирова', t: 'Семья, Активность' },
+            { n: 'Озеро Шалкар', t: 'Море/Вода, Эко-туризм' },
+            { n: 'City Center', t: 'Шоппинг, Семья' },
+            { n: 'Старая мечеть', t: 'Культура, Уединение' }
         ],
         tags: { mountains: false, sea: true, city: true, activity: true, culture: true, gastronomy: false, seclusion: true, shopping: true, family_fun: true, eco_tourism: true },
         budget_suitability: { low: true, medium: true, high: true }, // City names (n) are not translated here
@@ -603,34 +575,32 @@ const allCities = [
     },
     {
         n: 'Петропавловск',
-        n_kz: 'Петропавл',
         d: 'Северный город Казахстана, исторический центр, озера и леса вокруг.',
-        d_kz: 'Қазақстанның солтүстік қаласы, тарихи орталық, айналасында көлдер мен ормандар.',
         img: 'https://images.unsplash.com/photo-1444491741275-3747c53c99b4?q=80&w=600',
         hotels_budget: [
-            { name: 'Гостиница «Восход»', name_kz: '«Восход» қонақ үйі', address: 'ул. Конституции Казахстана, 52', address_kz: 'Қазақстан Конституциясы к-сі, 52' },
-            { name: 'Хостел «Север»', name_kz: '«Север» хостелі', address: 'ул. Мира, 215', address_kz: 'Мир к-сі, 215' }
+            { name: 'Гостиница «Восход»', address: 'ул. Конституции Казахстана, 52' },
+            { name: 'Хостел «Север»', address: 'ул. Мира, 215' }
         ],
         hotels_expensive: [
-            { name: 'Park Hotel North', name_kz: 'Park Hotel North', address: 'ул. Кеншинбаева, 22', address_kz: 'Кеншінбаев к-сі, 22' },
-            { name: 'Skif Hotel', name_kz: 'Скиф қонақ үйі', address: 'ул. Партизанская, 118', address_kz: 'Партизанская к-сі, 118' }
+            { name: 'Park Hotel North', address: 'ул. Кеншинбаева, 22' },
+            { name: 'Skif Hotel', address: 'ул. Партизанская, 118' }
         ],
         restaurants_budget: [
-            { name: 'Столовая «Сарбай»', name_kz: '«Сарбай» асханасы', address: 'ул. Интернациональная, 59', address_kz: 'Интернациональная к-сі, 59' },
-            { name: 'Кафе «Блинчик»', name_kz: '«Блинчик» кафесі', address: 'ул. Конституции Казахстана, 13', address_kz: 'Қазақстан Конституциясы к-сі, 13' },
-            { name: 'Донерная «Best»', name_kz: '«Best» донерханасы', address: 'ул. Жамбыла, 150', address_kz: 'Жамбыл к-сі, 150' }
+            { name: 'Столовая «Сарбай»', address: 'ул. Интернациональная, 59' },
+            { name: 'Кафе «Блинчик»', address: 'ул. Конституции Казахстана, 13' },
+            { name: 'Донерная «Best»', address: 'ул. Жамбыла, 150' }
         ],
         restaurants_expensive: [
-            { name: 'Kishlak', name_kz: 'Қышлақ', address: 'ул. Конституции Казахстана, 31', address_kz: 'Қазақстан Конституциясы к-сі, 31' },
-            { name: 'Friends', name_kz: 'Friends', address: 'ул. Интернациональная, 21', address_kz: 'Интернациональная к-сі, 21' },
-            { name: 'Emerald', name_kz: 'Emerald', address: 'ул. Мира, 122', address_kz: 'Мир к-сі, 122' }
+            { name: 'Kishlak', address: 'ул. Конституции Казахстана, 31' },
+            { name: 'Friends', address: 'ул. Интернациональная, 21' },
+            { name: 'Emerald', address: 'ул. Мира, 122' }
         ],
         locations: [
-            { n: 'Резиденция Абылай-хана', n_kz: 'Абылай хан резиденциясы', t: 'Культура, Города', t_kz: 'Мәдениет, Қалалар' },
-            { n: 'Улица Конституции', n_kz: 'Конституция көшесі', t: 'Города, Шоппинг', t_kz: 'Қалалар, Шопинг' },
-            { n: 'Озеро Пестрое', n_kz: 'Пестрое көлі', t: 'Море/Вода, Активность', t_kz: 'Теңіз/Су, Белсенділік' },
-            { n: 'Аквапарк «Нептун»', n_kz: '«Нептун» аквапаркі', t: 'Семья, Активность', t_kz: 'Отбасы, Белсенділік' },
-            { n: 'Мещерский лес', n_kz: 'Мещерский орманы', t: 'Эко-туризм, Уединение', t_kz: 'Эко-туризм, Оқшаулану' }
+            { n: 'Резиденция Абылай-хана', t: 'Культура, Города' },
+            { n: 'Улица Конституции', t: 'Города, Шоппинг' },
+            { n: 'Озеро Пестрое', t: 'Море/Вода, Активность' },
+            { n: 'Аквапарк «Нептун»', t: 'Семья, Активность' },
+            { n: 'Мещерский лес', t: 'Эко-туризм, Уединение' }
         ],
         tags: { mountains: false, sea: true, city: true, activity: true, culture: false, gastronomy: false, seclusion: true, shopping: false, family_fun: true, eco_tourism: true },
         budget_suitability: { low: true, medium: true, high: true }, // City names (n) are not translated here
@@ -640,34 +610,32 @@ const allCities = [
     },
     {
         n: 'Кокшетау',
-        n_kz: 'Көкшетау',
         d: 'Уютный город у подножия сопок, ворота в край озер и живописной природы.',
-        d_kz: 'Шоқылар етегіндегі жайлы қала, көлдер мен көрікті табиғат өлкесіне ашылған қақпа.',
         img: 'https://images.unsplash.com/photo-1549416805-0e7740e2136e?q=80&w=600',
         hotels_budget: [
-            { name: 'Гостиница «Достык»', name_kz: '«Достық» қонақ үйі', address: 'ул. Ауэзова, 183', address_kz: 'Әуезов к-сі, 183' },
-            { name: 'Хостел «Кокше»', name_kz: '«Көкше» хостелі', address: 'ул. Горького, 19', address_kz: 'Горький к-сі, 19' }
+            { name: 'Гостиница «Достык»', address: 'ул. Ауэзова, 183' },
+            { name: 'Хостел «Кокше»', address: 'ул. Горького, 19' }
         ],
         hotels_expensive: [
-            { name: 'Green Which Hotel', name_kz: 'Green Which Hotel', address: 'ул. Ауэзова, 157', address_kz: 'Әуезов к-сі, 157' },
-            { name: 'Plaza Hotel', name_kz: 'Plaza қонақ үйі', address: 'ул. Абая, 114', address_kz: 'Абай к-сі, 114' }
+            { name: 'Green Which Hotel', address: 'ул. Ауэзова, 157' },
+            { name: 'Plaza Hotel', address: 'ул. Абая, 114' }
         ],
         restaurants_budget: [
-            { name: 'Столовая «Арзан»', name_kz: '«Арзан» асханасы', address: 'ул. Сатпаева, 10', address_kz: 'Сәтпаев к-сі, 10' },
-            { name: 'Кафе «Шафран»', name_kz: '«Шафран» кафесі', address: 'ул. Горького, 31', address_kz: 'Горький к-сі, 31' },
-            { name: 'Бистро «Fast Food»', name_kz: 'Fast Food бистросы', address: 'ул. Ауэзова, 190', address_kz: 'Әуезов к-сі, 190' }
+            { name: 'Столовая «Арзан»', address: 'ул. Сатпаева, 10' },
+            { name: 'Кафе «Шафран»', address: 'ул. Горького, 31' },
+            { name: 'Бистро «Fast Food»', address: 'ул. Ауэзова, 190' }
         ],
         restaurants_expensive: [
-            { name: 'GQ Restaurant', name_kz: 'GQ мейрамханасы', address: 'ул. Абая, 114', address_kz: 'Абай к-сі, 114' },
-            { name: 'Tiflis', name_kz: 'Тифлис', address: 'ул. Ауэзова, 157', address_kz: 'Әуезов к-сі, 157' },
-            { name: 'Zhibek Zholy', name_kz: 'Жібек жолы', address: 'пр. Назарбаева, 15', address_kz: 'Назарбаев даңғылы, 15' }
+            { name: 'GQ Restaurant', address: 'ул. Абая, 114' },
+            { name: 'Tiflis', address: 'ул. Ауэзова, 157' },
+            { name: 'Zhibek Zholy', address: 'пр. Назарбаева, 15' }
         ],
         locations: [
-            { n: 'Сопка Букпа', n_kz: 'Бұқпа шоқысы', t: 'Горы, Активность', t_kz: 'Таулар, Белсенділік' },
-            { n: 'Озеро Копа', n_kz: 'Қопа көлі', t: 'Море/Вода, Семья', t_kz: 'Теңіз/Су, Отбасы' },
-            { n: 'ТЦ Рио', n_kz: 'Рио СОО', t: 'Шоппинг, Города', t_kz: 'Шопинг, Қалалар' },
-            { n: 'Музей истории', n_kz: 'Тарих мұражайы', t: 'Культура, Города', t_kz: 'Мәдениет, Қалалар' },
-            { n: 'Сквер «Мангилик Ел»', n_kz: '«Мәңгілік ел» сквері', t: 'Уединение, Города', t_kz: 'Оқшаулану, Қалалар' }
+            { n: 'Сопка Букпа', t: 'Горы, Активность' },
+            { n: 'Озеро Копа', t: 'Море/Вода, Семья' },
+            { n: 'ТЦ Рио', t: 'Шоппинг, Города' },
+            { n: 'Музей истории', t: 'Культура, Города' },
+            { n: 'Сквер «Мангилик Ел»', t: 'Уединение, Города' }
         ],
         tags: { mountains: true, sea: true, city: true, activity: true, culture: true, gastronomy: false, seclusion: true, shopping: true, family_fun: true, eco_tourism: true },
         budget_suitability: { low: true, medium: true, high: true }, // City names (n) are not translated here
@@ -677,34 +645,32 @@ const allCities = [
     },
     {
         n: 'Талдыкорган',
-        n_kz: 'Талдықорған',
         d: 'Зеленый город с богатой культурой и множеством возможностей для активного отдыха.',
-        d_kz: 'Мәдениеті бай және белсенді демалысқа арналған мүмкіндіктері мол жасыл қала.',
         img: 'https://images.unsplash.com/photo-1518391846015-55a9cc003b25?q=80&w=600',
         hotels_budget: [
-            { name: 'Гостиница «Талдыкорган»', name_kz: '«Талдықорған» қонақ үйі', address: 'ул. Тауелсиздик, 67', address_kz: 'Тәуелсіздік к-сі, 67' },
-            { name: 'Гостевой дом «Алтын»', name_kz: '«Алтын» қонақ үйі', address: 'ул. Кабанбай Батыра, 34', address_kz: 'Қабанбай батыр к-сі, 34' }
+            { name: 'Гостиница «Талдыкорган»', address: 'ул. Тауелсиздик, 67' },
+            { name: 'Гостевой дом «Алтын»', address: 'ул. Кабанбай Батыра, 34' }
         ],
         hotels_expensive: [
-            { name: 'Grand Hotel Zhetysu', name_kz: 'Grand Hotel Жетісу', address: 'ул. Кабанбай батыра, 40', address_kz: 'Қабанбай батыр к-сі, 40' },
-            { name: 'Alatau Hotel', name_kz: 'Алатау қонақ үйі', address: 'ул. Жансугурова, 112', address_kz: 'Жансүгіров к-сі, 112' }
+            { name: 'Grand Hotel Zhetysu', address: 'ул. Кабанбай батыра, 40' },
+            { name: 'Alatau Hotel', address: 'ул. Жансугурова, 112' }
         ],
         restaurants_budget: [
-            { name: 'Столовая «Береке»', name_kz: '«Береке» асханасы', address: 'ул. Биржан Сал, 45', address_kz: 'Біржан сал к-сі, 45' },
-            { name: 'Кафе «Улытау»', name_kz: '«Ұлытау» кафесі', address: 'ул. Балапанова, 23', address_kz: 'Балапанов к-сі, 23' },
-            { name: 'Донер «Master»', name_kz: 'Master донері', address: 'ул. Тауелсиздик, 100', address_kz: 'Тәуелсіздік к-сі, 100' }
+            { name: 'Столовая «Береке»', address: 'ул. Биржан Сал, 45' },
+            { name: 'Кафе «Улытау»', address: 'ул. Балапанова, 23' },
+            { name: 'Донер «Master»', address: 'ул. Тауелсиздик, 100' }
         ],
         restaurants_expensive: [
-            { name: 'Arbat', name_kz: 'Арбат', address: 'ул. Гаухар Ана, 110', address_kz: 'Гауһар ана к-сі, 110' },
-            { name: 'Senator', name_kz: 'Сенатор', address: 'ул. Жансугурова, 187', address_kz: 'Жансүгіров к-сі, 187' },
-            { name: 'Zhetysu Restaurant', name_kz: 'Жетісу мейрамханасы', address: 'ул. Кабанбай батыра, 40', address_kz: 'Қабанбай батыр к-сі, 40' }
+            { name: 'Arbat', address: 'ул. Гаухар Ана, 110' },
+            { name: 'Senator', address: 'ул. Жансугурова, 187' },
+            { name: 'Zhetysu Restaurant', address: 'ул. Кабанбай батыра, 40' }
         ],
         locations: [
-            { n: 'Парк «Жастар»', n_kz: '«Жастар» саябағы', t: 'Семья, Активность', t_kz: 'Отбасы, Белсенділік' },
-            { n: 'Набережная Каратала', n_kz: 'Қаратал жағалауы', t: 'Море/Вода, Эко-туризм', t_kz: 'Теңіз/Су, Эко-туризм' },
-            { n: 'City Center', n_kz: 'City Center', t: 'Шоппинг, Города', t_kz: 'Шопинг, Қалалар' },
-            { n: 'Арка Талдыкоргана', n_kz: 'Талдықорған аркасы', t: 'Города, Культура', t_kz: 'Қалалар, Мәдениет' },
-            { n: 'Ресторан Arbat', n_kz: 'Арбат мейрамханасы', t: 'Гастрономия', t_kz: 'Гастрономия' }
+            { n: 'Парк «Жастар»', t: 'Семья, Активность' },
+            { n: 'Набережная Каратала', t: 'Море/Вода, Эко-туризм' },
+            { n: 'City Center', t: 'Шоппинг, Города' },
+            { n: 'Арка Талдыкоргана', t: 'Города, Культура' },
+            { n: 'Ресторан Arbat', t: 'Гастрономия' }
         ],
         tags: { mountains: true, sea: true, city: true, activity: true, culture: true, gastronomy: true, seclusion: false, shopping: true, family_fun: false, eco_tourism: true },
         budget_suitability: { low: true, medium: true, high: true }, // City names (n) are not translated here
@@ -714,34 +680,32 @@ const allCities = [
     },
     {
         n: 'Балхаш',
-        n_kz: 'Балқаш',
         d: 'Город на берегу уникального озера, идеален для водных активностей и отдыха на пляже.',
-        d_kz: 'Бірегей көл жағасындағы қала, су белсенділіктері мен жағажай демалысына өте қолайлы.',
         img: 'https://images.unsplash.com/photo-1506929662133-570c13a5c32d?q=80&w=600',
         hotels_budget: [
-            { name: 'Гостиница «Центральная»', name_kz: '«Орталық» қонақ үйі', address: 'ул. Желтоксан, 11', address_kz: 'Желтоқсан к-сі, 11' },
-            { name: 'База отдыха «Голубая Лагуна»', name_kz: '«Голубая Лагуна» демалыс базасы', address: 'набережная, б/н', address_kz: 'жағалау, н/з' }
+            { name: 'Гостиница «Центральная»', address: 'ул. Желтоксан, 11' },
+            { name: 'База отдыха «Голубая Лагуна»', address: 'набережная, б/н' }
         ],
         hotels_expensive: [
-            { name: 'Pearl Hotel', name_kz: 'Pearl Hotel', address: 'ул. Желтоксан, 15', address_kz: 'Желтоқсан к-сі, 15' },
-            { name: 'Riviera', name_kz: 'Riviera', address: 'пос. Чубар-Тюбек, береговая зона', address_kz: 'Шұбар түбек кенті, жағалау аймағы' }
+            { name: 'Pearl Hotel', address: 'ул. Желтоксан, 15' },
+            { name: 'Riviera', address: 'пос. Чубар-Тюбек, береговая зона' }
         ],
         restaurants_budget: [
-            { name: 'Столовая «Рыбацкая»', name_kz: '«Рыбацкая» асханасы', address: 'ул. Ленина, 34', address_kz: 'Ленин к-сі, 34' },
-            { name: 'Кафе «Ак Жайык»', name_kz: '«Ақжайық» кафесі', address: 'ул. Мира, 12', address_kz: 'Мир к-сі, 12' },
-            { name: 'Донерная «Центр»', name_kz: '«Орталық» донерханасы', address: 'ул. Желтоксан, 5', address_kz: 'Желтоқсан к-сі, 5' }
+            { name: 'Столовая «Рыбацкая»', address: 'ул. Ленина, 34' },
+            { name: 'Кафе «Ак Жайык»', address: 'ул. Мира, 12' },
+            { name: 'Донерная «Центр»', address: 'ул. Желтоксан, 5' }
         ],
         restaurants_expensive: [
-            { name: 'Balkhash Gold', name_kz: 'Balkhash Gold', address: 'ул. Караменде Би, 15', address_kz: 'Қараменде би к-сі, 15' },
-            { name: 'Empire', name_kz: 'Empire', address: 'ул. Ленина, 45', address_kz: 'Ленин к-сі, 45' },
-            { name: 'Aura', name_kz: 'Aura', address: 'ул. Желтоксан, 15', address_kz: 'Желтоқсан к-сі, 15' }
+            { name: 'Balkhash Gold', address: 'ул. Караменде Би, 15' },
+            { name: 'Empire', address: 'ул. Ленина, 45' },
+            { name: 'Aura', address: 'ул. Желтоксан, 15' }
         ],
         locations: [
-            { n: 'Городской пляж', n_kz: 'Қалалық жағажай', t: 'Море/Вода, Семья', t_kz: 'Теңіз/Су, Отбасы' },
-            { n: 'Бектау-Ата', n_kz: 'Бектау ата', t: 'Горы, Эко-туризм', t_kz: 'Таулар, Эко-туризм' },
-            { n: 'Краеведческий музей', n_kz: 'Өлкетану мұражайы', t: 'Культура, Города', t_kz: 'Мәдениет, Қалалар' },
-            { n: 'Набережная', n_kz: 'Жағалау', t: 'Активность, Города', t_kz: 'Белсенділік, Қалалар' },
-            { n: 'Рыбный рынок', n_kz: 'Балық базары', t: 'Гастрономия, Шоппинг', t_kz: 'Гастрономия, Шопинг' }
+            { n: 'Городской пляж', t: 'Море/Вода, Семья' },
+            { n: 'Бектау-Ата', t: 'Горы, Эко-туризм' },
+            { n: 'Краеведческий музей', t: 'Культура, Города' },
+            { n: 'Набережная', t: 'Активность, Города' },
+            { n: 'Рыбный рынок', t: 'Гастрономия, Шоппинг' }
         ],
         tags: { mountains: true, sea: true, city: true, activity: true, culture: true, gastronomy: true, seclusion: true, shopping: true, family_fun: true, eco_tourism: true },
         budget_suitability: { low: true, medium: true, high: true }, // City names (n) are not translated here
@@ -751,34 +715,32 @@ const allCities = [
     },
     {
         n: 'Экибастуз',
-        n_kz: 'Екібастұз',
         d: 'Индустриальный гигант с масштабными разрезами и интересными культурными объектами.',
-        d_kz: 'Ауқымды кеніштері мен қызықты мәдени нысандары бар индустриялық алып.',
         img: 'https://images.unsplash.com/photo-1518391846015-55a9cc003b25?q=80&w=600',
         hotels_budget: [
-            { name: 'Гостиница «Дружба»', name_kz: '«Достық» қонақ үйі', address: 'ул. Машхур Жусупа, 46', address_kz: 'Мәшһүр Жүсіп к-сі, 46' },
-            { name: 'Хостел «Энергетик»', name_kz: '«Энергетик» хостелі', address: 'ул. Строительная, 21', address_kz: 'Құрылыс к-сі, 21' }
+            { name: 'Гостиница «Дружба»', address: 'ул. Машхур Жусупа, 46' },
+            { name: 'Хостел «Энергетик»', address: 'ул. Строительная, 21' }
         ],
         hotels_expensive: [
-            { name: 'Green Hotel', name_kz: 'Green Hotel', address: 'ул. Ауэзова, 147', address_kz: 'Әуезов к-сі, 147' },
-            { name: 'Rixos (местный)', name_kz: 'Rixos (жергілікті)', address: 'ул. Кунаева, 12', address_kz: 'Қонаев к-сі, 12' }
+            { name: 'Green Hotel', address: 'ул. Ауэзова, 147' },
+            { name: 'Rixos (местный)', address: 'ул. Кунаева, 12' }
         ],
         restaurants_budget: [
-            { name: 'Столовая «Ас-Мар»', name_kz: '«Ас-Мар» асханасы', address: 'ул. М. Жусупа, 50', address_kz: 'М. Жүсіп к-сі, 50' },
-            { name: 'Кафе «Пиросмани» (бюджет)', name_kz: '«Пиросмани» кафесі (бюджеттік)', address: 'ул. Абая, 92', address_kz: 'Абай к-сі, 92' },
-            { name: 'Бургер Кинг (ТЦ)', name_kz: 'Бургер Кинг (СОО)', address: 'ул. Кунаева, 2', address_kz: 'Қонаев к-сі, 2' }
+            { name: 'Столовая «Ас-Мар»', address: 'ул. М. Жусупа, 50' },
+            { name: 'Кафе «Пиросмани» (бюджет)', address: 'ул. Абая, 92' },
+            { name: 'Бургер Кинг (ТЦ)', address: 'ул. Кунаева, 2' }
         ],
         restaurants_expensive: [
-            { name: 'Old Castle', name_kz: 'Old Castle', address: 'ул. Строительная, 88', address_kz: 'Құрылыс к-сі, 88' },
-            { name: 'Versailles', name_kz: 'Versailles', address: 'ул. Энергетиков, 91', address_kz: 'Энергетиктер к-сі, 91' },
-            { name: 'Assorti', name_kz: 'Assorti', address: 'ул. М. Жусупа, 115', address_kz: 'М. Жүсіп к-сі, 115' }
+            { name: 'Old Castle', address: 'ул. Строительная, 88' },
+            { name: 'Versailles', address: 'ул. Энергетиков, 91' },
+            { name: 'Assorti', address: 'ул. М. Жусупа, 115' }
         ],
         locations: [
-            { n: 'Разрез «Богатырь»', n_kz: '«Богатырь» кеніші', t: 'Города, Эко-туризм', t_kz: 'Қалалар, Эко-туризм' },
-            { n: 'Парк «Шахтер»', n_kz: '«Шахтер» саябағы', t: 'Семья, Активность', t_kz: 'Отбасы, Белсенділік' },
-            { n: 'ГРЭС-2 (труба)', n_kz: 'МАЭС-2 (мұржа)', t: 'Города, Культура', t_kz: 'Қалалар, Мәдениет' },
-            { n: 'ТЦ Maxell', n_kz: 'Maxell СОО', t: 'Шоппинг, Семья', t_kz: 'Шопинг, Отбасы' },
-            { n: 'Кафе «Ас-Мар»', n_kz: '«Ас-Мар» кафесі', t: 'Гастрономия', t_kz: 'Гастрономия' }
+            { n: 'Разрез «Богатырь»', t: 'Города, Эко-туризм' },
+            { n: 'Парк «Шахтер»', t: 'Семья, Активность' },
+            { n: 'ГРЭС-2 (труба)', t: 'Города, Культура' },
+            { n: 'ТЦ Maxell', t: 'Шоппинг, Семья' },
+            { n: 'Кафе «Ас-Мар»', t: 'Гастрономия' }
         ],
         tags: { mountains: false, sea: false, city: true, activity: false, culture: true, gastronomy: true, seclusion: false, shopping: true, family_fun: true, eco_tourism: true },
         budget_suitability: { low: true, medium: true, high: true }, // City names (n) are not translated here
@@ -788,34 +750,32 @@ const allCities = [
     },
     {
         n: 'Рудный',
-        n_kz: 'Рудный',
         d: 'Город горняков с оживленной атмосферой и разнообразными парками.',
-        d_kz: 'Қызу атмосферасы мен алуан түрлі саябақтары бар кеншілер қаласы.',
         img: 'https://images.unsplash.com/photo-1542361345-89e58247f2d5?q=80&w=600',
         hotels_budget: [
-            { name: 'Гостиница «Уют»', name_kz: '«Уют» қонақ үйі', address: 'ул. Ленина, 101', address_kz: 'Ленин к-сі, 101' },
-            { name: 'Гостевой дом «Металлург»', name_kz: '«Металлург» қонақ үйі', address: 'ул. 50 лет Октября, 42', address_kz: 'Қазан төңкерісіне 50 жыл к-сі, 42' }
+            { name: 'Гостиница «Уют»', address: 'ул. Ленина, 101' },
+            { name: 'Гостевой дом «Металлург»', address: 'ул. 50 лет Октября, 42' }
         ],
         hotels_expensive: [
-            { name: 'Victoria Hotel', name_kz: 'Victoria Hotel', address: 'ул. Ленина, 187', address_kz: 'Ленин к-сі, 187' },
-            { name: 'Gorniak Hotel', name_kz: 'Горняк қонақ үйі', address: 'ул. Космонавтов, 10', address_kz: 'Ғарышкерлер к-сі, 10' }
+            { name: 'Victoria Hotel', address: 'ул. Ленина, 187' },
+            { name: 'Gorniak Hotel', address: 'ул. Космонавтов, 10' }
         ],
         restaurants_budget: [
-            { name: 'Столовая №1', name_kz: '№1 асхана', address: 'ул. Горняков, 74', address_kz: 'Кеншілер к-сі, 74' },
-            { name: 'Кафе «Чебурек»', name_kz: '«Чебурек» кафесі', address: 'ул. Ленина, 50', address_kz: 'Ленин к-сі, 50' },
-            { name: 'Пиццерия «Дока»', name_kz: '«Дока» пиццериясы', address: 'ул. 40 лет Октября, 15', address_kz: 'Қазан төңкерісіне 40 жыл к-сі, 15' }
+            { name: 'Столовая №1', address: 'ул. Горняков, 74' },
+            { name: 'Кафе «Чебурек»', address: 'ул. Ленина, 50' },
+            { name: 'Пиццерия «Дока»', address: 'ул. 40 лет Октября, 15' }
         ],
         restaurants_expensive: [
-            { name: 'Saray', name_kz: 'Saray', address: 'ул. Парковая, 2', address_kz: 'Парковая к-сі, 2' },
-            { name: 'Prestige', name_kz: 'Prestige', address: 'ул. Ленина, 107', address_kz: 'Ленин к-сі, 107' },
-            { name: 'Graf', name_kz: 'Graf', address: 'ул. Качарская, 12', address_kz: 'Қашар к-сі, 12' }
+            { name: 'Saray', address: 'ул. Парковая, 2' },
+            { name: 'Prestige', address: 'ул. Ленина, 107' },
+            { name: 'Graf', address: 'ул. Качарская, 12' }
         ],
         locations: [
-            { n: 'Парк культуры', n_kz: 'Мәдениет саябағы', t: 'Семья, Активность', t_kz: 'Отбасы, Белсенділік' },
-            { n: 'Река Тобол', n_kz: 'Тобыл өзені', t: 'Море/Вода, Уединение', t_kz: 'Теңіз/Су, Оқшаулану' },
-            { n: 'Скульптура «Горняк»', n_kz: '«Кенші» мүсіні', t: 'Культура, Города', t_kz: 'Мәдениет, Қалалар' },
-            { n: 'ТЦ на ул. Ленина', n_kz: 'Ленин к-сіндегі СО', t: 'Шоппинг, Города', t_kz: 'Шопинг, Қалалар' },
-            { n: 'Ледовый дворец', n_kz: 'Мұз сарайы', t: 'Активность, Семья', t_kz: 'Белсенділік, Отбасы' }
+            { n: 'Парк культуры', t: 'Семья, Активность' },
+            { n: 'Река Тобол', t: 'Море/Вода, Уединение' },
+            { n: 'Скульптура «Горняк»', t: 'Культура, Города' },
+            { n: 'ТЦ на ул. Ленина', t: 'Шоппинг, Города' },
+            { n: 'Ледовый дворец', t: 'Активность, Семья' }
         ],
         tags: { mountains: false, sea: true, city: true, activity: true, culture: true, gastronomy: false, seclusion: true, shopping: true, family_fun: true, eco_tourism: false },
         budget_suitability: { low: true, medium: true, high: true }, // City names (n) are not translated here
@@ -825,34 +785,32 @@ const allCities = [
     },
     {
         n: 'Конаев',
-        n_kz: 'Қонаев',
         d: 'Морской курорт близ Алматы, центр развлечений и пляжного отдыха.',
-        d_kz: 'Алматы маңындағы теңіз курорты, ойын-сауық пен жағажай демалысының орталығы.',
         img: 'https://images.unsplash.com/photo-1544984243-75a800232997?q=80&w=600',
         hotels_budget: [
-            { name: 'База отдыха «Алтын Эмель»', name_kz: '«Алтын Емел» демалыс базасы', address: 'Северное побережье', address_kz: 'Солтүстік жағалау' },
-            { name: 'Гостиница «Море»', name_kz: '«Теңіз» қонақ үйі', address: '1-й мкр, 15', address_kz: '1-ші ықшам аудан, 15' }
+            { name: 'База отдыха «Алтын Эмель»', address: 'Северное побережье' },
+            { name: 'Гостиница «Море»', address: '1-й мкр, 15' }
         ],
         hotels_expensive: [
-            { name: 'Royal Tulip Almaty (Casinos)', name_kz: 'Royal Tulip Алматы (Казино)', address: 'зона отдыха Гранд Капшагай', address_kz: 'Гранд Қапшағай демалыс аймағы' },
-            { name: 'Bellagio', name_kz: 'Bellagio', address: 'ул. Кунаева, 10', address_kz: 'Қонаев к-сі, 10' }
+            { name: 'Royal Tulip Almaty (Casinos)', address: 'зона отдыха Гранд Капшагай' },
+            { name: 'Bellagio', address: 'ул. Кунаева, 10' }
         ],
         restaurants_budget: [
-            { name: 'Столовая «Рыбачка»', name_kz: '«Балықшы» асханасы', address: 'трасса Алматы-Конаев', address_kz: 'Алматы-Қонаев тас жолы' },
-            { name: 'Кафе «Айша»', name_kz: '«Айша» кафесі', address: 'ул. Сейфуллина, 22', address_kz: 'Сейфуллин к-сі, 22' },
-            { name: 'Донерная «Fresh»', name_kz: '«Fresh» донерханасы', address: '3-й мкр, 5', address_kz: '3-ші ықшам аудан, 5' }
+            { name: 'Столовая «Рыбачка»', address: 'трасса Алматы-Конаев' },
+            { name: 'Кафе «Айша»', address: 'ул. Сейфуллина, 22' },
+            { name: 'Донерная «Fresh»', address: '3-й мкр, 5' }
         ],
         restaurants_expensive: [
-            { name: 'Casino Bombay (ресторан)', name_kz: 'Casino Bombay (мейрамхана)', address: 'Индустриальная ул., 9', address_kz: 'Индустриалды к-сі, 9' },
-            { name: 'Riviera', name_kz: 'Riviera', address: 'ул. Кунаева, 1', address_kz: 'Қонаев к-сі, 1' },
-            { name: 'Macao', name_kz: 'Macao', address: 'Игорная зона', address_kz: 'Ойын аймағы' }
+            { name: 'Casino Bombay (ресторан)', address: 'Индустриальная ул., 9' },
+            { name: 'Riviera', address: 'ул. Кунаева, 1' },
+            { name: 'Macao', address: 'Игорная зона' }
         ],
         locations: [
-            { n: 'Пляжи Капшагая', n_kz: 'Қапшағай жағажайлары', t: 'Море/Вода, Семья', t_kz: 'Теңіз/Су, Отбасы' },
-            { n: 'Казино (игорная зона)', n_kz: 'Казино (ойын аймағы)', t: 'Активность, Города', t_kz: 'Белсенділік, Қалалар' },
-            { n: 'Аквапарк', n_kz: 'Аквапарк', t: 'Семья, Активность', t_kz: 'Отбасы, Белсенділік' },
-            { n: 'Набережная Кунаева', n_kz: 'Қонаев жағалауы', t: 'Города, Активность', t_kz: 'Қалалар, Белсенділік' },
-            { n: 'Ресторан Riviera', n_kz: 'Riviera мейрамханасы', t: 'Гастрономия, Море/Вода', t_kz: 'Гастрономия, Теңіз/Су' }
+            { n: 'Пляжи Капшагая', t: 'Море/Вода, Семья' },
+            { n: 'Казино (игорная зона)', t: 'Активность, Города' },
+            { n: 'Аквапарк', t: 'Семья, Активность' },
+            { n: 'Набережная Кунаева', t: 'Города, Активность' },
+            { n: 'Ресторан Riviera', t: 'Гастрономия, Море/Вода' }
         ],
         tags: { mountains: false, sea: true, city: true, activity: true, culture: false, gastronomy: true, seclusion: false, shopping: false, family_fun: true, eco_tourism: false },
         budget_suitability: { low: true, medium: true, high: true }, // City names (n) are not translated here
@@ -862,34 +820,32 @@ const allCities = [
     },
     {
         n: 'Басши (Алтын-Эмель)',
-        n_kz: 'Басши (Алтын-Емел)',
         d: 'Уникальный природный заповедник с поющими барханами и марсианскими пейзажами.',
-        d_kz: 'Әнші бархандары мен марстық пейзаждары бар бірегей табиғи қорық.',
         img: 'https://images.unsplash.com/photo-1500382017468-9049fed747ef?q=80&w=600',
         hotels_budget: [
-            { name: 'Гостиница «Айман»', name_kz: '«Айман» қонақ үйі', address: 'ул. Центральная, 12', address_kz: 'Орталық к-сі, 12' },
-            { name: 'Кемпинг парка', name_kz: 'Парк кемпингі', address: 'Территория ГНПП', address_kz: 'МҰТП аумағы' }
+            { name: 'Гостевой дом «Айман»', address: 'ул. Центральная, 12' },
+            { name: 'Кемпинг парка', address: 'Территория ГНПП' }
         ],
         hotels_expensive: [
-            { name: 'Altyn Emel Hotel (VIP)', name_kz: 'Altyn Emel Hotel (VIP)', address: 'ул. Школьная, 5', address_kz: 'Мектеп к-сі, 5' },
-            { name: 'Oshaktas Guest House (Люкс)', name_kz: 'Ошақтас қонақ үйі (Люкс)', address: 'ул. Ленина, 20', address_kz: 'Ленин к-сі, 20' }
+            { name: 'Altyn Emel Hotel (VIP)', address: 'ул. Школьная, 5' },
+            { name: 'Oshaktas Guest House (Люкс)', address: 'ул. Ленина, 20' }
         ],
         restaurants_budget: [
-            { name: 'Столовая в визит-центре', name_kz: 'Визит-орталықтағы асхана', address: 'въезд в парк', address_kz: 'паркке кіреберіс' },
-            { name: 'Кафе «Жулдыз»', name_kz: '«Жұлдыз» кафесі', address: 'трасса рядом с поселком', address_kz: 'кент маңындағы тас жол' },
-            { name: 'Домашняя кухня «У Сауле»', name_kz: 'Сәуленің үй тағамдары', address: 'ул. Центральная, 5', address_kz: 'Орталық к-сі, 5' }
+            { name: 'Столовая в визит-центре', address: 'въезд в парк' },
+            { name: 'Кафе «Жулдыз»', address: 'трасса рядом с поселком' },
+            { name: 'Домашняя кухня «У Сауле»', address: 'ул. Центральная, 5' }
         ],
         restaurants_expensive: [
-            { name: 'Ресторан Altyn Emel', name_kz: 'Алтын Емел мейрамханасы', address: 'ул. Школьная, 5', address_kz: 'Мектеп к-сі, 5' },
-            { name: 'Юрточный лагерь (VIP)', name_kz: 'Киіз үй лагері (VIP)', address: 'территория парка', address_kz: 'парк аумағы' },
-            { name: 'Банкетный зал «Басши»', name_kz: '«Басши» банкет залы', address: 'ул. Абая, 1', address_kz: 'Абай к-сі, 1' }
+            { name: 'Ресторан Altyn Emel', address: 'ул. Школьная, 5' },
+            { name: 'Юрточный лагерь (VIP)', address: 'территория парка' },
+            { name: 'Банкетный зал «Басши»', address: 'ул. Абая, 1' }
         ],
         locations: [
-            { n: 'Поющий бархан', n_kz: 'Әнші бархан', t: 'Горы, Эко-туризм', t_kz: 'Таулар, Эко-туризм' },
-            { n: 'Горы Актау', n_kz: 'Ақтау таулары', t: 'Горы, Эко-туризм', t_kz: 'Таулар, Эко-туризм' },
-            { n: 'Горы Катутау', n_kz: 'Қаттытау таулары', t: 'Горы, Уединение', t_kz: 'Таулар, Оқшаулану' },
-            { n: '700-летняя Ива', n_kz: '700 жылдық тал', t: 'Эко-туризм, Культура', t_kz: 'Эко-туризм, Мәдениет' },
-            { n: 'Визит-центр', n_kz: 'Визит-орталық', t: 'Культура, Семья', t_kz: 'Мәдениет, Отбасы' }
+            { n: 'Поющий бархан', t: 'Горы, Эко-туризм' },
+            { n: 'Горы Актау', t: 'Горы, Эко-туризм' },
+            { n: 'Горы Катутау', t: 'Горы, Уединение' },
+            { n: '700-летняя Ива', t: 'Эко-туризм, Культура' },
+            { n: 'Визит-центр', t: 'Культура, Семья' }
         ],
         tags: { mountains: true, sea: false, city: false, activity: false, culture: true, gastronomy: false, seclusion: true, shopping: false, family_fun: true, eco_tourism: true },
         budget_suitability: { low: true, medium: true, high: true }, // City names (n) are not translated here
@@ -899,34 +855,32 @@ const allCities = [
     },
     {
         n: 'Жанаозен',
-        n_kz: 'Жаңаөзен',
         d: 'Город в сердце Мангистау, отправная точка для путешествий по пустыням и каньонам.',
-        d_kz: 'Маңғыстаудың қақ ортасындағы қала, шөлдер мен каньондарға саяхаттаудың бастапқы нүктесі.',
         img: 'https://images.unsplash.com/photo-1500382017468-9049fed747ef?q=80&w=600',
         hotels_budget: [
-            { name: 'Гостиница «Аруана»', name_kz: '«Аруана» қонақ үйі', address: 'мкр. Самал, 44', address_kz: 'Самал ықшам ауданы, 44' },
-            { name: 'Хостел «Мунайши»', name_kz: '«Мұнайшы» хостелі', address: 'мкр. Коктем, 1', address_kz: 'Көктем ықшам ауданы, 1' }
+            { name: 'Гостиница «Аруана»', address: 'мкр. Самал, 44' },
+            { name: 'Хостел «Мунайши»', address: 'мкр. Коктем, 1' }
         ],
         hotels_expensive: [
-            { name: 'Kendirli (Resort)', name_kz: 'Кендірлі (курорт)', address: '70 км от города', address_kz: 'қаладан 70 км' },
-            { name: 'Hotel Nauryz', name_kz: 'Наурыз қонақ үйі', address: 'мкр. Оркен, 55', address_kz: 'Өркен ықшам ауданы, 55' }
+            { name: 'Kendirli (Resort)', address: '70 км от города' },
+            { name: 'Hotel Nauryz', address: 'мкр. Оркен, 55' }
         ],
         restaurants_budget: [
-            { name: 'Столовая «Ас-Ман»', name_kz: '«Ас-Ман» асханасы', address: 'мкр. Шанырак, 12', address_kz: 'Шаңырақ ықшам ауданы, 12' },
-            { name: 'Кафе «Шугла»', name_kz: '«Шұғыла» кафесі', address: 'мкр. Мунайши, 5', address_kz: 'Мұнайшы ықшам ауданы, 5' },
-            { name: 'Донерная «Baiterek»', name_kz: 'Baiterek донерханасы', address: 'пр. Сатпаева, 10', address_kz: 'Сәтпаев даңғылы, 10' }
+            { name: 'Столовая «Ас-Ман»', address: 'мкр. Шанырак, 12' },
+            { name: 'Кафе «Шугла»', address: 'мкр. Мунайши, 5' },
+            { name: 'Донерная «Baiterek»', address: 'пр. Сатпаева, 10' }
         ],
         restaurants_expensive: [
-            { name: 'Altyn Adam', name_kz: 'Алтын Адам', address: 'мкр. Шугыла, 25', address_kz: 'Шұғыла ықшам ауданы, 25' },
-            { name: 'Kendirli Restaurant', name_kz: 'Кендірлі мейрамханасы', address: 'зона отдыха Кендирли', address_kz: 'Кендірлі демалыс аймағы' },
-            { name: 'Tandyr', name_kz: 'Тандыр', address: 'мкр. Самал, 15', address_kz: 'Самал ықшам ауданы, 15' }
+            { name: 'Altyn Adam', address: 'мкр. Шугыла, 25' },
+            { name: 'Kendirli Restaurant', address: 'зона отдыха Кендирли' },
+            { name: 'Tandyr', address: 'мкр. Самал, 15' }
         ],
         locations: [
-            { n: 'Каньоны Кызылкуп', n_kz: 'Қызылқұп каньондары', t: 'Эко-туризм, Горы', t_kz: 'Эко-туризм, Таулар' },
-            { n: 'Плато Устюрт', n_kz: 'Үстірт үстірті', t: 'Эко-туризм, Уединение', t_kz: 'Эко-туризм, Оқшаулану' },
-            { n: 'ТЦ Nauryz', n_kz: 'Наурыз СО', t: 'Шоппинг, Города', t_kz: 'Шопинг, Қалалар' },
-            { n: 'Мечеть Бекет-Ата', n_kz: 'Бекет ата мешіті', t: 'Культура, Уединение', t_kz: 'Мәдениет, Оқшаулану' },
-            { n: 'Зона отдыха Кендирли', n_kz: 'Кендірлі демалыс аймағы', t: 'Море/Вода, Семья', t_kz: 'Теңіз/Су, Отбасы' }
+            { n: 'Каньоны Кызылкуп', t: 'Эко-туризм, Горы' },
+            { n: 'Плато Устюрт', t: 'Эко-туризм, Уединение' },
+            { n: 'ТЦ Nauryz', t: 'Шоппинг, Города' },
+            { n: 'Мечеть Бекет-Ата', t: 'Культура, Уединение' },
+            { n: 'Зона отдыха Кендирли', t: 'Море/Вода, Семья' }
         ],
         tags: { mountains: true, sea: true, city: true, activity: false, culture: true, gastronomy: false, seclusion: true, shopping: true, family_fun: true, eco_tourism: true },
         budget_suitability: { low: true, medium: true, high: true }, // City names (n) are not translated here
@@ -936,34 +890,32 @@ const allCities = [
     },
     {
         n: 'Риддер',
-        n_kz: 'Риддер',
         d: 'Горный край на востоке с альпийскими лугами и сибирской тайгой.',
-        d_kz: 'Шығыстағы альпілік шалғындары мен сібір тайгасы бар таулы өлке.',
         img: 'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=600',
         hotels_budget: [
-            { name: 'Гостиница «Алтай»', name_kz: '«Алтай» қонақ үйі', address: 'пр. Независимости, 10', address_kz: 'Тәуелсіздік даңғылы, 10' },
-            { name: 'Турбаза «Светлячок»', name_kz: '«Светлячок» турбазасы', address: 'окраина города', address_kz: 'қала шеті' }
+            { name: 'Гостиница «Алтай»', address: 'пр. Независимости, 10' },
+            { name: 'Турбаза «Светлячок»', address: 'окраина города' }
         ],
         hotels_expensive: [
-            { name: 'Лесная Сказка (Риддер Гул)', name_kz: 'Орман ертегісі (Риддер Гүл)', address: 'ул. Семипалатинская, 150', address_kz: 'Семей к-сі, 150' },
-            { name: 'Black Rock', name_kz: 'Black Rock', address: 'район горнолыжного спуска', address_kz: 'тау шаңғысы түсу ауданы' }
+            { name: 'Лесная Сказка (Риддер Гул)', address: 'ул. Семипалатинская, 150' },
+            { name: 'Black Rock', address: 'район горнолыжного спуска' }
         ],
         restaurants_budget: [
-            { name: 'Столовая «Кедр»', name_kz: '«Кедр» асханасы', address: 'ул. Ауэзова, 12', address_kz: 'Әуезов к-сі, 12' },
-            { name: 'Кафе «У фонтана»', name_kz: '«Субұрқақ жанында» кафесі', address: 'Центральная площадь', address_kz: 'Орталық алаң' },
-            { name: 'Пиццерия «Smile»', name_kz: '«Smile» пиццериясы', address: 'пр. Независимости, 15', address_kz: 'Тәуелсіздік даңғылы, 15' }
+            { name: 'Столовая «Кедр»', address: 'ул. Ауэзова, 12' },
+            { name: 'Кафе «У фонтана»', address: 'Центральная площадь' },
+            { name: 'Пиццерия «Smile»', address: 'пр. Независимости, 15' }
         ],
         restaurants_expensive: [
-            { name: 'Edelweiss', name_kz: 'Edelweiss', address: 'ул. Горная, 1', address_kz: 'Горная к-сі, 1' },
-            { name: 'Медвежий угол', name_kz: 'Аю бұрышы', address: 'лесная зона', address_kz: 'орман аймағы' },
-            { name: 'Versailles', name_kz: 'Versailles', address: 'ул. Гоголя, 45', address_kz: 'Гоголь к-сі, 45' }
+            { name: 'Edelweiss', address: 'ул. Горная, 1' },
+            { name: 'Медвежий угол', address: 'лесная зона' },
+            { name: 'Versailles', address: 'ул. Гоголя, 45' }
         ],
         locations: [
-            { n: 'Гора Три Брата', n_kz: 'Үш ағайынды тауы', t: 'Горы, Активность', t_kz: 'Таулар, Белсенділік' },
-            { n: 'Западно-Алтайский заповедник', n_kz: 'Батыс Алтай қорығы', t: 'Эко-туризм, Уединение', t_kz: 'Эко-туризм, Оқшаулану' },
-            { n: 'Горнолыжный спуск', n_kz: 'Тау шаңғысы трассасы', t: 'Активность, Горы', t_kz: 'Белсенділік, Таулар' },
-            { n: 'Краеведческий музей', n_kz: 'Өлкетану мұражайы', t: 'Культура, Города', t_kz: 'Мәдениет, Қалалар' },
-            { n: 'База отдыха «Светлячок»', n_kz: '«Светлячок» демалыс базасы', t: 'Семья, Эко-туризм', t_kz: 'Отбасы, Эко-туризм' }
+            { n: 'Гора Три Брата', t: 'Горы, Активность' },
+            { n: 'Западно-Алтайский заповедник', t: 'Эко-туризм, Уединение' },
+            { n: 'Горнолыжный спуск', t: 'Активность, Горы' },
+            { n: 'Краеведческий музей', t: 'Культура, Города' },
+            { n: 'База отдыха «Светлячок»', t: 'Семья, Эко-туризм' }
         ],
         tags: { mountains: true, sea: false, city: false, activity: true, culture: true, gastronomy: false, seclusion: true, shopping: false, family_fun: true, eco_tourism: true },
         budget_suitability: { low: true, medium: true, high: true }, // City names (n) are not translated here
@@ -973,34 +925,32 @@ const allCities = [
     },
     {
         n: 'Степногорск',
-        n_kz: 'Степногорск',
         d: 'Индустриальный город с интересной архитектурой и активной жизнью.',
-        d_kz: 'Индустриялық қала, қызықты архитектурасы мен белсенді өмірі бар.',
         img: 'https://images.unsplash.com/photo-1518391846015-55a9cc003b25?q=80&w=600',
         hotels_budget: [
-            { name: 'Гостиница «Степногорск»', name_kz: '«Степногорск» қонақ үйі', address: '4-й мкр, 45', address_kz: '4-ші ықшам аудан, 45' },
-            { name: 'Хостел «Мир»', name_kz: '«Мир» хостелі', address: '6-й мкр, 12', address_kz: '6-шы ықшам аудан, 12' }
+            { name: 'Гостиница «Степногорск»', address: '4-й мкр, 45' },
+            { name: 'Хостел «Мир»', address: '6-й мкр, 12' }
         ],
         hotels_expensive: [
-            { name: 'Serebryany Bor', name_kz: 'Күміс бор', address: 'лесная зона за городом', address_kz: 'қала сыртындағы орман аймағы' },
-            { name: 'Central Hotel', name_kz: 'Central Hotel', address: '3-й мкр, 20', address_kz: '3-ші ықшам аудан, 20' }
+            { name: 'Serebryany Bor', address: 'лесная зона за городом' },
+            { name: 'Central Hotel', address: '3-й мкр, 20' }
         ],
         restaurants_budget: [
-            { name: 'Столовая «Трапеза»', name_kz: '«Трапеза» асханасы', address: '7-й мкр, 5', address_kz: '7-ші ықшам аудан, 5' },
-            { name: 'Кафе «Удача»', name_kz: '«Удача» кафесі', address: '5-й мкр, 10', address_kz: '5-ші ықшам аудан, 10' },
-            { name: 'Донер-центр', name_kz: 'Донер-орталық', address: 'пр. Лунного света, 2', address_kz: 'Ай сәулесі даңғылы, 2' }
+            { name: 'Столовая «Трапеза»', address: '7-й мкр, 5' },
+            { name: 'Кафе «Удача»', address: '5-й мкр, 10' },
+            { name: 'Донер-центр', address: 'пр. Лунного света, 2' }
         ],
         restaurants_expensive: [
-            { name: 'Astoria', name_kz: 'Astoria', address: '9-й мкр, 1', address_kz: '9-шы ықшам аудан, 1' },
-            { name: 'Zodiac', name_kz: 'Zodiac', address: '4-й мкр, 22', address_kz: '4-ші ықшам аудан, 22' },
-            { name: 'Palace', name_kz: 'Palace', address: 'пр. Ленина, 15', address_kz: 'Ленин даңғылы, 15' }
+            { name: 'Astoria', address: '9-й мкр, 1' },
+            { name: 'Zodiac', address: '4-й мкр, 22' },
+            { name: 'Palace', address: 'пр. Ленина, 15' }
         ],
         locations: [
-            { n: 'Городской парк', n_kz: 'Қалалық саябақ', t: 'Семья, Активность', t_kz: 'Отбасы, Белсенділік' },
-            { n: 'ДК «Горняк»', n_kz: '«Кенші» мәдениет үйі', t: 'Культура, Города', t_kz: 'Мәдениет, Қалалар' },
-            { n: 'Зона отдыха «Серебряный бор»', n_kz: '«Күміс бор» демалыс аймағы', t: 'Уединение, Эко-туризм', t_kz: 'Оқшаулану, Эко-туризм' },
-            { n: 'Центральный ТЦ', n_kz: 'Орталық СО', t: 'Шоппинг, Города', t_kz: 'Шопинг, Қалалар' },
-            { n: 'Кафе «Трапеза»', n_kz: '«Трапеза» кафесі', t: 'Гастрономия', t_kz: 'Гастрономия' }
+            { n: 'Городской парк', t: 'Семья, Активность' },
+            { n: 'ДК «Горняк»', t: 'Культура, Города' },
+            { n: 'Зона отдыха «Серебряный бор»', t: 'Уединение, Эко-туризм' },
+            { n: 'Центральный ТЦ', t: 'Шоппинг, Города' },
+            { n: 'Кафе «Трапеза»', t: 'Гастрономия' }
         ],
         tags: { mountains: false, sea: false, city: true, activity: true, culture: true, gastronomy: true, seclusion: true, shopping: true, family_fun: true, eco_tourism: true },
         budget_suitability: { low: true, medium: true, high: true }, // City names (n) are not translated here
@@ -1010,34 +960,32 @@ const allCities = [
     },
     {
         n: 'Байконур',
-        n_kz: 'Байқоңыр',
         d: 'Уникальный город-космодром, место старта легендарных космических миссий.',
-        d_kz: 'Бірегей қала-ғарыш айлағы, аңызға айналған ғарыш миссияларының бастау орны.',
         img: 'https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?q=80&w=600',
         hotels_budget: [
-            { name: 'Гостиница «Центральная»', name_kz: '«Орталық» қонақ үйі', address: 'ул. Королева, 11', address_kz: 'Королев к-сі, 11' },
-            { name: 'Отель «Поехали»', name_kz: '«Поехали» қонақ үйі', address: 'ул. Гагарина, 5', address_kz: 'Гагарин к-сі, 5' }
+            { name: 'Гостиница «Центральная»', address: 'ул. Королева, 11' },
+            { name: 'Отель «Поехали»', address: 'ул. Гагарина, 5' }
         ],
         hotels_expensive: [
-            { name: 'Sputnik Hotel', name_kz: 'Спутник қонақ үйі', address: 'ул. Сейфуллина, 7', address_kz: 'Сейфуллин к-сі, 7' },
-            { name: 'Cosmonaut Hotel', name_kz: 'Ғарышкер қонақ үйі', address: 'ул. Гагарина, 12', address_kz: 'Гагарин к-сі, 12' }
+            { name: 'Sputnik Hotel', address: 'ул. Сейфуллина, 7' },
+            { name: 'Cosmonaut Hotel', address: 'ул. Гагарина, 12' }
         ],
         restaurants_budget: [
-            { name: 'Столовая «Звездное небо»', name_kz: '«Жұлдызды аспан» асханасы', address: 'ул. Янгеля, 5', address_kz: 'Янгель к-сі, 5' },
-            { name: 'Кафе «Восток»', name_kz: '«Восток» кафесі', address: 'пр. Королева, 15', address_kz: 'Королев даңғылы, 15' },
-            { name: 'Донер «Союз»', name_kz: '«Союз» донері', address: 'ул. Гагарина, 10', address_kz: 'Гагарин к-сі, 10' }
+            { name: 'Столовая «Звездное небо»', address: 'ул. Янгеля, 5' },
+            { name: 'Кафе «Восток»', address: 'пр. Королева, 15' },
+            { name: 'Донер «Союз»', address: 'ул. Гагарина, 10' }
         ],
         restaurants_expensive: [
-            { name: 'Zvezdny', name_kz: 'Жұлдызды', address: 'ул. Королева, 11', address_kz: 'Королев к-сі, 11' },
-            { name: 'Gagarin', name_kz: 'Гагарин', address: 'ул. Сейфуллина, 7', address_kz: 'Сейфуллин к-сі, 7' },
-            { name: 'Soyuz-Apollo', name_kz: 'Союз-Аполлон', address: 'пр. Мира, 20', address_kz: 'Мир даңғылы, 20' }
+            { name: 'Zvezdny', address: 'ул. Королева, 11' },
+            { name: 'Gagarin', address: 'ул. Сейфуллина, 7' },
+            { name: 'Soyuz-Apollo', address: 'пр. Мира, 20' }
         ],
         locations: [
-            { n: 'Музей истории космодрома', n_kz: 'Ғарыш айлағы тарихы мұражайы', t: 'Культура, Города', t_kz: 'Мәдениет, Қалалар' },
-            { n: 'Аллея Космонавтов', n_kz: 'Ғарышкерлер аллеясы', t: 'Уединение, Культура', t_kz: 'Оқшаулану, Мәдениет' },
-            { n: 'Макет ракеты «Союз»', n_kz: '«Союз» зымыранының макеті', t: 'Города, Семья', t_kz: 'Қалалар, Отбасы' },
-            { n: 'Набережная Сырдарьи', n_kz: 'Сырдария жағалауы', t: 'Море/Вода, Активность', t_kz: 'Теңіз/Су, Белсенділік' },
-            { n: 'Ресторан «Звездное небо»', n_kz: '«Жұлдызды аспан» мейрамханасы', t: 'Гастрономия, Культура', t_kz: 'Гастрономия, Мәдениет' }
+            { n: 'Музей истории космодрома', t: 'Культура, Города' },
+            { n: 'Аллея Космонавтов', t: 'Уединение, Культура' },
+            { n: 'Макет ракеты «Союз»', t: 'Города, Семья' },
+            { n: 'Набережная Сырдарьи', t: 'Море/Вода, Активность' },
+            { n: 'Ресторан «Звездное небо»', t: 'Гастрономия, Культура' }
         ],
         tags: { mountains: false, sea: true, city: true, activity: true, culture: true, gastronomy: true, seclusion: true, shopping: false, family_fun: true, eco_tourism: false },
         budget_suitability: { low: true, medium: true, high: true }, // City names (n) are not translated here
@@ -1047,34 +995,32 @@ const allCities = [
     },
     {
         n: 'Щучинск',
-        n_kz: 'Щучинск',
         d: 'Курортный город среди сосновых лесов и гор, центр зимних видов спорта.',
-        d_kz: 'Қарағайлы ормандар мен таулар арасындағы курортты қала, қысқы спорт түрлерінің орталығы.',
         img: 'https://images.unsplash.com/photo-1587573089734-09cb69c0f2b4?q=80&w=600',
         hotels_budget: [
-            { name: 'Гостиница «Щучинск»', name_kz: '«Щучинск» қонақ үйі', address: 'ул. Едомского, 22', address_kz: 'Едомский к-сі, 22' },
-            { name: 'Хостел «Бурабай»', name_kz: '«Бурабай» хостелі', address: 'ул. Сейфуллина, 80', address_kz: 'Сейфуллин к-сі, 80' }
+            { name: 'Гостиница «Щучинск»', address: 'ул. Едомского, 22' },
+            { name: 'Хостел «Бурабай»', address: 'ул. Сейфуллина, 80' }
         ],
         hotels_expensive: [
-            { name: 'Rixos Borovoe', name_kz: 'Rixos Бурабай', address: 'берег оз. Щучье', address_kz: 'Шортанды көлінің жағалауы' },
-            { name: 'Park House', name_kz: 'Park House', address: 'юго-западный берег оз. Щучье', address_kz: 'Шортанды көлінің оңтүстік-батыс жағалауы' }
+            { name: 'Rixos Borovoe', address: 'берег оз. Щучье' },
+            { name: 'Park House', address: 'юго-западный берег оз. Щучье' }
         ],
         restaurants_budget: [
-            { name: 'Столовая «Вкусный мир»', name_kz: '«Вкусный мир» асханасы', address: 'ул. Абылай Хана, 45', address_kz: 'Абылай хан к-сі, 45' },
-            { name: 'Кафе «Домашнее»', name_kz: '«Домашнее» кафесі', address: 'ул. Ауэзова, 12', address_kz: 'Әуезов к-сі, 12' },
-            { name: 'Донер «Street Food»', name_kz: 'Street Food донері', address: 'ул. Ленина, 2', address_kz: 'Ленин к-сі, 2' }
+            { name: 'Столовая «Вкусный мир»', address: 'ул. Абылай Хана, 45' },
+            { name: 'Кафе «Домашнее»', address: 'ул. Ауэзова, 12' },
+            { name: 'Донер «Street Food»', address: 'ул. Ленина, 2' }
         ],
         restaurants_expensive: [
-            { name: 'L’Olivo', name_kz: 'L’Olivo', address: 'отель Rixos Borovoe', address_kz: 'Rixos Бурабай қонақ үйі' },
-            { name: 'Challet', name_kz: 'Challet', address: 'ул. Набережная, 1', address_kz: 'Жағалау к-сі, 1' },
-            { name: 'Sultan', name_kz: 'Сұлтан', address: 'пр. Абая, 100', address_kz: 'Абай даңғылы, 100' }
+            { name: 'L’Olivo', address: 'отель Rixos Borovoe' },
+            { name: 'Challet', address: 'ул. Набережная, 1' },
+            { name: 'Sultan', address: 'пр. Абая, 100' }
         ],
         locations: [
-            { n: 'Озеро Щучье', n_kz: 'Шортанды көлі', t: 'Море/Вода, Уединение', t_kz: 'Теңіз/Су, Оқшаулану' },
-            { n: 'Лыжный трамплин', n_kz: 'Шаңғы трамплині', t: 'Активность, Горы', t_kz: 'Белсенділік, Таулар' },
-            { n: 'Дендропарк', n_kz: 'Дендросаябақ', t: 'Эко-туризм, Семья', t_kz: 'Эко-туризм, Отбасы' },
-            { n: 'ТЦ «Grand Plaza»', n_kz: 'Grand Plaza СО', t: 'Шоппинг, Города', t_kz: 'Шопинг, Қалалар' },
-            { n: 'Ресторан Sultan', n_kz: 'Сұлтан мейрамханасы', t: 'Гастрономия', t_kz: 'Гастрономия' }
+            { n: 'Озеро Щучье', t: 'Море/Вода, Уединение' },
+            { n: 'Лыжный трамплин', t: 'Активность, Горы' },
+            { n: 'Дендропарк', t: 'Эко-туризм, Семья' },
+            { n: 'ТЦ «Grand Plaza»', t: 'Шоппинг, Города' },
+            { n: 'Ресторан Sultan', t: 'Гастрономия' }
         ],
         tags: { mountains: true, sea: true, city: true, activity: true, culture: false, gastronomy: true, seclusion: true, shopping: true, family_fun: true, eco_tourism: true },
         budget_suitability: { low: true, medium: true, high: true }, // City names (n) are not translated here
@@ -1411,11 +1357,11 @@ function setLanguage(lang) {
         }
     });
 
-    // Исправляем логику кнопки "Показать все города" через ComputedStyle
+    // Логика кнопки "Показать все города"
     const showAllCitiesBtn = document.getElementById('showAllCitiesBtn');
     if (showAllCitiesBtn) {
         const allCitiesContainer = document.getElementById('allCitiesContainer');
-        const isHidden = !allCitiesContainer || window.getComputedStyle(allCitiesContainer).display === 'none';
+        const isHidden = !allCitiesContainer || allCitiesContainer.style.display === 'none';
         showAllCitiesBtn.innerText = isHidden ? translations[currentLang].show_all_cities : translations[currentLang].hide_all_cities;
     }
 
@@ -1563,15 +1509,17 @@ function injectPolicy(targetUrl = null) {
             </div>
         </div>
     `;
-    setLanguage(currentLang); // Гарантируем перевод сразу после вставки HTML
 
     const btn = document.getElementById('acceptPolicy');
     const chk = document.getElementById('policyCheckbox');
+
+    setLanguage(currentLang);
     
     chk.addEventListener('change', (e) => btn.disabled = !e.target.checked);
     btn.addEventListener('click', () => {
         localStorage.setItem('policyAccepted', 'true'); // Запоминаем, что пользователь принял
         document.getElementById('policyModal').style.display = 'none';
+        if (targetUrl) navigateWithTransition(targetUrl);
     });
 }
 
@@ -1713,9 +1661,11 @@ function initApp() {
             e.preventDefault();
 
             if (href === 'register.html' || href === 'login.html') {
-                // Навигация будет после принятия политики
-                injectPolicy();
-                setTimeout(() => navigateWithTransition(href), 100); // Небольшая задержка для анимации
+                if (!localStorage.getItem('policyAccepted')) {
+                    injectPolicy(href);
+                } else {
+                    navigateWithTransition(href);
+                }
             } else {
                 navigateWithTransition(href);
             }

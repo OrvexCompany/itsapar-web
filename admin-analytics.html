@@ -74,7 +74,9 @@
     <script>
         async function loadAnalytics() {
             const token = localStorage.getItem('token');
-            if (!token) {
+            const isAdmin = localStorage.getItem('isAdmin') === 'true';
+            
+            if (!token || !isAdmin) {
                 window.location.href = 'login.html';
                 return;
             }
