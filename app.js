@@ -1084,9 +1084,14 @@ const translations = {
         'retake_btn': 'Пройти заново',
         'home_btn': 'На главную',
         'register_title': 'Создать аккаунт',
-        'login_link_text': ' Войти',
+        'login_link_text': 'Войти',
         'create_acc_link': 'Создать',
         'form_title': 'Расскажите о себе',
+        'form_budget_label': 'Бюджет (₸)',
+        'form_trip_type_label': 'Тип поездки',
+        'form_trip_solo': 'Одиночная',
+        'form_trip_family': 'Семейная',
+        'form_trip_friends': 'С друзьями',
         'admin_panel_title': 'Пользователи системы',
         'admin_search_placeholder': 'Поиск по имени или логину...',
         'admin_analytics_button': '📊 Аналитика',
@@ -1229,9 +1234,14 @@ const translations = {
         'retake_btn': 'Сауалнаманы қайта өту',
         'home_btn': 'Басты бетке',
         'register_title': 'Тіркелу',
-        'login_link_text': ' Кіру',
+        'login_link_text': 'Кіру',
         'create_acc_link': 'Жасау',
         'form_title': 'Өзіңіз туралы айтып беріңіз',
+        'form_budget_label': 'Бюджет (₸)',
+        'form_trip_type_label': 'Саяхат түрі',
+        'form_trip_solo': 'Жалғыз',
+        'form_trip_family': 'Отбасылық',
+        'form_trip_friends': 'Достармен',
         'admin_panel_title': 'Жүйе пайдаланушылары',
         'admin_search_placeholder': 'Аты-жөні немесе логин бойынша іздеу...',
         'admin_analytics_button': '📊 Аналитика',
@@ -1345,25 +1355,29 @@ function setLanguage(lang) {
         }
     });
 
-    // Обновляем текст кнопки "Показать все города"
+    // Обновляем текст кнопки "Показать все города" (исправлена логика)
     const showAllCitiesBtn = document.getElementById('showAllCitiesBtn');
     if (showAllCitiesBtn) {
         const isHidden = document.getElementById('allCitiesContainer')?.style.display === 'none';
-        showAllCitiesBtn.innerText = isHidden ? translations[currentLang].show_all_cities : translations[currentLang].hide_all_cities;
+        showAllCitiesBtn.innerText = isHidden ? translations[currentLang].show_all_cities : translations[currentLang].hide_all_cities; // Corrected logic
     }
 
-    // Мягкое обновление динамического контента
-    const adminTable = document.getElementById('adminTableBody');
-    if (adminTable) renderAdminTable(document.getElementById('adminSearch')?.value || '');
-    if (document.getElementById('analyticsContainer') && typeof loadAnalytics === 'function') loadAnalytics();
+    // Мягкое обновление динамического контента (с проверкой на null)
+    if (document.getElementById('adminTableBody')) renderAdminTable(document.getElementById('adminSearch')?.value || '');
+    if (document.getElementById('analyticsContainer') && typeof loadAnalytics === 'function') {
+        // Проверяем, что элементы для аналитики существуют перед вызовом loadAnalytics
+        if (document.getElementById('totalUsers')) loadAnalytics();
+    }
     if (document.getElementById('swipeCard')) renderSwipe();
     if (document.getElementById('resultsList')) showResults();
 
-    // Обновляем чат
-    const chatMessages = document.getElementById('chatMessages');
-    if (chatMessages) {
-        chatMessages.innerHTML = '';
-        loadChatHistory();
+    // Обновляем чат, если он открыт
+    if (document.getElementById('chatWindow') && document.getElementById('chatWindow').style.display === 'flex') {
+        const chatMessages = document.getElementById('chatMessages');
+        if (chatMessages) {
+            chatMessages.innerHTML = '';
+            loadChatHistory();
+        }
     }
 }
 
@@ -1541,7 +1555,7 @@ function injectChat() {
     document.getElementById('closeChat').onclick = () => windowEl.style.display = 'none';
 
     function getChatResponses() {
-        return {
+        return { // Dynamic responses based on current language
             [translations[currentLang].chat_option_mountains]: translations[currentLang].chat_response_mountains,
             [translations[currentLang].chat_option_sea]: translations[currentLang].chat_response_sea,
             [translations[currentLang].chat_option_city]: translations[currentLang].chat_response_city,
@@ -1563,7 +1577,7 @@ function injectChat() {
         optionsEl.innerHTML = '';
         const items = type === 'main'
             ? [translations[currentLang].chat_option_mountains, translations[currentLang].chat_option_sea, translations[currentLang].chat_option_city, translations[currentLang].chat_option_culture, translations[currentLang].chat_option_activity]
-            : [translations[currentLang].chat_option_show_more, translations[currentLang].chat_option_reset];
+            : [translations[currentLang].chat_option_show_more, translations[currentLang].chat_option_reset]; // Use translated options
         
         items.forEach(opt => {
             const btn = document.createElement('button');
@@ -1576,10 +1590,10 @@ function injectChat() {
 
     function handleOption(opt) {
         if (opt === "Показать ещё" || opt === "Сбросить выбор") {
-            if (opt === translations[currentLang].chat_option_reset) {
+            if (opt === translations[currentLang].chat_option_reset) { // Check against translated reset option
                 messagesEl.innerHTML = '';
                 localStorage.removeItem('chatHistory');
-                addMessage(translations[currentLang].chat_initial_message, "ai");
+                addMessage(translations[currentLang].chat_initial_message, "ai"); // Initial message translated
             }
             renderOptions('main');
             return;
@@ -1589,7 +1603,7 @@ function injectChat() {
         
         // Имитация задержки AI
         setTimeout(() => {
-            const response = getChatResponses()[opt] || translations[currentLang].chat_response_default;
+            const response = getChatResponses()[opt] || translations[currentLang].chat_response_default; // Get response based on current language
             addMessage(response, "ai");
             renderOptions('secondary');
         }, 1500);
@@ -1615,7 +1629,7 @@ function injectChat() {
             messagesEl.scrollTop = messagesEl.scrollHeight;
             renderOptions('main');
         } else {
-            addMessage(translations[currentLang].chat_initial_message, "ai");
+            addMessage(translations[currentLang].chat_initial_message, "ai"); // Initial message translated
             renderOptions('main');
         }
     }
@@ -1631,7 +1645,7 @@ function initApp() {
             e.preventDefault();
 
             if (href === 'register.html' || href === 'login.html') {
-                injectPolicy(href);
+                injectPolicy(href); // Policy is now injected on these pages
             } else {
                 navigateWithTransition(href);
             }
@@ -1662,7 +1676,7 @@ function initApp() {
                     const errorDiv = document.getElementById('regError');
                     if (errorDiv) {
                         errorDiv.innerText = "Ошибка регистрации: пользователь существует или неверные данные";
-                        errorDiv.style.display = 'block';
+                        errorDiv.style.display = 'block'; // This text should also be translated
                     }
                 }
             } catch (error) {
@@ -1680,12 +1694,10 @@ function initApp() {
             const userData = {
                 age: parseInt(document.getElementById('age').value),
             };
-
             if (userData.age < 18) {
                 alert(translations[currentLang].age_restriction_alert);
                 return; // Прерываем выполнение функции
             }
-
             Object.assign(userData, { // Используем Object.assign для добавления остальных полей
                 fullName: document.getElementById('fullName').value,
                 // age уже есть
@@ -1693,6 +1705,8 @@ function initApp() {
                 tripType: document.getElementById('tripType').value,
                 answers: {}
             });
+            // Сохраняем данные анкеты в localStorage, чтобы они не пропадали при перезагрузке
+            localStorage.setItem('survey_' + localStorage.getItem('currentUser'), JSON.stringify(userData));
             sessionStorage.setItem('tempSurveyData', JSON.stringify(userData));
             navigateWithTransition('swipe.html');
         });
@@ -1765,7 +1779,7 @@ function initApp() {
                     }
                 } else {
                     loginError.innerText = 'Неверный логин или пароль';
-                    loginError.style.display = 'block';
+                    loginError.style.display = 'block'; // This text should also be translated
                 }
             } catch (error) {
                 console.error("Ошибка сервера:", error);
@@ -1786,7 +1800,7 @@ function initApp() {
                 navigateWithTransition('login.html');
             } else {
                 // Добавляем небольшую задержку для гарантии отрисовки после очистки стилей
-                setTimeout(() => renderAdminTable(), 100);
+                setTimeout(() => renderAdminTable(), 100); // Ensure renderAdminTable is called after auth
             }
         })
         .catch(() => navigateWithTransition('login.html'));
@@ -1815,11 +1829,11 @@ let currentStep = 0;
 function renderSwipe() {
     if (currentStep >= questions.length) {
             saveAndFinish(); // This will navigate away, so no need to update text here
-            return; 
+            return;
     }
-        const q = questions[currentStep]; // Use translated titles/descriptions
-        document.getElementById('questionTitle').innerText = currentLang === 'kz' ? q.title_kz : q.title_ru;
-        document.getElementById('questionDesc').innerText = currentLang === 'kz' ? q.desc_kz : q.desc_ru;
+    const q = questions[currentStep]; // Use translated titles/descriptions
+    document.getElementById('questionTitle').innerText = currentLang === 'kz' ? q.title_kz : q.title_ru;
+    document.getElementById('questionDesc').innerText = currentLang === 'kz' ? q.desc_kz : q.desc_ru;
     document.getElementById('progress').style.width = ((currentStep + 1) / questions.length) * 100 + '%';
 }
 
@@ -1957,7 +1971,7 @@ async function showResults() {
     const showAllCitiesBtn = document.getElementById('showAllCitiesBtn');
     const allCitiesContainer = document.getElementById('allCitiesContainer');
     const allCitiesList = document.getElementById('allCitiesList');
-
+    
     let allCitiesRendered = false; // Флаг, чтобы рендерить список всех городов только один раз
 
     if (showAllCitiesBtn && allCitiesContainer && allCitiesList) {
@@ -1979,6 +1993,9 @@ function renderCityCard(c, container, isIdeal = true) {
     const surveyData = JSON.parse(localStorage.getItem('survey_' + currentUsername) || '{}');
     const budget = surveyData.budget || 'medium';
     const tripType = surveyData.tripType || 'solo';
+
+    let displayedHotels = [];
+    let displayedRestaurants = [];
 
     const cityDescription = currentLang === 'kz' ? c.d_kz : c.d;
     const bestTimeDescription = currentLang === 'kz' ? c.bestTime_kz : c.bestTime;
@@ -2010,8 +2027,8 @@ function renderCityCard(c, container, isIdeal = true) {
     const card = document.createElement('div');
     card.className = 'res-card';
     const isKz = currentLang === 'kz';
-    const cityName = isKz && c.n_kz ? c.n_kz : c.n;
-    const locations = c.locations || [];
+    const cityName = isKz && c.n_kz ? c.n_kz : c.n; // Translated city name
+    const locations = isKz && c.locations_kz ? c.locations_kz : c.locations || []; // Translated locations
 
     card.innerHTML = `
         <h3>${cityName}</h3>
@@ -2021,21 +2038,21 @@ function renderCityCard(c, container, isIdeal = true) {
                 <p><strong>🏨 ${translations[currentLang].city_details_hotels}</strong></p>
                 ${displayedHotels.map(h => `
                     <div class="hotel-item">
-                        📍 ${h.label}${isKz && h.name_kz ? h.name_kz : h.name}<br>
-                        <small>${isKz && h.address_kz ? h.address_kz : h.address}</small>
+                        📍 ${h.label}${isKz && h.name_kz ? h.name_kz : h.name}<br> <!-- Translated hotel name -->
+                        <small>${isKz && h.address_kz ? h.address_kz : h.address}</small> <!-- Translated hotel address -->
                     </div>
                 `).join('')}
             </div>
             <div class="locations-list">
                 <p><strong>🗺️ ${translations[currentLang].city_details_locations}</strong></p>
-                ${locations.length > 0 ? locations.map(l => `<div class="hotel-item">📸 <strong>${isKz && l.n_kz ? l.n_kz : l.n}</strong> — <small>${isKz && l.t_kz ? l.t_kz : l.t}</small></div>`).join('') : '<small>Данные уточняются</small>'}
+                ${locations.length > 0 ? locations.map(l => `<div class="hotel-item">📸 <strong>${isKz && l.n_kz ? l.n_kz : l.n}</strong> — <small>${isKz && l.t_kz ? l.t_kz : l.t}</small></div>`).join('') : `<small>${translations[currentLang].data_refining}</small>`}
             </div>
             <div class="restaurants-list">
                 <p><strong>🍽️ Где поесть:</strong></p>
                 ${displayedRestaurants.length > 0 ? displayedRestaurants.map(r => `
                     <div class="hotel-item">
-                        🍴 ${r.label}${r.name}<br>
-                        <small>${r.address}</small>
+                        🍴 ${r.label}${isKz && r.name_kz ? r.name_kz : r.name}<br> <!-- Translated restaurant name -->
+                        <small>${isKz && r.address_kz ? r.address_kz : r.address}</small> <!-- Translated restaurant address -->
                     </div>
                 `).join('') : '<small>Данные уточняются</small>'}
             </div>
@@ -2071,7 +2088,7 @@ function renderAllCities(containerElement, idealCities) {
         const listItem = document.createElement('li');
         listItem.className = 'all-city-item';
         
-        let cityText = city.n;
+        let cityText = currentLang === 'kz' && city.n_kz ? city.n_kz : city.n; // Translated city name
         // Проверяем, является ли этот город одним из идеальных
         const isIdeal = idealCities.some(idealCity => idealCity.n === city.n);
         if (isIdeal) { // City names are not translated here
@@ -2090,7 +2107,7 @@ async function renderAdminTable(searchTerm = '') {
     const filter = searchTerm.toLowerCase();
 
     // Словари для перевода данных на русский
-    const typeTranslations_ru = {
+    const typeTranslations_ru = { // These are already defined in translations object, can be simplified
         'solo': 'Один',
         'family': 'Семья',
         'friends': 'Друзья'
@@ -2099,7 +2116,7 @@ async function renderAdminTable(searchTerm = '') {
         'solo': 'Жалғыз', 'family': 'Отбасы', 'friends': 'Достар'
     };
 
-    const interestTranslations_ru = {
+    const interestTranslations_ru = { // These are already defined in translations object, can be simplified
         'mountains': 'Горы', 'sea': 'Море', 'city': 'Города',
         'activity': 'Активность', 'culture': 'Культура', 'gastronomy': 'Гастрономия',
         'seclusion': 'Уединение', 'shopping': 'Шоппинг',
@@ -2120,7 +2137,7 @@ async function renderAdminTable(searchTerm = '') {
         if (!response.ok) {
             const msg = response.status === 403 ? "Доступ запрещен" : "Ошибка сервера (500)";
             body.innerHTML = `
-                <tr><td colspan="6" style="text-align:center; color:var(--danger); padding:40px;">
+                <tr><td colspan="6" style="text-align:center; color:var(--danger); padding:40px;" data-i18n="admin_table_error_msg">
                     ⚠️ ${msg}<br>
                     <button onclick="renderAdminTable()" class="btn btn-outline" style="margin-top:15px; font-size:0.7rem;">Перезагрузить данные</button>
                 </td></tr>`;

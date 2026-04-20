@@ -93,7 +93,7 @@
 
                 // Наполнение цифр
                 document.getElementById('totalUsers').innerText = data.totalUsers;
-                document.getElementById('avgBudget').innerText = data.averageBudget.toLocaleString() + ' ₸'; // Currency symbol is universal
+                document.getElementById('avgBudget').innerText = data.averageBudget.toLocaleString() + ' ₸';
 
                 // Таблица
                 const tableBody = document.getElementById('analyticsTableBody');
@@ -125,7 +125,7 @@
                     type: 'bar',
                     data: {
                         labels: cityLabels,
-                        datasets: [{ // City names are not translated here
+                        datasets: [{
                             label: translations[currentLang].admin_table_recommendations_count,
                             data: cityValues,
                             backgroundColor: 'rgba(79, 70, 229, 0.7)',
@@ -145,7 +145,7 @@
                 console.error("Analytics Error:", error);
                 container.innerHTML = `
                     <div class="error-container">
-                        <h2 style="color:var(--danger)">⚠️ ${error.message}</h2> <!-- Error message itself might not be translated -->
+                        <h2 style="color:var(--danger)">⚠️ ${translations[currentLang].admin_analytics_error_server}</h2>
                         <p>${translations[currentLang].admin_analytics_error_server}</p>
                         <button onclick="location.reload()" class="btn btn-primary" style="margin-top:20px;">${translations[currentLang].admin_analytics_reload_data}</button>
                         <button onclick="navigateWithTransition('admin.html')" class="btn btn-outline" style="margin-top:20px;">${translations[currentLang].admin_analytics_back_button}</button>
