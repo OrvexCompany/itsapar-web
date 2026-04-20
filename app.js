@@ -1355,12 +1355,11 @@ function setLanguage(lang) {
         }
     });
 
-    // Исправляем логику кнопки "Показать все города"
+    // Обновляем текст кнопки "Показать все города" (исправлена логика)
     const showAllCitiesBtn = document.getElementById('showAllCitiesBtn');
-    const allCitiesContainer = document.getElementById('allCitiesContainer');
     if (showAllCitiesBtn) {
-        const isHidden = !allCitiesContainer || allCitiesContainer.style.display === 'none';
-        showAllCitiesBtn.innerText = isHidden ? translations[currentLang].show_all_cities : translations[currentLang].hide_all_cities;
+        const isHidden = document.getElementById('allCitiesContainer')?.style.display === 'none';
+        showAllCitiesBtn.innerText = isHidden ? translations[currentLang].show_all_cities : translations[currentLang].hide_all_cities; // Corrected logic
     }
 
     // Мягкое обновление динамического контента (с проверкой на null)
@@ -1372,8 +1371,8 @@ function setLanguage(lang) {
     if (document.getElementById('swipeCard')) renderSwipe();
     if (document.getElementById('resultsList')) showResults();
 
-    // Мгновенно обновляем чат
-    if (document.getElementById('aiChatWidget')) {
+    // Обновляем чат, если он открыт
+    if (document.getElementById('chatWindow') && document.getElementById('chatWindow').style.display === 'flex') {
         const chatMessages = document.getElementById('chatMessages');
         if (chatMessages) {
             chatMessages.innerHTML = '';
@@ -1510,6 +1509,7 @@ function injectPolicy(targetUrl = null) {
             </div>
         </div>
     `;
+    setLanguage(currentLang); // Чтобы политика сразу перевелась после инъекции
 
     const btn = document.getElementById('acceptPolicy');
     const chk = document.getElementById('policyCheckbox');
@@ -2031,8 +2031,8 @@ function renderCityCard(c, container, isIdeal = true) {
     const card = document.createElement('div');
     card.className = 'res-card';
     const isKz = currentLang === 'kz';
-    const cityName = isKz && c.n_kz ? c.n_kz : c.n; // Translated city name
-    const locations = isKz && c.locations_kz ? c.locations_kz : c.locations || []; // Translated locations
+    const cityName = isKz && c.n_kz ? c.n_kz : c.n;
+    const locations = c.locations || [];
 
     card.innerHTML = `
         <h3>${cityName}</h3>
@@ -2042,8 +2042,8 @@ function renderCityCard(c, container, isIdeal = true) {
                 <p><strong>🏨 ${translations[currentLang].city_details_hotels}</strong></p>
                 ${displayedHotels.map(h => `
                     <div class="hotel-item">
-                        📍 ${h.label}${isKz && h.name_kz ? h.name_kz : h.name}<br> <!-- Translated hotel name -->
-                        <small>${isKz && h.address_kz ? h.address_kz : h.address}</small> <!-- Translated hotel address -->
+                        📍 ${h.label}${isKz && h.name_kz ? h.name_kz : h.name}<br>
+                        <small>${isKz && h.address_kz ? h.address_kz : h.address}</small>
                     </div>
                 `).join('')}
             </div>
