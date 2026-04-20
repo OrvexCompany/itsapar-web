@@ -1667,7 +1667,7 @@ async function renderAdminTable(searchTerm = '') {
     };
 
     const interestTranslations = {
-        'mountains': 'Горы', 'sea': 'Море/Вода', 'city': 'Города',
+        'mountains': 'Горы', 'sea': 'Море', 'city': 'Города',
         'activity': 'Активность', 'culture': 'Культура', 'gastronomy': 'Гастрономия',
         'seclusion': 'Уединение', 'shopping': 'Шоппинг',
         'family_fun': 'Семья', 'eco_tourism': 'Эко'
