@@ -361,12 +361,29 @@ h2, h3, h4 { color: var(--dark); }
     .admin-table td[data-label="Действия"] button { width: 100%; margin: 0 !important; }
 }
 
+/* Улучшения для админ-панели на мобильных и в темной теме */
+@media (max-width: 768px) {
+    .admin-header .btn {
+        width: 100%; /* Кнопки занимают всю ширину */
+        margin-right: 0 !important; /* Убираем лишний отступ */
+        margin-bottom: 10px; /* Добавляем отступ между кнопками */
+    }
+    .admin-header .btn:last-child {
+        margin-bottom: 0;
+    }
+}
+
 /* Скрываем метку "Действия" в мобильной версии, чтобы не накладывалась на кнопки */
 @media (max-width: 768px) {
     .admin-table td[data-label="Действия"]:before { content: ""; }
 }
 
 /* Стили для страницы аналитики (карточки статов) */
+.admin-table td {
+    background: var(--card-bg); /* Используем переменную для фона ячеек */
+    color: var(--text); /* Цвет текста меняется с темой */
+}
+
 .stats-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
