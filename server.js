@@ -195,11 +195,11 @@ app.get("/admin/analytics", auth, adminOnly, (req, res) => {
 
             const usersList = (rows || []).map((row, index) => {
                 let survey = {};
-                if (row && row.survey_data && typeof row.survey_data === 'string' && row.survey_data.length > 5) {
+                if (row && row.survey_data && typeof row.survey_data === 'string' && row.survey_data.trim().length > 2) {
                     try {
-                        const cleanJson = row.survey_data.replace(/[\u0000-\u001F\u007F-\u009F]/g, ""); // Очистка скрытых символов
+                        const cleanJson = row.survey_data.replace(/[\u0000-\u001F\u007F-\u009F]/g, "").trim(); 
                         const parsed = JSON.parse(cleanJson);
-                        if (parsed && typeof parsed === 'object') survey = parsed;
+                        if (parsed && typeof parsed === 'object' && parsed !== null) survey = parsed;
                     } catch (e) {
                         console.warn(`⚠️ Не удалось распарсить анкету юзера ${row.username}`);
                     }

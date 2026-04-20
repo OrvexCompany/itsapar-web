@@ -16,37 +16,29 @@ const questions = [
 const allCities = [
     {
         n: 'Алматы',
+        n_kz: 'Алматы',
         d: 'Идеально для любителей гор и активного отдыха, культурный центр.',
         img: 'https://images.unsplash.com/photo-1589112953018-0248f39589d8?q=80&w=600',
         hotels_budget: [
-            { name: 'Хостел Q7 Almaty', address: 'ул. Сарсена Аманжолова, 42а' },
-            { name: 'Evergreen Hostel', address: 'ул. Метростроевская, 32' }
+            { name: 'Хостел Q7 Almaty', name_kz: 'Q7 Almaty хостелі', address: 'ул. Сарсена Аманжолова, 42а', address_kz: 'Сәрсен Аманжолов к-сі, 42а' },
+            { name: 'Evergreen Hostel', name_kz: 'Evergreen хостелі', address: 'ул. Метростроевская, 32', address_kz: 'Метростроевская к-сі, 32' }
         ],
         hotels_expensive: [
-            { name: 'The Ritz-Carlton, Almaty', address: 'пр. Аль-Фараби, 77/7' },
-            { name: 'Rixos Almaty', address: 'пр. Сейфуллина, 506/99' }
+            { name: 'The Ritz-Carlton, Almaty', name_kz: 'The Ritz-Carlton, Алматы', address: 'пр. Аль-Фараби, 77/7', address_kz: 'Әл-Фараби даңғылы, 77/7' },
+            { name: 'Rixos Almaty', name_kz: 'Rixos Алматы', address: 'пр. Сейфуллина, 506/99', address_kz: 'Сейфуллин даңғылы, 506/99' }
         ],
         restaurants_budget: [
-            { name: 'Qaganat (Столовая)', address: 'пр. Абая, 48в' },
-            { name: 'Basilic', address: 'ул. Шевченко, 127' },
-            { name: 'Тагам', address: 'мкр. Орбита-3, 1' }
+            { name: 'Qaganat (Столовая)', name_kz: 'Қағанат (Асхана)', address: 'пр. Абая, 48в', address_kz: 'Абай даңғылы, 48в' },
+            { name: 'Basilic', name_kz: 'Basilic', address: 'ул. Шевченко, 127', address_kz: 'Шевченко к-сі, 127' }
         ],
         restaurants_expensive: [
-            { name: 'Seven Bar & Restaurant', address: 'пр. Аль-Фараби, 77/7' },
-            { name: 'Villa Dei Fiori', address: 'пр. Аль-Фараби, 140а' },
-            { name: 'Manana', address: 'пр. Достык, 535' }
+            { name: 'Seven Bar & Restaurant', name_kz: 'Seven Bar & Restaurant', address: 'пр. Аль-Фараби, 77/7', address_kz: 'Әл-Фараби даңғылы, 77/7' },
+            { name: 'Villa Dei Fiori', name_kz: 'Villa Dei Fiori', address: 'пр. Аль-Фараби, 140а', address_kz: 'Әл-Фараби даңғылы, 140а' }
         ],
         locations: [
-            { n: 'Шымбулак', t: 'Горы, Активность' },
-            { n: 'Медеу', t: 'Активность, Семья' },
-            { n: 'Зеленый базар', t: 'Гастрономия, Шоппинг' },
-            { n: 'Улица Панфилова', t: 'Города, Культура' },
-            { n: 'Коктобе', t: 'Семья, Города' }
-        ],
-        n_kz: 'Алматы',
-        locations_kz: [
-            { n: 'Шымбұлақ', t: 'Таулар, Белсенділік' },
-            { n: 'Медеу', t: 'Белсенділік, Отбасы' }
+            { n: 'Шымбулак', n_kz: 'Шымбұлақ', t: 'Горы, Активность', t_kz: 'Таулар, Белсенділік' },
+            { n: 'Медеу', n_kz: 'Медеу', t: 'Активность, Семья', t_kz: 'Белсенділік, Отбасы' },
+            { n: 'Зеленый базар', n_kz: 'Көк базар', t: 'Гастрономия, Шоппинг', t_kz: 'Гастрономия, Шопинг' }
         ],
         tags: { mountains: true, sea: true, city: true, activity: true, culture: true, gastronomy: true, seclusion: false, shopping: true, family_fun: true, eco_tourism: true },
         budget_suitability: { low: true, medium: true, high: true }, // City names (n) are not translated here
@@ -1092,7 +1084,8 @@ const translations = {
         'retake_btn': 'Пройти заново',
         'home_btn': 'На главную',
         'register_title': 'Создать аккаунт',
-        'login_link_text': 'Войти',
+        'login_link_text': ' Войти',
+        'create_acc_link': 'Создать',
         'form_title': 'Расскажите о себе',
         'admin_panel_title': 'Пользователи системы',
         'admin_search_placeholder': 'Поиск по имени или логину...',
@@ -1236,7 +1229,8 @@ const translations = {
         'retake_btn': 'Сауалнаманы қайта өту',
         'home_btn': 'Басты бетке',
         'register_title': 'Тіркелу',
-        'login_link_text': 'Кіру',
+        'login_link_text': ' Кіру',
+        'create_acc_link': 'Жасау',
         'form_title': 'Өзіңіз туралы айтып беріңіз',
         'admin_panel_title': 'Жүйе пайдаланушылары',
         'admin_search_placeholder': 'Аты-жөні немесе логин бойынша іздеу...',
@@ -1351,29 +1345,25 @@ function setLanguage(lang) {
         }
     });
 
-    // Перерисовываем динамический контент, который не обновляется другими функциями
-    if (document.getElementById('adminTableBody')) {
-        renderAdminTable(document.getElementById('adminSearch')?.value || '');
-    }
-    if (document.getElementById('analyticsContainer')) {
-        loadAnalytics(); // Это перерисует графики и таблицу с новыми метками
-    }
-    if (document.getElementById('swipeCard')) {
-        renderSwipe();
-    }
-    if (document.getElementById('resultsList')) {
-        showResults(); // Это перерисует карточки городов с новыми описаниями
-    }
     // Обновляем текст кнопки "Показать все города"
     const showAllCitiesBtn = document.getElementById('showAllCitiesBtn');
     if (showAllCitiesBtn) {
         const isHidden = document.getElementById('allCitiesContainer')?.style.display === 'none';
-        showAllCitiesBtn.innerText = isHidden ? translations[currentLang].hide_all_cities : translations[currentLang].show_all_cities;
+        showAllCitiesBtn.innerText = isHidden ? translations[currentLang].show_all_cities : translations[currentLang].hide_all_cities;
     }
-    // Обновляем текст заголовка "Все города Казахстана"
-    const allCitiesTitle = document.getElementById('allCitiesTitle');
-    if (allCitiesTitle) {
-        allCitiesTitle.innerText = translations[currentLang].all_cities_title;
+
+    // Мягкое обновление динамического контента
+    const adminTable = document.getElementById('adminTableBody');
+    if (adminTable) renderAdminTable(document.getElementById('adminSearch')?.value || '');
+    if (document.getElementById('analyticsContainer') && typeof loadAnalytics === 'function') loadAnalytics();
+    if (document.getElementById('swipeCard')) renderSwipe();
+    if (document.getElementById('resultsList')) showResults();
+
+    // Обновляем чат
+    const chatMessages = document.getElementById('chatMessages');
+    if (chatMessages) {
+        chatMessages.innerHTML = '';
+        loadChatHistory();
     }
 }
 
@@ -1550,13 +1540,15 @@ function injectChat() {
     };
     document.getElementById('closeChat').onclick = () => windowEl.style.display = 'none';
 
-    const chatResponses = {
-        [translations[currentLang].chat_option_mountains]: translations[currentLang].chat_response_mountains,
-        [translations[currentLang].chat_option_sea]: translations[currentLang].chat_response_sea,
-        [translations[currentLang].chat_option_city]: translations[currentLang].chat_response_city,
-        [translations[currentLang].chat_option_culture]: translations[currentLang].chat_response_culture,
-        [translations[currentLang].chat_option_activity]: translations[currentLang].chat_response_activity
-    };
+    function getChatResponses() {
+        return {
+            [translations[currentLang].chat_option_mountains]: translations[currentLang].chat_response_mountains,
+            [translations[currentLang].chat_option_sea]: translations[currentLang].chat_response_sea,
+            [translations[currentLang].chat_option_city]: translations[currentLang].chat_response_city,
+            [translations[currentLang].chat_option_culture]: translations[currentLang].chat_response_culture,
+            [translations[currentLang].chat_option_activity]: translations[currentLang].chat_response_activity
+        };
+    }
 
     function addMessage(text, sender) {
         const bubble = document.createElement('div');
@@ -1597,7 +1589,7 @@ function injectChat() {
         
         // Имитация задержки AI
         setTimeout(() => {
-            const response = chatResponses[opt] || translations[currentLang].chat_response_default;
+            const response = getChatResponses()[opt] || translations[currentLang].chat_response_default;
             addMessage(response, "ai");
             renderOptions('secondary');
         }, 1500);
@@ -2017,8 +2009,10 @@ function renderCityCard(c, container, isIdeal = true) {
 
     const card = document.createElement('div');
     card.className = 'res-card';
-    const cityName = currentLang === 'kz' && c.n_kz ? c.n_kz : c.n;
-    const locations = currentLang === 'kz' && c.locations_kz ? c.locations_kz : c.locations;
+    const isKz = currentLang === 'kz';
+    const cityName = isKz && c.n_kz ? c.n_kz : c.n;
+    const locations = c.locations || [];
+
     card.innerHTML = `
         <h3>${cityName}</h3>
         <p>${cityDescription}</p>
@@ -2027,14 +2021,14 @@ function renderCityCard(c, container, isIdeal = true) {
                 <p><strong>🏨 ${translations[currentLang].city_details_hotels}</strong></p>
                 ${displayedHotels.map(h => `
                     <div class="hotel-item">
-                        📍 ${h.label}${h.name}<br>
-                        <small>${h.address}</small>
+                        📍 ${h.label}${isKz && h.name_kz ? h.name_kz : h.name}<br>
+                        <small>${isKz && h.address_kz ? h.address_kz : h.address}</small>
                     </div>
                 `).join('')}
             </div>
             <div class="locations-list">
                 <p><strong>🗺️ ${translations[currentLang].city_details_locations}</strong></p>
-                ${locations ? locations.map(l => `<div class="hotel-item">📸 <strong>${l.n}</strong> — <small>${l.t}</small></div>`).join('') : '<small>Данные уточняются</small>'}
+                ${locations.length > 0 ? locations.map(l => `<div class="hotel-item">📸 <strong>${isKz && l.n_kz ? l.n_kz : l.n}</strong> — <small>${isKz && l.t_kz ? l.t_kz : l.t}</small></div>`).join('') : '<small>Данные уточняются</small>'}
             </div>
             <div class="restaurants-list">
                 <p><strong>🍽️ Где поесть:</strong></p>
