@@ -1719,6 +1719,7 @@ function initApp() {
             } catch (error) {
                 console.error("Ошибка сервера:", error);
                 alert(translations[currentLang].server_error_alert);
+                alert("Ошибка сервера. Пожалуйста, попробуйте позже.");
             }
         });
     }
@@ -1821,6 +1822,7 @@ function initApp() {
             } catch (error) {
                 console.error("Ошибка сервера:", error);
                 alert(translations[currentLang].server_error_alert);
+                alert("Ошибка сервера. Пожалуйста, попробуйте позже.");
             }
         });
     }
