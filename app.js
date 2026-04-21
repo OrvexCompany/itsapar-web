@@ -1,50 +1,47 @@
 // --- Данные вопросов ---
 const questions = [
-    { id: 'mountains', title_ru: 'Горы?', desc_ru: 'Любите ли вы походы и свежий горный воздух?', title_kz: 'Таулар?', desc_kz: 'Тауға шығуды және таза тау ауасын ұнатасыз ба?' },
-    { id: 'sea', title_ru: 'Море/Вода?', desc_ru: 'Предпочитаете пляжный отдых или озера?', title_kz: 'Теңіз/Су?', desc_kz: 'Жағажай демалысын немесе көлдерді қалайсыз ба?' },
-    { id: 'city', title_ru: 'Города?', desc_ru: 'Вам нравится шум мегаполиса и архитектура?', title_kz: 'Қалалар?', desc_kz: 'Мегаполис шуы мен архитектурасы ұнай ма?' },
-    { id: 'activity', title_ru: 'Активность?', desc_ru: 'Готовы ли вы к экстриму и долгим прогулкам?', title_kz: 'Белсенділік?', desc_kz: 'Экстримге және ұзақ серуендеуге дайынсыз ба?' },
-    { id: 'culture', title_ru: 'Культура?', desc_ru: 'Интересуетесь ли вы историей и музеями?', title_kz: 'Мәдениет?', desc_kz: 'Тарихқа және мұражайларға қызығасыз ба?' },
-    { id: 'gastronomy', title_ru: 'Гастрономия', desc_ru: 'Важно ли для вас пробовать уникальные национальные блюда и посещать колоритные рестораны?', title_kz: 'Гастрономия', desc_kz: 'Сіз үшін бірегей ұлттық тағамдарды татып көру және ерекше мейрамханаларға бару маңызды ма?' },
-    { id: 'seclusion', title_ru: 'Уединение', desc_ru: 'Ищете ли вы тишину и возможность отдохнуть в местах вдали от больших толп туристов?', title_kz: 'Оқшаулану', desc_kz: 'Сіз тыныштықты және туристердің көптігінен алыс жерлерде демалу мүмкіндігін іздейсіз бе?' },
-    { id: 'shopping', title_ru: 'Шоппинг', desc_ru: 'Любите ли вы прогулки по современным торговым центрам и поиск уникальных вещей на местных рынках?', title_kz: 'Шопинг', desc_kz: 'Заманауи сауда орталықтарында серуендеуді және жергілікті базарлардан бірегей заттарды іздеуді ұнатасыз ба?' },
-    { id: 'family_fun', title_ru: 'Семейный отдых', desc_ru: 'Нужны ли вам игровые зоны, аквапарки и развлечения, подходящие для детей?', title_kz: 'Отбасылық демалыс', desc_kz: 'Сізге ойын аймақтары, аквапарктер және балаларға арналған ойын-сауықтар қажет пе?' },
-    { id: 'eco_tourism', title_ru: 'Эко-туризм', desc_ru: 'Вас привлекают заповедники, бескрайние степи и наблюдение за дикой природой в её первозданном виде?', title_kz: 'Эко-туризм', desc_kz: 'Сізді қорықтар, шексіз далалар және жабайы табиғатты оның бастапқы қалпында бақылау қызықтыра ма?' }
+    { id: 'mountains', title: 'Горы?', desc: 'Любите ли вы походы и свежий горный воздух?' },
+    { id: 'sea', title: 'Море/Вода?', desc: 'Предпочитаете пляжный отдых или озера?' },
+    { id: 'city', title: 'Города?', desc: 'Вам нравится шум мегаполиса и архитектура?' },
+    { id: 'activity', title: 'Активность?', desc: 'Готовы ли вы к экстриму и долгим прогулкам?' },
+    { id: 'culture', title: 'Культура?', desc: 'Интересуетесь ли вы историей и музеями?' },
+    { id: 'gastronomy', title: 'Гастрономия', desc: 'Важно ли для вас пробовать уникальные национальные блюда и посещать колоритные рестораны?' },
+    { id: 'seclusion', title: 'Уединение', desc: 'Ищете ли вы тишину и возможность отдохнуть в местах вдали от больших толп туристов?' },
+    { id: 'shopping', title: 'Шоппинг', desc: 'Любите ли вы прогулки по современным торговым центрам и поиск уникальных вещей на местных рынках?' },
+    { id: 'family_fun', title: 'Семейный отдых', desc: 'Нужны ли вам игровые зоны, аквапарки и развлечения, подходящие для детей?' },
+    { id: 'eco_tourism', title: 'Эко-туризм', desc: 'Вас привлекают заповедники, бескрайние степи и наблюдение за дикой природой в её первозданном виде?' }
 ];
 
 // --- Данные городов с характеристиками и отелями ---
 const allCities = [
     {
         n: 'Алматы',
-        n_kz: 'Алматы',
         d: 'Идеально для любителей гор и активного отдыха, культурный центр.',
         img: 'https://images.unsplash.com/photo-1589112953018-0248f39589d8?q=80&w=600',
         hotels_budget: [
-            { name: 'Хостел Q7 Almaty', name_kz: 'Q7 Almaty хостелі', address: 'ул. Сарсена Аманжолова, 42а', address_kz: 'Сәрсен Аманжолов к-сі, 42а' },
-            { name: 'Evergreen Hostel', name_kz: 'Evergreen хостелі', address: 'ул. Метростроевская, 32', address_kz: 'Метростроевская к-сі, 32' }
+            { name: 'Хостел Q7 Almaty', address: 'ул. Сарсена Аманжолова, 42а' },
+            { name: 'Evergreen Hostel', address: 'ул. Метростроевская, 32' }
         ],
         hotels_expensive: [
-            { name: 'The Ritz-Carlton, Almaty', name_kz: 'The Ritz-Carlton, Алматы', address: 'пр. Аль-Фараби, 77/7', address_kz: 'Әл-Фараби даңғылы, 77/7' },
-            { name: 'Rixos Almaty', name_kz: 'Rixos Алматы', address: 'пр. Сейфуллина, 506/99', address_kz: 'Сейфуллин даңғылы, 506/99' }
+            { name: 'The Ritz-Carlton, Almaty', address: 'пр. Аль-Фараби, 77/7' },
+            { name: 'Rixos Almaty', address: 'пр. Сейфуллина, 506/99' }
         ],
         restaurants_budget: [
-            { name: 'Qaganat (Столовая)', name_kz: 'Қағанат (Асхана)', address: 'пр. Абая, 48в', address_kz: 'Абай даңғылы, 48в' },
-            { name: 'Basilic', name_kz: 'Basilic', address: 'ул. Шевченко, 127', address_kz: 'Шевченко к-сі, 127' }
+            { name: 'Qaganat (Столовая)', address: 'пр. Абая, 48в' },
+            { name: 'Basilic', address: 'ул. Шевченко, 127' }
         ],
         restaurants_expensive: [
-            { name: 'Seven Bar & Restaurant', name_kz: 'Seven Bar & Restaurant', address: 'пр. Аль-Фараби, 77/7', address_kz: 'Әл-Фараби даңғылы, 77/7' },
-            { name: 'Villa Dei Fiori', name_kz: 'Villa Dei Fiori', address: 'пр. Аль-Фараби, 140а', address_kz: 'Әл-Фараби даңғылы, 140а' }
+            { name: 'Seven Bar & Restaurant', address: 'пр. Аль-Фараби, 77/7' },
+            { name: 'Villa Dei Fiori', address: 'пр. Аль-Фараби, 140а' }
         ],
         locations: [
-            { n: 'Шымбулак', n_kz: 'Шымбұлақ', t: 'Горы, Активность', t_kz: 'Таулар, Белсенділік' },
-            { n: 'Медеу', n_kz: 'Медеу', t: 'Активность, Семья', t_kz: 'Белсенділік, Отбасы' },
-            { n: 'Зеленый базар', n_kz: 'Көк базар', t: 'Гастрономия, Шоппинг', t_kz: 'Гастрономия, Шопинг' }
+            { n: 'Шымбулак', t: 'Горы, Активность' },
+            { n: 'Медеу', t: 'Активность, Семья' },
+            { n: 'Зеленый базар', t: 'Гастрономия, Шоппинг' }
         ],
         tags: { mountains: true, sea: true, city: true, activity: true, culture: true, gastronomy: true, seclusion: false, shopping: true, family_fun: true, eco_tourism: true },
         budget_suitability: { low: true, medium: true, high: true }, // City names (n) are not translated here
-        bestTime: 'Май и Сентябрь. В мае город утопает в зелени, а сентябрь дарит идеальную «бархатную» осень.',
-        d_kz: 'Тауларды және белсенді демалысты ұнататындар үшін тамаша, мәдени орталық.',
-        bestTime_kz: 'Мамыр және Қыркүйек. Мамырда қала жасыл желекке оранады, ал қыркүйекте тамаша «барқыт» күзі жеміс-жидекке толы болады.'
+        bestTime: 'Май и Сентябрь. В мае город утопает в зелени, а сентябрь дарит идеальную «бархатную» осень.'
     },
     {
         n: 'Астана',
@@ -1503,7 +1500,7 @@ function injectPolicy(targetUrl = null) {
     wrapper.innerHTML = `
         <div id="policyModal" class="modal-overlay">
             <div class="card modal-card">
-                <h2>🛡️ Соглашение и защита</h2>
+                <h2>🛡️ Соглашение и защита данных</h2>
                 <div class="policy-text">
                     <p>Добро пожаловать в ITSapar. Используя сервис, вы подтверждаете:</p>
                     <ul>
@@ -1515,7 +1512,7 @@ function injectPolicy(targetUrl = null) {
                 </div>
                 <label class="policy-check">
                     <input type="checkbox" id="policyCheckbox">
-                    <span>Я ознакомлен с условиями и подтверждаю возраст 18+</span>
+                    <span>Я ознакомлен с условиями Соглашения и подтверждаю возраст 18+</span>
                 </label>
                 <button id="acceptPolicy" class="btn btn-primary full-width" disabled>Принять и продолжить</button>
             </div>
@@ -1544,7 +1541,6 @@ function injectChat() {
 // --- AI Чат Логика ---
 function injectChat() {
     if (document.getElementById('aiChatWidget')) return;
-
     const chatHtml = `
         <div id="aiChatWidget" class="chat-widget">
             <button class="chat-btn" id="toggleChat">💬</button>
@@ -1556,7 +1552,7 @@ function injectChat() {
                 <div class="chat-messages" id="chatMessages"></div>
                 <div class="chat-options" id="chatOptions"></div>
                 <div class="chat-disclaimer">
-                    <span data-i18n="chat_disclaimer"></span>
+                    AI помощник работает на основе заранее заданных сценариев. Он не подключён к интернету. Рекомендуется проверять важную информацию.
                 </div>
             </div>
         </div>
@@ -1568,18 +1564,18 @@ function injectChat() {
     const optionsEl = document.getElementById('chatOptions');
 
     document.getElementById('toggleChat').onclick = () => {
-        windowEl.style.display = windowEl.style.display === 'flex' ? 'none' : 'flex';
+        windowEl.style.display = (windowEl.style.display === 'flex') ? 'none' : 'flex';
         if (messagesEl.children.length === 0) loadChatHistory();
     };
     document.getElementById('closeChat').onclick = () => windowEl.style.display = 'none';
 
     function getChatResponses() {
-        return { // Dynamic responses based on current language
-            [translations[currentLang].chat_option_mountains]: translations[currentLang].chat_response_mountains,
-            [translations[currentLang].chat_option_sea]: translations[currentLang].chat_response_sea,
-            [translations[currentLang].chat_option_city]: translations[currentLang].chat_response_city,
-            [translations[currentLang].chat_option_culture]: translations[currentLang].chat_response_culture,
-            [translations[currentLang].chat_option_activity]: translations[currentLang].chat_response_activity
+        return { 
+            'Горы': 'Рекомендую Алматы — отличное место для горного отдыха и походов на Шымбулак.',
+            'Море': 'Актау — лучший вариант для отдыха у моря в Казахстане на Каспийском побережье.',
+            'Город': 'Астана — современный мегаполис с уникальной архитектурой и множеством музеев.',
+            'Культура': 'Туркестан подойдёт для глубокого культурного и исторического путешествия.',
+            'Активный отдых': 'Алматы или Шымкент — отличные варианты для тех, кто не любит сидеть на месте.'
         };
     }
 
@@ -1594,9 +1590,7 @@ function injectChat() {
 
     function renderOptions(type = 'main') {
         optionsEl.innerHTML = ''; // Очищаем предыдущие опции
-        const items = type === 'main' ?
-            [translations[currentLang].chat_option_mountains, translations[currentLang].chat_option_sea, translations[currentLang].chat_option_city, translations[currentLang].chat_option_culture, translations[currentLang].chat_option_activity] :
-            [translations[currentLang].chat_option_show_more, translations[currentLang].chat_option_reset];
+        const items = type === 'main' ? ['Горы', 'Море', 'Город', 'Культура', 'Активный отдых'] : ['Показать ещё', 'Сбросить выбор'];
         items.forEach(opt => {
             const btn = document.createElement('button');
             btn.className = 'chat-opt-btn';
@@ -1607,24 +1601,20 @@ function injectChat() {
     }
 
     function handleOption(opt) {
-        const resetLabel = translations[currentLang].chat_option_reset;
-        const showMoreLabel = translations[currentLang].chat_option_show_more;
-
-        if (opt === resetLabel) {
+        if (opt === 'Сбросить выбор') {
             messagesEl.innerHTML = '';
             localStorage.removeItem('chatHistory');
-            addMessage(translations[currentLang].chat_initial_message, "ai");
+            addMessage('Привет! Я помогу выбрать город. Что вас интересует?', "ai");
             renderOptions('main'); return;
         }
-        if (opt === showMoreLabel) {
+        if (opt === 'Показать ещё') {
             renderOptions('main'); return;
         }
 
         addMessage(opt, "user");
         
-        // Имитация задержки AI
         setTimeout(() => {
-            const response = getChatResponses()[opt] || translations[currentLang].chat_response_default; // Get response based on current language
+            const response = getChatResponses()[opt] || 'Интересный выбор! Хотите узнать больше?';
             addMessage(response, "ai");
             renderOptions('secondary');
         }, 1500);
@@ -1644,25 +1634,13 @@ function injectChat() {
             saved.forEach((m, idx) => {
                 const bubble = document.createElement('div');
                 bubble.className = `chat-bubble bubble-${m.sender}`;
-                // Переводим приветствие, если оно первое в истории
-                // ИЛИ если это сообщение ИИ и оно совпадает с начальным сообщением на другом языке
-                if (idx === 0 && m.sender === 'ai' && m.text !== translations[currentLang].chat_initial_message) {
-                    bubble.innerText = translations[currentLang].chat_initial_message;
-                } else if (m.sender === 'ai' && Object.values(translations['ru']).includes(m.text) && m.text !== translations[currentLang].chat_initial_message) {
-                    // Если это один из стандартных ответов ИИ, пытаемся его перевести
-                    const originalKey = Object.keys(translations['ru']).find(key => translations['ru'][key] === m.text);
-                    bubble.innerText = translations[currentLang][originalKey] || m.text;
-                } else if (idx === 0 && m.sender === 'ai') { // Если это первое сообщение ИИ, но уже на нужном языке
-                    bubble.innerText = translations[currentLang].chat_initial_message;
-                } else {
-                    bubble.innerText = m.text;
-                }
+                bubble.innerText = m.text;
                 messagesEl.appendChild(bubble);
             });
             messagesEl.scrollTop = messagesEl.scrollHeight;
             renderOptions('main');
         } else {
-            addMessage(translations[currentLang].chat_initial_message, "ai");
+            addMessage('Привет! Я помогу выбрать город. Что вас интересует?', "ai");
             renderOptions('main');
         }
     }
@@ -1678,9 +1656,9 @@ function initApp() {
         const href = e.currentTarget.getAttribute('href');
         if (!href || href.startsWith('#') || link.getAttribute('target') === '_blank') return;
 
-        const isAuthPage = (href.includes('register') || href.includes('login') || href === 'index.html' || href === '/');
+        const isAuthPage = (href.includes('register.html') || href.includes('login.html') || href === 'index.html' || href === '/');
         
-        if (isAuthPage && !localStorage.getItem('policyAccepted')) {
+        if (isAuthPage && localStorage.getItem('policyAccepted') !== 'true') {
             e.preventDefault();
             injectPolicy(href);
         } else {
@@ -1718,7 +1696,6 @@ function initApp() {
                 }
             } catch (error) {
                 console.error("Ошибка сервера:", error);
-                alert(translations[currentLang].server_error_alert);
                 alert("Ошибка сервера. Пожалуйста, попробуйте позже.");
             }
         });
@@ -1733,7 +1710,7 @@ function initApp() {
                 age: parseInt(document.getElementById('age').value),
             };
             if (userData.age < 18) {
-                alert(translations[currentLang].age_restriction_alert);
+                alert('Вы должны быть старше 18 лет, чтобы планировать межгородские путешествия.');
                 return; // Прерываем выполнение функции
             }
             Object.assign(userData, { // Используем Object.assign для добавления остальных полей
@@ -1821,7 +1798,6 @@ function initApp() {
                 }
             } catch (error) {
                 console.error("Ошибка сервера:", error);
-                alert(translations[currentLang].server_error_alert);
                 alert("Ошибка сервера. Пожалуйста, попробуйте позже.");
             }
         });
@@ -1970,7 +1946,7 @@ async function showResults() {
     const surveyData = JSON.parse(localStorage.getItem('survey_' + currentUsername));
 
     checkAndInjectPolicy(); // Проверяем политику на странице результатов
-    // ИСПРАВЛЕНО: Если данных анкеты нет, перенаправляем на форму
+    // Если данных анкеты нет, перенаправляем на форму
     if (!surveyData) {
         navigateWithTransition('index.html');
         return;
@@ -1980,9 +1956,9 @@ async function showResults() {
 
     currentRecommendedCities = recommendedCities; // Обновляем глобальную переменную
 
-    resDiv.innerHTML = ''; // Очистка перед рендером
+    resDiv.innerHTML = '';
     if (recommendedCities.length === 0) {
-        resDiv.innerHTML = `<p>${translations[currentLang].results_no_match}</p>`;
+        resDiv.innerHTML = `<p>К сожалению, мы не смогли подобрать идеальный город по вашим критериям. Попробуйте изменить ответы в опросе.</p>`;
         const borovoe = allCities.find(c => c.n === 'Боровое');
         if (borovoe) {
             renderCityCard(borovoe, resDiv);
@@ -2010,7 +1986,7 @@ async function showResults() {
             });
         } catch (err) {
             console.error("Ошибка загрузки популярных городов:", err);
-            popDiv.innerHTML = `<p>${translations[currentLang].data_refining}</p>`;
+            popDiv.innerHTML = `<p>Данные уточняются</p>`;
         }
     }
 
@@ -2018,29 +1994,18 @@ async function showResults() {
     const showAllCitiesBtn = document.getElementById('showAllCitiesBtn');
     const allCitiesContainer = document.getElementById('allCitiesContainer');
     const allCitiesList = document.getElementById('allCitiesList'); // Добавлено объявление
-
-    // ИСПРАВЛЕНО: Переносим инициализацию слушателя в initApp, чтобы он не дублировался
-    // и был доступен сразу после загрузки DOM.
-    // Здесь только обновляем текст кнопки, если она уже есть.
+    
     if (showAllCitiesBtn && allCitiesContainer) {
         const isHidden = window.getComputedStyle(allCitiesContainer).display === 'none';
-        showAllCitiesBtn.innerText = isHidden ? translations[currentLang].show_all_cities : translations[currentLang].hide_all_cities;
+        showAllCitiesBtn.innerText = isHidden ? '🔽 Показать все города' : '🔼 Скрыть список городов';
 
-        // Если контейнер был открыт, перерисовываем его содержимое при смене языка
-        if (!isHidden && allCitiesList) {
-            // currentRecommendedCities должна быть глобальной и обновляться в showResults
-            // или передаваться сюда, если showResults уже отработал.
-            renderAllCities(allCitiesList, currentRecommendedCities);
+        showAllCitiesBtn.onclick = () => {
+            const currentIsHidden = window.getComputedStyle(allCitiesContainer).display === 'none';
+            allCitiesContainer.style.display = currentIsHidden ? 'block' : 'none';
+            showAllCitiesBtn.innerText = currentIsHidden ? '🔼 Скрыть список городов' : '🔽 Показать все города';
+            if (currentIsHidden && allCitiesList) renderAllCities(allCitiesList, currentRecommendedCities);
         }
     }
-
-    // ИСПРАВЛЕНО: Если данных анкеты нет, перенаправляем на форму
-    if (!surveyData) {
-        navigateWithTransition('index.html');
-        return;
-    }
-
-    // ... остальной код showResults ...
 }
 
 function renderCityCard(c, container, isIdeal = true) {
@@ -2323,8 +2288,8 @@ function renderCityCard(c, container, isIdeal = true) {
     let displayedHotels = [];
     let displayedRestaurants = [];
 
-    const cityDescription = currentLang === 'kz' ? c.d_kz : c.d;
-    const bestTimeDescription = currentLang === 'kz' ? c.bestTime_kz : c.bestTime;
+    const cityDescription = c.d;
+    const bestTimeDescription = c.bestTime;
 
     // Логика подбора контента
     if (tripType === 'family' || budget === 'medium') {
@@ -2352,8 +2317,7 @@ function renderCityCard(c, container, isIdeal = true) {
 
     const card = document.createElement('div');
     card.className = 'res-card';
-    const isKz = currentLang === 'kz';
-    const cityName = isKz && c.n_kz ? c.n_kz : c.n;
+    const cityName = c.n;
     const locations = c.locations || [];
 
     card.innerHTML = `
@@ -2361,33 +2325,34 @@ function renderCityCard(c, container, isIdeal = true) {
         <p>${cityDescription}</p>
         <div class="city-details" style="display: none;">
             <div class="hotels-list">
-                <p><strong>🏨 ${translations[currentLang].city_details_hotels}</strong></p>
+                <p><strong>🏨 Рекомендуемые отели:</strong></p>
                 ${displayedHotels.map(h => `
                     <div class="hotel-item">
-                        📍 ${h.label}${isKz && h.name_kz ? h.name_kz : h.name}<br>
-                        <small>${isKz && h.address_kz ? h.address_kz : h.address}</small>
+                        📍 ${h.label}${h.name}<br>
+                        <small>${h.address}</small>
                     </div>
                 `).join('')}
             </div>
             <div class="locations-list">
-                <p><strong>🗺️ ${translations[currentLang].city_details_locations}</strong></p>
-                ${locations.length > 0 ? locations.map(l => `<div class="hotel-item">📸 <strong>${isKz && l.n_kz ? l.n_kz : l.n}</strong> — <small>${isKz && l.t_kz ? l.t_kz : l.t}</small></div>`).join('') : `<small>${translations[currentLang].data_refining}</small>`}
+                <p><strong>🗺️ Места для посещения:</strong></p>
+                ${locations.length > 0 ? locations.map(l => `<div class="hotel-item">📸 <strong>${l.n}</strong> — <small>${l.t}</small></div>`).join('') : `<small>Данные уточняются</small>`}
             </div>
             <div class="restaurants-list">
                 <p><strong>🍽️ Где поесть:</strong></p>
                 ${displayedRestaurants.length > 0 ? displayedRestaurants.map(r => `
                     <div class="hotel-item">
-                        🍴 ${r.label}${isKz && r.name_kz ? r.name_kz : r.name}<br> <!-- Translated restaurant name -->
-                        <small>${isKz && r.address_kz ? r.address_kz : r.address}</small> <!-- Translated restaurant address -->
+                        🍴 ${r.label}${r.name}<br>
+                        <small>${r.address}</small>
                     </div>
-                `).join('') : '<small>Данные уточняются</small>'}
+                `).join('') : '<small>Данные уточняются</small>'
+            }
             </div>
             <div class="best-time-section" style="margin-top: 15px; padding-top: 10px; border-top: 1px dashed rgba(128, 128, 128, 0.3); font-size: 0.85rem;">
-                <p><strong>📅 ${translations[currentLang].city_details_best_time}</strong></p>
-                <p style="color: var(--text); opacity: 0.9;">${bestTimeDescription || translations[currentLang].data_refining}</p>
+                <p><strong>📅 Лучшее время для посещения:</strong></p>
+                <p style="color: var(--text); opacity: 0.9;">${bestTimeDescription || 'Данные уточняются'}</p>
             </div>
         </div>
-        <button class="btn btn-outline full-width toggle-details-btn" style="margin-top:15px; font-size: 0.7rem; padding: 8px;">${translations[currentLang].details_button}</button>
+        <button class="btn btn-outline full-width toggle-details-btn" style="margin-top:15px; font-size: 0.7rem; padding: 8px;">Подробнее</button>
     `;
 
     const details = card.querySelector('.city-details');
@@ -2432,27 +2397,11 @@ async function renderAdminTable(searchTerm = '') {
 
     const filter = searchTerm.toLowerCase();
 
-    // Словари для перевода данных на русский
-    const typeTranslations_ru = { // These are already defined in translations object, can be simplified
-        'solo': 'Один',
-        'family': 'Семья',
-        'friends': 'Друзья'
-    };
-    const typeTranslations_kz = {
-        'solo': 'Жалғыз', 'family': 'Отбасы', 'friends': 'Достар'
-    };
-
-    const interestTranslations_ru = { // These are already defined in translations object, can be simplified
-        'mountains': 'Горы', 'sea': 'Море', 'city': 'Города',
-        'activity': 'Активность', 'culture': 'Культура', 'gastronomy': 'Гастрономия',
-        'seclusion': 'Уединение', 'shopping': 'Шоппинг',
-        'family_fun': 'Семья', 'eco_tourism': 'Эко'
-    };
-    const interestTranslations_kz = {
-        'mountains': 'Таулар', 'sea': 'Теңіз', 'city': 'Қалалар',
-        'activity': 'Белсенділік', 'culture': 'Мәдениет', 'gastronomy': 'Гастрономия',
-        'seclusion': 'Оқшаулану', 'shopping': 'Шопинг',
-        'family_fun': 'Отбасы', 'eco_tourism': 'Эко'
+    const typeTranslations = { 'solo': 'Один', 'family': 'Семья', 'friends': 'Друзья' };
+    const interestTranslations = {
+        'mountains': 'Горы', 'sea': 'Море', 'city': 'Города', 'activity': 'Активность',
+        'culture': 'Культура', 'gastronomy': 'Гастрономия', 'seclusion': 'Уединение',
+        'shopping': 'Шоппинг', 'family_fun': 'Семья', 'eco_tourism': 'Эко'
     };
 
     try {
@@ -2473,8 +2422,8 @@ async function renderAdminTable(searchTerm = '') {
         const data = await response.json();
         const users = data.usersList || [];
         
-        if (users.length === 0) {
-            body.innerHTML = `<tr><td colspan="6" style="text-align:center; padding:40px;">${translations[currentLang].admin_table_no_users}</td></tr>`;
+        if (users.length === 0) { // Hardcoded Russian string
+            body.innerHTML = `<tr><td colspan="6" style="text-align:center; padding:40px;">Пользователей пока нет</td></tr>`;
             return;
         }
 
@@ -2487,13 +2436,13 @@ async function renderAdminTable(searchTerm = '') {
 
         body.innerHTML = filteredUsers.map(u => {
             // Перевод типа поездки
-            const typeDisplay = (currentLang === 'kz' ? typeTranslations_kz[u.tripType] : typeTranslations_ru[u.tripType]) || u.tripType || '-';
+            const typeDisplay = typeTranslations[u.tripType] || u.tripType || '-';
             
             // Перевод интересов
             const interestsDisplay = (u.answers && typeof u.answers === 'object') 
                 ? Object.keys(u.answers)
                     .filter(k => u.answers[k])
-                    .map(k => (currentLang === 'kz' ? interestTranslations_kz[k] : interestTranslations_ru[k]) || k)
+                    .map(k => interestTranslations[k] || k)
                     .join(', ') 
                 : '-';
 
@@ -2501,7 +2450,7 @@ async function renderAdminTable(searchTerm = '') {
             <tr>
                 <td data-label="ФИО (Логин)">${u.fullName || '<i>Анкета не заполнена</i>'} (${u.username})</td>
                 <td data-label="Возраст">${u.age || '-'}</td>
-                <td data-label="Бюджет">${u.budget === 'low' ? translations[currentLang].admin_table_budget_low_short : u.budget === 'medium' ? translations[currentLang].admin_table_budget_medium_short : u.budget === 'high' ? translations[currentLang].admin_table_budget_high_short : '-'}</td>
+                <td data-label="Бюджет">${u.budget === 'low' ? 'до 50к' : u.budget === 'medium' ? '50к-200к' : u.budget === 'high' ? 'от 200к' : '-'}</td>
                 <td data-label="Тип">${typeDisplay}</td>
                 <td data-label="Интересы">${interestsDisplay}</td>
                 <td data-label="Действия">
@@ -2509,10 +2458,10 @@ async function renderAdminTable(searchTerm = '') {
                         `<button onclick="viewUserResults('${u.username}', 
                             '${u.fullName.replace(/'/g, "&apos;")}', 
                             '${u.recommendedCities.join(', ').replace(/'/g, "&apos;")}'
-                        )" class="btn btn-outline" style="padding: 8px 16px; font-size: 0.7rem; text-transform: none; margin-right: 12px;">${translations[currentLang].admin_table_results_button}</button>` 
+                        )" class="btn btn-outline" style="padding: 8px 16px; font-size: 0.7rem; text-transform: none; margin-right: 12px;">Результаты</button>` 
                         : ''
                     }
-                    <button onclick="confirmDeleteUser('${u.username}')" class="btn btn-no" style="padding: 8px 16px; font-size: 0.7rem; text-transform: none;">${translations[currentLang].admin_table_delete_button}</button>
+                    <button onclick="confirmDeleteUser('${u.username}')" class="btn btn-no" style="padding: 8px 16px; font-size: 0.7rem; text-transform: none;">Удалить</button>
                 </td>
             </tr>
         `}).join('');
@@ -2526,9 +2475,9 @@ async function renderAdminTable(searchTerm = '') {
  */
 window.viewUserResults = function(username, fullName, cities) {
     if (cities && cities.length > 0) { // City names are not translated here
-        alert(translations[currentLang].admin_table_recommendations_for.replace('{fullName}', fullName || username).replace('{cities}', cities));
+        alert(`Для пользователя ${fullName || username} идеально подходят: ${cities}`);
     } else {
-        alert(translations[currentLang].admin_table_no_survey_filled);
+        alert('Пользователь еще не заполнил анкету или не прошел свайп-опрос.');
     }
 };
 
@@ -2536,7 +2485,7 @@ window.viewUserResults = function(username, fullName, cities) {
  * Функция удаления пользователя с проверкой пароля админа
  */
 window.confirmDeleteUser = async function(username) {
-    const password = prompt(translations[currentLang].admin_delete_confirm_prompt);
+    const password = prompt('Внимание! Вы пытаетесь удалить пользователя. Для подтверждения операции введите пароль администратора:');
     
     if (password === 'Orvex2026') {
         try {
@@ -2546,19 +2495,19 @@ window.confirmDeleteUser = async function(username) {
             });
             if (res.ok) {
                 renderAdminTable(document.getElementById('adminSearch')?.value || '');
-                alert(translations[currentLang].admin_delete_success.replace('{username}', username));
+                alert(`Пользователь ${username} успешно удален из базы данных.`);
             }
         } catch (err) {
-            alert(translations[currentLang].admin_delete_error_server);
+            alert('Ошибка при связи с сервером.');
         }
     } else if (password !== null) {
-        alert(translations[currentLang].admin_delete_wrong_password);
+        alert('Ошибка! Неверный пароль администратора. Операция отменена.');
     }
 };
 
 // Глобальные функции для работы кнопок в HTML
 window.clearSystemData = async function() {
-    const pwd = prompt(translations[currentLang].admin_clear_all_prompt);
+    const pwd = prompt('Введите пароль администратора для ПОЛНОЙ очистки:');
     if (pwd === 'Orvex2026') {
         const res = await fetch('/admin/clear-all', {
             method: 'DELETE',

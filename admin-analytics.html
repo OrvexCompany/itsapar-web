@@ -104,16 +104,16 @@
                 if (!totalUsersEl || !avgBudgetEl) return;
 
                 // Наполнение цифр
-                totalUsersEl.innerText = data.totalUsers;
-                avgBudgetEl.innerText = data.averageBudget.toLocaleString() + ' ₸';
+                totalUsersEl.innerText = data.totalUsers; // Hardcoded Russian string
+                avgBudgetEl.innerText = data.averageBudget.toLocaleString() + ' ₸'; // Hardcoded Russian string
 
                 // Таблица
                 const tableBody = document.getElementById('analyticsTableBody');
                 tableBody.innerHTML = data.usersList.map(u => `
                     <tr>
-                        <td>${u.fullName || translations[currentLang].admin_table_not_filled}</td>
-                        <td>${u.age} ${translations[currentLang].admin_table_age_years}</td>
-                        <td>${u.budget === 'low' ? translations[currentLang].admin_table_budget_low_short : u.budget === 'medium' ? translations[currentLang].admin_table_budget_medium_short : translations[currentLang].admin_table_budget_high_short}</td>
+                        <td>${u.fullName || '<i>Анкета не заполнена</i>'}</td>
+                        <td>${u.age || '-'} лет</td>
+                        <td>${u.budget === 'low' ? 'до 50к' : u.budget === 'medium' ? '50к-200к' : u.budget === 'high' ? 'от 200к' : '-'}</td>
                     </tr>
                 `).join('');
 
@@ -121,7 +121,7 @@
                 new Chart(document.getElementById('interestsChart'), {
                     type: 'pie',
                     data: {
-                        labels: [translations[currentLang].chat_option_mountains, translations[currentLang].chat_option_sea, translations[currentLang].chat_option_city, translations[currentLang].chat_option_activity, translations[currentLang].chat_option_culture, translations[currentLang].gastronomy, translations[currentLang].seclusion, translations[currentLang].shopping, translations[currentLang].family_fun, translations[currentLang].eco_tourism],
+                        labels: ['Горы', 'Море', 'Город', 'Активность', 'Культура', 'Гастрономия', 'Уединение', 'Шоппинг', 'Семья', 'Эко-туризм'],
                         datasets: [{
                             data: Object.values(data.interestsStats),
                             backgroundColor: ['#4f46e5', '#10b981', '#f59e0b', '#ef4444', '#8b5cf6', '#ec4899', '#64748b', '#f97316', '#3b82f6', '#22c55e']
@@ -138,7 +138,7 @@
                     data: {
                         labels: cityLabels,
                         datasets: [{
-                            label: translations[currentLang].admin_table_recommendations_count,
+                            label: 'Кол-во рекомендаций',
                             data: cityValues,
                             backgroundColor: 'rgba(79, 70, 229, 0.7)',
                             borderColor: '#4f46e5',
@@ -157,10 +157,10 @@
                 console.error("Analytics Error:", error);
                 container.innerHTML = `
                     <div class="error-container">
-                        <h2 style="color:var(--danger)">⚠️ ${translations[currentLang].admin_analytics_error_server}</h2>
-                        <p>${translations[currentLang].admin_analytics_error_server}</p>
-                        <button onclick="location.reload()" class="btn btn-primary" style="margin-top:20px;">${translations[currentLang].admin_analytics_reload_data}</button>
-                        <button onclick="navigateWithTransition('admin.html')" class="btn btn-outline" style="margin-top:20px;">${translations[currentLang].admin_analytics_back_button}</button>
+                        <h2 style="color:var(--danger)">⚠️ Ошибка сервера (500)</h2>
+                        <p>Произошла ошибка при загрузке аналитики.</p>
+                        <button onclick="location.reload()" class="btn btn-primary" style="margin-top:20px;">Перезагрузить данные</button>
+                        <button onclick="navigateWithTransition('admin.html')" class="btn btn-outline" style="margin-top:20px;">Назад в панель</button>
                     </div>
                 `;
             }
@@ -172,19 +172,19 @@
             modal.className = 'modal-overlay';
             modal.innerHTML = ` <!-- This content needs to be translated -->
                 <div class="card modal-card">
-                    <h3 style="margin-bottom:15px;" data-i18n="budget_formula_title"></h3>
+                    <h3 style="margin-bottom:15px;">🧮 Как считается бюджет?</h3>
                     <div class="policy-text">
-                        <p data-i18n="budget_formula_desc1"></p>
+                        <p>Поскольку пользователи выбирают диапазон, мы присваиваем каждой категории числовой вес:</p>
                         <ul style="margin: 15px 0;">
-                            <li data-i18n="budget_formula_low"></li>
-                            <li data-i18n="budget_formula_medium"></li>
-                            <li data-i18n="budget_formula_high"></li>
+                            <li><strong>"До 50 000 ₸":</strong> 50,000 ₸</li>
+                            <li><strong>"50 000 - 200 000 ₸":</strong> 125,000 ₸</li>
+                            <li><strong>"От 200 000 ₸":</strong> 250,000 ₸</li>
                         </ul>
                         <div style="background: var(--bg-light); padding: 15px; border-radius: 16px; font-size: 0.85rem; border: 1px dashed var(--primary);">
-                            <span data-i18n="budget_formula_formula"></span>
+                            <strong>Формула:</strong><br>(Сумма всех весов) ÷ (Кол-во заполненных анкет)
                         </div>
                     </div>
-                    <button onclick="document.getElementById('formulaModal').remove()" class="btn btn-primary full-width" data-i18n="budget_formula_understand"></button>
+                    <button onclick="document.getElementById('formulaModal').remove()" class="btn btn-primary full-width">Понятно</button>
                 </div>
             `;
             document.body.appendChild(modal);
