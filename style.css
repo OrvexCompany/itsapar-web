@@ -39,9 +39,10 @@ body {
     overflow-x: hidden;
     padding: 40px 0; /* Добавляем отступы сверху и снизу */
     box-sizing: border-box;
-    /* Начальное состояние для анимации (делаем более мягким) */
-    opacity: 1; 
-    transition: opacity 0.5s ease, transform 0.5s ease;
+    /* Начальное состояние: страница скрыта и немного смещена вниз */
+    opacity: 0; 
+    transform: translateY(15px);
+    transition: opacity 0.4s ease-out, transform 0.4s ease-out;
 }
 
 body.page-loaded {
@@ -51,7 +52,7 @@ body.page-loaded {
 
 body.page-exit {
     opacity: 0;
-    transform: translateY(-10px);
+    transform: translateY(-15px);
 }
 
 .container { width: 90%; max-width: 800px; padding: 20px; margin: auto; } /* margin: auto центрирует по вертикали, если контента мало */
