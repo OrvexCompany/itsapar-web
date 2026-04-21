@@ -1499,49 +1499,42 @@ function injectPolicy(targetUrl = null) {
     // Очищаем wrapper перед добавлением нового содержимого, чтобы избежать дублирования
     wrapper.innerHTML = ''; 
 
+    // Используем жестко прописанный текст, чтобы избежать пустых полей при сбоях перевода
     wrapper.innerHTML = `
-        <div id="policyModal" class="modal-overlay" style="display: flex;">
+        <div id="policyModal" class="modal-overlay">
             <div class="card modal-card">
-                <h2 data-i18n="policy_title"></h2>
+                <h2>Соглашение и защита данных</h2>
                 <div class="policy-text">
-                    <p data-i18n="policy_p1"></p>
-                    <p data-i18n="policy_p2"></p>
+                    <p>Добро пожаловать в ITSapar. Используя сервис, вы подтверждаете:</p>
                     <ul>
-                        <li data-i18n="policy_li1"></li>
-                        <li data-i18n="policy_li2"></li>
-                        <li data-i18n="policy_li3"></li>
-                        <li data-i18n="policy_li4"></li>
-                        <li data-i18n="policy_li5"></li>
-                        <li data-i18n="policy_li6"></li>
-                        <li data-i18n="policy_li7"></li>
-                        <li data-i18n="policy_li8"></li>
-                        <li data-i18n="policy_li9"></li>
-                        <li data-i18n="policy_li10"></li>
+                        <li>Вам исполнилось <strong>18 лет</strong>.</li>
+                        <li>Данные используются только для подбора маршрута.</li>
+                        <li>Вся информация хранится локально в вашем браузере.</li>
+                        <li>Контент защищен авторским правом РК.</li>
                     </ul>
                 </div>
-                <div class="policy-check">
+                <label class="policy-check">
                     <input type="checkbox" id="policyCheckbox">
-                    <label for="policyCheckbox" data-i18n="policy_checkbox_label"></label>
-                </div>
-                <button id="acceptPolicy" class="btn btn-primary full-width" disabled data-i18n="policy_accept_button"></button>
+                    <span>Я ознакомлен с условиями и подтверждаю возраст 18+</span>
+                </label>
+                <button id="acceptPolicy" class="btn btn-primary full-width" disabled>Принять и продолжить</button>
             </div>
         </div>
     `;
 
     const btn = document.getElementById('acceptPolicy');
     const chk = document.getElementById('policyCheckbox');
-
-    setLanguage(currentLang);
     
     chk.addEventListener('change', (e) => btn.disabled = !e.target.checked);
     
     btn.addEventListener('click', () => {
         localStorage.setItem('policyAccepted', 'true'); 
-        document.getElementById('policyModal').remove(); // ИСПРАВЛЕНО: Удаляем модальное окно
+        const modal = document.getElementById('policyModal');
+        if (modal) modal.remove();
         wrapper.style.display = 'none'; // Скрываем wrapper
+        wrapper.innerHTML = '';
 
-        // ИСПРАВЛЕНО: Если был передан URL для перехода, выполняем его
-        if (targetUrl && typeof targetUrl === 'string' && targetUrl !== window.location.pathname) {
+        if (targetUrl) {
             navigateWithTransition(targetUrl);
         }
     });
@@ -1677,24 +1670,21 @@ function injectChat() {
 function initApp() {
     // Перехват кликов по всем ссылкам
     document.querySelectorAll('a').forEach(link => {
-        // ИСПРАВЛЕНО: Удаляем старые слушатели, чтобы избежать дублирования
-        link.removeEventListener('click', handleLinkClick); 
         link.addEventListener('click', handleLinkClick);
     });
 
     function handleLinkClick(e) {
-        const link = e.currentTarget;
-            const href = link.getAttribute('href');
+        const href = e.currentTarget.getAttribute('href');
         if (!href || href.startsWith('#') || link.getAttribute('target') === '_blank') return;
 
-        const isAuthPage = (href.includes('register.html') || href.includes('login.html') || href === 'index.html' || href === '/');
+        const isAuthPage = (href.includes('register') || href.includes('login') || href === 'index.html' || href === '/');
         
         if (isAuthPage && !localStorage.getItem('policyAccepted')) {
-            e.preventDefault(); // Предотвращаем стандартный переход
-            injectPolicy(href); // Показываем политику, передавая целевой URL
+            e.preventDefault();
+            injectPolicy(href);
         } else {
-            e.preventDefault(); // Предотвращаем стандартный переход
-            navigateWithTransition(href); // Выполняем наш переход
+            e.preventDefault();
+            navigateWithTransition(href);
         }
     }
 
