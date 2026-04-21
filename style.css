@@ -466,21 +466,29 @@ h2, h3, h4 { color: var(--dark); }
 /* Стиль чекбокса политики */
 .policy-check {
     display: flex;
-    align-items: center;
-    gap: 15px;
+    align-items: flex-start;
+    gap: 18px;
     margin-bottom: 25px;
     text-align: left;
-    font-size: 1rem;
+    font-size: 1.05rem;
     cursor: pointer;
     user-select: none;
+    padding: 12px;
+    border-radius: 16px;
+    background: rgba(79, 70, 229, 0.08); /* Светлая подложка для области нажатия */
 }
 .policy-check input {
-    width: 32px; /* Увеличили размер */
-    height: 32px;
+    width: 38px; /* Большая кнопка */
+    height: 38px;
     margin: 0; 
     cursor: pointer; 
     flex-shrink: 0;
     accent-color: var(--primary);
+}
+
+.policy-check span {
+    padding-top: 4px;
+    line-height: 1.3;
 }
 
 /* Language Toggle Slider */

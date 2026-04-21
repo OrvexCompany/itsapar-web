@@ -1449,10 +1449,10 @@ window.addEventListener('pageshow', (event) => {
 
 // ИСПРАВЛЕНО: Функция для проверки и инъекции политики, вызывается из initApp
 function checkAndInjectPolicy(targetUrl = null) { // targetUrl теперь может быть null
-    const path = window.location.pathname;
-    const isAuthPage = path.includes('index.html') || path.includes('login.html') || path.includes('register.html') || path === '/' || path === '';
+    const path = window.location.pathname.toLowerCase();
+    const isAuthPage = path.includes('index') || path.includes('login') || path.includes('register') || path === '/' || path === '';
     
-    if (isAuthPage && !localStorage.getItem('policyAccepted')) { // Если на странице авторизации и политика не принята
+    if (isAuthPage && localStorage.getItem('policyAccepted') !== 'true') { 
         injectPolicy(targetUrl);
     }
 }
@@ -1529,11 +1529,8 @@ function injectPolicy(targetUrl = null) {
     
     btn.addEventListener('click', () => {
         localStorage.setItem('policyAccepted', 'true'); 
-        const modal = document.getElementById('policyModal');
-        if (modal) modal.remove();
-        wrapper.style.display = 'none'; // Скрываем wrapper
+        wrapper.style.display = 'none'; 
         wrapper.innerHTML = '';
-
         if (targetUrl) {
             navigateWithTransition(targetUrl);
         }
@@ -1566,19 +1563,23 @@ function injectChat() {
     const messagesEl = document.getElementById('chatMessages');
     const optionsEl = document.getElementById('chatOptions');
 
-    document.getElementById('toggleChat').onclick = () => {
+    const toggleBtn = document.getElementById('toggleChat');
+    if (toggleBtn) {
+        toggleBtn.onclick = () => {
         windowEl.style.display = windowEl.style.display === 'flex' ? 'none' : 'flex';
-        if (messagesEl.children.length === 0) loadChatHistory();
-    };
-    document.getElementById('closeChat').onclick = () => windowEl.style.display = 'none';
+            if (messagesEl.children.length === 0) loadChatHistory();
+        };
+    }
+    const closeBtn = document.getElementById('closeChat');
+    if (closeBtn) closeBtn.onclick = () => windowEl.style.display = 'none';
 
     function getChatResponses() {
-        return { // Dynamic responses based on current language
-            [translations[currentLang].chat_option_mountains]: translations[currentLang].chat_response_mountains,
-            [translations[currentLang].chat_option_sea]: translations[currentLang].chat_response_sea,
-            [translations[currentLang].chat_option_city]: translations[currentLang].chat_response_city,
-            [translations[currentLang].chat_option_culture]: translations[currentLang].chat_response_culture,
-            [translations[currentLang].chat_option_activity]: translations[currentLang].chat_response_activity
+        return { 
+            'Горы': 'Рекомендую Алматы — отличное место для горного отдыха и походов на Шымбулак.',
+            'Море': 'Актау — лучший вариант для отдыха у моря в Казахстане на Каспийском побережье.',
+            'Город': 'Астана — современный мегаполис с уникальной архитектурой и множеством музеев.',
+            'Культура': 'Туркестан подойдёт для глубокого культурного и исторического путешествия.',
+            'Активный отдых': 'Алматы или Шымкент — отличные варианты для тех, кто не любит сидеть на месте.'
         };
     }
 
@@ -1593,9 +1594,7 @@ function injectChat() {
 
     function renderOptions(type = 'main') {
         optionsEl.innerHTML = ''; // Очищаем предыдущие опции
-        const items = type === 'main' ?
-            [translations[currentLang].chat_option_mountains, translations[currentLang].chat_option_sea, translations[currentLang].chat_option_city, translations[currentLang].chat_option_culture, translations[currentLang].chat_option_activity] :
-            [translations[currentLang].chat_option_show_more, translations[currentLang].chat_option_reset];
+        const items = type === 'main' ? ['Горы', 'Море', 'Город', 'Культура', 'Активный отдых'] : ['Показать ещё', 'Сбросить выбор'];
         items.forEach(opt => {
             const btn = document.createElement('button');
             btn.className = 'chat-opt-btn';
@@ -1606,24 +1605,20 @@ function injectChat() {
     }
 
     function handleOption(opt) {
-        const resetLabel = translations[currentLang].chat_option_reset;
-        const showMoreLabel = translations[currentLang].chat_option_show_more;
-
-        if (opt === resetLabel) {
+        if (opt === 'Сбросить выбор') {
             messagesEl.innerHTML = '';
             localStorage.removeItem('chatHistory');
-            addMessage(translations[currentLang].chat_initial_message, "ai");
+            addMessage('Привет! Я помогу выбрать город. Что вас интересует?', "ai");
             renderOptions('main'); return;
         }
-        if (opt === showMoreLabel) {
+        if (opt === 'Показать ещё') {
             renderOptions('main'); return;
         }
 
         addMessage(opt, "user");
         
-        // Имитация задержки AI
         setTimeout(() => {
-            const response = getChatResponses()[opt] || translations[currentLang].chat_response_default; // Get response based on current language
+            const response = getChatResponses()[opt] || 'Интересный выбор! Хотите узнать больше?';
             addMessage(response, "ai");
             renderOptions('secondary');
         }, 1500);
@@ -1643,25 +1638,13 @@ function injectChat() {
             saved.forEach((m, idx) => {
                 const bubble = document.createElement('div');
                 bubble.className = `chat-bubble bubble-${m.sender}`;
-                // Переводим приветствие, если оно первое в истории
-                // ИЛИ если это сообщение ИИ и оно совпадает с начальным сообщением на другом языке
-                if (idx === 0 && m.sender === 'ai' && m.text !== translations[currentLang].chat_initial_message) {
-                    bubble.innerText = translations[currentLang].chat_initial_message;
-                } else if (m.sender === 'ai' && Object.values(translations['ru']).includes(m.text) && m.text !== translations[currentLang].chat_initial_message) {
-                    // Если это один из стандартных ответов ИИ, пытаемся его перевести
-                    const originalKey = Object.keys(translations['ru']).find(key => translations['ru'][key] === m.text);
-                    bubble.innerText = translations[currentLang][originalKey] || m.text;
-                } else if (idx === 0 && m.sender === 'ai') { // Если это первое сообщение ИИ, но уже на нужном языке
-                    bubble.innerText = translations[currentLang].chat_initial_message;
-                } else {
-                    bubble.innerText = m.text;
-                }
+                bubble.innerText = m.text;
                 messagesEl.appendChild(bubble);
             });
             messagesEl.scrollTop = messagesEl.scrollHeight;
             renderOptions('main');
         } else {
-            addMessage(translations[currentLang].chat_initial_message, "ai");
+            addMessage('Привет! Я помогу выбрать город. Что вас интересует?', "ai");
             renderOptions('main');
         }
     }
@@ -1674,12 +1657,13 @@ function initApp() {
     });
 
     function handleLinkClick(e) {
-        const href = e.currentTarget.getAttribute('href');
+        const link = e.currentTarget;
+        const href = link.getAttribute('href');
         if (!href || href.startsWith('#') || link.getAttribute('target') === '_blank') return;
 
-        const isAuthPage = (href.includes('register') || href.includes('login') || href === 'index.html' || href === '/');
+        const isAuthPage = (href.includes('register') || href.includes('login') || href.includes('index') || href === '/');
         
-        if (isAuthPage && !localStorage.getItem('policyAccepted')) {
+        if (isAuthPage && localStorage.getItem('policyAccepted') !== 'true') {
             e.preventDefault();
             injectPolicy(href);
         } else {
