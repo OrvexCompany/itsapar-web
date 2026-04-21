@@ -39,16 +39,12 @@ body {
     overflow-x: hidden;
     padding: 40px 0; /* Добавляем отступы сверху и снизу */
     box-sizing: border-box;
-    /* Начальное состояние: страница скрыта и немного смещена вниз */
-    opacity: 0; 
-    transform: translateY(15px);
-    transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+    /* Убрали принудительный белый экран, оставили плавность */
+    opacity: 1; 
+    transform: translateY(0);
+    transition: opacity 0.4s ease, transform 0.4s ease;
 }
 
-body.page-loaded {
-    opacity: 1;
-    transform: translateY(0);
-}
 
 body.page-exit {
     opacity: 0;
@@ -699,6 +695,22 @@ input:checked + .language-slider:before {
 
 @keyframes pulse-theme {
     0% { box-shadow: 0 0 0 0 rgba(79, 70, 229, 0.6); }
+    70% { box-shadow: 0 0 0 30px rgba(79, 70, 229, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(79, 70, 229, 0); }
+}
+); }
+    70% { box-shadow: 0 0 0 30px rgba(79, 70, 229, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(79, 70, 229, 0}
+}
+
+.theme-toggle:hover {
+    transform: scale(1.1);
+    box-shadow: 0 12px 25px var(--shadow);
+
+.theme-toggle:hover {
+    transform: scale(1.1);
+    box-shadow: 0 12px 25px var(--shadow);
+}
     70% { box-shadow: 0 0 0 30px rgba(79, 70, 229, 0); }
     100% { box-shadow: 0 0 0 0 rgba(79, 70, 229, 0); }
 }
