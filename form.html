@@ -9,33 +9,33 @@
 <body>
     <div class="container">
         <div class="card form-card">
-            <h2 data-i18n="form_title"></h2>
+            <h2>Расскажите о себе</h2>
             <form id="userForm">
                 <div class="form-group">
-                    <label data-i18n="full_name_label"></label>
-                    <input type="text" id="fullName" data-i18n-placeholder="full_name_label" required>
+                    <label>Ваше полное имя</label>
+                    <input type="text" id="fullName" placeholder="Иван Иванов" required>
                 </div>
                 <div class="form-group">
-                    <label data-i18n="age_label"></label>
-                    <input type="number" id="age" data-i18n-placeholder="age_label" required>
+                    <label>Возраст</label>
+                    <input type="number" id="age" placeholder="Например, 25" required>
                 </div>
                 <div class="form-group">
-                    <label data-i18n="form_budget_label"></label>
+                    <label>Бюджет на поездку</label>
                     <select id="budget">
-                        <option value="low" data-i18n="budget_low"></option>
-                        <option value="medium" data-i18n="budget_medium"></option>
-                        <option value="high" data-i18n="budget_high"></option>
+                        <option value="low">До 50 000 ₸</option>
+                        <option value="medium">50 000 - 200 000 ₸</option>
+                        <option value="high">Более 200 000 ₸</option>
                     </select>
                 </div>
                 <div class="form-group">
-                    <label data-i18n="form_trip_type_label"></label>
+                    <label>Тип поездки</label>
                     <select id="tripType">
-                        <option value="solo" data-i18n="form_trip_solo"></option>
-                        <option value="family" data-i18n="form_trip_family"></option>
-                        <option value="friends" data-i18n="form_trip_friends"></option>
+                        <option value="solo">Одиночная</option>
+                        <option value="family">Семейная</option>
+                        <option value="friends">С друзьями</option>
                     </select>
                 </div>
-                <button type="submit" class="btn btn-primary full-width" data-i18n="next_button"></button>
+                <button type="submit" class="btn btn-primary full-width">Продолжить</button>
             </form>
         </div>
     </div>

@@ -1450,7 +1450,7 @@ window.addEventListener('pageshow', (event) => {
 // ИСПРАВЛЕНО: Функция для проверки и инъекции политики, вызывается из initApp
 function checkAndInjectPolicy(targetUrl = null) { // targetUrl теперь может быть null
     const path = window.location.pathname;
-    const isAuthPage = path.endsWith('index.html') || path.endsWith('login.html') || path.endsWith('register.html') || path === '/' || path === '';
+    const isAuthPage = path.includes('index.html') || path.includes('login.html') || path.includes('register.html') || path === '/' || path === '';
     
     if (isAuthPage && !localStorage.getItem('policyAccepted')) { // Если на странице авторизации и политика не принята
         injectPolicy(targetUrl);
@@ -1503,7 +1503,7 @@ function injectPolicy(targetUrl = null) {
     wrapper.innerHTML = `
         <div id="policyModal" class="modal-overlay">
             <div class="card modal-card">
-                <h2>🛡️ Соглашение и защита данных</h2>
+                <h2>🛡️ Соглашение и защита</h2>
                 <div class="policy-text">
                     <p>Добро пожаловать в ITSapar. Используя сервис, вы подтверждаете:</p>
                     <ul>
