@@ -1,47 +1,50 @@
 // --- Данные вопросов ---
 const questions = [
-    { id: 'mountains', title: 'Горы?', desc: 'Любите ли вы походы и свежий горный воздух?' },
-    { id: 'sea', title: 'Море/Вода?', desc: 'Предпочитаете пляжный отдых или озера?' },
-    { id: 'city', title: 'Города?', desc: 'Вам нравится шум мегаполиса и архитектура?' },
-    { id: 'activity', title: 'Активность?', desc: 'Готовы ли вы к экстриму и долгим прогулкам?' },
-    { id: 'culture', title: 'Культура?', desc: 'Интересуетесь ли вы историей и музеями?' },
-    { id: 'gastronomy', title: 'Гастрономия', desc: 'Важно ли для вас пробовать уникальные национальные блюда?' },
-    { id: 'seclusion', title: 'Уединение', desc: 'Ищете ли вы тишину и отдых вдали от толп?' },
-    { id: 'shopping', title: 'Шоппинг', desc: 'Любите ли вы прогулки по ТЦ и местным рынкам?' },
-    { id: 'family_fun', title: 'Семейный отдых', desc: 'Нужны ли вам развлечения, подходящие для детей?' },
-    { id: 'eco_tourism', title: 'Эко-туризм', desc: 'Вас привлекают заповедники и дикая природа?' }
+    { id: 'mountains', title_ru: 'Горы?', desc_ru: 'Любите ли вы походы и свежий горный воздух?', title_kz: 'Таулар?', desc_kz: 'Тауға шығуды және таза тау ауасын ұнатасыз ба?' },
+    { id: 'sea', title_ru: 'Море/Вода?', desc_ru: 'Предпочитаете пляжный отдых или озера?', title_kz: 'Теңіз/Су?', desc_kz: 'Жағажай демалысын немесе көлдерді қалайсыз ба?' },
+    { id: 'city', title_ru: 'Города?', desc_ru: 'Вам нравится шум мегаполиса и архитектура?', title_kz: 'Қалалар?', desc_kz: 'Мегаполис шуы мен архитектурасы ұнай ма?' },
+    { id: 'activity', title_ru: 'Активность?', desc_ru: 'Готовы ли вы к экстриму и долгим прогулкам?', title_kz: 'Белсенділік?', desc_kz: 'Экстримге және ұзақ серуендеуге дайынсыз ба?' },
+    { id: 'culture', title_ru: 'Культура?', desc_ru: 'Интересуетесь ли вы историей и музеями?', title_kz: 'Мәдениет?', desc_kz: 'Тарихқа және мұражайларға қызығасыз ба?' },
+    { id: 'gastronomy', title_ru: 'Гастрономия', desc_ru: 'Важно ли для вас пробовать уникальные национальные блюда и посещать колоритные рестораны?', title_kz: 'Гастрономия', desc_kz: 'Сіз үшін бірегей ұлттық тағамдарды татып көру және ерекше мейрамханаларға бару маңызды ма?' },
+    { id: 'seclusion', title_ru: 'Уединение', desc_ru: 'Ищете ли вы тишину и возможность отдохнуть в местах вдали от больших толп туристов?', title_kz: 'Оқшаулану', desc_kz: 'Сіз тыныштықты және туристердің көптігінен алыс жерлерде демалу мүмкіндігін іздейсіз бе?' },
+    { id: 'shopping', title_ru: 'Шоппинг', desc_ru: 'Любите ли вы прогулки по современным торговым центрам и поиск уникальных вещей на местных рынках?', title_kz: 'Шопинг', desc_kz: 'Заманауи сауда орталықтарында серуендеуді және жергілікті базарлардан бірегей заттарды іздеуді ұнатасыз ба?' },
+    { id: 'family_fun', title_ru: 'Семейный отдых', desc_ru: 'Нужны ли вам игровые зоны, аквапарки и развлечения, подходящие для детей?', title_kz: 'Отбасылық демалыс', desc_kz: 'Сізге ойын аймақтары, аквапарктер және балаларға арналған ойын-сауықтар қажет пе?' },
+    { id: 'eco_tourism', title_ru: 'Эко-туризм', desc_ru: 'Вас привлекают заповедники, бескрайние степи и наблюдение за дикой природой в её первозданном виде?', title_kz: 'Эко-туризм', desc_kz: 'Сізді қорықтар, шексіз далалар және жабайы табиғатты оның бастапқы қалпында бақылау қызықтыра ма?' }
 ];
 
 // --- Данные городов с характеристиками и отелями ---
 const allCities = [
     {
         n: 'Алматы',
+        n_kz: 'Алматы',
         d: 'Идеально для любителей гор и активного отдыха, культурный центр.',
         img: 'https://images.unsplash.com/photo-1589112953018-0248f39589d8?q=80&w=600',
         hotels_budget: [
-            { name: 'Хостел Q7 Almaty', address: 'ул. Сарсена Аманжолова, 42а' },
-            { name: 'Evergreen Hostel', address: 'ул. Метростроевская, 32' }
+            { name: 'Хостел Q7 Almaty', name_kz: 'Q7 Almaty хостелі', address: 'ул. Сарсена Аманжолова, 42а', address_kz: 'Сәрсен Аманжолов к-сі, 42а' },
+            { name: 'Evergreen Hostel', name_kz: 'Evergreen хостелі', address: 'ул. Метростроевская, 32', address_kz: 'Метростроевская к-сі, 32' }
         ],
         hotels_expensive: [
-            { name: 'The Ritz-Carlton, Almaty', address: 'пр. Аль-Фараби, 77/7' },
-            { name: 'Rixos Almaty', address: 'пр. Сейфуллина, 506/99' }
+            { name: 'The Ritz-Carlton, Almaty', name_kz: 'The Ritz-Carlton, Алматы', address: 'пр. Аль-Фараби, 77/7', address_kz: 'Әл-Фараби даңғылы, 77/7' },
+            { name: 'Rixos Almaty', name_kz: 'Rixos Алматы', address: 'пр. Сейфуллина, 506/99', address_kz: 'Сейфуллин даңғылы, 506/99' }
         ],
         restaurants_budget: [
-            { name: 'Qaganat (Столовая)', address: 'пр. Абая, 48в' },
-            { name: 'Basilic', address: 'ул. Шевченко, 127' }
+            { name: 'Qaganat (Столовая)', name_kz: 'Қағанат (Асхана)', address: 'пр. Абая, 48в', address_kz: 'Абай даңғылы, 48в' },
+            { name: 'Basilic', name_kz: 'Basilic', address: 'ул. Шевченко, 127', address_kz: 'Шевченко к-сі, 127' }
         ],
         restaurants_expensive: [
-            { name: 'Seven Bar & Restaurant', address: 'пр. Аль-Фараби, 77/7' },
-            { name: 'Villa Dei Fiori', address: 'пр. Аль-Фараби, 140а' }
+            { name: 'Seven Bar & Restaurant', name_kz: 'Seven Bar & Restaurant', address: 'пр. Аль-Фараби, 77/7', address_kz: 'Әл-Фараби даңғылы, 77/7' },
+            { name: 'Villa Dei Fiori', name_kz: 'Villa Dei Fiori', address: 'пр. Аль-Фараби, 140а', address_kz: 'Әл-Фараби даңғылы, 140а' }
         ],
         locations: [
-            { n: 'Шымбулак', t: 'Горы, Активность' },
-            { n: 'Медеу', t: 'Активность, Семья' },
-            { n: 'Зеленый базар', t: 'Гастрономия, Шоппинг' }
+            { n: 'Шымбулак', n_kz: 'Шымбұлақ', t: 'Горы, Активность', t_kz: 'Таулар, Белсенділік' },
+            { n: 'Медеу', n_kz: 'Медеу', t: 'Активность, Семья', t_kz: 'Белсенділік, Отбасы' },
+            { n: 'Зеленый базар', n_kz: 'Көк базар', t: 'Гастрономия, Шоппинг', t_kz: 'Гастрономия, Шопинг' }
         ],
         tags: { mountains: true, sea: true, city: true, activity: true, culture: true, gastronomy: true, seclusion: false, shopping: true, family_fun: true, eco_tourism: true },
         budget_suitability: { low: true, medium: true, high: true }, // City names (n) are not translated here
         bestTime: 'Май и Сентябрь. В мае город утопает в зелени, а сентябрь дарит идеальную «бархатную» осень.',
+        d_kz: 'Тауларды және белсенді демалысты ұнататындар үшін тамаша, мәдени орталық.',
+        bestTime_kz: 'Мамыр және Қыркүйек. Мамырда қала жасыл желекке оранады, ал қыркүйекте тамаша «барқыт» күзі жеміс-жидекке толы болады.'
     },
     {
         n: 'Астана',
@@ -1444,6 +1447,7 @@ window.addEventListener('pageshow', (event) => {
     }
 });
 
+// ИСПРАВЛЕНО: Функция для проверки и инъекции политики, вызывается из initApp
 function checkAndInjectPolicy(targetUrl = null) { // targetUrl теперь может быть null
     const path = window.location.pathname;
     const isAuthPage = path.endsWith('index.html') || path.endsWith('login.html') || path.endsWith('register.html') || path === '/' || path === '';
@@ -1481,43 +1485,63 @@ function injectThemeToggle(currentTheme) {
     document.body.appendChild(btn);
 }
 
+// ИСПРАВЛЕНО: Функция инъекции политики
 function injectPolicy(targetUrl = null) {
     const wrapper = document.getElementById('policyWrapper');
-    if (!wrapper) return;
+    if (!wrapper) {
+        console.error("policyWrapper не найден на странице.");
+        return;
+    }
 
-    wrapper.style.display = 'block';
+    // Убедимся, что wrapper виден, если он был скрыт
+    wrapper.style.display = 'flex'; // ИСПРАВЛЕНО: flex для центрирования
+
+    // Очищаем wrapper перед добавлением нового содержимого, чтобы избежать дублирования
     wrapper.innerHTML = ''; 
 
     wrapper.innerHTML = `
         <div id="policyModal" class="modal-overlay" style="display: flex;">
             <div class="card modal-card">
-                <h2>Соглашение и защита данных</h2>
+                <h2 data-i18n="policy_title"></h2>
                 <div class="policy-text">
-                    <p>Добро пожаловать в ITSapar. Используя сервис, вы подтверждаете:</p>
+                    <p data-i18n="policy_p1"></p>
+                    <p data-i18n="policy_p2"></p>
                     <ul>
-                        <li>Вам исполнилось 18 лет.</li>
-                        <li>Данные используются только для подбора маршрута.</li>
-                        <li>Вы обязуетесь не копировать контент.</li>
+                        <li data-i18n="policy_li1"></li>
+                        <li data-i18n="policy_li2"></li>
+                        <li data-i18n="policy_li3"></li>
+                        <li data-i18n="policy_li4"></li>
+                        <li data-i18n="policy_li5"></li>
+                        <li data-i18n="policy_li6"></li>
+                        <li data-i18n="policy_li7"></li>
+                        <li data-i18n="policy_li8"></li>
+                        <li data-i18n="policy_li9"></li>
+                        <li data-i18n="policy_li10"></li>
                     </ul>
                 </div>
                 <div class="policy-check">
                     <input type="checkbox" id="policyCheckbox">
-                    <label for="policyCheckbox">Я ознакомлен с условиями и подтверждаю возраст 18+</label>
+                    <label for="policyCheckbox" data-i18n="policy_checkbox_label"></label>
                 </div>
-                <button id="acceptPolicy" class="btn btn-primary full-width" disabled>Принять и продолжить</button>
+                <button id="acceptPolicy" class="btn btn-primary full-width" disabled data-i18n="policy_accept_button"></button>
             </div>
         </div>
     `;
 
     const btn = document.getElementById('acceptPolicy');
     const chk = document.getElementById('policyCheckbox');
+
+    setLanguage(currentLang);
     
     chk.addEventListener('change', (e) => btn.disabled = !e.target.checked);
     
     btn.addEventListener('click', () => {
         localStorage.setItem('policyAccepted', 'true'); 
-        wrapper.style.display = 'none';
-        if (targetUrl) {
+        document.getElementById('policyModal').remove(); // ИСПРАВЛЕНО: Удаляем модальное окно
+        wrapper.style.display = 'none'; // Скрываем wrapper
+
+        // ИСПРАВЛЕНО: Если был передан URL для перехода, выполняем его
+        if (targetUrl && typeof targetUrl === 'string' && targetUrl !== window.location.pathname) {
             navigateWithTransition(targetUrl);
         }
     });
@@ -1556,12 +1580,12 @@ function injectChat() {
     document.getElementById('closeChat').onclick = () => windowEl.style.display = 'none';
 
     function getChatResponses() {
-        return {
-            'Горы': 'Рекомендую Алматы — отличное место для горного отдыха.',
-            'Море': 'Актау — лучший вариант для отдыха у моря в Казахстане.',
-            'Город': 'Астана — современный мегаполис с уникальной архитектурой.',
-            'Культура': 'Туркестан подойдёт для исторического путешествия.',
-            'Активный отдых': 'Алматы или Шымкент — отличные варианты.'
+        return { // Dynamic responses based on current language
+            [translations[currentLang].chat_option_mountains]: translations[currentLang].chat_response_mountains,
+            [translations[currentLang].chat_option_sea]: translations[currentLang].chat_response_sea,
+            [translations[currentLang].chat_option_city]: translations[currentLang].chat_response_city,
+            [translations[currentLang].chat_option_culture]: translations[currentLang].chat_response_culture,
+            [translations[currentLang].chat_option_activity]: translations[currentLang].chat_response_activity
         };
     }
 
@@ -1575,22 +1599,105 @@ function injectChat() {
     }
 
     function renderOptions(type = 'main') {
-        optionsEl.innerHTML = '';
+        optionsEl.innerHTML = ''; // Очищаем предыдущие опции
         const items = type === 'main' ?
-            ['Горы', 'Море', 'Город', 'Культура', 'Активный отдых'] :
-            ['Показать ещё', 'Сбросить выбор'];
+            [translations[currentLang].chat_option_mountains, translations[currentLang].chat_option_sea, translations[currentLang].chat_option_city, translations[currentLang].chat_option_culture, translations[currentLang].chat_option_activity] :
+            [translations[currentLang].chat_option_show_more, translations[currentLang].chat_option_reset];
         items.forEach(opt => {
             const btn = document.createElement('button');
             btn.className = 'chat-opt-btn';
             btn.innerText = opt;
+            btn.onclick = () => handleOption(opt);
             optionsEl.appendChild(btn);
         });
     }
 
     function handleOption(opt) {
+        const resetLabel = translations[currentLang].chat_option_reset;
+        const showMoreLabel = translations[currentLang].chat_option_show_more;
+
+        if (opt === resetLabel) {
+            messagesEl.innerHTML = '';
+            localStorage.removeItem('chatHistory');
+            addMessage(translations[currentLang].chat_initial_message, "ai");
+            renderOptions('main'); return;
+        }
+        if (opt === showMoreLabel) {
+            renderOptions('main'); return;
+        }
+
+        addMessage(opt, "user");
+        
+        // Имитация задержки AI
+        setTimeout(() => {
+            const response = getChatResponses()[opt] || translations[currentLang].chat_response_default; // Get response based on current language
+            addMessage(response, "ai");
+            renderOptions('secondary');
+        }, 1500);
+    }
+
+    function saveChatHistory() {
+        const history = Array.from(messagesEl.children).map(m => ({
+            text: m.innerText,
+            sender: m.classList.contains('bubble-user') ? 'user' : 'ai'
+        }));
+        localStorage.setItem('chatHistory', JSON.stringify(history));
+    }
+
+    function loadChatHistory() {
+        const saved = JSON.parse(localStorage.getItem('chatHistory') || '[]');
+        if (saved.length > 0) {
+            saved.forEach((m, idx) => {
+                const bubble = document.createElement('div');
+                bubble.className = `chat-bubble bubble-${m.sender}`;
+                // Переводим приветствие, если оно первое в истории
+                // ИЛИ если это сообщение ИИ и оно совпадает с начальным сообщением на другом языке
+                if (idx === 0 && m.sender === 'ai' && m.text !== translations[currentLang].chat_initial_message) {
+                    bubble.innerText = translations[currentLang].chat_initial_message;
+                } else if (m.sender === 'ai' && Object.values(translations['ru']).includes(m.text) && m.text !== translations[currentLang].chat_initial_message) {
+                    // Если это один из стандартных ответов ИИ, пытаемся его перевести
+                    const originalKey = Object.keys(translations['ru']).find(key => translations['ru'][key] === m.text);
+                    bubble.innerText = translations[currentLang][originalKey] || m.text;
+                } else if (idx === 0 && m.sender === 'ai') { // Если это первое сообщение ИИ, но уже на нужном языке
+                    bubble.innerText = translations[currentLang].chat_initial_message;
+                } else {
+                    bubble.innerText = m.text;
+                }
+                messagesEl.appendChild(bubble);
+            });
+            messagesEl.scrollTop = messagesEl.scrollHeight;
+            renderOptions('main');
+        } else {
+            addMessage(translations[currentLang].chat_initial_message, "ai");
+            renderOptions('main');
+        }
+    }
 }
 
 function initApp() {
+    // Перехват кликов по всем ссылкам
+    document.querySelectorAll('a').forEach(link => {
+        // ИСПРАВЛЕНО: Удаляем старые слушатели, чтобы избежать дублирования
+        link.removeEventListener('click', handleLinkClick); 
+        link.addEventListener('click', handleLinkClick);
+    });
+
+    function handleLinkClick(e) {
+        const link = e.currentTarget;
+            const href = link.getAttribute('href');
+        if (!href || href.startsWith('#') || link.getAttribute('target') === '_blank') return;
+
+        const isAuthPage = (href.includes('register.html') || href.includes('login.html') || href === 'index.html' || href === '/');
+        
+        if (isAuthPage && !localStorage.getItem('policyAccepted')) {
+            e.preventDefault(); // Предотвращаем стандартный переход
+            injectPolicy(href); // Показываем политику, передавая целевой URL
+        } else {
+            e.preventDefault(); // Предотвращаем стандартный переход
+            navigateWithTransition(href); // Выполняем наш переход
+        }
+    }
+
     // Регистрация
     const registerForm = document.getElementById('registerForm');
     if (registerForm) {
@@ -1707,16 +1814,65 @@ function initApp() {
                     
                     localStorage.setItem('token', data.token);
                     localStorage.setItem('currentUser', u);
-                    window.location.href = data.isAdmin ? 'admin.html' : 'form.html';
+
+                    if (data.isAdmin) {
+                        localStorage.setItem('isAdmin', 'true');
+                        navigateWithTransition('admin.html');
+                    } else { // ИСПРАВЛЕНО: Переход после успешного логина
+                        localStorage.setItem('isAdmin', 'false');
+                        const hasSurvey = localStorage.getItem('survey_' + u);
+                        navigateWithTransition(hasSurvey ? 'result.html' : 'form.html');
+                    }
                 } else {
-                    loginError.style.display = 'block';
+                    loginError.innerText = 'Неверный логин или пароль';
+                    loginError.style.display = 'block'; // This text should also be translated
                 }
             } catch (error) {
                 console.error("Ошибка сервера:", error);
+                alert(translations[currentLang].server_error_alert);
             }
         });
     }
+
+    // Админка
+    if (document.getElementById('adminTableBody')) {
+        checkAndInjectPolicy(); // Проверяем политику на админ-страницах
+        const token = localStorage.getItem('token');
+        fetch('/admin/verify', {
+            headers: { 'Authorization': `Bearer ${token}` }
+        })
+        .then(res => {
+            if (!res.ok) {
+                localStorage.removeItem('isAdmin');
+                navigateWithTransition('login.html');
+            } else {
+                // Добавляем небольшую задержку для гарантии отрисовки после очистки стилей
+                setTimeout(() => renderAdminTable(), 100); // Ensure renderAdminTable is called after auth
+            }
+        })
+        .catch(() => navigateWithTransition('login.html'));
+
+        // Слушатель для поиска
+        document.getElementById('adminSearch')?.addEventListener('input', (e) => {
+            renderAdminTable(e.target.value);
+        });
+    }
+
+    // Логика кнопки "Пройти заново"
+    const retakeBtn = document.getElementById('retakeBtn');
+    if (retakeBtn) {
+        retakeBtn.addEventListener('click', () => {
+            const currentUsername = localStorage.getItem('currentUser');
+            // Очищаем локальные данные опроса для этого пользователя
+            localStorage.removeItem('survey_' + currentUsername);
+            sessionStorage.removeItem('tempSurveyData'); // Очищаем временные данные сессии
+            navigateWithTransition('form.html');
+        });
+    }
 }
+
+// Глобальная переменная для хранения рекомендованных городов
+let currentRecommendedCities = [];
 
 // --- Функции для свайпов ---
 let currentStep = 0;
@@ -1725,9 +1881,9 @@ function renderSwipe() {
             saveAndFinish(); // This will navigate away, so no need to update text here
             return;
     }
-    const q = questions[currentStep];
-    document.getElementById('questionTitle').innerText = q.title;
-    document.getElementById('questionDesc').innerText = q.desc;
+    const q = questions[currentStep]; // Use translated titles/descriptions
+    document.getElementById('questionTitle').innerText = currentLang === 'kz' ? q.title_kz : q.title_ru;
+    document.getElementById('questionDesc').innerText = currentLang === 'kz' ? q.desc_kz : q.desc_ru;
     document.getElementById('progress').style.width = ((currentStep + 1) / questions.length) * 100 + '%';
 }
 
