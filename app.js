@@ -1503,7 +1503,7 @@ function injectPolicy(targetUrl = null) {
     wrapper.innerHTML = `
         <div id="policyModal" class="modal-overlay">
             <div class="card modal-card">
-                <h2>Соглашение и защита данных</h2>
+                <h2>🛡️ Соглашение и защита данных</h2>
                 <div class="policy-text">
                     <p>Добро пожаловать в ITSapar. Используя сервис, вы подтверждаете:</p>
                     <ul>
